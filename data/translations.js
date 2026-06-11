@@ -19,28 +19,32 @@ export const translations = {
         {
           badge: "Smart Banking for Modern Life",
           title: "Plan Better. Bank Smarter. Live Brighter.",
-          description: "Manage your everyday banking with secure, simple, and future-ready financial solutions.",
+          description:
+            "Manage your everyday banking with secure, simple, and future-ready financial solutions.",
           primaryLabel: "Explore Products",
           secondaryLabel: "Open an Account",
         },
         {
           badge: "Digital Banking",
           title: "Bank anytime, anywhere with confidence.",
-          description: "Enjoy fast transfers, bill payments, account services, and secure mobile banking from one place.",
+          description:
+            "Enjoy fast transfers, bill payments, account services, and secure mobile banking from one place.",
           primaryLabel: "Start Digital Banking",
           secondaryLabel: "Learn More",
         },
         {
           badge: "Home Loan",
           title: "Move closer to your dream home.",
-          description: "Explore flexible home financing options designed to make your dream address possible.",
+          description:
+            "Explore flexible home financing options designed to make your dream address possible.",
           primaryLabel: "Explore Home Loans",
           secondaryLabel: "Calculate EMI",
         },
         {
           badge: "SME Banking",
           title: "Power your business with smarter finance.",
-          description: "Get banking support, working capital, and digital tools built for growing businesses.",
+          description:
+            "Get banking support, working capital, and digital tools built for growing businesses.",
           primaryLabel: "Explore SME Banking",
           secondaryLabel: "Talk to Us",
         },
@@ -77,7 +81,8 @@ export const translations = {
     finder: {
       badge: "Smart Product Finder",
       title: "Your goals are unique. Your banking should be too.",
-      subtitle: "Tell us a little about what you need. We will point you toward the Nexus products that best fit your plans.",
+      subtitle:
+        "Tell us a little about what you need. We will point you toward the Nexus products that best fit your plans.",
       steps: ["Your profile", "Your goal", "Your priority"],
       formTitle: "Find my match",
       duration: "Takes less than a minute",
@@ -135,7 +140,7 @@ export const translations = {
       title: "Nexus AI Assistant",
       status: "Online",
       welcome: "Hello! I'm Nexus AI Assistant. How can I help you today?",
-      reply: "Thanks for your message. Our AI assistant feature will be connected soon.",
+      reply: "This chatbot is under construction for now.",
       quickActions: ["Open an Account", "Find a Branch", "Loan Information", "Card Support"],
       placeholder: "Type your message...",
       send: "Send",
@@ -163,7 +168,7 @@ export const translations = {
         {
           badge: "আধুনিক জীবনের জন্য স্মার্ট ব্যাংকিং",
           title: "ভালো পরিকল্পনা। স্মার্ট ব্যাংকিং। উজ্জ্বল জীবন।",
-          description: "নিরাপদ, সহজ ও ভবিষ্যৎমুখী আর্থিক সমাধানে প্রতিদিনের ব্যাংকিং পরিচালনা করুন।",
+          description: "নিরাপদ, সহজ ও ভবিষ্যতমুখী আর্থিক সমাধানে প্রতিদিনের ব্যাংকিং পরিচালনা করুন।",
           primaryLabel: "পণ্য দেখুন",
           secondaryLabel: "অ্যাকাউন্ট খুলুন",
         },
@@ -279,7 +284,7 @@ export const translations = {
       title: "নেক্সাস এআই সহকারী",
       status: "অনলাইন",
       welcome: "স্বাগতম! আমি নেক্সাস এআই সহকারী। আপনাকে কীভাবে সাহায্য করতে পারি?",
-      reply: "আপনার বার্তার জন্য ধন্যবাদ। আমাদের এআই সহকারী সেবা শিগগিরই সম্পূর্ণভাবে যুক্ত হবে।",
+      reply: "This chatbot is under construction for now.",
       quickActions: ["অ্যাকাউন্ট খুলুন", "শাখা খুঁজুন", "ঋণের তথ্য", "কার্ড সহায়তা"],
       placeholder: "আপনার বার্তা লিখুন...",
       send: "পাঠান",

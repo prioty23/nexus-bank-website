@@ -4,14 +4,16 @@ import { useLanguage } from "@/components/LanguageProvider";
 import Link from "next/link";
 import { useState } from "react";
 
+const topLinkRoutes = ["#needs", "#services", "#news"];
+
 const navRoutes = [
-  ["/accounts", ["/accounts", "/accounts", "/accounts", "/accounts"]],
-  ["/cards", ["/cards", "/cards", "/cards", "/cards"]],
-  ["/loans", ["/loans", "/loans", "/loans", "/loans"]],
-  ["/deposits", ["/deposits", "/deposits", "/deposits", "/deposits"]],
-  ["/digital-banking", ["/digital-banking", "/digital-banking", "/digital-banking", "/digital-banking"]],
-  ["/offers", ["/offers", "/offers", "/offers", "/offers"]],
-  ["/support", ["/support", "/support", "/support", "/support"]],
+  ["#needs", ["#needs", "#needs", "#needs", "#needs"]],
+  ["#needs", ["#needs", "#needs", "#needs", "#needs"]],
+  ["#needs", ["#needs", "#needs", "#needs", "#needs"]],
+  ["#needs", ["#needs", "#needs", "#needs", "#needs"]],
+  ["#services", ["#services", "#services", "#services", "#services"]],
+  ["#news", ["#news", "#news", "#news", "#news"]],
+  ["#footer", ["#footer", "#footer", "#footer", "#footer"]],
 ];
 
 export default function Header() {
@@ -36,12 +38,15 @@ export default function Header() {
   const languageButton = (lang: "en" | "bn", label: string) => (
     <button
       type="button"
-      onClick={() => changeLanguage(lang)}
+      onClick={() => {
+        changeLanguage(lang);
+        setMenuOpen(false);
+      }}
       aria-pressed={language === lang}
-      className={`border-b-2 pb-0.5 transition ${
+      className={`rounded-full border px-3 py-1 text-xs font-semibold transition sm:text-sm ${
         language === lang
-          ? "border-[#006A4E] font-bold text-[#006A4E]"
-          : "border-transparent text-gray-500 hover:text-[#006A4E]"
+          ? "border-[#006A4E] bg-[#006A4E]/8 text-[#006A4E]"
+          : "border-[#006A4E]/15 text-gray-500 hover:border-[#006A4E]/30 hover:text-[#006A4E]"
       }`}
     >
       {label}
@@ -50,46 +55,56 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-30 bg-white shadow-sm">
-      <div className="container-custom flex items-center justify-between py-4">
-        <Link href="/" className="text-2xl font-semibold tracking-tight text-[#006A4E]">
+      <div className="container-custom flex items-center justify-between gap-3 py-4">
+        <Link
+          href="/"
+          onClick={() => setMenuOpen(false)}
+          className="shrink-0 text-xl font-semibold tracking-tight text-[#006A4E] sm:text-2xl"
+        >
           Nexus Bank
         </Link>
 
-        <nav className="hidden items-center gap-2 lg:flex">
-          {navItems.map((item) => (
-            <div key={item.href} className="group relative">
-              <Link
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-1 lg:flex xl:gap-2">
+          {navItems.map((item, index) => (
+            <div key={item.label} className="group relative">
+              <a
                 href={item.href}
-                className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-[#006A4E]/5 hover:text-[#006A4E]"
+                className="inline-flex items-center rounded-full px-3 py-2 text-xs font-medium text-gray-700 transition hover:bg-[#006A4E]/5 hover:text-[#006A4E] xl:px-4 xl:text-sm"
               >
                 {item.label}
-              </Link>
-              <div className="invisible absolute left-0 top-full z-20 mt-3 w-64 rounded-[1.5rem] border border-gray-100 bg-white p-3 opacity-0 shadow-xl shadow-black/8 transition duration-200 group-hover:visible group-hover:opacity-100">
+              </a>
+              <div
+                className={`invisible absolute top-full z-20 mt-3 w-64 rounded-[1.5rem] border border-gray-100 bg-white p-3 opacity-0 shadow-xl shadow-black/8 transition duration-200 group-hover:visible group-hover:opacity-100 ${
+                  index >= navItems.length - 2 ? "right-0" : "left-0"
+                }`}
+              >
                 {item.links.map((link) => (
-                  <Link
+                  <a
                     key={link.label}
                     href={link.href}
                     className="block rounded-xl px-4 py-3 text-sm text-gray-600 transition hover:bg-[#006A4E]/5 hover:text-[#006A4E]"
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 ))}
               </div>
             </div>
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <div className="hidden items-center gap-3 text-sm font-medium xl:flex">
-            <span className="text-[#006A4E]">{t.header.hotline}: 16666</span>
-            <span className="text-gray-300">|</span>
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <div className="hidden items-center gap-2 text-sm font-medium lg:flex">
+            <span className="hidden text-[#006A4E] 2xl:inline">{t.header.hotline}: 16666</span>
             {languageButton("en", "EN")}
-            <span className="text-gray-300">|</span>
             {languageButton("bn", "BN")}
           </div>
-          <Link href="/support" className="hidden btn-primary sm:inline-flex">
+          <a href="#footer" className="hidden btn-primary min-[480px]:inline-flex">
             {t.header.login}
-          </Link>
+          </a>
+          <div className="flex items-center gap-2 lg:hidden">
+            {languageButton("en", "EN")}
+            {languageButton("bn", "BN")}
+          </div>
           <button
             type="button"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -108,11 +123,11 @@ export default function Header() {
       </div>
 
       <div className="border-t border-black/5 bg-[#F8FAFC]">
-        <div className="container-custom hidden items-center gap-5 py-3 text-sm text-gray-600 md:flex">
+        <div className="container-custom hidden flex-wrap items-center gap-4 py-3 text-sm text-gray-600 md:flex">
           {t.header.topLinks.map((item: string, index: number) => (
-            <div key={item} className="flex items-center gap-5">
+            <div key={item} className="flex items-center gap-4">
               {index > 0 ? <span className="text-gray-300">|</span> : null}
-              <a href="#" className="transition hover:text-[#006A4E]">{item}</a>
+              <a href={topLinkRoutes[index]} className="transition hover:text-[#006A4E]">{item}</a>
             </div>
           ))}
         </div>
@@ -121,18 +136,17 @@ export default function Header() {
       {menuOpen ? (
         <div className="border-t border-black/5 bg-white lg:hidden">
           <div className="container-custom space-y-3 py-4">
-            <div className="flex items-center justify-between rounded-2xl bg-[#F8FAFC] px-4 py-3 text-sm font-medium">
-              <span className="text-[#006A4E]">{t.header.hotline}: 16666</span>
-              <div className="flex items-center gap-3">
+            <div className="flex flex-col gap-3 rounded-2xl bg-[#F8FAFC] px-4 py-3 text-sm font-medium sm:flex-row sm:items-center sm:justify-between">
+              <span className="break-words text-[#006A4E]">{t.header.hotline}: 16666</span>
+              <div className="flex flex-wrap items-center gap-2">
                 {languageButton("en", "EN")}
-                <span className="text-gray-300">|</span>
                 {languageButton("bn", "BN")}
               </div>
             </div>
             {t.header.topLinks.map((item: string) => (
               <a
                 key={item}
-                href="#"
+                href={topLinkRoutes[t.header.topLinks.indexOf(item)]}
                 onClick={() => setMenuOpen(false)}
                 className="block rounded-2xl px-4 py-3 text-sm font-medium text-gray-700 transition hover:bg-[#006A4E]/5 hover:text-[#006A4E]"
               >
@@ -140,35 +154,35 @@ export default function Header() {
               </a>
             ))}
             {navItems.map((item) => (
-              <div key={item.href} className="rounded-2xl border border-gray-100 bg-gray-50/60 px-4 py-3">
-                <Link
+              <div key={item.label} className="rounded-2xl border border-gray-100 bg-gray-50/60 px-4 py-3">
+                <a
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
                   className="block text-sm font-semibold text-gray-800"
                 >
                   {item.label}
-                </Link>
+                </a>
                 <div className="mt-3 space-y-2 pl-4">
                   {item.links.map((link) => (
-                    <Link
+                    <a
                       key={link.label}
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
                       className="block text-sm text-gray-600 transition hover:text-[#006A4E]"
                     >
                       {link.label}
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </div>
             ))}
-            <Link
-              href="/support"
+            <a
+              href="#footer"
               onClick={() => setMenuOpen(false)}
               className="btn-primary mt-3 w-full justify-center"
             >
               {t.header.login}
-            </Link>
+            </a>
           </div>
         </div>
       ) : null}

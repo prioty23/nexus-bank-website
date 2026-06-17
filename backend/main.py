@@ -37,10 +37,10 @@ def health_check():
         "service": "nexus-bank-chatbot-backend"
     }
 
+
 @app.post("/chat", response_model=ChatResponse)
 def chat(request: ChatRequest):
     user_message = request.message
-
     return ChatResponse(
         reply=f"You said: {user_message}. The AI chatbot backend is working.",
         source="dummy-response"

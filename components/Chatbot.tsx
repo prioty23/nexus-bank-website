@@ -3,7 +3,7 @@
 import { useLanguage } from "@/components/LanguageProvider";
 import { FormEvent, useEffect, useRef, useState } from "react";
 
-type BotTranslationKey = "welcome" | "reply";
+type BotTranslationKey = "welcome";
 
 type Message = {
   role: "bot" | "user";
@@ -11,10 +11,16 @@ type Message = {
   translationKey?: BotTranslationKey;
 };
 
+const CHATBOT_API_URL = "http://127.0.0.1:8000/chat";
+const TYPING_MESSAGE = "Nexus AI is typing...";
+const ERROR_MESSAGE =
+  "Sorry, I could not connect to the chatbot server. Please try again later.";
+
 export default function Chatbot() {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     { role: "bot", translationKey: "welcome" },
   ]);
@@ -32,23 +38,56 @@ export default function Chatbot() {
     return t.chatbot[translationKey];
   };
 
-  const sendMessage = (message: string) => {
+  const sendMessage = async (message: string) => {
     const trimmed = message.trim();
-    if (!trimmed) {
+    if (!trimmed || isLoading) {
       return;
     }
 
     setMessages((current) => [
       ...current,
       { role: "user", text: trimmed },
-      { role: "bot", translationKey: "reply" },
+      { role: "bot", text: TYPING_MESSAGE },
     ]);
     setInput("");
+
+    setIsLoading(true);
+
+    try {
+      const response = await fetch(CHATBOT_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: trimmed,
+          session_id: "frontend-session",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
+      const data: { reply?: string } = await response.json();
+
+      setMessages((current) => [
+        ...current.slice(0, -1),
+        { role: "bot", text: data.reply ?? ERROR_MESSAGE },
+      ]);
+    } catch {
+      setMessages((current) => [
+        ...current.slice(0, -1),
+        { role: "bot", text: ERROR_MESSAGE },
+      ]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    sendMessage(input);
+    await sendMessage(input);
   };
 
   const showQuickActions =
@@ -109,8 +148,11 @@ export default function Chatbot() {
                   {t.chatbot.quickActions.map((action: string) => (
                     <button
                       key={action}
-                      type="button"
-                      onClick={() => sendMessage(action)}
+                  type="button"
+                      onClick={() => {
+                        void sendMessage(action);
+                      }}
+                      disabled={isLoading}
                       className="rounded-full border border-[#006A4E]/15 bg-white px-3 py-2 text-sm font-medium text-[#006A4E] transition hover:bg-[#006A4E]/5"
                     >
                       {action}
@@ -126,10 +168,12 @@ export default function Chatbot() {
                   onChange={(event) => setInput(event.target.value)}
                   placeholder={t.chatbot.placeholder}
                   aria-label={t.chatbot.placeholder}
+                  disabled={isLoading}
                   className="min-w-0 flex-1 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm text-gray-700 outline-none transition focus:border-[#006A4E] focus:ring-2 focus:ring-[#006A4E]/10"
                 />
                 <button
                   type="submit"
+                  disabled={isLoading}
                   className="btn-primary w-full justify-center px-5 min-[420px]:w-auto"
                 >
                   {t.chatbot.send}

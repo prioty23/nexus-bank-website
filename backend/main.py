@@ -1,6 +1,7 @@
 """Backend entrypoint."""
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from schemas import ChatRequest, ChatResponse
 
 app = FastAPI(
     title="Nexus Bank AI Chatbot API",
@@ -35,3 +36,12 @@ def health_check():
         "status": "ok",
         "service": "nexus-bank-chatbot-backend"
     }
+
+@app.post("/chat", response_model=ChatResponse)
+def chat(request: ChatRequest):
+    user_message = request.message
+
+    return ChatResponse(
+        reply=f"You said: {user_message}. The AI chatbot backend is working.",
+        source="dummy-response"
+    )

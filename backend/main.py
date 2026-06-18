@@ -2,6 +2,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from schemas import ChatRequest, ChatResponse
+from safety import contains_sensitive_data, get_safety_response
+
 
 app = FastAPI(
     title="Nexus Bank AI Chatbot API",
@@ -40,8 +42,17 @@ def health_check():
 
 @app.post("/chat", response_model=ChatResponse)
 def chat(request: ChatRequest):
-    user_message = request.message
+    user_message = request.message.strip()
+
+    if contains_sensitive_data(user_message):
+        return ChatResponse(
+            reply=get_safety_response(),
+            source="safety-filter",
+            blocked=True
+        )
+
     return ChatResponse(
         reply=f"You said: {user_message}. The AI chatbot backend is working.",
-        source="dummy-response"
+        source="dummy-response",
+        blocked=False
     )

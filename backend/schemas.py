@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field 
+from pydantic import BaseModel, Field
 from typing import Optional
 
 
@@ -9,4 +9,5 @@ class ChatRequest(BaseModel):
 
 class ChatResponse(BaseModel):
     reply: str
-    source: str = "fastapi"  #valid text accept
+    source: str = "fastapi"          #valid as text
+    blocked: bool = False

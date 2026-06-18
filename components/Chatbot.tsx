@@ -34,10 +34,6 @@ export default function Chatbot() {
     messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
   }, [messages, isOpen]);
 
-  const resolveBotMessage = (translationKey: BotTranslationKey) => {
-    return t.chatbot[translationKey];
-  };
-
   const sendMessage = async (message: string) => {
     const trimmed = message.trim();
     if (!trimmed || isLoading) {
@@ -50,7 +46,6 @@ export default function Chatbot() {
       { role: "bot", text: TYPING_MESSAGE },
     ]);
     setInput("");
-
     setIsLoading(true);
 
     try {
@@ -66,10 +61,10 @@ export default function Chatbot() {
       });
 
       if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`);
+        throw new Error("Chatbot request failed");
       }
 
-      const data: { reply?: string } = await response.json();
+      const data = (await response.json()) as { reply?: string };
 
       setMessages((current) => [
         ...current.slice(0, -1),
@@ -137,7 +132,7 @@ export default function Chatbot() {
                     }`}
                   >
                     {message.translationKey
-                      ? resolveBotMessage(message.translationKey)
+                      ? t.chatbot[message.translationKey]
                       : message.text}
                   </div>
                 ))}
@@ -148,7 +143,7 @@ export default function Chatbot() {
                   {t.chatbot.quickActions.map((action: string) => (
                     <button
                       key={action}
-                  type="button"
+                      type="button"
                       onClick={() => {
                         void sendMessage(action);
                       }}

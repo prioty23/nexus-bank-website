@@ -48,13 +48,13 @@ export default function Footer() {
 
         <div className="mt-14 grid gap-10 md:grid-cols-2 xl:grid-cols-4">
           <div>
-            <p className="text-2xl font-semibold tracking-tight text-white">Nexus Bank</p>
+            <p className="text-2xl font-semibold tracking-tight text-white">Eastern Bank PLC</p>
             <p className="mt-4 text-sm leading-7 text-emerald-50/70 sm:text-base sm:leading-8">
               {t.footer.description}
             </p>
             <div className="mt-6 space-y-2 text-sm text-emerald-50/80">
               <p><span className="text-[#00A878]">{t.footer.hotline}:</span> 16666</p>
-              <p className="break-all"><span className="text-[#00A878]">Email:</span> support@nexusbank.com</p>
+              <p className="break-all"><span className="text-[#00A878]">Email:</span> support@easternbank.com</p>
             </div>
           </div>
 

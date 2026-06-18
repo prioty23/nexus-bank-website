@@ -43,7 +43,7 @@ export default function NewsSection() {
                 <div className="absolute -right-8 -top-8 h-36 w-36 rounded-full border-[28px] border-white/10" />
                 <div className="absolute bottom-6 right-6 h-12 w-24 border-b-2 border-r-2 border-white/20" />
                 <p className="relative break-words text-xs font-bold tracking-[0.24em] text-white/85 sm:text-sm sm:tracking-[0.28em]">
-                  NEXUS / {item[4]}
+                  Eastern Bank PLC / {item[4]}
                 </p>
               </div>
               <div className="p-6 sm:p-7">

@@ -12,7 +12,7 @@ type Message = {
 };
 
 const CHATBOT_API_URL = "http://127.0.0.1:8000/chat";
-const TYPING_MESSAGE = "Nexus AI is typing...";
+const TYPING_MESSAGE = "Eastern AI is typing...";
 const ERROR_MESSAGE =
   "Sorry, I could not connect to the chatbot server. Please try again later.";
 

@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Nexus Bank",
+  title: "Eastern Bank PLC",
   description: "Modern banking for individuals, businesses, and communities.",
 };
 

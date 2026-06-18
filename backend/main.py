@@ -6,8 +6,8 @@ from safety import contains_sensitive_data, get_safety_response
 
 
 app = FastAPI(
-    title="Nexus Bank AI Chatbot API",
-    description="FastAPI backend for Nexus Bank AI chatbot",
+    title="Eastern Bank AI Chatbot API",
+    description="FastAPI backend for Eastern Bank AI chatbot",
     version="1.0.0",
 )
 
@@ -28,7 +28,7 @@ app.add_middleware(
 @app.get("/")
 def root():
     return {
-        "message": "Nexus Bank AI Chatbot API is running"
+        "message": "Eastern AI Chatbot API is running"
     }
 
 
@@ -36,7 +36,7 @@ def root():
 def health_check():
     return {
         "status": "ok",
-        "service": "nexus-bank-chatbot-backend"
+        "service": "eastern-bank-plc-chatbot-backend"
     }
 
 

@@ -9,7 +9,7 @@ export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState("en");
 
   useEffect(() => {
-    const savedLanguage = window.localStorage.getItem("nexus-language");
+    const savedLanguage = window.localStorage.getItem("eastern-bank-plc-language");
     if (savedLanguage === "en" || savedLanguage === "bn") {
       const restoreLanguage = window.setTimeout(() => {
         setLanguage(savedLanguage);
@@ -25,7 +25,7 @@ export function LanguageProvider({ children }) {
     }
 
     setLanguage(lang);
-    window.localStorage.setItem("nexus-language", lang);
+    window.localStorage.setItem("eastern-bank-plc-language", lang);
   };
 
   return (

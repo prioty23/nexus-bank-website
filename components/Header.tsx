@@ -61,7 +61,7 @@ export default function Header() {
           onClick={() => setMenuOpen(false)}
           className="shrink-0 text-xl font-semibold tracking-tight text-[#006A4E] sm:text-2xl"
         >
-          Nexus Bank
+          Eastern Bank PLC
         </Link>
 
         <nav className="hidden min-w-0 flex-1 items-center justify-center gap-1 lg:flex xl:gap-2">

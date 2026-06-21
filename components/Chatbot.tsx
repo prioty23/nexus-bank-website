@@ -1,28 +1,25 @@
 "use client";
 
-import { useLanguage } from "@/components/LanguageProvider";
+import { translations } from "@/data/translations";
 import { FormEvent, useEffect, useRef, useState } from "react";
-
-type BotTranslationKey = "welcome";
 
 type Message = {
   role: "bot" | "user";
-  text?: string;
-  translationKey?: BotTranslationKey;
+  text: string;
 };
 
+const chatbotText = translations.en.chatbot;
 const CHATBOT_API_URL = "http://127.0.0.1:8000/chat";
 const TYPING_MESSAGE = "Eastern AI is typing...";
 const ERROR_MESSAGE =
   "Sorry, I could not connect to the chatbot server. Please try again later.";
 
 export default function Chatbot() {
-  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: "bot", translationKey: "welcome" },
+    { role: "bot", text: chatbotText.welcome },
   ]);
   const messageListRef = useRef<HTMLDivElement>(null);
 
@@ -35,16 +32,21 @@ export default function Chatbot() {
   }, [messages, isOpen]);
 
   const sendMessage = async (message: string) => {
-    const trimmed = message.trim();
-    if (!trimmed || isLoading) {
+    const userMessage = message.trim();
+    if (!userMessage || isLoading) {
       return;
     }
 
-    setMessages((current) => [
-      ...current,
-      { role: "user", text: trimmed },
+    const chatWithUserMessage: Message[] = [
+      ...messages,
+      { role: "user", text: userMessage },
+    ];
+    const chatWithTypingMessage: Message[] = [
+      ...chatWithUserMessage,
       { role: "bot", text: TYPING_MESSAGE },
-    ]);
+    ];
+
+    setMessages(chatWithTypingMessage);
     setInput("");
     setIsLoading(true);
 
@@ -55,7 +57,7 @@ export default function Chatbot() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          message: trimmed,
+          message: userMessage,
           session_id: "frontend-session",
         }),
       });
@@ -65,14 +67,15 @@ export default function Chatbot() {
       }
 
       const data = (await response.json()) as { reply?: string };
+      const botReply = data.reply ?? ERROR_MESSAGE;
 
-      setMessages((current) => [
-        ...current.slice(0, -1),
-        { role: "bot", text: data.reply ?? ERROR_MESSAGE },
+      setMessages([
+        ...chatWithUserMessage,
+        { role: "bot", text: botReply },
       ]);
     } catch {
-      setMessages((current) => [
-        ...current.slice(0, -1),
+      setMessages([
+        ...chatWithUserMessage,
         { role: "bot", text: ERROR_MESSAGE },
       ]);
     } finally {
@@ -85,8 +88,7 @@ export default function Chatbot() {
     await sendMessage(input);
   };
 
-  const showQuickActions =
-    messages.length === 1 && messages[0]?.translationKey === "welcome";
+  const showQuickActions = messages.length === 1;
 
   return (
     <>
@@ -94,7 +96,7 @@ export default function Chatbot() {
         type="button"
         onClick={() => setIsOpen((current) => !current)}
         className="fixed bottom-5 right-5 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#006A4E] text-white shadow-2xl shadow-[#006A4E]/30 transition hover:bg-[#00543E] sm:bottom-6 sm:right-6 sm:h-16 sm:w-16"
-        aria-label={isOpen ? t.chatbot.close : t.chatbot.open}
+        aria-label={isOpen ? chatbotText.close : chatbotText.open}
       >
         <span className="text-xl sm:text-2xl">AI</span>
       </button>
@@ -104,14 +106,14 @@ export default function Chatbot() {
           <div className="overflow-hidden rounded-[1.75rem] border border-[#006A4E]/10 bg-white shadow-2xl shadow-black/15">
             <div className="flex items-start justify-between gap-4 bg-[#006A4E] px-4 py-4 text-white sm:px-5">
               <div className="min-w-0">
-                <p className="text-base font-semibold">{t.chatbot.title}</p>
-                <p className="mt-1 text-sm text-emerald-100">{t.chatbot.status}</p>
+                <p className="text-base font-semibold">{chatbotText.title}</p>
+                <p className="mt-1 text-sm text-emerald-100">{chatbotText.status}</p>
               </div>
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
                 className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-lg transition hover:bg-white/20"
-                aria-label={t.chatbot.close}
+                aria-label={chatbotText.close}
               >
                 {"\u00D7"}
               </button>
@@ -131,16 +133,14 @@ export default function Chatbot() {
                         : "ml-auto bg-[#006A4E] text-white"
                     }`}
                   >
-                    {message.translationKey
-                      ? t.chatbot[message.translationKey]
-                      : message.text}
+                    {message.text}
                   </div>
                 ))}
               </div>
 
               {showQuickActions ? (
                 <div className="flex flex-wrap gap-2">
-                  {t.chatbot.quickActions.map((action: string) => (
+                  {chatbotText.quickActions.map((action: string) => (
                     <button
                       key={action}
                       type="button"
@@ -161,8 +161,8 @@ export default function Chatbot() {
                   type="text"
                   value={input}
                   onChange={(event) => setInput(event.target.value)}
-                  placeholder={t.chatbot.placeholder}
-                  aria-label={t.chatbot.placeholder}
+                  placeholder={chatbotText.placeholder}
+                  aria-label={chatbotText.placeholder}
                   disabled={isLoading}
                   className="min-w-0 flex-1 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm text-gray-700 outline-none transition focus:border-[#006A4E] focus:ring-2 focus:ring-[#006A4E]/10"
                 />
@@ -171,7 +171,7 @@ export default function Chatbot() {
                   disabled={isLoading}
                   className="btn-primary w-full justify-center px-5 min-[420px]:w-auto"
                 >
-                  {t.chatbot.send}
+                  {chatbotText.send}
                 </button>
               </form>
             </div>

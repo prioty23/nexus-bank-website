@@ -30,12 +30,14 @@ Rules:
 
 
 def generate_groq_customer_service_reply(message: str) -> str:
+    # The API key must stay in .env, not inside the code.
     if not GROQ_API_KEY:
         raise ValueError("GROQ_API_KEY is missing in .env")
 
     client = Groq(api_key=GROQ_API_KEY)
 
-    chat_completion = client.chat.completions.create(
+    # Send the user's message to Groq and ask for one assistant reply.
+    response = client.chat.completions.create(
         model=GROQ_MODEL,
         messages=[
             {
@@ -51,4 +53,4 @@ def generate_groq_customer_service_reply(message: str) -> str:
         max_completion_tokens=300,
     )
 
-    return chat_completion.choices[0].message.content
+    return response.choices[0].message.content

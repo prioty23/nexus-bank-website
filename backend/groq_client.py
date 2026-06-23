@@ -28,18 +28,18 @@ Rules:
 - If you are not sure, give general guidance and suggest contacting support.
 """
 
-def generate_groq_customer_service_reply(message: str, history=None) -> str:
-    if not GROQ_API_KEY:
-        raise ValueError("GROQ_API_KEY is missing in .env")
+def generate_groq_customer_service_reply(message: str, history=None) -> str: #This function sends the user’s message to Groq and returns the AI reply it also accepts old chat history if available.
+    if not GROQ_API_KEY:  #API key exists or not
+        raise ValueError("GROQ_API_KEY is missing in .env") #if missing stop function and show error
 
-    if history is None:
-        history = []
+    if history is None: #checks old chat history was given or not.
+        history = [] #empty list if no history is given
 
-    client = Groq(api_key=GROQ_API_KEY)
+    client = Groq(api_key=GROQ_API_KEY)  #creates a connection to groq using secret api key
 
     messages = [
         {
-            "role": "system",
+            "role": "system", #list of text that will send to groq
             "content": SYSTEM_PROMPT
         }
     ]
@@ -47,15 +47,15 @@ def generate_groq_customer_service_reply(message: str, history=None) -> str:
     messages.extend(history)
 
     messages.append({
-        "role": "user",
+        "role": "user", #text from user
         "content": message
     })
 
-    chat_completion = client.chat.completions.create(
+    chat_completion = client.chat.completions.create( #sends all text to groq to generate
         model=GROQ_MODEL,
         messages=messages,
-        temperature=0.4,
-        max_completion_tokens=300,
+        temperature=0.4, #controls creativety. lower value means more stable and focused answers
+        max_completion_tokens=300, #how long AI can reply
     )
 
-    return chat_completion.choices[0].message.content
+    return chat_completion.choices[0].message.content #takes the final reply text from Groq and returns it

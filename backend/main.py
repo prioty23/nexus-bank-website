@@ -45,15 +45,15 @@ def health_check():
     }
 
 
-@app.post("/chat", response_model=ChatResponse)
-def chat(request: ChatRequest):
-    user_message = request.message.strip()
-    session_id = request.session_id or "default-session"
+@app.post("/chat", response_model=ChatResponse)  #accepts post request and return data 
+def chat(request: ChatRequest): #frontend sends a text to the backend 
+    user_message = request.message.strip()  #remove extra spaces from start to end of a user text
+    session_id = request.session_id or "default-session"  
 
-    if contains_sensitive_data(user_message):
-        safety_reply = get_safety_response()
+    if contains_sensitive_data(user_message): #checks unsafe info
+        safety_reply = get_safety_response() #warning reply
 
-        save_chat_to_excel(
+        save_chat_to_excel(  #saves block text and bot reply into excel
             session_id=session_id,
             user_message=user_message,
             bot_reply=safety_reply,
@@ -62,21 +62,21 @@ def chat(request: ChatRequest):
             status="blocked"
         )
 
-        return ChatResponse(
+        return ChatResponse(  #marks the text as blocked
             reply=safety_reply,
             source="safety-filter",
             blocked=True
         )
 
     try:
-        history = get_chat_history_from_excel(session_id)
+        history = get_chat_history_from_excel(session_id) #reads  previous chat history for same session from the excel
 
         reply = generate_groq_customer_service_reply(
-            user_message,
+            user_message, #generate an AI reply from previous history
             history
         )
 
-        save_chat_to_excel(
+        save_chat_to_excel( #save user text and groq reply
             session_id=session_id,
             user_message=user_message,
             bot_reply=reply,
@@ -87,16 +87,16 @@ def chat(request: ChatRequest):
 
         return ChatResponse(
             reply=reply,
-            source="groq-llm",
+            source="groq-llm", #AI reply
             blocked=False
         )
 
-    except Exception as e:
+    except Exception as e: #comes here if any error like groq/api/network issue 
         print("Groq error:", e)
 
         error_reply = "Sorry, I could not process your request right now. Please try again later."
 
-        save_chat_to_excel(
+        save_chat_to_excel( #saves failed error text in the excel
             session_id=session_id,
             user_message=user_message,
             bot_reply=error_reply,

@@ -4,97 +4,97 @@ import { translations } from "@/data/translations";
 import { FormEvent, useEffect, useRef, useState } from "react";
 
 type Message = {
-  role: "bot" | "user";
+  role: "bot" | "user"; //defines who sent the message, either the bot or the user
   text: string;
 };
 
-const chatbotText = translations.en.chatbot;
-const CHATBOT_API_URL = "http://127.0.0.1:8000/chat";
+const chatbotText = translations.en.chatbot; //by default the chatbot uses english text
+const CHATBOT_API_URL = "http://127.0.0.1:8000/chat"; //backend API url, the frontend sends user message here
 const TYPING_MESSAGE = "Eastern AI is typing...";
 const ERROR_MESSAGE =
   "Sorry, I could not connect to the chatbot server. Please try again later.";
 
 export default function Chatbot() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [input, setInput] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); //popup is open or closed
+  const [input, setInput] = useState(""); //Store user input
+  const [isLoading, setIsLoading] = useState(false); //if a message is sent and waiting for backend response
   const [messages, setMessages] = useState<Message[]>([
-    { role: "bot", text: chatbotText.welcome },
+    { role: "bot", text: chatbotText.welcome }, //welcome message from the bot when it is opened first
   ]);
-  const messageListRef = useRef<HTMLDivElement>(null);
+  const messageListRef = useRef<HTMLDivElement>(null); //reference message for auto-scrolling
 
   useEffect(() => {
-    if (!messageListRef.current) {
+    if (!messageListRef.current) { //if the message list reference is not set
+      return; //do nothing
+    }
+
+    messageListRef.current.scrollTop = messageListRef.current.scrollHeight; //scroll to the bottom of the message list to show the latest message
+  }, [messages, isOpen]); 
+
+  const sendMessage = async (message: string) => { //function that sends the user message to the backend 
+    const userMessage = message.trim(); //remove extra space from the message from strat and end
+    if (!userMessage || isLoading) { //if the message is empty or if a message is already sent and waiting for response, do nothing
       return;
     }
 
-    messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
-  }, [messages, isOpen]);
-
-  const sendMessage = async (message: string) => {
-    const userMessage = message.trim();
-    if (!userMessage || isLoading) {
-      return;
-    }
-
-    const chatWithUserMessage: Message[] = [
-      ...messages,
-      { role: "user", text: userMessage },
+    const chatWithUserMessage: Message[] = [ //create a new list of messages that includes the existing messages and the new user message
+      ...messages, //existing messages
+      { role: "user", text: userMessage }, //new user message
     ];
-    const chatWithTypingMessage: Message[] = [
-      ...chatWithUserMessage,
-      { role: "bot", text: TYPING_MESSAGE },
+    const chatWithTypingMessage: Message[] = [ //adds a "typing" message from the bot to indicate that the bot is processing the user's message
+      ...chatWithUserMessage, //existing messages + user message
+      { role: "bot", text: TYPING_MESSAGE }, //typing message from the bot
     ];
 
-    setMessages(chatWithTypingMessage);
-    setInput("");
-    setIsLoading(true);
+    setMessages(chatWithTypingMessage); //updates UI so users see their message and the bot's typing indicator immediately after sending a message
+    setInput(""); //clear the input field after sending the user message
+    setIsLoading(true); //disables the input field and send button to prevent multiple messages from being sent 
 
-    try {
-      const response = await fetch(CHATBOT_API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    try {  //starts error-handled backend request
+      const response = await fetch(CHATBOT_API_URL, { //sends a HTTP POST request to the FastAPI with the user's message and a session ID
+        method: "POST", 
+        headers: { 
+          "Content-Type": "application/json", //tells the server to expect JSON data in the request
         },
-        body: JSON.stringify({
+        body: JSON.stringify({  
           message: userMessage,
           session_id: "frontend-session",
         }),
       });
 
-      if (!response.ok) {
-        throw new Error("Chatbot request failed");
+      if (!response.ok) { //if the backend returns error status code, throw an error to be caught in the catch block
+        throw new Error("Chatbot request failed"); //error message 
       }
 
-      const data = (await response.json()) as { reply?: string };
-      const botReply = data.reply ?? ERROR_MESSAGE;
+      const data = (await response.json()) as { reply?: string }; //Reads JSON response from FastAPI, it expects a reply field from the backend, which contains the bot's response to the user's message.
+      const botReply = data.reply ?? ERROR_MESSAGE; //if the reply field is missing, it uses a default error message instead
 
-      setMessages([
+      setMessages([ //Replaces the "typing" message with the actual reply from the bot
         ...chatWithUserMessage,
         { role: "bot", text: botReply },
       ]);
-    } catch {
+    } catch { //if fetch fails, shows connection error message to the user
       setMessages([
         ...chatWithUserMessage,
         { role: "bot", text: ERROR_MESSAGE },
       ]);
     } finally {
-      setIsLoading(false);
-    }
+      setIsLoading(false); //re-enables the input field and send button after the backend response is received or fetch fails
+    } //ends sendMessage function
   };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    await sendMessage(input);
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => { //handles the form submission when the user sends a message by clicking the send button or pressing Enter
+    event.preventDefault(); //prevent page refresh on form submission
+    await sendMessage(input); //sends current input value to the sendMessage function to be processed and sent to the backend
   };
 
-  const showQuickActions = messages.length === 1;
+  const showQuickActions = messages.length === 1; //shows quick action buttons only at the beginning before user sends a real message
 
-  return (
+  return ( //UI of the chatbot component, including the button to open/close the chatbot, the message list, and the input form for sending messages
     <>
       <button
         type="button"
-        onClick={() => setIsOpen((current) => !current)}
+        onClick={() => setIsOpen((current) => !current)} //closes the chatbot if it is open, and opens it if it is closed
         className="fixed bottom-5 right-5 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#006A4E] text-white shadow-2xl shadow-[#006A4E]/30 transition hover:bg-[#00543E] sm:bottom-6 sm:right-6 sm:h-16 sm:w-16"
         aria-label={isOpen ? chatbotText.close : chatbotText.open}
       >

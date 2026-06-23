@@ -1,8 +1,8 @@
-MIN_CARD_DIGITS = 13
+MIN_CARD_DIGITS = 13  
 MAX_CARD_DIGITS = 19
-PUNCTUATION = [":", "=", ".", ",", "?", "!", "-", "_", "/", "\\"]
+PUNCTUATION = [":", "=", ".", ",", "?", "!", "-", "_", "/", "\\"] #replace with spaces to detect
 
-SAFETY_RESPONSE = (
+SAFETY_RESPONSE = ( #warning text
     "For your security, please do not share OTP, PIN, password, CVV, "
     "full card number or other sensitive banking details. "
     "For account-specific help, please contact official Eastern Bank PLC support "
@@ -10,15 +10,15 @@ SAFETY_RESPONSE = (
 )
 
 
-def contains_sensitive_data(message: str) -> bool:
+def contains_sensitive_data(message: str) -> bool: #if a text is unsafe
     """Return True if the user's message contains sensitive banking data."""
 
     if not message:
-        return False
+        return False #empty text is not sensitive
 
-    text = clean_text(message)
+    text = clean_text(message) #normalize the text before checking
 
-    if has_number_after(text, "otp", 4, 8):
+    if has_number_after(text, "otp", 4, 8): 
         return True
     if has_number_after(text, "pin", 4, 8):
         return True
@@ -30,47 +30,47 @@ def contains_sensitive_data(message: str) -> bool:
         return True
 
     if has_card_number(text):
-        return True
+        return True 
 
-    return False
-
-
-def has_number_after(text: str, word: str, min_digits: int, max_digits: int) -> bool:
-    digits = only_digits(text_after(text, word))
-
-    return min_digits <= len(digits) <= max_digits
+    return False #no sensitive pattern
 
 
-def has_text_after(text: str, word: str) -> bool:
+def has_number_after(text: str, word: str, min_digits: int, max_digits: int) -> bool: #if a specifc word followed by a number with a valid length.
+    digits = only_digits(text_after(text, word))  #gets only digits after the target word
+
+    return min_digits <= len(digits) <= max_digits #true if digit count is suspicious or matches
+
+
+def has_text_after(text: str, word: str) -> bool: #comes after a word like password or passcode
     return text_after(text, word).strip() != ""
 
 
 def has_card_number(text: str) -> bool:
-    digits = only_digits(text)
+    digits = only_digits(text) #remove everything expect digits
 
-    return MIN_CARD_DIGITS <= len(digits) <= MAX_CARD_DIGITS
+    return MIN_CARD_DIGITS <= len(digits) <= MAX_CARD_DIGITS 
 
 
 def text_after(text: str, word: str) -> str:
-    search_word = f" {word} "
+    search_word = f" {word} " #add spaces around the word 
 
     if search_word not in text:
-        return ""
+        return "" #return empty string
 
-    return text.split(search_word, 1)[1]
+    return text.split(search_word, 1)[1] #if founf return eveything after that word
 
 
-def clean_text(text: str) -> str:
-    text = text.lower()
+def clean_text(text: str) -> str: #prepares the text to make checking easier 
+    text = text.lower() #all letters to lowercase
 
-    for symbol in PUNCTUATION:
+    for symbol in PUNCTUATION: #replace pun with spaces
         text = text.replace(symbol, " ")
 
     return f" {text} "
 
 
 def only_digits(text: str) -> str:
-    return "".join(character for character in text if character.isdigit())
+    return "".join(character for character in text if character.isdigit()) #Builds and returns a new string with digits only.
 
 
 def get_safety_response() -> str:

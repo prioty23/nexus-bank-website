@@ -1,11 +1,11 @@
-import os
-from dotenv import load_dotenv
-from groq import Groq
+import os  #read env variables from os
+from dotenv import load_dotenv #imports functions
+from groq import Groq 
 
 load_dotenv()
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY") #reads secret groq api key from .env
+GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant") #reads model name from .env
 
 SYSTEM_PROMPT = """
 You are EBL AI Assistant, a professional customer service chatbot.
@@ -28,29 +28,34 @@ Rules:
 - If you are not sure, give general guidance and suggest contacting support.
 """
 
-
-def generate_groq_customer_service_reply(message: str) -> str:
-    # The API key must stay in .env, not inside the code.
+def generate_groq_customer_service_reply(message: str, history=None) -> str:
     if not GROQ_API_KEY:
         raise ValueError("GROQ_API_KEY is missing in .env")
 
+    if history is None:
+        history = []
+
     client = Groq(api_key=GROQ_API_KEY)
 
-    # Send the user's message to Groq and ask for one assistant reply.
-    response = client.chat.completions.create(
+    messages = [
+        {
+            "role": "system",
+            "content": SYSTEM_PROMPT
+        }
+    ]
+
+    messages.extend(history)
+
+    messages.append({
+        "role": "user",
+        "content": message
+    })
+
+    chat_completion = client.chat.completions.create(
         model=GROQ_MODEL,
-        messages=[
-            {
-                "role": "system",
-                "content": SYSTEM_PROMPT,
-            },
-            {
-                "role": "user",
-                "content": message,
-            },
-        ],
+        messages=messages,
         temperature=0.4,
         max_completion_tokens=300,
     )
 
-    return response.choices[0].message.content
+    return chat_completion.choices[0].message.content

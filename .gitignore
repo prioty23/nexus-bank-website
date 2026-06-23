@@ -39,6 +39,7 @@ venv/
 backend/venv/
 backend/__pycache__/
 backend/chat_logs.xlsx
+backend/ebl_chatbot.db
 *.py[cod]
 # vercel
 .vercel

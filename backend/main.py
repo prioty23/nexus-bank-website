@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware #import middleware to handle 
 from schemas import ChatRequest, ChatResponse #imports the request and response models (what data should be sent to the backend and what data the backend should return)
 from safety import contains_sensitive_data, get_safety_response #imports sensitive data checker and warning response
 from groq_client import generate_groq_customer_service_reply #import the function that sens the user's safe message to Groq and gets an AI reply
-from excel_chat_history import save_chat_to_excel, get_chat_history_from_excel
+from database import save_chat, get_chat_history
 
 ERROR_REPLY = "Sorry, I could not process that request right now. Please try again later." #error message return to the user if Groq LLM fails 
 
@@ -45,15 +45,15 @@ def health_check():
     }
 
 
-@app.post("/chat", response_model=ChatResponse)  #accepts post request and return data 
-def chat(request: ChatRequest): #frontend sends a text to the backend 
-    user_message = request.message.strip()  #remove extra spaces from start to end of a user text
-    session_id = request.session_id or "default-session"  
+@app.post("/chat", response_model=ChatResponse)
+def chat(request: ChatRequest):
+    user_message = request.message.strip()
+    session_id = request.session_id or "default-session"
 
-    if contains_sensitive_data(user_message): #checks unsafe info
-        safety_reply = get_safety_response() #warning reply
+    if contains_sensitive_data(user_message):
+        safety_reply = get_safety_response()
 
-        save_chat_to_excel(  #saves block text and bot reply into excel
+        save_chat(
             session_id=session_id,
             user_message=user_message,
             bot_reply=safety_reply,
@@ -62,21 +62,21 @@ def chat(request: ChatRequest): #frontend sends a text to the backend
             status="blocked"
         )
 
-        return ChatResponse(  #marks the text as blocked
+        return ChatResponse(
             reply=safety_reply,
             source="safety-filter",
             blocked=True
         )
 
     try:
-        history = get_chat_history_from_excel(session_id) #reads  previous chat history for same session from the excel
+        history = get_chat_history(session_id)
 
         reply = generate_groq_customer_service_reply(
-            user_message, #generate an AI reply from previous history
+            user_message,
             history
         )
 
-        save_chat_to_excel( #save user text and groq reply
+        save_chat(
             session_id=session_id,
             user_message=user_message,
             bot_reply=reply,
@@ -87,16 +87,16 @@ def chat(request: ChatRequest): #frontend sends a text to the backend
 
         return ChatResponse(
             reply=reply,
-            source="groq-llm", #AI reply
+            source="groq-llm",
             blocked=False
         )
 
-    except Exception as e: #comes here if any error like groq/api/network issue 
+    except Exception as e:
         print("Groq error:", e)
 
         error_reply = "Sorry, I could not process your request right now. Please try again later."
 
-        save_chat_to_excel( #saves failed error text in the excel
+        save_chat(
             session_id=session_id,
             user_message=user_message,
             bot_reply=error_reply,

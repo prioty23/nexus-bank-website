@@ -5,7 +5,9 @@ from fastapi.middleware.cors import CORSMiddleware #import middleware to handle 
 from schemas import ChatRequest, ChatResponse #imports the request and response models (what data should be sent to the backend and what data the backend should return)
 from safety import contains_sensitive_data, get_safety_response #imports sensitive data checker and warning response
 from groq_client import generate_groq_customer_service_reply #import the function that sens the user's safe message to Groq and gets an AI reply
-from database import save_chat, get_chat_history
+from database import save_chat, get_chat_history, get_website_information, save_website_text
+from website_scraper import get_text_from_website
+
 
 ERROR_REPLY = "Sorry, I could not process that request right now. Please try again later." #error message return to the user if Groq LLM fails 
 
@@ -45,43 +47,45 @@ def health_check():
     }
 
 
-@app.post("/chat", response_model=ChatResponse)
-def chat(request: ChatRequest):
-    user_message = request.message.strip()
-    session_id = request.session_id or "default-session"
+@app.post("/chat", response_model=ChatResponse) #accepts post request and return data
+def chat(request: ChatRequest): #func runs when frontend sends a text 
+    user_message = request.message.strip() #remove extra spaces from start to end of a text 
+    session_id = request.session_id or "default-session" 
 
-    if contains_sensitive_data(user_message):
-        safety_reply = get_safety_response()
+    if contains_sensitive_data(user_message): #unsafe data otp, pass, pin
+        safety_reply = get_safety_response() #gets warning text
 
-        save_chat(
+        save_chat( #saves blocked text & warning into database
             session_id=session_id,
             user_message=user_message,
             bot_reply=safety_reply,
             source="safety-filter",
-            blocked=True,
-            status="blocked"
+            blocked=True, #marked the text was blocked
+            status="blocked" #stores the result as blocked in database
         )
 
-        return ChatResponse(
+        return ChatResponse( 
             reply=safety_reply,
             source="safety-filter",
             blocked=True
         )
 
     try:
-        history = get_chat_history(session_id)
+        history = get_chat_history(session_id)  #loads old text history for the same session
+        website_info = get_website_information()
 
-        reply = generate_groq_customer_service_reply(
+        reply = generate_groq_customer_service_reply( #sends current user text and previous history to groq
             user_message,
-            history
+            history,
+            website_info
         )
 
-        save_chat(
+        save_chat( #saves successful user text & bot reply into database
             session_id=session_id,
             user_message=user_message,
             bot_reply=reply,
             source="groq-llm",
-            blocked=False,
+            blocked=False, #text wasn't block
             status="answered"
         )
 
@@ -91,12 +95,12 @@ def chat(request: ChatRequest):
             blocked=False
         )
 
-    except Exception as e:
-        print("Groq error:", e)
+    except Exception as e: #if any error happens
+        print("Groq error:", e) #real error in the backend terminal for debugging
 
         error_reply = "Sorry, I could not process your request right now. Please try again later."
 
-        save_chat(
+        save_chat( #saves failed request & error text  in database
             session_id=session_id,
             user_message=user_message,
             bot_reply=error_reply,
@@ -105,8 +109,26 @@ def chat(request: ChatRequest):
             status="error"
         )
 
-        return ChatResponse(
+        return ChatResponse( #sends error text to the frontend 
             reply=error_reply,
             source="groq-error",
             blocked=False
         )
+
+@app.post("/refresh-website-info")
+def refresh_website_info():
+    page_url = "http://www.ebl.com.bd/"
+    page_name = "Eastern Bank PLC Website"
+
+    page_text = get_text_from_website(page_url)
+
+    save_website_text(
+        page_name=page_name,
+        page_url=page_url,
+        page_text=page_text
+    )
+
+    return {
+        "message": "Website information refreshed successfully",
+        "characters_saved": len(page_text)
+    }

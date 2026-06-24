@@ -2,7 +2,7 @@ import sqlite3
 from datetime import datetime
 
 
-DATABASE_NAME = "ebl_chatbot.db"
+DATABASE_NAME = "EBL_chatbot.db"
 
 
 def create_database():
@@ -20,6 +20,17 @@ def create_database():
             blocked INTEGER,
             status TEXT,
             created_at TEXT
+        )
+    """)
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS website_info (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            page_name TEXT,
+            page_url TEXT,
+            page_text TEXT,
+            status TEXT,
+            updated_at TEXT
         )
     """)
 
@@ -86,7 +97,6 @@ def get_chat_history(session_id, limit=6):
     """, (session_id, limit))
 
     rows = cursor.fetchall()
-
     connection.close()
 
     history = []
@@ -110,3 +120,69 @@ def get_chat_history(session_id, limit=6):
             })
 
     return history
+
+
+def save_website_text(page_name, page_url, page_text):
+    create_database()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    updated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    cursor.execute("""
+        DELETE FROM website_info
+        WHERE page_url = ?
+    """, (page_url,))
+
+    cursor.execute("""
+        INSERT INTO website_info (
+            page_name,
+            page_url,
+            page_text,
+            status,
+            updated_at
+        )
+        VALUES (?, ?, ?, ?, ?)
+    """, (
+        page_name,
+        page_url,
+        page_text,
+        "active",
+        updated_at
+    ))
+
+    connection.commit()
+    connection.close()
+
+
+def get_website_information():
+    create_database()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT page_name, page_url, page_text
+        FROM website_info
+        WHERE status = 'active'
+        ORDER BY id ASC
+    """)
+
+    rows = cursor.fetchall()
+    connection.close()
+
+    website_information = ""
+
+    for row in rows:
+        page_name = row[0]
+        page_url = row[1]
+        page_text = row[2]
+
+        website_information += f"Page: {page_name}\n"
+        website_information += f"URL: {page_url}\n"
+        website_information += f"Content:\n{page_text}\n\n"
+
+    return website_information
+
+    #Cursor is a tool that lets Python talk to the db and run SQL commands like CREATE, INSERT, and SELECT.

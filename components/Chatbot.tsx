@@ -1,100 +1,155 @@
 "use client";
 
 import { translations } from "@/data/translations";
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { FormEvent } from "react";
 
 type Message = {
-  role: "bot" | "user"; //defines who sent the message, either the bot or the user
+  role: "bot" | "user";
   text: string;
 };
 
-const chatbotText = translations.en.chatbot; //by default the chatbot uses english text
-const CHATBOT_API_URL = "http://127.0.0.1:8000/chat"; //backend API url, the frontend sends user message here
+const chatbotText = translations.en.chatbot;
+const CHATBOT_API_URL = "http://127.0.0.1:8000/chat";
 const TYPING_MESSAGE = "Eastern AI is typing...";
 const ERROR_MESSAGE =
   "Sorry, I could not connect to the chatbot server. Please try again later.";
 
+const SESSION_STORAGE_KEY = "eastern_ai_session_id";
+
+function createSessionId() {
+  if (typeof crypto !== "undefined" && crypto.randomUUID) {
+    return crypto.randomUUID();
+  }
+
+  return `session-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
 export default function Chatbot() {
-  const [isOpen, setIsOpen] = useState(false); //popup is open or closed
-  const [input, setInput] = useState(""); //Store user input
-  const [isLoading, setIsLoading] = useState(false); //if a message is sent and waiting for backend response
+  const [isOpen, setIsOpen] = useState(false);
+  const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [sessionId, setSessionId] = useState("");
+
   const [messages, setMessages] = useState<Message[]>([
-    { role: "bot", text: chatbotText.welcome }, //welcome message from the bot when it is opened first
+    { role: "bot", text: chatbotText.welcome },
   ]);
-  const messageListRef = useRef<HTMLDivElement>(null); //reference message for auto-scrolling
+
+  const messageListRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!messageListRef.current) { //if the message list reference is not set
-      return; //do nothing
+    let savedSessionId = localStorage.getItem(SESSION_STORAGE_KEY);
+
+    if (!savedSessionId) {
+      savedSessionId = createSessionId();
+      localStorage.setItem(SESSION_STORAGE_KEY, savedSessionId);
     }
 
-    messageListRef.current.scrollTop = messageListRef.current.scrollHeight; //scroll to the bottom of the message list to show the latest message
-  }, [messages, isOpen]); 
+    setSessionId(savedSessionId);
+  }, []);
 
-  const sendMessage = async (message: string) => { //function that sends the user message to the backend 
-    const userMessage = message.trim(); //remove extra space from the message from strat and end
-    if (!userMessage || isLoading) { //if the message is empty or if a message is already sent and waiting for response, do nothing
+  useEffect(() => {
+    if (!messageListRef.current) {
       return;
     }
 
-    const chatWithUserMessage: Message[] = [ //create a new list of messages that includes the existing messages and the new user message
-      ...messages, //existing messages
-      { role: "user", text: userMessage }, //new user message
-    ];
-    const chatWithTypingMessage: Message[] = [ //adds a "typing" message from the bot to indicate that the bot is processing the user's message
-      ...chatWithUserMessage, //existing messages + user message
-      { role: "bot", text: TYPING_MESSAGE }, //typing message from the bot
+    messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
+  }, [messages, isOpen]);
+
+  const getCurrentSessionId = () => {
+    let currentSessionId = sessionId;
+
+    if (!currentSessionId) {
+      currentSessionId = localStorage.getItem(SESSION_STORAGE_KEY) || "";
+    }
+
+    if (!currentSessionId) {
+      currentSessionId = createSessionId();
+      localStorage.setItem(SESSION_STORAGE_KEY, currentSessionId);
+      setSessionId(currentSessionId);
+    }
+
+    return currentSessionId;
+  };
+
+  const handleEndSession = () => {
+    const newSessionId = createSessionId();
+
+    localStorage.setItem(SESSION_STORAGE_KEY, newSessionId);
+    setSessionId(newSessionId);
+
+    setMessages([{ role: "bot", text: chatbotText.welcome }]);
+    setInput("");
+  };
+
+  const sendMessage = async (message: string) => {
+    const userMessage = message.trim();
+
+    if (!userMessage || isLoading) {
+      return;
+    }
+
+    const currentSessionId = getCurrentSessionId();
+
+    const chatWithUserMessage: Message[] = [
+      ...messages,
+      { role: "user", text: userMessage },
     ];
 
-    setMessages(chatWithTypingMessage); //updates UI so users see their message and the bot's typing indicator immediately after sending a message
-    setInput(""); //clear the input field after sending the user message
-    setIsLoading(true); //disables the input field and send button to prevent multiple messages from being sent 
+    const chatWithTypingMessage: Message[] = [
+      ...chatWithUserMessage,
+      { role: "bot", text: TYPING_MESSAGE },
+    ];
 
-    try {  //starts error-handled backend request
-      const response = await fetch(CHATBOT_API_URL, { //sends a HTTP POST request to the FastAPI with the user's message and a session ID
-        method: "POST", 
-        headers: { 
-          "Content-Type": "application/json", //tells the server to expect JSON data in the request
+    setMessages(chatWithTypingMessage);
+    setInput("");
+    setIsLoading(true);
+
+    try {
+      const response = await fetch(CHATBOT_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({  
+        body: JSON.stringify({
           message: userMessage,
-          session_id: "frontend-session",
+          session_id: currentSessionId,
         }),
       });
 
-      if (!response.ok) { //if the backend returns error status code, throw an error to be caught in the catch block
-        throw new Error("Chatbot request failed"); //error message 
+      if (!response.ok) {
+        throw new Error("Chatbot request failed");
       }
 
-      const data = (await response.json()) as { reply?: string }; //Reads JSON response from FastAPI, it expects a reply field from the backend, which contains the bot's response to the user's message.
-      const botReply = data.reply ?? ERROR_MESSAGE; //if the reply field is missing, it uses a default error message instead
+      const data = (await response.json()) as { reply?: string };
+      const botReply = data.reply ?? ERROR_MESSAGE;
 
-      setMessages([ //Replaces the "typing" message with the actual reply from the bot
+      setMessages([
         ...chatWithUserMessage,
         { role: "bot", text: botReply },
       ]);
-    } catch { //if fetch fails, shows connection error message to the user
+    } catch {
       setMessages([
         ...chatWithUserMessage,
         { role: "bot", text: ERROR_MESSAGE },
       ]);
     } finally {
-      setIsLoading(false); //re-enables the input field and send button after the backend response is received or fetch fails
-    } //ends sendMessage function
+      setIsLoading(false);
+    }
   };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => { //handles the form submission when the user sends a message by clicking the send button or pressing Enter
-    event.preventDefault(); //prevent page refresh on form submission
-    await sendMessage(input); //sends current input value to the sendMessage function to be processed and sent to the backend
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    await sendMessage(input);
   };
 
-  const showQuickActions = messages.length === 1; //shows quick action buttons only at the beginning before user sends a real message
+  const showQuickActions = messages.length === 1;
 
-  return ( //UI of the chatbot component, including the button to open/close the chatbot, the message list, and the input form for sending messages
+  return (
     <>
       <button
         type="button"
-        onClick={() => setIsOpen((current) => !current)} //closes the chatbot if it is open, and opens it if it is closed
+        onClick={() => setIsOpen((current) => !current)}
         className="fixed bottom-5 right-5 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#006A4E] text-white shadow-2xl shadow-[#006A4E]/30 transition hover:bg-[#00543E] sm:bottom-6 sm:right-6 sm:h-16 sm:w-16"
         aria-label={isOpen ? chatbotText.close : chatbotText.open}
       >
@@ -107,16 +162,30 @@ export default function Chatbot() {
             <div className="flex items-start justify-between gap-4 bg-[#006A4E] px-4 py-4 text-white sm:px-5">
               <div className="min-w-0">
                 <p className="text-base font-semibold">{chatbotText.title}</p>
-                <p className="mt-1 text-sm text-emerald-100">{chatbotText.status}</p>
+                <p className="mt-1 text-sm text-emerald-100">
+                  {chatbotText.status}
+                </p>
               </div>
-              <button
-                type="button"
-                onClick={() => setIsOpen(false)}
-                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-lg transition hover:bg-white/20"
-                aria-label={chatbotText.close}
-              >
-                {"\u00D7"}
-              </button>
+
+              <div className="flex shrink-0 items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleEndSession}
+                  disabled={isLoading}
+                  className="rounded-full bg-white/10 px-3 py-2 text-xs font-medium transition hover:bg-white/20 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  End
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setIsOpen(false)}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-lg transition hover:bg-white/20"
+                  aria-label={chatbotText.close}
+                >
+                  {"\u00D7"}
+                </button>
+              </div>
             </div>
 
             <div className="space-y-4 bg-[#F8FAFC] px-4 py-5 sm:px-5">
@@ -127,7 +196,7 @@ export default function Chatbot() {
                 {messages.map((message, index) => (
                   <div
                     key={`${message.role}-${index}`}
-                    className={`max-w-[88%] rounded-2xl px-4 py-3 text-sm leading-6 shadow-sm ${
+                    className={`max-w-[88%] whitespace-pre-line rounded-2xl px-4 py-3 text-sm leading-6 shadow-sm ${
                       message.role === "bot"
                         ? "bg-white text-gray-700"
                         : "ml-auto bg-[#006A4E] text-white"
@@ -148,7 +217,7 @@ export default function Chatbot() {
                         void sendMessage(action);
                       }}
                       disabled={isLoading}
-                      className="rounded-full border border-[#006A4E]/15 bg-white px-3 py-2 text-sm font-medium text-[#006A4E] transition hover:bg-[#006A4E]/5"
+                      className="rounded-full border border-[#006A4E]/15 bg-white px-3 py-2 text-sm font-medium text-[#006A4E] transition hover:bg-[#006A4E]/5 disabled:cursor-not-allowed disabled:opacity-60"
                     >
                       {action}
                     </button>
@@ -156,7 +225,10 @@ export default function Chatbot() {
                 </div>
               ) : null}
 
-              <form onSubmit={handleSubmit} className="flex flex-col gap-3 min-[420px]:flex-row">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-3 min-[420px]:flex-row"
+              >
                 <input
                   type="text"
                   value={input}
@@ -164,12 +236,13 @@ export default function Chatbot() {
                   placeholder={chatbotText.placeholder}
                   aria-label={chatbotText.placeholder}
                   disabled={isLoading}
-                  className="min-w-0 flex-1 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm text-gray-700 outline-none transition focus:border-[#006A4E] focus:ring-2 focus:ring-[#006A4E]/10"
+                  className="min-w-0 flex-1 rounded-full border border-gray-200 bg-white px-4 py-3 text-sm text-gray-700 outline-none transition focus:border-[#006A4E] focus:ring-2 focus:ring-[#006A4E]/10 disabled:cursor-not-allowed disabled:opacity-60"
                 />
+
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="btn-primary w-full justify-center px-5 min-[420px]:w-auto"
+                  className="btn-primary w-full justify-center px-5 disabled:cursor-not-allowed disabled:opacity-60 min-[420px]:w-auto"
                 >
                   {chatbotText.send}
                 </button>

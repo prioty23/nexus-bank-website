@@ -27,7 +27,12 @@ Important behavior:
 """
 
 
-def generate_groq_customer_service_reply(message: str, history=None, website_info="") -> str:
+def generate_groq_customer_service_reply(
+    message: str,
+    history=None,
+    website_info="",
+    session_summary=""
+) -> str:
     if not GROQ_API_KEY:
         raise ValueError("GROQ_API_KEY is missing in .env")
 
@@ -40,8 +45,11 @@ def generate_groq_customer_service_reply(message: str, history=None, website_inf
         {
             "role": "system",
             "content": SYSTEM_PROMPT
-        },
-        {
+        }
+    ]
+
+    if website_info:
+        messages.append({
             "role": "system",
             "content": f"""
 Use the following banking website information only as background context.
@@ -97,8 +105,18 @@ Say:
 
 Return only the final customer-facing answer.
 """
-        }
-    ]
+        })
+
+    if session_summary:
+        messages.append({
+            "role": "system",
+            "content": f"""
+Previous conversation summary:
+{session_summary}
+
+Use this summary to remember older parts of the same conversation.
+"""
+        })
 
     messages.extend(history)
 
@@ -112,6 +130,56 @@ Return only the final customer-facing answer.
         messages=messages,
         temperature=0,
         max_completion_tokens=350,
+    )
+
+    return chat_completion.choices[0].message.content
+
+
+def update_conversation_summary(old_summary, user_message, bot_reply):
+    if not GROQ_API_KEY:
+        raise ValueError("GROQ_API_KEY is missing in .env")
+
+    client = Groq(api_key=GROQ_API_KEY)
+
+    messages = [
+        {
+            "role": "system",
+            "content": """
+You summarize banking chatbot conversations.
+
+Keep the summary short and useful.
+
+Remember:
+- what the user asked
+- important banking topics
+- account, card, loan, deposit, support, or complaint details
+- any important follow-up context
+
+Do not include OTP, PIN, password, CVV, full card numbers, or sensitive banking information.
+"""
+        },
+        {
+            "role": "user",
+            "content": f"""
+Old summary:
+{old_summary}
+
+New user message:
+{user_message}
+
+New bot reply:
+{bot_reply}
+
+Write the updated summary.
+"""
+        }
+    ]
+
+    chat_completion = client.chat.completions.create(
+        model=GROQ_MODEL,
+        messages=messages,
+        temperature=0,
+        max_completion_tokens=200,
     )
 
     return chat_completion.choices[0].message.content

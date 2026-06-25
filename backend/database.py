@@ -9,6 +9,16 @@ def create_database():
     connection = sqlite3.connect(DATABASE_NAME)
     cursor = connection.cursor()
 
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS session_memory (
+           session_id TEXT PRIMARY KEY,
+           summary TEXT,
+           updated_at TEXT
+        )
+    """)
+
+
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS chat_logs (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -22,6 +32,7 @@ def create_database():
             created_at TEXT
         )
     """)
+
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS website_info (
@@ -185,4 +196,62 @@ def get_website_information():
 
     return website_information
 
-    #Cursor is a tool that lets Python talk to the db and run SQL commands like CREATE, INSERT, and SELECT.
+
+def get_session_summary(session_id):
+    create_database()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT summary
+        FROM session_memory
+        WHERE session_id = ?
+    """, (session_id,))
+
+    row = cursor.fetchone()
+    connection.close()
+
+    if row:
+        return row[0]
+
+    return ""
+
+
+def save_session_summary(session_id, summary):
+    create_database()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    updated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    cursor.execute("""
+        INSERT OR REPLACE INTO session_memory (
+            session_id,
+            summary,
+            updated_at
+        )
+        VALUES (?, ?, ?)
+    """, (
+        session_id,
+        summary,
+        updated_at
+    ))
+
+    connection.commit()
+    connection.close()
+
+# Ensure all tables exist as soon as this module is imported.
+create_database()
+
+def clear_website_information():
+    create_database()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    cursor.execute("DELETE FROM website_info")
+
+    connection.commit()
+    connection.close()

@@ -4,10 +4,17 @@ BANKING_KEYWORDS = [
     "transaction", "payment", "refund", "charge", "deducted",
     "atm", "branch", "bank", "banking",
     "mobile banking", "internet banking", "digital banking",
-    "support", "hotline", "customer service",
+    "support", "hotline", "customer service", "contact",
+    "email", "mail", "phone", "number", "call center", "helpline",
     "complaint", "issue", "problem",
     "statement", "balance", "kyc", "documents",
-    "nominee", "nid", "passport", "tin"
+    "nominee", "nid", "passport", "tin",
+    "customer support",
+]
+
+CONTACT_WORDS = [
+    "contact", "email", "mail", "phone", "number",
+    "hotline", "call center", "helpline", "customer support",
 ]
 
 
@@ -37,10 +44,19 @@ def is_greeting_only(message):
 
 def get_greeting_reply():
     return (
-        "Hello! Welcome to Eastern Bank AI Assistant. "
-        "How may I assist you ?"
-    ) #I can help you with accounts, cards, loans, deposits, digital banking, transactions, complaints and customer support.
-    
+        "Hello! Welcome to Eastern Bank AI Assistant. How may I assist you today?"
+    )
+
+
+def is_contact_question(message):
+    message = message.lower()
+
+    for word in CONTACT_WORDS:
+        if word in message:
+            return True
+
+    return False
+
 
 def is_banking_related(message):
     message = message.lower()
@@ -64,6 +80,9 @@ def is_follow_up(message):
 
 def is_allowed_question(message, has_previous_history):
     if is_greeting_only(message):
+        return True
+
+    if is_contact_question(message):
         return True
 
     if is_banking_related(message):

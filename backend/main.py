@@ -32,6 +32,136 @@ from topic_guard import (
 
 
 ERROR_REPLY = "Sorry, I could not process that request right now. Please try again later."
+CONTACT_EMAIL = "info@ebl-bd.com"
+CONTACT_HOTLINE = "16230"
+CONTACT_OVERSEAS = "+8809677716230"
+CONTACT_NUMBER = "+8809666777325"
+CONTACT_WORDS = [
+    "email",
+    "mail",
+    "hotline",
+    "phone",
+    "number",
+    "contact",
+    "customer support",
+    "customer service",
+    "call center",
+    "helpline",
+]
+WEBSITE_PAGES = [
+    {
+        "page_name": "EBL Home Page",
+        "page_url": "https://www.ebl.com.bd/",
+    },
+    {
+        "page_name": "EBL Cards Page",
+        "page_url": "https://www.ebl.com.bd/retail/EBL-Cards",
+    },
+    {
+        "page_name": "EBL Retail Loan Page",
+        "page_url": "https://www.ebl.com.bd/retail/retail-loan",
+    },
+    {
+        "page_name": "EBL SME Loan Page",
+        "page_url": "https://www.ebl.com.bd/sme/sme-loans",
+    },
+    {
+        "page_name": "EBL Retail Deposits Page",
+        "page_url": "https://www.ebl.com.bd/retail/retail-deposit",
+    },
+    {
+        "page_name": "EBL SME Deposits Page",
+        "page_url": "https://www.ebl.com.bd/sme/sme-deposits",
+    },
+    {
+        "page_name": "EBL Digital Banking Page",
+        "page_url": "https://www.ebl.com.bd/retail-digital/ebl-skybanking",
+    },
+    {
+        "page_name": "EBL Contact Page",
+        "page_url": "https://www.ebl.com.bd/contact",
+    },
+    {
+        "page_name": "EBL Locator Page",
+        "page_url": "https://www.ebl.com.bd/locator/",
+    },
+]
+
+
+def is_direct_contact_question(message):
+    message = message.lower()
+
+    for word in CONTACT_WORDS:
+        if word in message:
+            return True
+
+    return False
+
+
+def get_direct_contact_reply(message):
+    message = message.lower()
+
+    if "email" in message or "mail" in message:
+        return CONTACT_EMAIL
+
+    if "hotline" in message:
+        return CONTACT_HOTLINE
+
+    if "phone" in message or "number" in message or "call center" in message or "helpline" in message:
+        return (
+            f"Hotline: {CONTACT_HOTLINE}\n"
+            f"From overseas: {CONTACT_OVERSEAS}\n"
+            f"General contact number: {CONTACT_NUMBER}"
+        )
+
+    if "contact" in message or "customer support" in message or "customer service" in message:
+        return (
+            f"Email: {CONTACT_EMAIL}\n"
+            f"Hotline: {CONTACT_HOTLINE}\n"
+            f"From overseas: {CONTACT_OVERSEAS}\n"
+            f"General contact number: {CONTACT_NUMBER}"
+        )
+
+    return (
+        f"Email: {CONTACT_EMAIL}\n"
+        f"Hotline: {CONTACT_HOTLINE}"
+    )
+
+
+def build_response(reply, source, blocked=False):
+    return ChatResponse(reply=reply, source=source, blocked=blocked)
+
+
+def save_and_build_response(
+    session_id,
+    user_message,
+    reply,
+    source,
+    status,
+    blocked=False,
+):
+    save_chat(
+        session_id=session_id,
+        user_message=user_message,
+        bot_reply=reply,
+        source=source,
+        blocked=blocked,
+        status=status,
+    )
+
+    return build_response(reply, source, blocked)
+
+
+def update_summary_safely(session_id, session_summary, user_message, reply):
+    try:
+        new_summary = update_conversation_summary(
+            session_summary,
+            user_message,
+            reply,
+        )
+        save_session_summary(session_id, new_summary)
+    except Exception:
+        pass
 
 
 app = FastAPI(
@@ -74,70 +204,46 @@ def health_check():
 @app.post("/chat", response_model=ChatResponse)
 def chat(request: ChatRequest):
     user_message = request.message.strip()
-    session_id = request.session_id
+    session_id = request.session_id or "default-session"
 
-    # Safety check
     if contains_sensitive_data(user_message):
-        safety_reply = get_safety_response()
-
-        save_chat(
+        return save_and_build_response(
             session_id=session_id,
             user_message=user_message,
-            bot_reply=safety_reply,
+            reply=get_safety_response(),
             source="safety-filter",
+            status="blocked",
             blocked=True,
-            status="blocked"
         )
 
-        return ChatResponse(
-            reply=safety_reply,
-            source="safety-filter",
-            blocked=True
-        )
-
-    # Greeting check
     if is_greeting_only(user_message):
-        greeting_reply = get_greeting_reply()
-
-        save_chat(
+        return save_and_build_response(
             session_id=session_id,
             user_message=user_message,
-            bot_reply=greeting_reply,
+            reply=get_greeting_reply(),
             source="greeting-handler",
-            blocked=False,
-            status="greeting"
+            status="greeting",
         )
 
-        return ChatResponse(
-            reply=greeting_reply,
-            source="greeting-handler",
-            blocked=False
+    if is_direct_contact_question(user_message):
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=get_direct_contact_reply(user_message),
+            source="verified-contact",
+            status="answered",
         )
 
-    # Recent chat history
     history = get_chat_history(session_id, limit=10)
-    has_previous_history = len(history) > 0
-
-    # Off-topic check
-    if not is_allowed_question(user_message, has_previous_history):
-        off_topic_reply = get_off_topic_reply()
-
-        save_chat(
+    if not is_allowed_question(user_message, len(history) > 0):
+        return save_and_build_response(
             session_id=session_id,
             user_message=user_message,
-            bot_reply=off_topic_reply,
+            reply=get_off_topic_reply(),
             source="topic-guard",
-            blocked=False,
-            status="off_topic"
+            status="off_topic",
         )
 
-        return ChatResponse(
-            reply=off_topic_reply,
-            source="topic-guard",
-            blocked=False
-        )
-
-    # Website info and long memory
     website_info = get_website_information()
     session_summary = get_session_summary(session_id)
 
@@ -149,97 +255,33 @@ def chat(request: ChatRequest):
             session_summary
         )
     except Exception:
-        save_chat(
+        return save_and_build_response(
             session_id=session_id,
             user_message=user_message,
-            bot_reply=ERROR_REPLY,
-            source="system-error",
-            blocked=False,
-            status="error"
-        )
-
-        return ChatResponse(
             reply=ERROR_REPLY,
             source="system-error",
-            blocked=False
+            status="error",
         )
 
-    save_chat(
+    response = save_and_build_response(
         session_id=session_id,
         user_message=user_message,
-        bot_reply=reply,
-        source="groq-llm",
-        blocked=False,
-        status="answered"
-    )
-
-    # Update long-term session summary
-    try:
-        new_summary = update_conversation_summary(
-            session_summary,
-            user_message,
-            reply
-        )
-
-        save_session_summary(session_id, new_summary)
-
-    except Exception:
-        pass
-
-    return ChatResponse(
         reply=reply,
         source="groq-llm",
-        blocked=False
+        status="answered",
     )
+    update_summary_safely(session_id, session_summary, user_message, reply)
+    return response
 
 
 @app.post("/refresh-website-info")
 def refresh_website_info():
-    pages = [
-        {
-            "page_name": "EBL Home Page",
-            "page_url": "https://www.ebl.com.bd/"
-        },
-        {
-            "page_name": "EBL Cards Page",
-            "page_url": "https://www.ebl.com.bd/retail/EBL-Cards"
-        },
-        {
-            "page_name": "EBL Retail Loan Page",
-            "page_url": "https://www.ebl.com.bd/retail/retail-loan"
-        },
-        {
-            "page_name": "EBL SME Loan Page",
-            "page_url": "https://www.ebl.com.bd/sme/sme-loans"
-        },
-        {
-            "page_name": "EBL Retail Deposits Page",
-            "page_url": "https://www.ebl.com.bd/retail/retail-deposit"
-        },
-        {
-            "page_name": "EBL SME Deposits Page",
-            "page_url": "https://www.ebl.com.bd/sme/sme-deposits"
-        },
-        {
-            "page_name": "EBL Digital Banking Page",
-            "page_url": "https://www.ebl.com.bd/retail-digital/ebl-skybanking"
-        },
-        {
-            "page_name": "EBL Contact Page",
-            "page_url": "https://www.ebl.com.bd/contact"
-        },
-        {
-            "page_name": "EBL Locator Page",
-            "page_url": "https://www.ebl.com.bd/locator/"
-        }
-    ]
-
     clear_website_information()
 
     saved_pages = []
     failed_pages = []
 
-    for page in pages:
+    for page in WEBSITE_PAGES:
         try:
             page_text = get_text_from_website(page["page_url"])
 
@@ -261,6 +303,29 @@ def refresh_website_info():
                 "page_url": page["page_url"],
                 "error": str(error)
             })
+
+    verified_contact_text = """
+Eastern Bank PLC official contact information:
+
+General email: info@ebl-bd.com
+Hotline: 16230
+From overseas: +8809677716230
+General contact number: +8809666777325
+
+Source: Eastern Bank PLC official contact page.
+"""
+
+    save_website_text(
+        page_name="EBL Verified Contact Information",
+        page_url="https://www.ebl.com.bd/contact",
+        page_text=verified_contact_text
+    )
+
+    saved_pages.append({
+        "page_name": "EBL Verified Contact Information",
+        "page_url": "https://www.ebl.com.bd/contact",
+        "characters_saved": len(verified_contact_text)
+    })
 
     return {
         "message": "Website information refresh completed",

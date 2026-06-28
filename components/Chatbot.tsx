@@ -25,6 +25,57 @@ function createSessionId() {
   return `session-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
 
+function formatMessage(text: string) {
+  const pattern =
+    /(https?:\/\/[^\s]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\+?\d[\d\s-]{7,}\d|16230)/g;
+
+  return text.split(pattern).map((part, index) => {
+    const cleanPart = part.trim();
+
+    if (cleanPart.startsWith("http://") || cleanPart.startsWith("https://")) {
+      return (
+        <a
+          key={index}
+          href={cleanPart}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-semibold underline underline-offset-2"
+        >
+          Open Link
+        </a>
+      );
+    }
+
+    if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(cleanPart)) {
+      return (
+        <a
+          key={index}
+          href={`mailto:${cleanPart}`}
+          className="font-semibold underline underline-offset-2"
+        >
+          {cleanPart}
+        </a>
+      );
+    }
+
+    if (/^(\+?\d[\d\s-]{7,}\d|16230)$/.test(cleanPart)) {
+      const phoneNumber = cleanPart.replace(/[^\d+]/g, "");
+
+      return (
+        <a
+          key={index}
+          href={`tel:${phoneNumber}`}
+          className="font-semibold underline underline-offset-2"
+        >
+          {cleanPart}
+        </a>
+      );
+    }
+
+    return part;
+  });
+}
+
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -202,7 +253,7 @@ export default function Chatbot() {
                         : "ml-auto bg-[#006A4E] text-white"
                     }`}
                   >
-                    {message.text}
+                    {formatMessage(message.text)}
                   </div>
                 ))}
               </div>

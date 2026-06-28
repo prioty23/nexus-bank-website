@@ -1,0 +1,56 @@
+def is_complaint_memory_question(message):
+    message = message.lower()
+
+    complaint_words = [
+        "complaint",
+        "complain",
+        "complaint id",
+        "issue i created",
+        "case i created",
+    ]
+
+    memory_words = [
+        "before",
+        "earlier",
+        "previous",
+        "last",
+        "created",
+        "made",
+        "submitted",
+    ]
+
+    has_complaint_word = any(word in message for word in complaint_words)
+    has_memory_word = any(word in message for word in memory_words)
+
+    return has_complaint_word and has_memory_word
+
+
+def build_recent_memory_reply(messages):
+    if not messages:
+        return (
+            "I do not have any earlier saved messages in this session yet."
+        )
+
+    reply = "Here are your recent questions from this session:\n\n"
+
+    for index, item in enumerate(messages, start=1):
+        reply += f"{index}. {item['message']}\n"
+
+    return reply.strip()
+
+
+def build_latest_complaint_memory_reply(complaint):
+    if not complaint:
+        return (
+            "I could not find any complaint created in this session yet."
+        )
+
+    return (
+        "Here is the latest complaint I found in this session:\n\n"
+        f"Complaint ID: {complaint['complaint_id']}\n"
+        f"Issue Type: {complaint['issue_type']}\n"
+        f"Status: {complaint['status']}\n"
+        f"Description: {complaint['description']}\n"
+        f"Created At: {complaint['created_at']}\n"
+        f"Last Updated: {complaint['updated_at']}"
+    )

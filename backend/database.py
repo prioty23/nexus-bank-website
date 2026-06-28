@@ -9,16 +9,6 @@ def create_database():
     connection = sqlite3.connect(DATABASE_NAME)
     cursor = connection.cursor()
 
-
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS session_memory (
-           session_id TEXT PRIMARY KEY,
-           summary TEXT,
-           updated_at TEXT
-        )
-    """)
-
-
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS chat_logs (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -33,7 +23,6 @@ def create_database():
         )
     """)
 
-
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS website_info (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -41,6 +30,27 @@ def create_database():
             page_url TEXT,
             page_text TEXT,
             status TEXT,
+            updated_at TEXT
+        )
+    """)
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS session_memory (
+            session_id TEXT PRIMARY KEY,
+            summary TEXT,
+            updated_at TEXT
+        )
+    """)
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS complaints (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            complaint_id TEXT UNIQUE,
+            session_id TEXT,
+            issue_type TEXT,
+            description TEXT,
+            status TEXT,
+            created_at TEXT,
             updated_at TEXT
         )
     """)
@@ -111,7 +121,6 @@ def get_chat_history(session_id, limit=6):
     connection.close()
 
     history = []
-
     rows.reverse()
 
     for row in rows:
@@ -197,6 +206,54 @@ def get_website_information():
     return website_information
 
 
+def get_website_information_by_page_names(page_names):
+    create_database()
+
+    if not page_names:
+        return get_website_information()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    placeholders = ",".join(["?"] * len(page_names))
+
+    cursor.execute(f"""
+        SELECT page_name, page_url, page_text
+        FROM website_info
+        WHERE status = 'active'
+        AND page_name IN ({placeholders})
+        ORDER BY id ASC
+    """, page_names)
+
+    rows = cursor.fetchall()
+    connection.close()
+
+    website_information = ""
+
+    for row in rows:
+        page_name = row[0]
+        page_url = row[1]
+        page_text = row[2]
+
+        website_information += f"Page: {page_name}\n"
+        website_information += f"URL: {page_url}\n"
+        website_information += f"Content:\n{page_text}\n\n"
+
+    return website_information
+
+
+def clear_website_information():
+    create_database()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    cursor.execute("DELETE FROM website_info")
+
+    connection.commit()
+    connection.close()
+
+
 def get_session_summary(session_id):
     create_database()
 
@@ -242,16 +299,182 @@ def save_session_summary(session_id, summary):
     connection.commit()
     connection.close()
 
-# Ensure all tables exist as soon as this module is imported.
-create_database()
 
-def clear_website_information():
+def generate_complaint_id(cursor):
+    today = datetime.now().strftime("%Y%m%d")
+    prefix = f"CMP-{today}-"
+
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM complaints
+        WHERE complaint_id LIKE ?
+    """, (prefix + "%",))
+
+    count = cursor.fetchone()[0]
+    next_number = count + 1
+
+    return f"{prefix}{next_number:04d}"
+
+
+def save_complaint(session_id, issue_type, description):
     create_database()
 
     connection = sqlite3.connect(DATABASE_NAME)
     cursor = connection.cursor()
 
-    cursor.execute("DELETE FROM website_info")
+    complaint_id = generate_complaint_id(cursor)
+    created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    status = "Pending"
+
+    cursor.execute("""
+        INSERT INTO complaints (
+            complaint_id,
+            session_id,
+            issue_type,
+            description,
+            status,
+            created_at,
+            updated_at
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    """, (
+        complaint_id,
+        session_id,
+        issue_type,
+        description,
+        status,
+        created_at,
+        created_at
+    ))
 
     connection.commit()
     connection.close()
+
+    return {
+        "complaint_id": complaint_id,
+        "issue_type": issue_type,
+        "description": description,
+        "status": status,
+        "created_at": created_at
+    }
+
+
+def get_complaint_by_id(complaint_id):
+    create_database()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT complaint_id, session_id, issue_type, description, status, created_at, updated_at
+        FROM complaints
+        WHERE complaint_id = ?
+    """, (complaint_id,))
+
+    row = cursor.fetchone()
+    connection.close()
+
+    if not row:
+        return None
+
+    return {
+        "complaint_id": row[0],
+        "session_id": row[1],
+        "issue_type": row[2],
+        "description": row[3],
+        "status": row[4],
+        "created_at": row[5],
+        "updated_at": row[6]
+    }
+
+
+def update_complaint_status(complaint_id, new_status):
+    create_database()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    updated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    cursor.execute("""
+        UPDATE complaints
+        SET status = ?, updated_at = ?
+        WHERE complaint_id = ?
+    """, (
+        new_status,
+        updated_at,
+        complaint_id
+    ))
+
+    updated_rows = cursor.rowcount
+
+    connection.commit()
+    connection.close()
+
+    if updated_rows == 0:
+        return None
+
+    return get_complaint_by_id(complaint_id)
+
+
+def get_recent_user_messages(session_id, limit=5):
+    create_database()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT user_message, created_at
+        FROM chat_logs
+        WHERE session_id = ?
+        AND blocked = 0
+        AND user_message IS NOT NULL
+        AND user_message != ''
+        AND source != 'memory-recall-agent'
+        ORDER BY id DESC
+        LIMIT ?
+    """, (session_id, limit))
+
+    rows = cursor.fetchall()
+    connection.close()
+
+    messages = []
+    rows.reverse()
+
+    for row in rows:
+        messages.append({
+            "message": row[0],
+            "created_at": row[1]
+        })
+
+    return messages
+
+
+def get_latest_complaint_by_session(session_id):
+    create_database()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT complaint_id, issue_type, description, status, created_at, updated_at
+        FROM complaints
+        WHERE session_id = ?
+        ORDER BY id DESC
+        LIMIT 1
+    """, (session_id,))
+
+    row = cursor.fetchone()
+    connection.close()
+
+    if not row:
+        return None
+
+    return {
+        "complaint_id": row[0],
+        "issue_type": row[1],
+        "description": row[2],
+        "status": row[3],
+        "created_at": row[4],
+        "updated_at": row[5]
+    }

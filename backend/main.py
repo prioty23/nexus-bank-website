@@ -1,9 +1,14 @@
 """Backend entrypoint."""
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from schemas import ChatRequest, ChatResponse
+from schemas import (
+    ChatRequest,
+    ChatResponse,
+    ComplaintStatusUpdateRequest,
+)
+
 from safety import contains_sensitive_data, get_safety_response
 
 from groq_client import (
@@ -15,10 +20,16 @@ from database import (
     save_chat,
     get_chat_history,
     get_website_information,
+    get_website_information_by_page_names,
     save_website_text,
     clear_website_information,
     get_session_summary,
     save_session_summary,
+    save_complaint,
+    get_complaint_by_id,
+    update_complaint_status,
+    get_recent_user_messages,
+    get_latest_complaint_by_session,
 )
 
 from website_scraper import get_text_from_website
@@ -30,24 +41,49 @@ from topic_guard import (
     get_greeting_reply,
 )
 
+from intent_router import detect_intent
+
+from agent_actions import (
+    get_contact_reply,
+    get_online_apply_reply,
+    get_urgent_card_reply,
+    get_complaint_start_reply,
+)
+
+from complaint_manager import (
+    has_enough_complaint_details,
+    get_issue_type,
+    build_complaint_created_reply,
+    extract_complaint_id,
+    build_complaint_status_reply,
+    build_complaint_not_found_reply,
+    build_missing_complaint_id_reply,
+)
+
+from knowledge_router import select_knowledge_pages
+
+from memory_recall import (
+    is_complaint_memory_question,
+    build_recent_memory_reply,
+    build_latest_complaint_memory_reply,
+)
+
+from response_cleaner import clean_bank_contact_information
+
 
 ERROR_REPLY = "Sorry, I could not process that request right now. Please try again later."
-CONTACT_EMAIL = "info@ebl-bd.com"
-CONTACT_HOTLINE = "16230"
-CONTACT_OVERSEAS = "+8809677716230"
-CONTACT_NUMBER = "+8809666777325"
-CONTACT_WORDS = [
-    "email",
-    "mail",
-    "hotline",
-    "phone",
-    "number",
-    "contact",
-    "customer support",
-    "customer service",
-    "call center",
-    "helpline",
-]
+
+
+def limit_text(text, max_characters):
+    if not text:
+        return ""
+
+    if len(text) <= max_characters:
+        return text
+
+    return text[:max_characters]
+
+
 WEBSITE_PAGES = [
     {
         "page_name": "EBL Home Page",
@@ -88,48 +124,12 @@ WEBSITE_PAGES = [
 ]
 
 
-def is_direct_contact_question(message):
-    message = message.lower()
-
-    for word in CONTACT_WORDS:
-        if word in message:
-            return True
-
-    return False
-
-
-def get_direct_contact_reply(message):
-    message = message.lower()
-
-    if "email" in message or "mail" in message:
-        return CONTACT_EMAIL
-
-    if "hotline" in message:
-        return CONTACT_HOTLINE
-
-    if "phone" in message or "number" in message or "call center" in message or "helpline" in message:
-        return (
-            f"Hotline: {CONTACT_HOTLINE}\n"
-            f"From overseas: {CONTACT_OVERSEAS}\n"
-            f"General contact number: {CONTACT_NUMBER}"
-        )
-
-    if "contact" in message or "customer support" in message or "customer service" in message:
-        return (
-            f"Email: {CONTACT_EMAIL}\n"
-            f"Hotline: {CONTACT_HOTLINE}\n"
-            f"From overseas: {CONTACT_OVERSEAS}\n"
-            f"General contact number: {CONTACT_NUMBER}"
-        )
-
-    return (
-        f"Email: {CONTACT_EMAIL}\n"
-        f"Hotline: {CONTACT_HOTLINE}"
-    )
-
-
 def build_response(reply, source, blocked=False):
-    return ChatResponse(reply=reply, source=source, blocked=blocked)
+    return ChatResponse(
+        reply=reply,
+        source=source,
+        blocked=blocked,
+    )
 
 
 def save_and_build_response(
@@ -159,7 +159,9 @@ def update_summary_safely(session_id, session_summary, user_message, reply):
             user_message,
             reply,
         )
+
         save_session_summary(session_id, new_summary)
+
     except Exception:
         pass
 
@@ -225,17 +227,116 @@ def chat(request: ChatRequest):
             status="greeting",
         )
 
-    if is_direct_contact_question(user_message):
+    intent = detect_intent(user_message)
+
+    if intent == "contact_information":
         return save_and_build_response(
             session_id=session_id,
             user_message=user_message,
-            reply=get_direct_contact_reply(user_message),
-            source="verified-contact",
+            reply=get_contact_reply(user_message),
+            source="contact-agent",
             status="answered",
         )
 
+    if intent == "online_apply":
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=get_online_apply_reply(user_message),
+            source="online-apply-agent",
+            status="answered",
+        )
+
+    if intent == "urgent_card_issue":
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=get_urgent_card_reply(),
+            source="urgent-escalation-agent",
+            status="urgent",
+        )
+
+    if intent == "complaint_create":
+        if not has_enough_complaint_details(user_message):
+            return save_and_build_response(
+                session_id=session_id,
+                user_message=user_message,
+                reply=get_complaint_start_reply(),
+                source="complaint-agent",
+                status="collecting_complaint_details",
+            )
+
+        issue_type = get_issue_type(user_message)
+
+        complaint = save_complaint(
+            session_id=session_id,
+            issue_type=issue_type,
+            description=user_message,
+        )
+
+        complaint_reply = build_complaint_created_reply(complaint)
+
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=complaint_reply,
+            source="complaint-agent",
+            status="complaint_created",
+        )
+
+    if intent == "complaint_status":
+        complaint_id = extract_complaint_id(user_message)
+
+        if not complaint_id:
+            return save_and_build_response(
+                session_id=session_id,
+                user_message=user_message,
+                reply=build_missing_complaint_id_reply(),
+                source="complaint-status-agent",
+                status="missing_complaint_id",
+            )
+
+        complaint = get_complaint_by_id(complaint_id)
+
+        if not complaint:
+            return save_and_build_response(
+                session_id=session_id,
+                user_message=user_message,
+                reply=build_complaint_not_found_reply(complaint_id),
+                source="complaint-status-agent",
+                status="complaint_not_found",
+            )
+
+        status_reply = build_complaint_status_reply(complaint)
+
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=status_reply,
+            source="complaint-status-agent",
+            status="complaint_status_found",
+        )
+
+    if intent == "memory_question":
+        if is_complaint_memory_question(user_message):
+            latest_complaint = get_latest_complaint_by_session(session_id)
+            memory_reply = build_latest_complaint_memory_reply(latest_complaint)
+        else:
+            recent_messages = get_recent_user_messages(session_id, limit=5)
+            memory_reply = build_recent_memory_reply(recent_messages)
+
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=memory_reply,
+            source="memory-recall-agent",
+            status="memory_recalled",
+        )
+
     history = get_chat_history(session_id, limit=10)
-    if not is_allowed_question(user_message, len(history) > 0):
+    has_previous_history = len(history) > 0
+
+    if intent == "off_topic" and not is_allowed_question(user_message, has_previous_history):
         return save_and_build_response(
             session_id=session_id,
             user_message=user_message,
@@ -244,17 +345,29 @@ def chat(request: ChatRequest):
             status="off_topic",
         )
 
-    website_info = get_website_information()
-    session_summary = get_session_summary(session_id)
+    selected_pages = select_knowledge_pages(intent)
+
+    website_info = limit_text(
+        get_website_information_by_page_names(selected_pages),
+        12000,
+    )
+
+    if not website_info:
+        website_info = limit_text(get_website_information(), 12000)
+
+    session_summary = limit_text(get_session_summary(session_id), 2000)
 
     try:
         reply = generate_groq_customer_service_reply(
             user_message,
             history,
             website_info,
-            session_summary
+            session_summary,
         )
-    except Exception:
+
+    except Exception as error:
+        print("GROQ ERROR:", error)
+
         return save_and_build_response(
             session_id=session_id,
             user_message=user_message,
@@ -263,6 +376,8 @@ def chat(request: ChatRequest):
             status="error",
         )
 
+    reply = clean_bank_contact_information(reply)
+
     response = save_and_build_response(
         session_id=session_id,
         user_message=user_message,
@@ -270,7 +385,14 @@ def chat(request: ChatRequest):
         source="groq-llm",
         status="answered",
     )
-    update_summary_safely(session_id, session_summary, user_message, reply)
+
+    update_summary_safely(
+        session_id=session_id,
+        session_summary=session_summary,
+        user_message=user_message,
+        reply=reply,
+    )
+
     return response
 
 
@@ -288,20 +410,20 @@ def refresh_website_info():
             save_website_text(
                 page_name=page["page_name"],
                 page_url=page["page_url"],
-                page_text=page_text
+                page_text=page_text,
             )
 
             saved_pages.append({
                 "page_name": page["page_name"],
                 "page_url": page["page_url"],
-                "characters_saved": len(page_text)
+                "characters_saved": len(page_text),
             })
 
         except Exception as error:
             failed_pages.append({
                 "page_name": page["page_name"],
                 "page_url": page["page_url"],
-                "error": str(error)
+                "error": str(error),
             })
 
     verified_contact_text = """
@@ -318,17 +440,60 @@ Source: Eastern Bank PLC official contact page.
     save_website_text(
         page_name="EBL Verified Contact Information",
         page_url="https://www.ebl.com.bd/contact",
-        page_text=verified_contact_text
+        page_text=verified_contact_text,
     )
 
     saved_pages.append({
         "page_name": "EBL Verified Contact Information",
         "page_url": "https://www.ebl.com.bd/contact",
-        "characters_saved": len(verified_contact_text)
+        "characters_saved": len(verified_contact_text),
     })
 
     return {
         "message": "Website information refresh completed",
         "saved_pages": saved_pages,
-        "failed_pages": failed_pages
+        "failed_pages": failed_pages,
+    }
+
+
+@app.patch("/admin/complaints/{complaint_id}/status")
+def admin_update_complaint_status(
+    complaint_id: str,
+    request: ComplaintStatusUpdateRequest,
+):
+    allowed_statuses = [
+        "Pending",
+        "In Progress",
+        "Resolved",
+        "Rejected",
+    ]
+
+    requested_status = request.status.strip()
+    normalized_status = None
+
+    for status in allowed_statuses:
+        if requested_status.lower() == status.lower():
+            normalized_status = status
+            break
+
+    if not normalized_status:
+        raise HTTPException(
+            status_code=400,
+            detail="Invalid status. Allowed statuses are: Pending, In Progress, Resolved, Rejected.",
+        )
+
+    updated_complaint = update_complaint_status(
+        complaint_id=complaint_id.upper(),
+        new_status=normalized_status,
+    )
+
+    if not updated_complaint:
+        raise HTTPException(
+            status_code=404,
+            detail="Complaint not found.",
+        )
+
+    return {
+        "message": "Complaint status updated successfully",
+        "complaint": updated_complaint,
     }

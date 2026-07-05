@@ -88,3 +88,85 @@ def build_missing_complaint_id_reply():
         "Please provide your complaint ID to check the status.\n\n"
         "Example: CMP-20260628-0001"
     )
+
+
+def is_complaint_confirmation_yes(message):
+    message = message.lower().strip()
+
+    yes_exact_words = [
+        "yes",
+        "ok",
+        "okay",
+        "sure",
+        "create",
+        "submit",
+        "do it",
+    ]
+
+    yes_phrases = [
+        "yes create",
+        "yes please",
+        "create complaint",
+        "submit complaint",
+        "ok create",
+        "okay create",
+        "please create",
+        "create it",
+        "please submit",
+    ]
+
+    if message in yes_exact_words:
+        return True
+
+    for phrase in yes_phrases:
+        if phrase in message:
+            return True
+
+    return False
+
+
+def is_complaint_confirmation_no(message):
+    message = message.lower().strip()
+
+    no_exact_words = [
+        "no",
+        "cancel",
+        "stop",
+        "later",
+    ]
+
+    no_phrases = [
+        "not now",
+        "do not create",
+        "don't create",
+        "dont create",
+        "no need",
+        "cancel it",
+        "stop it",
+        "create later",
+    ]
+
+    if message in no_exact_words:
+        return True
+
+    for phrase in no_phrases:
+        if phrase in message:
+            return True
+
+    return False
+
+
+def build_complaint_confirmation_reply(issue_type):
+    return (
+        "I can create a complaint record for this issue.\n\n"
+        "Do you want me to create the complaint record now?\n"
+        "Please reply with Yes to create or No to cancel.\n\n"
+        "For your safety, do not share OTP, PIN, password, CVV, or full card number."
+    )
+
+
+def build_complaint_cancelled_reply():
+    return (
+        "Okay, I will not create a complaint record now.\n\n"
+        "If you want to create it later, please describe the issue again and confirm that you want to create a complaint."
+    )

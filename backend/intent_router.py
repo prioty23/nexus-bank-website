@@ -11,6 +11,21 @@ def contains_any(message, keywords):
 def detect_intent(message):
     message = message.lower().strip()
 
+    # Online application link
+    if contains_any(message, [
+        "apply online",
+        "online apply",
+        "online application",
+        "application link",
+        "apply link",
+        "apply now",
+        "online form",
+        "apply card online",
+        "apply loan online",
+        "apply account online",
+    ]):
+        return "online_apply"
+
     # Complaint status check
     if contains_any(message, [
         "complaint status",
@@ -57,36 +72,6 @@ def detect_intent(message):
     ]):
         return "contact_information"
 
-    # Online application link
-    if contains_any(message, [
-        "online apply",
-        "apply online",
-        "online application",
-        "application link",
-        "apply link",
-        "apply now",
-        "application form",
-        "online form",
-        "how can i apply",
-        "how to apply",
-        "where can i apply",
-        "i want to apply",
-        "open account online",
-        "apply for account",
-        "apply account online",
-        "account application",
-        "account opening online",
-        "apply for card",
-        "apply card online",
-        "card application",
-        "credit card application",
-        "debit card application",
-        "apply for loan",
-        "apply loan online",
-        "loan application"
-    ]):
-        return "online_apply"
-
     # Urgent card or security issue
     if contains_any(message, [
         "lost card",
@@ -126,11 +111,16 @@ def detect_intent(message):
 
     # Account information
     if contains_any(message, [
+        "how can i open an account",
+        "how to open an account",
+        "open an account",
         "open account",
         "account opening",
+        "create account",
+        "new account",
+        "bank account",
         "savings account",
         "current account",
-        "account",
         "documents required",
         "what documents",
         "nid",

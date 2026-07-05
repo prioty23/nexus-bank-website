@@ -1,5 +1,7 @@
 """Backend entrypoint."""
 
+from urllib.parse import urlparse
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -30,9 +32,13 @@ from database import (
     update_complaint_status,
     get_recent_user_messages,
     get_latest_complaint_by_session,
+    search_website_information,
+    save_pending_complaint,
+    get_pending_complaint,
+    delete_pending_complaint,
 )
 
-from website_scraper import get_text_from_website
+from website_scraper import get_internal_links_from_website, get_text_from_website
 
 from topic_guard import (
     is_allowed_question,
@@ -58,6 +64,10 @@ from complaint_manager import (
     build_complaint_status_reply,
     build_complaint_not_found_reply,
     build_missing_complaint_id_reply,
+    is_complaint_confirmation_yes,
+    is_complaint_confirmation_no,
+    build_complaint_confirmation_reply,
+    build_complaint_cancelled_reply,
 )
 
 from knowledge_router import select_knowledge_pages
@@ -72,6 +82,8 @@ from response_cleaner import clean_bank_contact_information
 
 
 ERROR_REPLY = "Sorry, I could not process that request right now. Please try again later."
+EBL_CONTEXT_LIMIT = 10000
+SESSION_SUMMARY_LIMIT = 800
 
 
 def limit_text(text, max_characters):
@@ -82,6 +94,262 @@ def limit_text(text, max_characters):
         return text
 
     return text[:max_characters]
+
+
+def is_document_question(message):
+    message = message.lower()
+
+    document_words = [
+        "document",
+        "documents",
+        "required",
+        "requirement",
+        "requirements",
+        "need",
+        "needed",
+    ]
+
+    account_words = [
+        "account",
+        "savings",
+        "saving",
+        "current",
+        "open",
+        "opening",
+    ]
+
+    return contains_any_word(message, document_words) and contains_any_word(message, account_words)
+
+
+def contains_any_word(message, words):
+    for word in words:
+        if word in message:
+            return True
+
+    return False
+
+
+def is_broad_account_opening_question(message):
+    message = message.lower()
+
+    broad_phrases = [
+        "how can i open an account",
+        "how to open an account",
+        "open an account",
+        "open account",
+        "account opening",
+        "create account",
+        "new account",
+    ]
+
+    return any(phrase in message for phrase in broad_phrases)
+
+
+def clean_document_line(line):
+    replacements = {
+        "\u2018": "'",
+        "\u2019": "'",
+        "\u201c": '"',
+        "\u201d": '"',
+        "\u2013": "-",
+        "\u2014": "-",
+        "\u2022": "-",
+        "\ufffd": "'",
+    }
+
+    cleaned_line = line.strip()
+
+    for old_value, new_value in replacements.items():
+        cleaned_line = cleaned_line.replace(old_value, new_value)
+
+    return cleaned_line
+
+
+def extract_required_document_lines(website_info):
+    if not website_info:
+        return []
+
+    lines = [
+        clean_document_line(line)
+        for line in website_info.splitlines()
+    ]
+
+    start_index = -1
+
+    for index, line in enumerate(lines):
+        lower_line = line.lower()
+
+        if (
+            lower_line == "required documents for account opening"
+            or lower_line == "documents required to open account"
+        ):
+            start_index = index
+            break
+
+    if start_index < 0:
+        return []
+
+    stop_lines = [
+        "quick apply",
+        "ebl  self  service portal",
+        "ebl self service portal",
+        "existing customer",
+        "new customer",
+        "apply for",
+        "preferred branch",
+    ]
+
+    document_lines = []
+
+    for line in lines[start_index + 1:]:
+        if not line:
+            continue
+
+        lower_line = line.lower()
+
+        if lower_line.startswith("page:") or lower_line.startswith("url:"):
+            break
+
+        if lower_line in stop_lines:
+            break
+
+        if line in ["':", "' :"] and document_lines:
+            document_lines[-1] = f"{document_lines[-1]}'" + ":"
+            continue
+
+        document_lines.append(line)
+
+    return document_lines
+
+
+def build_required_documents_reply(user_message, website_info):
+    if not is_document_question(user_message):
+        return ""
+
+    document_lines = extract_required_document_lines(website_info)
+
+    if not document_lines:
+        return ""
+
+    reply = "To open a savings account, the EBL website lists these required documents:\n\n"
+    inside_group = False
+
+    for line in document_lines:
+        lower_line = line.lower()
+
+        if (
+            lower_line.startswith("applicants")
+            or lower_line.startswith("nominees")
+        ):
+            reply += f"- {line}\n"
+            inside_group = True
+            continue
+
+        if (
+            lower_line.startswith("completed")
+            or lower_line.startswith("during account opening")
+        ):
+            reply += f"- {line}\n"
+            inside_group = False
+            continue
+
+        if inside_group:
+            reply += f"  - {line}\n"
+        else:
+            reply += f"- {line}\n"
+
+    return reply.strip()
+
+
+DISCOVERY_SOURCES = [
+    {
+        "page_url": "https://www.ebl.com.bd/retail/EBL-Cards",
+        "allowed_paths": [
+            "/retail/eblcard/",
+            "/islamic/eblcard/",
+            "/ebl-virtual-prepaid-card",
+        ],
+    },
+    {
+        "page_url": "https://www.ebl.com.bd/retail/retail-loan",
+        "allowed_paths": [
+            "/retail-loan/",
+        ],
+    },
+    {
+        "page_url": "https://www.ebl.com.bd/sme/sme-loans",
+        "allowed_paths": [
+            "/sme-loan/",
+            "/sme/sme-loan/",
+        ],
+    },
+    {
+        "page_url": "https://www.ebl.com.bd/retail/retail-deposit",
+        "allowed_paths": [
+            "/retail-deposit/",
+        ],
+    },
+]
+
+MAX_DISCOVERED_PAGES = 120
+
+
+def is_allowed_discovered_url(url, allowed_paths):
+    parsed_url = urlparse(url)
+    path = parsed_url.path.lower()
+
+    if not parsed_url.netloc.endswith("ebl.com.bd"):
+        return False
+
+    for allowed_path in allowed_paths:
+        if path.startswith(allowed_path.lower()):
+            return True
+
+    return False
+
+
+def build_discovered_page_name(link):
+    link_text = link.get("text", "").strip()
+
+    if link_text and link_text.lower() not in ["readmore", "read more", "apply now"]:
+        return f"EBL Detail Page - {link_text}"
+
+    path = urlparse(link["url"]).path.strip("/")
+    slug = path.split("/")[-1]
+    title = slug.replace("-", " ").replace("_", " ").strip()
+
+    if not title:
+        title = "Product Detail"
+
+    return f"EBL Detail Page - {title.title()}"
+
+
+def discover_website_pages():
+    discovered_pages = []
+    seen_urls = set(page["page_url"] for page in WEBSITE_PAGES)
+
+    for source in DISCOVERY_SOURCES:
+        links = get_internal_links_from_website(source["page_url"])
+
+        for link in links:
+            page_url = link["url"]
+
+            if page_url in seen_urls:
+                continue
+
+            if not is_allowed_discovered_url(page_url, source["allowed_paths"]):
+                continue
+
+            seen_urls.add(page_url)
+            discovered_pages.append({
+                "page_name": build_discovered_page_name(link),
+                "page_url": page_url,
+            })
+
+            if len(discovered_pages) >= MAX_DISCOVERED_PAGES:
+                return discovered_pages
+
+    return discovered_pages
 
 
 WEBSITE_PAGES = [
@@ -106,6 +374,26 @@ WEBSITE_PAGES = [
         "page_url": "https://www.ebl.com.bd/retail/retail-deposit",
     },
     {
+        "page_name": "EBL Power Savings Page",
+        "page_url": "https://www.ebl.com.bd/retail-deposit/EBL-Power-Savings",
+    },
+    {
+        "page_name": "EBL Premium Savings Page",
+        "page_url": "https://www.ebl.com.bd/retail-deposit/EBL-Premium-Savings",
+    },
+    {
+        "page_name": "EBL 50+ Savings Page",
+        "page_url": "https://www.ebl.com.bd/retail-deposit/EBL-50Plus-Savings",
+    },
+    {
+        "page_name": "EBL Max Saver Page",
+        "page_url": "https://www.ebl.com.bd/retail-deposit/EBL-Max-Saver",
+    },
+    {
+        "page_name": "EBL Current Account Page",
+        "page_url": "https://www.ebl.com.bd/retail-deposit/EBL-Current-Account",
+    },
+    {
         "page_name": "EBL SME Deposits Page",
         "page_url": "https://www.ebl.com.bd/sme/sme-deposits",
     },
@@ -120,6 +408,30 @@ WEBSITE_PAGES = [
     {
         "page_name": "EBL Locator Page",
         "page_url": "https://www.ebl.com.bd/locator/",
+    },
+    {
+        "page_name": "EBL Online Apply Page",
+        "page_url": "https://www.ebl.com.bd/onlineapply",
+    },
+    {
+        "page_name": "EBL Forms and Downloads Page",
+        "page_url": "https://www.ebl.com.bd/forms-downloads",
+    },
+    {
+        "page_name": "EBL Interest Rates Page",
+        "page_url": "https://www.ebl.com.bd/interest-rates",
+    },
+    {
+        "page_name": "EBL Schedule of Charges Page",
+        "page_url": "https://www.ebl.com.bd/schedule-of-charges",
+    },
+    {
+        "page_name": "EBL Foreign Exchange Rate Page",
+        "page_url": "https://www.ebl.com.bd/foreign-exchange-rate",
+    },
+    {
+        "page_name": "EBL Complaint Cell Page",
+        "page_url": "https://www.ebl.com.bd/complaint-cell",
     },
 ]
 
@@ -229,6 +541,51 @@ def chat(request: ChatRequest):
 
     intent = detect_intent(user_message)
 
+
+    pending_complaint = get_pending_complaint(session_id)
+
+    if pending_complaint:
+        if is_complaint_confirmation_no(user_message):
+            delete_pending_complaint(session_id)
+
+            return save_and_build_response(
+                session_id=session_id,
+                user_message=user_message,
+                reply=build_complaint_cancelled_reply(),
+                source="complaint-agent",
+                status="complaint_cancelled",
+            )
+
+        if is_complaint_confirmation_yes(user_message):
+            complaint = save_complaint(
+                session_id=session_id,
+                issue_type=pending_complaint["issue_type"],
+                description=pending_complaint["description"],
+            )
+
+            delete_pending_complaint(session_id)
+
+            complaint_reply = build_complaint_created_reply(complaint)
+
+            return save_and_build_response(
+                session_id=session_id,
+                user_message=user_message,
+                reply=complaint_reply,
+                source="complaint-agent",
+                status="complaint_created",
+            )
+
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=(
+                "Please confirm whether you want me to create the complaint record.\n\n"
+                "Reply with Yes to create it or No to cancel."
+            ),
+            source="complaint-agent",
+            status="waiting_complaint_confirmation",
+        )
+
     if intent == "contact_information":
         return save_and_build_response(
             session_id=session_id,
@@ -268,20 +625,20 @@ def chat(request: ChatRequest):
 
         issue_type = get_issue_type(user_message)
 
-        complaint = save_complaint(
+        save_pending_complaint(
             session_id=session_id,
             issue_type=issue_type,
             description=user_message,
         )
 
-        complaint_reply = build_complaint_created_reply(complaint)
+        confirmation_reply = build_complaint_confirmation_reply(issue_type)
 
         return save_and_build_response(
             session_id=session_id,
             user_message=user_message,
-            reply=complaint_reply,
+            reply=confirmation_reply,
             source="complaint-agent",
-            status="complaint_created",
+            status="waiting_complaint_confirmation",
         )
 
     if intent == "complaint_status":
@@ -333,7 +690,7 @@ def chat(request: ChatRequest):
             status="memory_recalled",
         )
 
-    history = get_chat_history(session_id, limit=10)
+    history = get_chat_history(session_id, limit=4)
     has_previous_history = len(history) > 0
 
     if intent == "off_topic" and not is_allowed_question(user_message, has_previous_history):
@@ -345,17 +702,63 @@ def chat(request: ChatRequest):
             status="off_topic",
         )
 
-    selected_pages = select_knowledge_pages(intent)
+    if intent == "account_information" and is_broad_account_opening_question(user_message):
+        selected_pages = [
+            "EBL Online Apply Page",
+            "EBL Retail Deposits Page",
+            "EBL SME Deposits Page",
+            "EBL Verified Contact Information",
+        ]
 
-    website_info = limit_text(
-        get_website_information_by_page_names(selected_pages),
-        12000,
-    )
+        website_info = limit_text(
+            get_website_information_by_page_names(selected_pages),
+            EBL_CONTEXT_LIMIT,
+        )
+
+    else:
+        website_info = limit_text(
+            search_website_information(user_message, limit=5),
+            EBL_CONTEXT_LIMIT,
+        )
 
     if not website_info:
-        website_info = limit_text(get_website_information(), 12000)
+        selected_pages = select_knowledge_pages(intent)
 
-    session_summary = limit_text(get_session_summary(session_id), 2000)
+        website_info = limit_text(
+            get_website_information_by_page_names(selected_pages),
+            EBL_CONTEXT_LIMIT,
+        )
+
+    if not website_info:
+        website_info = limit_text(
+            get_website_information(),
+            EBL_CONTEXT_LIMIT,
+        )
+
+    session_summary = limit_text(
+        get_session_summary(session_id),
+        SESSION_SUMMARY_LIMIT,
+    )
+
+    required_documents_reply = ""
+
+    if not (
+        intent == "account_information"
+        and is_broad_account_opening_question(user_message)
+    ):
+        required_documents_reply = build_required_documents_reply(
+            user_message,
+            website_info,
+        )
+
+    if required_documents_reply:
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=required_documents_reply,
+            source="website-retrieval",
+            status="answered",
+        )
 
     try:
         reply = generate_groq_customer_service_reply(
@@ -366,12 +769,12 @@ def chat(request: ChatRequest):
         )
 
     except Exception as error:
-        print("GROQ ERROR:", error)
+        print("GROQ ERROR:", repr(error))
 
         return save_and_build_response(
             session_id=session_id,
             user_message=user_message,
-            reply=ERROR_REPLY,
+            reply=f"System error: {type(error).__name__}: {error}",
             source="system-error",
             status="error",
         )
@@ -426,6 +829,40 @@ def refresh_website_info():
                 "error": str(error),
             })
 
+    try:
+        discovered_pages = discover_website_pages()
+    except Exception as error:
+        discovered_pages = []
+        failed_pages.append({
+            "page_name": "EBL Detail Page Discovery",
+            "page_url": "multiple EBL source pages",
+            "error": str(error),
+        })
+
+    for page in discovered_pages:
+        try:
+            page_text = get_text_from_website(page["page_url"])
+
+            save_website_text(
+                page_name=page["page_name"],
+                page_url=page["page_url"],
+                page_text=page_text,
+            )
+
+            saved_pages.append({
+                "page_name": page["page_name"],
+                "page_url": page["page_url"],
+                "characters_saved": len(page_text),
+                "discovered": True,
+            })
+
+        except Exception as error:
+            failed_pages.append({
+                "page_name": page["page_name"],
+                "page_url": page["page_url"],
+                "error": str(error),
+            })
+
     verified_contact_text = """
 Eastern Bank PLC official contact information:
 
@@ -433,6 +870,7 @@ General email: info@ebl-bd.com
 Hotline: 16230
 From overseas: +8809677716230
 General contact number: +8809666777325
+Official online application link: https://www.ebl.com.bd/onlineapply
 
 Source: Eastern Bank PLC official contact page.
 """

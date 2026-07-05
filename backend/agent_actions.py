@@ -29,14 +29,8 @@ def get_contact_reply(message):
 
 def get_online_apply_reply(message):
     return (
-        "You can apply online through Eastern Bank PLC's official Online Apply page:\n\n"
-        "https://www.ebl.com.bd/onlineapply\n\n"
-        "You can use this page for online applications such as:\n"
-        "- Card application\n"
-        "- Account opening\n"
-        "- Loan application\n"
-        "- Other available EBL services\n\n"
-        "Please apply only through the official EBL website."
+        "Eastern Bank PLC online application link:\n"
+        "https://insta.ebl-bd.com/eblEkyc/ekycHome?cantu=%2FeblEkyc&baseUrl=https%3A%2F%2Finsta.ebl-bd.com%3A443%2FeblEkyc%2F"
     )
 
 

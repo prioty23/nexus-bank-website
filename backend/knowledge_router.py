@@ -3,6 +3,7 @@ def select_knowledge_pages(intent):
         "account_information": [
             "EBL Home Page",
             "EBL Retail Deposits Page",
+            "EBL SME Deposits Page",
             "EBL Verified Contact Information",
         ],
         "card_information": [

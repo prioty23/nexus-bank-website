@@ -1049,6 +1049,10 @@ def clean_document_line(line):
         "\u2014": "-",
         "\u2022": "-",
         "\ufffd": "'",
+        "��": "",
+        "\xb7": "",
+        "\xa0": " ",
+        "ofPartnership": "of Partnership",
     }
 
     cleaned_line = line.strip()
@@ -1056,7 +1060,74 @@ def clean_document_line(line):
     for old_value, new_value in replacements.items():
         cleaned_line = cleaned_line.replace(old_value, new_value)
 
-    return cleaned_line
+    return cleaned_line.strip()
+
+
+def is_required_document_heading(line):
+    lower_line = line.lower().rstrip(":")
+
+    return (
+        lower_line == "required documents for account opening"
+        or lower_line == "documents required to open account"
+        or lower_line.startswith("required documents to open")
+        or lower_line.startswith("documents required to open")
+        or lower_line == "identification document"
+    )
+
+
+def should_skip_document_line(line):
+    lower_line = line.lower().strip()
+
+    return (
+        not line
+        or line in ["|", "+", "-", "�"]
+        or lower_line == "click here"
+        or lower_line == "for required documents,"
+        or lower_line == "for required documents"
+    )
+
+
+def should_stop_document_collection(line):
+    lower_line = line.lower().strip()
+
+    stop_prefixes = [
+        "page:",
+        "url:",
+        "quick apply",
+        "apply now",
+        "apply for",
+        "preferred branch",
+        "ebl  self  service portal",
+        "ebl self service portal",
+        "existing customer",
+        "new customer",
+        "special benefits",
+        "account opening form",
+        "profit sharing ratio",
+        "for more information",
+        "for more details",
+        "calculator",
+        "relevant charges",
+        "all fees are as per",
+    ]
+
+    return any(lower_line.startswith(prefix) for prefix in stop_prefixes)
+
+
+def is_document_group_heading(line):
+    lower_line = line.lower().rstrip(":")
+
+    group_headings = [
+        "partnership",
+        "additional requirement for registered partnership",
+        "limited liability/public/private company",
+        "association/club/charity/trust/society etc.",
+        "notes",
+        "eligibility & requirements",
+        "identification document",
+    ]
+
+    return lower_line in group_headings
 
 
 def extract_required_document_lines(website_info):
@@ -1071,40 +1142,20 @@ def extract_required_document_lines(website_info):
     start_index = -1
 
     for index, line in enumerate(lines):
-        lower_line = line.lower()
-
-        if (
-            lower_line == "required documents for account opening"
-            or lower_line == "documents required to open account"
-        ):
+        if is_required_document_heading(line):
             start_index = index
             break
 
     if start_index < 0:
         return []
 
-    stop_lines = [
-        "quick apply",
-        "ebl  self  service portal",
-        "ebl self service portal",
-        "existing customer",
-        "new customer",
-        "apply for",
-        "preferred branch",
-    ]
-
     document_lines = []
 
     for line in lines[start_index + 1:]:
-        if not line:
+        if should_skip_document_line(line):
             continue
 
-        lower_line = line.lower()
-
-        if lower_line.startswith("page:") or lower_line.startswith("url:"):
-            break
-
-        if lower_line in stop_lines:
+        if should_stop_document_collection(line):
             break
 
         if line in ["':", "' :"] and document_lines:
@@ -1113,23 +1164,23 @@ def extract_required_document_lines(website_info):
 
         document_lines.append(line)
 
+        if line.lower().startswith("during account opening"):
+            break
+
     return document_lines
 
 
-def build_required_documents_reply(user_message, website_info):
-    if not is_document_question(user_message):
-        return ""
-
-    document_lines = extract_required_document_lines(website_info)
-
-    if not document_lines:
-        return ""
-
-    reply = "To open a savings account, the EBL website lists these required documents:\n\n"
+def format_document_reply(title, document_lines):
+    reply = f"{title}\n\n"
     inside_group = False
 
     for line in document_lines:
         lower_line = line.lower()
+
+        if is_document_group_heading(line):
+            reply += f"\n{line.rstrip(':')}:\n"
+            inside_group = False
+            continue
 
         if (
             lower_line.startswith("applicants")
@@ -1153,6 +1204,23 @@ def build_required_documents_reply(user_message, website_info):
             reply += f"- {line}\n"
 
     return reply.strip()
+
+
+def build_required_documents_reply(user_message, website_info, product_name=""):
+    if not is_document_question(user_message):
+        return ""
+
+    document_lines = extract_required_document_lines(website_info)
+
+    if not document_lines:
+        return ""
+
+    if product_name:
+        title = f"{product_name} required documents from the EBL website:"
+    else:
+        title = "The EBL website lists these required documents:"
+
+    return format_document_reply(title, document_lines)
 
 
 def normalize_loan_lookup_text(text):
@@ -1876,14 +1944,36 @@ def build_specific_account_reply(product):
     )
 
 
+def build_specific_account_documents_reply(product, user_message):
+    page_text = get_account_product_page_text(product)
+
+    if not page_text:
+        return ""
+
+    return build_required_documents_reply(
+        user_message=user_message,
+        website_info=page_text,
+        product_name=product["name"],
+    )
+
+
 def build_account_router_reply(user_message, intent, history):
     product = detect_specific_account_product(user_message)
 
     if product:
         if is_document_question(user_message):
-            return ""
+            return build_specific_account_documents_reply(product, user_message)
 
         return build_specific_account_reply(product)
+
+    if is_document_question(user_message):
+        product = detect_account_product_from_history(history)
+
+        if product:
+            document_reply = build_specific_account_documents_reply(product, user_message)
+
+            if document_reply:
+                return document_reply
 
     if is_account_feature_follow_up(user_message):
         product = detect_account_product_from_history(history)

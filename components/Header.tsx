@@ -1,19 +1,98 @@
 "use client";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import { translations } from "@/data/translations";
 import Link from "next/link";
 import { useState } from "react";
 
-const topLinkRoutes = ["#needs", "#services", "#news"];
+const topLinkRoutes = [
+  "https://www.ebl.com.bd/retail/retail-deposit",
+  "https://www.ebl.com.bd/sme/sme-loans",
+  "https://www.ebl.com.bd/corporate/banking/Corporate-Banking-Division",
+];
+const EBL_HOTLINE = "16230";
 
 const navRoutes = [
-  ["#needs", ["#needs", "#needs", "#needs", "#needs"]],
-  ["#needs", ["#needs", "#needs", "#needs", "#needs"]],
-  ["#needs", ["#needs", "#needs", "#needs", "#needs"]],
-  ["#needs", ["#needs", "#needs", "#needs", "#needs"]],
-  ["#services", ["#services", "#services", "#services", "#services"]],
-  ["#news", ["#news", "#news", "#news", "#news"]],
-  ["#footer", ["#footer", "#footer", "#footer", "#footer"]],
+  [
+    "https://www.ebl.com.bd/retail/retail-deposit",
+    [
+      "https://www.ebl.com.bd/retail/retail-loan",
+      "https://www.ebl.com.bd/retail/retail-deposit",
+      "https://www.ebl.com.bd/retail/EBL-Cards",
+      "https://www.ebl.com.bd/retail-digital/ebl-skybanking",
+      "https://www.ebl.com.bd/retail-ecommerce/ebl-skypay",
+      "https://www.ebl.com.bd/retail/ebl-insta-account",
+      "https://www.ebl.com.bd/retail/ebl-insta-banking",
+      "https://www.ebl.com.bd/priority/",
+      "https://www.ebl.com.bd/powerbanking",
+      "https://www.ebl.com.bd/ebl-super-saver",
+      "https://www.ebl.com.bd/retail/Women-Banking",
+      "https://www.ebl.com.bd/agentbanking",
+      "https://www.ebl.com.bd/retail/EBL-Payroll-Banking",
+      "https://www.ebl.com.bd/retail/EBL-Student-Banking",
+      "https://www.ebl.com.bd/retail/ebl-bancassurance",
+      "https://www.ebl.com.bd/retail/ebl-retail-propositions",
+    ],
+  ],
+  [
+    "https://www.ebl.com.bd/islamicbanking",
+    [
+      "https://www.ebl.com.bd/islamicbanking#overview",
+      "https://www.ebl.com.bd/islamic/member_ssc",
+      "https://www.ebl.com.bd/islamic/islamic-retail-finance",
+      "https://www.ebl.com.bd/islamic/islamic-sme-finance",
+      "https://www.ebl.com.bd/islamic/islamic-corporate-finance",
+      "https://www.ebl.com.bd/islamic/islamic-cards",
+      "https://www.ebl.com.bd/islamic/profit-distribution",
+      "https://www.ebl.com.bd/islamicbanking#iwindows",
+      "https://www.ebl.com.bd/islamic/notice",
+    ],
+  ],
+  [
+    "https://www.ebl.com.bd/retail/retail-deposit",
+    [
+      "https://www.ebl.com.bd/retail/retail-deposit",
+      "https://www.ebl.com.bd/retail-deposit/EBL-Current-Account",
+      "https://www.ebl.com.bd/retail-deposit/EBL-FD",
+      "https://www.ebl.com.bd/retail-deposit/EBL-Confidence",
+    ],
+  ],
+  [
+    "https://www.ebl.com.bd/retail/EBL-Cards",
+    [
+      "https://www.ebl.com.bd/retail/EBL-Cards",
+      "https://www.ebl.com.bd/islamic/islamic-cards",
+      "https://www.ebl.com.bd/retail/EBL-Cards",
+      "https://www.ebl.com.bd/retail/EBL-Cards",
+    ],
+  ],
+  [
+    "https://www.ebl.com.bd/retail/retail-loan",
+    [
+      "https://www.ebl.com.bd/retail/retail-loan",
+      "https://www.ebl.com.bd/sme/sme-loans",
+      "https://www.ebl.com.bd/islamic/islamic-retail-finance",
+      "https://www.ebl.com.bd/islamic/islamic-sme-finance",
+    ],
+  ],
+  [
+    "https://www.ebl.com.bd/retail-digital/ebl-skybanking",
+    [
+      "https://www.ebl.com.bd/retail-digital/ebl-skybanking",
+      "https://www.ebl.com.bd/retail-digital/ebl-missed-call-alert-service",
+      "https://www.ebl.com.bd/retail-digital/ebl-365-plus",
+      "https://www.ebl.com.bd/retail-ecommerce/ebl-skypay",
+    ],
+  ],
+  [
+    "https://www.ebl.com.bd/contact",
+    [
+      "https://www.ebl.com.bd/contact",
+      "https://www.ebl.com.bd/locator/",
+      "https://www.ebl.com.bd/forms-downloads",
+      "https://www.ebl.com.bd/schedule-of-charges",
+    ],
+  ],
 ];
 
 export default function Header() {
@@ -24,15 +103,24 @@ export default function Header() {
     label: string;
     href: string;
     links: Array<{ label: string; href: string }>;
-  }> = t.header.navigation.map(
-    ([label, links]: [string, string[]], index: number) => ({
+  }> = navRoutes.map(
+    ([href, routes], index: number) => {
+      const translatedItem = t.header.navigation[index];
+      const fallbackItem = translations.en.header.navigation[index];
+      const [label, links] =
+        translatedItem?.[1]?.length === (routes as string[]).length
+          ? translatedItem
+          : fallbackItem;
+
+      return {
       label,
-      href: navRoutes[index][0] as string,
+      href: href as string,
       links: links.map((linkLabel, linkIndex) => ({
         label: linkLabel,
-        href: (navRoutes[index][1] as string[])[linkIndex],
+        href: (routes as string[])[linkIndex],
       })),
-    }),
+    };
+    },
   );
 
   const languageButton = (lang: "en" | "bn", label: string) => (
@@ -74,7 +162,7 @@ export default function Header() {
                 {item.label}
               </a>
               <div
-                className={`invisible absolute top-full z-20 mt-3 w-64 rounded-[1.5rem] border border-gray-100 bg-white p-3 opacity-0 shadow-xl shadow-black/8 transition duration-200 group-hover:visible group-hover:opacity-100 ${
+                className={`invisible absolute top-full z-20 mt-3 max-h-[70vh] w-72 overflow-y-auto rounded-[1.5rem] border border-gray-100 bg-white p-3 opacity-0 shadow-xl shadow-black/8 transition duration-200 group-hover:visible group-hover:opacity-100 ${
                   index >= navItems.length - 2 ? "right-0" : "left-0"
                 }`}
               >
@@ -94,7 +182,9 @@ export default function Header() {
 
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <div className="hidden items-center gap-2 text-sm font-medium lg:flex">
-            <span className="hidden text-[#006A4E] 2xl:inline">{t.header.hotline}: 16666</span>
+            <span className="hidden text-[#006A4E] 2xl:inline">
+              {t.header.hotline}: {EBL_HOTLINE}
+            </span>
             {languageButton("en", "EN")}
             {languageButton("bn", "BN")}
           </div>
@@ -137,7 +227,9 @@ export default function Header() {
         <div className="border-t border-black/5 bg-white lg:hidden">
           <div className="container-custom space-y-3 py-4">
             <div className="flex flex-col gap-3 rounded-2xl bg-[#F8FAFC] px-4 py-3 text-sm font-medium sm:flex-row sm:items-center sm:justify-between">
-              <span className="break-words text-[#006A4E]">{t.header.hotline}: 16666</span>
+              <span className="break-words text-[#006A4E]">
+                {t.header.hotline}: {EBL_HOTLINE}
+              </span>
               <div className="flex flex-wrap items-center gap-2">
                 {languageButton("en", "EN")}
                 {languageButton("bn", "BN")}

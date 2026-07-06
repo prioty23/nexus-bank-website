@@ -9,6 +9,9 @@ const footerAnchors = {
   legal: ["#footer", "#footer", "#footer"],
 };
 
+const EBL_HOTLINE = "16230";
+const EBL_EMAIL = "info@ebl-bd.com";
+
 export default function Footer() {
   const { t } = useLanguage();
 
@@ -53,8 +56,13 @@ export default function Footer() {
               {t.footer.description}
             </p>
             <div className="mt-6 space-y-2 text-sm text-emerald-50/80">
-              <p><span className="text-[#00A878]">{t.footer.hotline}:</span> 16666</p>
-              <p className="break-all"><span className="text-[#00A878]">Email:</span> support@easternbank.com</p>
+              <p>
+                <span className="text-[#00A878]">{t.footer.hotline}:</span>{" "}
+                {EBL_HOTLINE}
+              </p>
+              <p className="break-all">
+                <span className="text-[#00A878]">Email:</span> {EBL_EMAIL}
+              </p>
             </div>
           </div>
 

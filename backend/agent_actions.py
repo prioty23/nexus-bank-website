@@ -34,6 +34,13 @@ def get_online_apply_reply(message):
     )
 
 
+def get_branch_locator_reply():
+    return (
+        "Find an Eastern Bank PLC branch here:\n"
+        "https://www.ebl.com.bd/branches"
+    )
+
+
 def get_urgent_card_reply():
     return (
         "This may be an urgent banking security issue.\n\n"

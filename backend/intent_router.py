@@ -109,6 +109,62 @@ def detect_intent(message):
     ]):
         return "complaint_create"
 
+    # Islamic banking
+    if contains_any(message, [
+        "islamic banking",
+        "islamic account",
+        "islamic accounts",
+        "islamic deposit",
+        "islamic deposits",
+        "islamic finance",
+        "islamic loan",
+        "islamic card",
+        "islamic cards",
+        "shariah",
+        "sharia",
+        "mudarabah",
+        "wadiah",
+        "profit distribution",
+    ]):
+        return "islamic_banking"
+
+    # Student banking
+    if contains_any(message, [
+        "student banking",
+        "student account",
+        "junior savings",
+        "junior account",
+        "campus account",
+        "student file",
+        "child future plan",
+        "aspire scheme",
+        "little star",
+    ]):
+        return "student_banking"
+
+    # Retail banking menu/services
+    if contains_any(message, [
+        "retail banking",
+        "retail services",
+        "retail products",
+        "retail account options",
+        "retail accounts",
+        "insta account",
+        "insta banking",
+        "priority banking",
+        "power banking",
+        "super saver",
+        "women banking",
+        "agent banking",
+        "payroll banking",
+        "bancassurance",
+        "retail alliance",
+        "skypay",
+        "missed call alert",
+        "365 plus",
+    ]):
+        return "retail_banking"
+
     # Account information
     if contains_any(message, [
         "how can i open an account",

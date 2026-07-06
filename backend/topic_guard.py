@@ -10,6 +10,12 @@ BANKING_KEYWORDS = [
     "statement", "balance", "kyc", "documents",
     "nominee", "nid", "passport", "tin",
     "customer support",
+    "islamic", "shariah", "sharia", "mudarabah", "wadiah",
+    "profit distribution",
+    "feature", "features", "benefit", "benefits",
+    "student banking", "student account", "campus account",
+    "junior savings", "student file", "child future",
+    "aspire scheme", "little star",
 ]
 
 CONTACT_WORDS = [
@@ -21,7 +27,8 @@ CONTACT_WORDS = [
 FOLLOW_UP_WORDS = [
     "what documents", "documents required", "tell me more",
     "explain that", "what about", "which one",
-    "how much", "how long", "why",
+    "how much", "how long", "why", "feature", "features",
+    "benefit", "benefits",
     "that", "this", "it", "those", "them"
 ]
 

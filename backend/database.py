@@ -701,6 +701,21 @@ def search_website_information(query, limit=5):
             "mobile",
         ])
 
+    if "islamic" in cleaned_query or "shariah" in cleaned_query or "sharia" in cleaned_query:
+        extra_keywords.extend([
+            "islamic",
+            "shariah",
+            "sharia",
+            "mudarabah",
+            "wadiah",
+            "profit",
+            "distribution",
+            "deposit",
+            "finance",
+            "financing",
+            "cards",
+        ])
+
     if "charge" in cleaned_query or "fee" in cleaned_query:
         extra_keywords.extend([
             "charge",

@@ -39,9 +39,9 @@ function formatMessage(text: string) {
           href={cleanPart}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-semibold underline underline-offset-2"
+          className="break-all font-semibold underline underline-offset-2"
         >
-          Open Link
+          {cleanPart}
         </a>
       );
     }
@@ -80,24 +80,12 @@ export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [sessionId, setSessionId] = useState("");
 
   const [messages, setMessages] = useState<Message[]>([
     { role: "bot", text: chatbotText.welcome },
   ]);
 
   const messageListRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    let savedSessionId = localStorage.getItem(SESSION_STORAGE_KEY);
-
-    if (!savedSessionId) {
-      savedSessionId = createSessionId();
-      localStorage.setItem(SESSION_STORAGE_KEY, savedSessionId);
-    }
-
-    setSessionId(savedSessionId);
-  }, []);
 
   useEffect(() => {
     if (!messageListRef.current) {
@@ -108,17 +96,14 @@ export default function Chatbot() {
   }, [messages, isOpen]);
 
   const getCurrentSessionId = () => {
-    let currentSessionId = sessionId;
+    const savedSessionId = localStorage.getItem(SESSION_STORAGE_KEY);
 
-    if (!currentSessionId) {
-      currentSessionId = localStorage.getItem(SESSION_STORAGE_KEY) || "";
+    if (savedSessionId) {
+      return savedSessionId;
     }
 
-    if (!currentSessionId) {
-      currentSessionId = createSessionId();
-      localStorage.setItem(SESSION_STORAGE_KEY, currentSessionId);
-      setSessionId(currentSessionId);
-    }
+    const currentSessionId = createSessionId();
+    localStorage.setItem(SESSION_STORAGE_KEY, currentSessionId);
 
     return currentSessionId;
   };
@@ -127,7 +112,6 @@ export default function Chatbot() {
     const newSessionId = createSessionId();
 
     localStorage.setItem(SESSION_STORAGE_KEY, newSessionId);
-    setSessionId(newSessionId);
 
     setMessages([{ role: "bot", text: chatbotText.welcome }]);
     setInput("");

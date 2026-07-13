@@ -1,45 +1,216 @@
 import re
 
 
+DIRECT_COMPLAINT_TERMS = [
+    "complaint",
+    "complain",
+    "issue",
+    "problem",
+]
+
+ISSUE_INDICATORS = [
+    "failed",
+    "failure",
+    "deducted",
+    "charged",
+    "blocked",
+    "locked",
+    "stuck",
+    "pending",
+    "declined",
+    "rejected",
+    "missing",
+    "lost",
+    "stolen",
+    "unauthorized",
+    "fraud",
+    "wrong",
+    "error",
+    "refund",
+    "dispute",
+    "delayed",
+    "delay",
+    "misbehaved",
+    "rude",
+    "bad service",
+    "not received",
+    "did not receive",
+    "cannot",
+    "can't",
+    "unable",
+    "not working",
+    "does not work",
+    "not added",
+    "not credited",
+    "not showing",
+    "not posted",
+    "not cleared",
+    "not transferred",
+    "not updated",
+    "not activated",
+    "not opened",
+    "not delivered",
+    "still pending",
+    "double charge",
+    "charged twice",
+]
+
+BANKING_CONTEXT_TERMS = [
+    "account",
+    "card",
+    "atm",
+    "cash",
+    "deposit",
+    "deposited",
+    "transaction",
+    "transfer",
+    "payment",
+    "app",
+    "skybanking",
+    "online banking",
+    "internet banking",
+    "mobile banking",
+    "cheque",
+    "check",
+    "branch",
+    "loan",
+    "emi",
+    "remittance",
+    "fee",
+    "charge",
+    "balance",
+    "login",
+    "password",
+    "otp",
+    "pin",
+    "debit",
+    "credit",
+    "refund",
+    "statement",
+    "salary",
+    "dps",
+    "fdr",
+    "customer service",
+    "hotline",
+    "ebl",
+    "bank",
+    "banking",
+    "money",
+]
+
+
+def contains_any(message, keywords):
+    return any(keyword in message for keyword in keywords)
+
+
+def has_issue_indicator(message):
+    message = message.lower()
+    return contains_any(message, ISSUE_INDICATORS)
+
+
+def has_banking_context(message):
+    message = message.lower()
+    return contains_any(message, BANKING_CONTEXT_TERMS)
+
+
+def looks_like_customer_issue(message):
+    message = message.lower().strip()
+
+    return (
+        contains_any(message, DIRECT_COMPLAINT_TERMS)
+        or (has_issue_indicator(message) and has_banking_context(message))
+    )
+
+
+def has_specific_complaint_details(message):
+    message = message.lower().strip()
+
+    return has_issue_indicator(message) and has_banking_context(message)
+
+
+def is_deposit_not_credited_issue(message):
+    message = message.lower()
+
+    deposit_words = [
+        "deposit",
+        "deposited",
+        "cash",
+        "money",
+    ]
+    missing_credit_phrases = [
+        "not added",
+        "not credited",
+        "not showing",
+        "not posted",
+        "missing",
+        "still now",
+    ]
+
+    return (
+        any(word in message for word in deposit_words)
+        and any(phrase in message for phrase in missing_credit_phrases)
+    )
+
+
 def has_enough_complaint_details(message):
     message = message.lower().strip()
 
-    if len(message.split()) < 5:
+    if len(message.split()) < 2:
         return False
 
-    complaint_keywords = [
-        "failed", "deducted", "charged", "twice", "double",
-        "atm", "cash", "refund", "transaction", "payment",
-        "card", "account", "loan", "deposit", "unauthorized"
-    ]
-
-    for keyword in complaint_keywords:
-        if keyword in message:
-            return True
-
-    return False
+    return has_specific_complaint_details(message)
 
 
 def get_issue_type(message):
     message = message.lower()
 
-    if "atm" in message or "cash" in message:
-        return "ATM Issue"
+    if is_deposit_not_credited_issue(message):
+        return "Deposit Not Credited Issue"
 
-    if "card" in message or "charged" in message or "unauthorized" in message:
+    if (
+        "fraud" in message
+        or "unauthorized" in message
+        or "hacked" in message
+        or "suspicious" in message
+        or "transaction not mine" in message
+    ):
+        return "Security / Unauthorized Transaction Issue"
+
+    if "card" in message:
         return "Card Issue"
 
-    if "transaction" in message or "payment" in message or "deducted" in message:
+    if "atm" in message:
+        return "ATM Issue"
+
+    if "cash" in message and contains_any(message, ["withdraw", "withdrawal", "atm"]):
+        return "ATM Issue"
+
+    if contains_any(message, ["app", "skybanking", "online banking", "internet banking", "mobile banking", "login"]):
+        return "Digital Banking Issue"
+
+    if "cheque" in message or "check" in message:
+        return "Cheque Issue"
+
+    if "remittance" in message:
+        return "Remittance Issue"
+
+    if "loan" in message or "emi" in message:
+        return "Loan Issue"
+
+    if contains_any(message, ["transaction", "payment", "transfer", "deducted", "charged", "refund"]):
         return "Transaction Issue"
 
-    if "loan" in message:
-        return "Loan Issue"
+    if "deposit" in message or "deposited" in message:
+        return "Deposit Issue"
 
     if "account" in message:
         return "Account Issue"
 
-    if "deposit" in message:
-        return "Deposit Issue"
+    if "branch" in message or "customer service" in message or "hotline" in message:
+        return "Service Issue"
+
+    if "fee" in message or "charge" in message:
+        return "Fee / Charge Issue"
 
     return "General Complaint"
 
@@ -52,7 +223,7 @@ def build_complaint_created_reply(complaint):
         f"Status: {complaint['status']}\n"
         f"Created At: {complaint['created_at']}\n\n"
         "Please save your complaint ID for future status checking. "
-        "Do not share OTP, PIN, password, CVV, or full card number."
+        "Do not share OTP, PIN, password, CVV or full card number."
     )
 
 
@@ -161,7 +332,7 @@ def build_complaint_confirmation_reply(issue_type):
         "I can create a complaint record for this issue.\n\n"
         "Do you want me to create the complaint record now?\n"
         "Please reply with Yes to create or No to cancel.\n\n"
-        "For your safety, do not share OTP, PIN, password, CVV, or full card number."
+        "For your safety, do not share OTP, PIN, password, CVV or full card number."
     )
 
 
@@ -169,4 +340,25 @@ def build_complaint_cancelled_reply():
     return (
         "Okay, I will not create a complaint record now.\n\n"
         "If you want to create it later, please describe the issue again and confirm that you want to create a complaint."
+    )
+
+
+def extract_email(message):
+    match = re.search(
+        r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}",
+        message
+    )
+
+    if match:
+        return match.group(0)
+
+    return ""
+
+
+def build_missing_email_reply():
+    return (
+        "Please provide your email address so I can create the complaint record "
+        "and send future status updates.\n\n"
+        "Example: my email is customer@example.com\n\n"
+        "For your safety, do not share OTP, PIN, password, CVV or full card number."
     )

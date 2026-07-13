@@ -1,8 +1,17 @@
 import sqlite3
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 DATABASE_NAME = "EBL_chatbot.db"
+
+def add_column_if_missing(cursor, table_name, column_name, column_definition):
+    cursor.execute(f"PRAGMA table_info({table_name})")
+    columns = cursor.fetchall()
+
+    existing_columns = [column[1] for column in columns]
+
+    if column_name not in existing_columns:
+        cursor.execute(f"ALTER TABLE {table_name} ADD COLUMN {column_name} {column_definition}")
 
 
 def create_database():
@@ -63,6 +72,12 @@ def create_database():
             created_at TEXT
         )
     """)
+
+    add_column_if_missing(cursor, "complaints", "customer_email", "TEXT")
+    add_column_if_missing(cursor, "complaints", "notification_due_at", "TEXT")
+    add_column_if_missing(cursor, "complaints", "three_day_email_sent", "INTEGER DEFAULT 0")
+    add_column_if_missing(cursor, "complaints", "final_status_email_sent", "INTEGER DEFAULT 0")
+    add_column_if_missing(cursor, "complaints", "last_email_sent_at", "TEXT")
 
     connection.commit()
     connection.close()
@@ -325,14 +340,17 @@ def generate_complaint_id(cursor):
     return f"{prefix}{next_number:04d}"
 
 
-def save_complaint(session_id, issue_type, description):
+def save_complaint(session_id, issue_type, description, customer_email=""):
     create_database()
 
     connection = sqlite3.connect(DATABASE_NAME)
     cursor = connection.cursor()
 
     complaint_id = generate_complaint_id(cursor)
-    created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    created_datetime = datetime.now()
+    created_at = created_datetime.strftime("%Y-%m-%d %H:%M:%S")
+    updated_at = created_at
+    notification_due_at = add_working_days(created_datetime, 3).strftime("%Y-%m-%d %H:%M:%S")
     status = "Pending"
 
     cursor.execute("""
@@ -343,9 +361,14 @@ def save_complaint(session_id, issue_type, description):
             description,
             status,
             created_at,
-            updated_at
+            updated_at,
+            customer_email,
+            notification_due_at,
+            three_day_email_sent,
+            final_status_email_sent,
+            last_email_sent_at
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, (
         complaint_id,
         session_id,
@@ -353,7 +376,12 @@ def save_complaint(session_id, issue_type, description):
         description,
         status,
         created_at,
-        created_at
+        updated_at,
+        customer_email,
+        notification_due_at,
+        0,
+        0,
+        ""
     ))
 
     connection.commit()
@@ -361,10 +389,17 @@ def save_complaint(session_id, issue_type, description):
 
     return {
         "complaint_id": complaint_id,
+        "session_id": session_id,
         "issue_type": issue_type,
         "description": description,
         "status": status,
-        "created_at": created_at
+        "created_at": created_at,
+        "updated_at": updated_at,
+        "customer_email": customer_email,
+        "notification_due_at": notification_due_at,
+        "three_day_email_sent": 0,
+        "final_status_email_sent": 0,
+        "last_email_sent_at": "",
     }
 
 
@@ -375,7 +410,9 @@ def get_complaint_by_id(complaint_id):
     cursor = connection.cursor()
 
     cursor.execute("""
-        SELECT complaint_id, session_id, issue_type, description, status, created_at, updated_at
+        SELECT complaint_id, session_id, issue_type, description, status,
+               created_at, updated_at, customer_email, notification_due_at,
+               three_day_email_sent, final_status_email_sent, last_email_sent_at
         FROM complaints
         WHERE complaint_id = ?
     """, (complaint_id,))
@@ -393,9 +430,13 @@ def get_complaint_by_id(complaint_id):
         "description": row[3],
         "status": row[4],
         "created_at": row[5],
-        "updated_at": row[6]
+        "updated_at": row[6],
+        "customer_email": row[7],
+        "notification_due_at": row[8],
+        "three_day_email_sent": row[9],
+        "final_status_email_sent": row[10],
+        "last_email_sent_at": row[11],
     }
-
 
 def update_complaint_status(complaint_id, new_status):
     create_database()
@@ -412,7 +453,7 @@ def update_complaint_status(complaint_id, new_status):
     """, (
         new_status,
         updated_at,
-        complaint_id
+        complaint_id,
     ))
 
     updated_rows = cursor.rowcount
@@ -424,8 +465,6 @@ def update_complaint_status(complaint_id, new_status):
         return None
 
     return get_complaint_by_id(complaint_id)
-
-
 def get_recent_user_messages(session_id, limit=5):
     create_database()
 
@@ -953,3 +992,105 @@ def delete_pending_complaint(session_id):
 
     connection.commit()
     connection.close()
+
+def add_working_days(start_datetime, working_days):
+    current_date = start_datetime
+    added_days = 0
+
+    while added_days < working_days:
+        current_date = current_date + timedelta(days=1)
+
+        if current_date.weekday() not in [4, 5]: # Monday=0 to Sunday=6, so 4=Friday, 5=Saturday
+            added_days += 1
+
+    return current_date
+
+def get_due_three_day_complaints():
+    create_database()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    cursor.execute("""
+        SELECT complaint_id, session_id, issue_type, description, status,
+               created_at, updated_at, customer_email, notification_due_at,
+               three_day_email_sent, final_status_email_sent, last_email_sent_at
+        FROM complaints
+        WHERE customer_email IS NOT NULL
+        AND customer_email != ''
+        AND notification_due_at IS NOT NULL
+        AND notification_due_at != ''
+        AND notification_due_at <= ?
+        AND three_day_email_sent = 0
+        AND status NOT IN ('Resolved', 'Rejected')
+    """, (now,))
+
+    rows = cursor.fetchall()
+    connection.close()
+
+    complaints = []
+
+    for row in rows:
+        complaints.append({
+            "complaint_id": row[0],
+            "session_id": row[1],
+            "issue_type": row[2],
+            "description": row[3],
+            "status": row[4],
+            "created_at": row[5],
+            "updated_at": row[6],
+            "customer_email": row[7],
+            "notification_due_at": row[8],
+            "three_day_email_sent": row[9],
+            "final_status_email_sent": row[10],
+            "last_email_sent_at": row[11],
+        })
+
+    return complaints
+
+
+def mark_three_day_email_sent(complaint_id):
+    create_database()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    sent_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    cursor.execute("""
+        UPDATE complaints
+        SET three_day_email_sent = 1,
+            last_email_sent_at = ?
+        WHERE complaint_id = ?
+    """, (
+        sent_at,
+        complaint_id
+    ))
+
+    connection.commit()
+    connection.close()
+
+
+def mark_final_status_email_sent(complaint_id):
+    create_database()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    sent_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    cursor.execute("""
+        UPDATE complaints
+        SET final_status_email_sent = 1,
+            last_email_sent_at = ?
+        WHERE complaint_id = ?
+    """, (
+        sent_at,
+        complaint_id
+    ))
+
+    connection.commit()
+    connection.close()
+

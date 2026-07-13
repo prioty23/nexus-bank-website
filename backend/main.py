@@ -10,6 +10,8 @@ from schemas import (
     ChatResponse,
     ComplaintStatusUpdateRequest,
 )
+from email_sender import send_final_status_email
+from complaint_email_scheduler import start_complaint_email_scheduler
 
 from safety import contains_sensitive_data, get_safety_response
 
@@ -36,6 +38,7 @@ from database import (
     save_pending_complaint,
     get_pending_complaint,
     delete_pending_complaint,
+    mark_final_status_email_sent,
 )
 
 from website_scraper import get_internal_links_from_website, get_text_from_website
@@ -47,7 +50,7 @@ from topic_guard import (
     get_greeting_reply,
 )
 
-from intent_router import detect_intent
+from query_understanding_ai import understand_user_query_with_groq
 
 from agent_actions import (
     get_contact_reply,
@@ -69,6 +72,8 @@ from complaint_manager import (
     is_complaint_confirmation_no,
     build_complaint_confirmation_reply,
     build_complaint_cancelled_reply,
+    extract_email,
+    build_missing_email_reply,
 )
 
 from knowledge_router import select_knowledge_pages
@@ -2457,6 +2462,10 @@ app = FastAPI(
     version="1.0.0",
 )
 
+@app.on_event("startup")
+def startup_event():
+    start_complaint_email_scheduler()
+    
 
 origins = [
     "http://localhost:3000",
@@ -2503,7 +2512,13 @@ def chat(request: ChatRequest):
             blocked=True,
         )
 
-    if is_greeting_only(user_message):
+    understood_query = understand_user_query_with_groq(user_message)
+    print("UNDERSTOOD QUERY:", understood_query)
+
+    intent = understood_query["intent"]
+    search_query = understood_query["search_query"]
+
+    if intent == "greeting" or is_greeting_only(user_message):
         return save_and_build_response(
             session_id=session_id,
             user_message=user_message,
@@ -2511,9 +2526,6 @@ def chat(request: ChatRequest):
             source="greeting-handler",
             status="greeting",
         )
-
-    intent = detect_intent(user_message)
-
 
     pending_complaint = get_pending_complaint(session_id)
 
@@ -2529,11 +2541,23 @@ def chat(request: ChatRequest):
                 status="complaint_cancelled",
             )
 
-        if is_complaint_confirmation_yes(user_message):
+        customer_email = extract_email(user_message)
+
+        if is_complaint_confirmation_yes(user_message) or customer_email:
+            if not customer_email:
+                return save_and_build_response(
+                    session_id=session_id,
+                    user_message=user_message,
+                    reply=build_missing_email_reply(),
+                    source="complaint-agent",
+                    status="collecting_customer_email",
+                )
+
             complaint = save_complaint(
                 session_id=session_id,
                 issue_type=pending_complaint["issue_type"],
                 description=pending_complaint["description"],
+                customer_email=customer_email,
             )
 
             delete_pending_complaint(session_id)
@@ -2553,7 +2577,7 @@ def chat(request: ChatRequest):
             user_message=user_message,
             reply=(
                 "Please confirm whether you want me to create the complaint record.\n\n"
-                "Reply with Yes to create it or No to cancel."
+                "Reply with Yes and your email address to create it, or No to cancel."
             ),
             source="complaint-agent",
             status="waiting_complaint_confirmation",
@@ -2739,7 +2763,7 @@ def chat(request: ChatRequest):
 
     else:
         website_info = limit_text(
-            search_website_information(user_message, limit=5),
+            search_website_information(search_query, limit=5),
             EBL_CONTEXT_LIMIT,
         )
 
@@ -2953,7 +2977,24 @@ def admin_update_complaint_status(
             detail="Complaint not found.",
         )
 
+    email_sent = False
+
+    if normalized_status in ["Resolved", "Rejected"]:
+        if updated_complaint.get("customer_email") and not updated_complaint.get("final_status_email_sent"):
+            try:
+                email_sent = send_final_status_email(
+                    updated_complaint["customer_email"],
+                    updated_complaint,
+                )
+
+                if email_sent:
+                    mark_final_status_email_sent(updated_complaint["complaint_id"])
+
+            except Exception as error:
+                print("FINAL STATUS EMAIL ERROR:", repr(error))
+
     return {
         "message": "Complaint status updated successfully",
+        "email_sent": email_sent,
         "complaint": updated_complaint,
     }

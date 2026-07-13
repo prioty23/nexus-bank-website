@@ -1,3 +1,6 @@
+from complaint_manager import looks_like_customer_issue
+
+
 def contains_any(message, keywords):
     message = message.lower()
 
@@ -57,6 +60,10 @@ def detect_intent(message):
     ]):
         return "memory_question"
 
+    # Customer issue / complaint creation
+    if looks_like_customer_issue(message):
+        return "complaint_create"
+
     # Contact information
     if contains_any(message, [
         "email",
@@ -105,7 +112,18 @@ def detect_intent(message):
         "atm cash did not come",
         "cash not received",
         "payment failed",
-        "card problem"
+        "card problem",
+        "deposit not added",
+        "cash deposit not added",
+        "not added to my account",
+        "deposit not credited",
+        "cash deposit not credited",
+        "not credited to my account",
+        "deposit missing",
+        "cash deposit missing",
+        "money not added",
+        "money not credited",
+        "not showing in my account"
     ]):
         return "complaint_create"
 

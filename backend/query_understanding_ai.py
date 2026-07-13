@@ -66,6 +66,7 @@ Intent guidance:
 - Use account_information for broad account opening questions, including messages like "Open an Account", "account khulte ki lagbe", "ami ebl account korte chai", and "how can I open an account".
 - Do not classify broad account opening questions as online_apply.
 - Use online_apply only when the customer explicitly asks for an online application link, application form, apply link, or apply online page.
+- Use complaint_create when the customer reports a banking problem, failed transaction, double charge, duplicate deduction, money deducted, refund issue, card problem, ATM problem, app problem, or service issue.
 """
 
 
@@ -139,6 +140,14 @@ def should_force_account_information(message, understood_query):
 
 
 def normalize_understood_query(message, understood_query):
+    fallback_intent = detect_intent(message)
+
+    if fallback_intent == "complaint_create":
+        understood_query = dict(understood_query)
+        understood_query["intent"] = "complaint_create"
+        understood_query["search_query"] = message
+        return understood_query
+
     if should_force_account_information(message, understood_query):
         understood_query = dict(understood_query)
         understood_query["intent"] = "account_information"

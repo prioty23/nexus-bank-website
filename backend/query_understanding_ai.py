@@ -67,6 +67,7 @@ Intent guidance:
 - Do not classify broad account opening questions as online_apply.
 - Use online_apply only when the customer explicitly asks for an online application link, application form, apply link, or apply online page.
 - Use complaint_create when the customer reports a banking problem, failed transaction, double charge, duplicate deduction, money deducted, refund issue, card problem, ATM problem, app problem, or service issue.
+- Use card_information for broad card help or card product questions, including "Card Support", "ki ki cards ache", debit card, credit card, prepaid card, and Islamic card questions.
 """
 
 
@@ -145,6 +146,12 @@ def normalize_understood_query(message, understood_query):
     if fallback_intent == "complaint_create":
         understood_query = dict(understood_query)
         understood_query["intent"] = "complaint_create"
+        understood_query["search_query"] = message
+        return understood_query
+
+    if fallback_intent == "card_information":
+        understood_query = dict(understood_query)
+        understood_query["intent"] = "card_information"
         understood_query["search_query"] = message
         return understood_query
 

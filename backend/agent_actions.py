@@ -29,7 +29,7 @@ def get_contact_reply(message):
 
 def get_online_apply_reply(message):
     return (
-        "Eastern Bank PLC online application link:\n"
+        "Eastern Bank PLC online account application link:\n"
         "https://insta.ebl-bd.com/eblEkyc/ekycHome?cantu=%2FeblEkyc&baseUrl=https%3A%2F%2Finsta.ebl-bd.com%3A443%2FeblEkyc%2F"
     )
 

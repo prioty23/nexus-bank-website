@@ -266,6 +266,42 @@ def get_website_information_by_page_names(page_names):
     return website_information
 
 
+def get_website_information_by_page_urls(page_urls):
+    create_database()
+
+    if not page_urls:
+        return get_website_information()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    placeholders = ",".join(["?"] * len(page_urls))
+
+    cursor.execute(f"""
+        SELECT page_name, page_url, page_text
+        FROM website_info
+        WHERE status = 'active'
+        AND page_url IN ({placeholders})
+        ORDER BY id ASC
+    """, page_urls)
+
+    rows = cursor.fetchall()
+    connection.close()
+
+    website_information = ""
+
+    for row in rows:
+        page_name = row[0]
+        page_url = row[1]
+        page_text = row[2]
+
+        website_information += f"Page: {page_name}\n"
+        website_information += f"URL: {page_url}\n"
+        website_information += f"Content:\n{page_text}\n\n"
+
+    return website_information
+
+
 def clear_website_information():
     create_database()
 

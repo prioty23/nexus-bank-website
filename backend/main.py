@@ -1156,16 +1156,6 @@ def limit_text(text, max_characters):
 def is_document_question(message):
     message = message.lower()
 
-    document_words = [
-        "document",
-        "documents",
-        "required",
-        "requirement",
-        "requirements",
-        "need",
-        "needed",
-    ]
-
     account_words = [
         "account",
         "savings",
@@ -1175,7 +1165,7 @@ def is_document_question(message):
         "opening",
     ]
 
-    return contains_any_word(message, document_words) and contains_any_word(message, account_words)
+    return has_document_word(message) and contains_any_word(message, account_words)
 
 
 def contains_any_word(message, words):
@@ -1184,6 +1174,23 @@ def contains_any_word(message, words):
             return True
 
     return False
+
+
+def has_document_word(message, include_need=True):
+    message = message.lower()
+
+    document_words = [
+        "document",
+        "documents",
+        "required",
+        "requirement",
+        "requirements",
+    ]
+
+    if include_need:
+        document_words.extend(["need", "needed"])
+
+    return contains_any_word(message, document_words)
 
 
 def is_broad_account_opening_question(message):
@@ -1330,6 +1337,11 @@ def extract_required_document_lines(website_info):
             document_lines[-1] = f"{document_lines[-1]}'" + ":"
             continue
 
+        if (line.startswith("':") or line.startswith("' :")) and document_lines:
+            suffix = line[1:].strip()
+            document_lines[-1] = f"{document_lines[-1]}'{suffix}"
+            continue
+
         document_lines.append(line)
 
         if line.lower().startswith("during account opening"):
@@ -1374,8 +1386,8 @@ def format_document_reply(title, document_lines):
     return reply.strip()
 
 
-def build_required_documents_reply(user_message, website_info, product_name=""):
-    if not is_document_question(user_message):
+def build_required_documents_reply(user_message, website_info, product_name="", force=False):
+    if not force and not is_document_question(user_message):
         return ""
 
     document_lines = extract_required_document_lines(website_info)
@@ -2122,19 +2134,25 @@ def build_specific_account_documents_reply(product, user_message):
         user_message=user_message,
         website_info=page_text,
         product_name=product["name"],
+        force=True,
     )
 
 
-def build_account_router_reply(user_message, intent, history):
+def build_account_router_reply(user_message, intent, history, search_query=""):
     product = detect_specific_account_product(user_message)
 
     if product:
-        if is_document_question(user_message):
+        if is_document_question(user_message) or is_document_question(search_query):
             return build_specific_account_documents_reply(product, user_message)
 
         return build_specific_account_reply(product)
 
-    if is_document_question(user_message):
+    if (
+        is_document_question(user_message)
+        or is_document_question(search_query)
+        or has_document_word(user_message, include_need=False)
+        or has_document_word(search_query, include_need=False)
+    ):
         product = detect_account_product_from_history(history)
 
         if product:
@@ -2151,7 +2169,10 @@ def build_account_router_reply(user_message, intent, history):
 
     segment = detect_account_segment(user_message)
     category = detect_account_category(user_message)
-    is_broad_account_question = is_broad_account_opening_question(user_message)
+    is_broad_account_question = (
+        is_broad_account_opening_question(user_message)
+        or is_broad_account_opening_question(search_query)
+    )
     account_context_words = [
         "account",
         "accounts",
@@ -3179,7 +3200,12 @@ def chat(request: ChatRequest):
             status="answered",
         )
 
-    account_router_reply = build_account_router_reply(user_message, intent, history)
+    account_router_reply = build_account_router_reply(
+        user_message,
+        intent,
+        history,
+        search_query,
+    )
 
     if account_router_reply:
         return save_and_build_response(
@@ -3217,7 +3243,15 @@ def chat(request: ChatRequest):
             status="off_topic",
         )
 
-    if intent == "account_information" and is_broad_account_opening_question(user_message):
+    is_broad_account_retrieval = (
+        intent == "account_information"
+        and (
+            is_broad_account_opening_question(user_message)
+            or is_broad_account_opening_question(search_query)
+        )
+    )
+
+    if is_broad_account_retrieval:
         selected_pages = [
             "EBL Online Apply Page",
             "EBL Retail Deposits Page",
@@ -3258,8 +3292,7 @@ def chat(request: ChatRequest):
     required_documents_reply = ""
 
     if not (
-        intent == "account_information"
-        and is_broad_account_opening_question(user_message)
+        is_broad_account_retrieval
     ):
         required_documents_reply = build_required_documents_reply(
             user_message,

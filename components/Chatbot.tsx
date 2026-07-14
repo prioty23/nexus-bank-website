@@ -178,6 +178,28 @@ export default function Chatbot() {
     await sendMessage(input);
   };
 
+  const bottomQuickActions = ["Find a Branch", "Contact Us"];
+  const primaryQuickActions = chatbotText.quickActions.filter(
+    (action: string) => !bottomQuickActions.includes(action),
+  );
+  const visibleBottomQuickActions = bottomQuickActions.filter((action) =>
+    chatbotText.quickActions.includes(action),
+  );
+
+  const renderQuickActionButton = (action: string) => (
+    <button
+      key={action}
+      type="button"
+      onClick={() => {
+        void sendMessage(action);
+      }}
+      disabled={isLoading}
+      className="rounded-full border border-[#006A4E]/15 bg-white px-3 py-2 text-sm font-medium text-[#006A4E] transition hover:bg-[#006A4E]/5 disabled:cursor-not-allowed disabled:opacity-60"
+    >
+      {action}
+    </button>
+  );
+
   const showQuickActions = messages.length === 1;
 
   return (
@@ -243,20 +265,13 @@ export default function Chatbot() {
               </div>
 
               {showQuickActions ? (
-                <div className="flex flex-wrap gap-2">
-                  {chatbotText.quickActions.map((action: string) => (
-                    <button
-                      key={action}
-                      type="button"
-                      onClick={() => {
-                        void sendMessage(action);
-                      }}
-                      disabled={isLoading}
-                      className="rounded-full border border-[#006A4E]/15 bg-white px-3 py-2 text-sm font-medium text-[#006A4E] transition hover:bg-[#006A4E]/5 disabled:cursor-not-allowed disabled:opacity-60"
-                    >
-                      {action}
-                    </button>
-                  ))}
+                <div className="space-y-2">
+                  <div className="flex flex-wrap gap-2">
+                    {primaryQuickActions.map(renderQuickActionButton)}
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {visibleBottomQuickActions.map(renderQuickActionButton)}
+                  </div>
                 </div>
               ) : null}
 

@@ -63,11 +63,12 @@ Language should be a short label such as english, banglish, bangla, broken_engli
 The search_query should be clean English terms useful for searching Eastern Bank PLC website content.
 
 Intent guidance:
-- Use account_information for broad account opening questions, including messages like "Open an Account", "account khulte ki lagbe", "ami ebl account korte chai", and "how can I open an account".
+- Understand Banglish, Bangla-style English, broken English, spelling mistakes, and short customer messages semantically.
+- Use account_information for broad account opening and account document requirement questions, even when the customer does not use formal English or does not write the word "open".
 - Do not classify broad account opening questions as online_apply.
 - Use online_apply only when the customer explicitly asks for an online application link, application form, apply link, or apply online page.
 - Use complaint_create when the customer reports a banking problem, failed transaction, double charge, duplicate deduction, money deducted, refund issue, card problem, ATM problem, app problem, or service issue.
-- Use card_information for broad card help or card product questions, including "Card Support", "ki ki cards ache", debit card, credit card, prepaid card, and Islamic card questions.
+- Use card_information for broad card help or card product questions.
 """
 
 
@@ -107,60 +108,31 @@ def parse_groq_json(content):
     }
 
 
-def should_force_account_information(message, understood_query):
-    if understood_query.get("intent") != "online_apply":
-        return False
-
-    normalized_message = " ".join(message.lower().split())
-
-    explicit_online_apply_phrases = [
-        "apply online",
-        "online apply",
-        "online application",
-        "application link",
-        "apply link",
-        "online form",
-        "apply now",
-    ]
-
-    if any(phrase in normalized_message for phrase in explicit_online_apply_phrases):
-        return False
-
-    broad_account_phrases = [
-        "open an account",
-        "open account",
-        "account opening",
-        "create account",
-        "new account",
-        "account khulte",
-        "account khola",
-        "account korte",
-    ]
-
-    return any(phrase in normalized_message for phrase in broad_account_phrases)
-
-
 def normalize_understood_query(message, understood_query):
     fallback_intent = detect_intent(message)
 
-    if fallback_intent == "complaint_create":
+    guardrail_fallback_intents = [
+        "complaint_create",
+        "complaint_status",
+        "urgent_card_issue",
+        "contact_information",
+        "branch_locator",
+        "card_information",
+    ]
+
+    if fallback_intent in guardrail_fallback_intents:
         understood_query = dict(understood_query)
-        understood_query["intent"] = "complaint_create"
+        understood_query["intent"] = fallback_intent
         understood_query["search_query"] = message
         return understood_query
 
-    if fallback_intent == "card_information":
-        understood_query = dict(understood_query)
-        understood_query["intent"] = "card_information"
-        understood_query["search_query"] = message
-        return understood_query
-
-    if should_force_account_information(message, understood_query):
+    if fallback_intent == "account_information" and understood_query.get("intent") == "online_apply":
         understood_query = dict(understood_query)
         understood_query["intent"] = "account_information"
         understood_query["search_query"] = (
             "EBL account opening requirements account types savings current deposit online application"
         )
+        return understood_query
 
     return understood_query
 

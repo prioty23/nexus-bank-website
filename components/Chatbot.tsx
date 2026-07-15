@@ -11,6 +11,14 @@ type Message = {
 
 const chatbotText = translations.en.chatbot;
 const CHATBOT_API_URL = "http://127.0.0.1:8000/chat";
+const BRANCH_LOCATOR_ACTION = "Find a Branch";
+const BRANCH_LOCATOR_URL = "https://www.ebl.com.bd/branches";
+const LOAN_CALCULATOR_ACTION = "Loan calculator";
+const LOAN_CALCULATOR_URL = "https://www.ebl.com.bd/emical";
+const QUICK_ACTION_LINKS: Record<string, string> = {
+  [BRANCH_LOCATOR_ACTION]: BRANCH_LOCATOR_URL,
+  [LOAN_CALCULATOR_ACTION]: LOAN_CALCULATOR_URL,
+};
 const TYPING_MESSAGE = "Eastern AI is typing...";
 const ERROR_MESSAGE =
   "Sorry, I could not connect to the chatbot server. Please try again later.";
@@ -186,19 +194,37 @@ export default function Chatbot() {
     chatbotText.quickActions.includes(action),
   );
 
-  const renderQuickActionButton = (action: string) => (
-    <button
-      key={action}
-      type="button"
-      onClick={() => {
-        void sendMessage(action);
-      }}
-      disabled={isLoading}
-      className="rounded-full border border-[#006A4E]/15 bg-white px-3 py-2 text-sm font-medium text-[#006A4E] transition hover:bg-[#006A4E]/5 disabled:cursor-not-allowed disabled:opacity-60"
-    >
-      {action}
-    </button>
-  );
+  const renderQuickActionButton = (action: string) => {
+    const quickActionLink = QUICK_ACTION_LINKS[action];
+
+    if (quickActionLink) {
+      return (
+        <a
+          key={action}
+          href={quickActionLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-full border border-[#006A4E]/15 bg-white px-3 py-2 text-sm font-medium text-[#006A4E] transition hover:bg-[#006A4E]/5"
+        >
+          {action}
+        </a>
+      );
+    }
+
+    return (
+      <button
+        key={action}
+        type="button"
+        onClick={() => {
+          void sendMessage(action);
+        }}
+        disabled={isLoading}
+        className="rounded-full border border-[#006A4E]/15 bg-white px-3 py-2 text-sm font-medium text-[#006A4E] transition hover:bg-[#006A4E]/5 disabled:cursor-not-allowed disabled:opacity-60"
+      >
+        {action}
+      </button>
+    );
+  };
 
   const showQuickActions = messages.length === 1;
 

@@ -1,0 +1,383 @@
+Eastern Bank PLC.
+Schedule of Charges: SME Banking, July 1, 2026
+
+Columns used in the source PDF: Sl. | Description | Amount/Tk.
+This text version corrects obvious OCR/extraction spelling errors while keeping the original charge amounts and meanings unchanged.
+
+1. Deposit Accounts
+
+1.1 Current Account
+1.1.1 Current Account maintenance fee: BDT 300 + VAT, half-yearly
+1.1.2 Account maintenance fee - Overdraft: BDT 300 + VAT, half-yearly
+1.1.3 SME OD/CC account maintenance fee: Free
+1.1.4 Closing of current account: BDT 300 + VAT
+1.1.5 Activation charge for dormant current account: Free
+
+1.2 SND / Super HPA Account
+1.2.1 Minimum account opening/maintaining balance for SME Super HPA Account: BDT 0 (VAT not applicable)
+1.2.2 SND / Super HPA Account maintenance fee: BDT 500 + VAT, half-yearly
+1.2.3 Closing of SND / Super HPA Account: BDT 300 + VAT
+1.2.4 Activation charge for dormant SND / Super HPA Account: Free
+
+1.3 FCY Account
+1.3.1 FCY Account maintenance fee: BDT 300 + VAT, equivalent foreign currency, half-yearly
+1.3.2 FCY Account / EBL Global Account closing charge: BDT 300 + VAT, equivalent foreign currency, half-yearly
+1.3.3 Activation charge of dormant FCY Account / EBL Global Account: Free
+1.3.4 New account to Bangladesh Bank under 18A of FERA (Foreign Exchange Regulation Act): BDT 2,000 + VAT, per permission
+1.3.5 Renewal of application process and documentation checking under 18A of FERA: BDT 1,500 + VAT, per permission
+1.3.6 New account to Bangladesh Bank under 18B of FERA: BDT 2,000 + VAT, per permission
+1.3.7 Renewal of application process and documentation checking under 18B of FERA: BDT 1,500 + VAT, per permission
+
+1.4 Shubidha Account Maintenance Fee
+1.4.1 Account maintenance fee for linked CD Account: Free
+1.4.2 Average balance below BDT 1,00,000: BDT 500 + VAT, half-yearly
+1.4.3 Average balance BDT 1,00,000 and above: Free
+1.4.4 Closing of account: BDT 300 + VAT
+1.4.5 Activation charge for dormant Shubidha account: Free
+
+1.5 EBL Protect Current Account
+1.5.1 Internet Banking facility: Free
+
+1.6 Term Deposits
+1.6.1 Extra Value Fixed Deposit minimum account opening balance: BDT 1,000,000 (VAT not applicable)
+1.6.2 Fixed Deposit minimum account opening balance: BDT 50,000 (VAT not applicable)
+
+1.7 Monthly Deposit Schemes
+1.7.1 SME Equity Builder monthly deposit amount: Minimum BDT 500, maximum BDT 50,000 (VAT not applicable)
+
+2. General Charges: Deposit Accounts
+
+2.1 Account Statement Charges
+2.1.1 Regular period statement - twice in a year (January to June and January to December): Free
+2.1.2 Regular period balance confirmation certificate - twice in a year (June end and December end): Free
+2.1.3 Additional statement and/or additional balance confirmation certificate: BDT 100 + VAT (each time)
+2.1.4 Statements on request through Contact Center by direct mail (minimum 3 working days required): BDT 100 + VAT + courier/postage charge (each time)
+2.1.5 Hold mail charge: BDT 500 + VAT per year
+2.1.6 GSA (General Selling Agent) application to Bangladesh Bank: BDT 3,000 + VAT, per permission
+2.1.7 RTGS fund transfer fee: BDT 100 (including VAT)
+
+2.2 Stop Payment
+2.2.1 Stop payment on cheque (cash/clearing): BDT 100 + VAT per instruction
+2.2.2 Cancellation of stop payment instruction: BDT 50 + VAT per cancellation request
+
+2.3 Cheque Book
+2.3.1 Cheque book issue charge: At actual cost
+2.3.2 Specially printed cheque book issue charge: Printing charges at actual cost
+2.3.3 Uncollected cheque book destruction (applied but not collected within 3 months): BDT 300 + VAT per cheque book
+2.3.4 Surrender of paid cheque: BDT 5.00 + VAT per cheque; minimum BDT 500 + VAT + legal cost (if any)
+2.3.5 Photocopy of cheques/vouchers: BDT 500 + VAT
+
+3. Fund Transfer/Payment Services for Current, SND and SME Super HPA Account
+
+3.1 Cash Withdrawal (Intercity)
+3.1.1 All Current Account:
+- Up to BDT 50,000: No fees
+- Above BDT 50,000 to BDT 1,00,000: BDT 50 + VAT
+- Above BDT 1,00,000 to BDT 5,00,000: BDT 100 + VAT
+- Above BDT 5,00,000 to BDT 10,00,000: BDT 500 + VAT
+- Above BDT 10,00,000 to BDT 20,00,000: BDT 1,000 + VAT
+- Above BDT 20,00,000 to BDT 50,00,000: BDT 1,500 + VAT
+- Above BDT 50,00,000: BDT 2,000 + VAT
+
+3.1.2 SND, Super HPA Account and EBL Shubidha Account:
+- Up to BDT 50,000: No fees
+- Above BDT 50,000 to BDT 1,00,000: BDT 50 + VAT
+- Above BDT 1,00,000 to BDT 5,00,000: BDT 100 + VAT
+- Above BDT 5,00,000 to BDT 10,00,000: BDT 500 + VAT
+- Above BDT 10,00,000 to BDT 20,00,000: BDT 1,000 + VAT
+- Above BDT 20,00,000 to BDT 50,00,000: BDT 1,500 + VAT
+- Above BDT 50,00,000: BDT 2,000 + VAT
+
+3.1.3 EBL Protect:
+- Up to BDT 50,000: No fees
+- Above BDT 50,000 to BDT 1,00,000: BDT 50 + VAT
+- Above BDT 1,00,000 to BDT 5,00,000: BDT 100 + VAT
+- Above BDT 5,00,000 to BDT 10,00,000: BDT 500 + VAT
+- Above BDT 10,00,000 to BDT 20,00,000: BDT 1,000 + VAT
+- Above BDT 20,00,000 to BDT 50,00,000: BDT 1,500 + VAT
+- Above BDT 50,00,000: BDT 2,000 + VAT
+
+3.2 Cash Deposit (Intercity)
+3.2.1 All Current Account:
+- Up to BDT 5,00,000: No fees
+- Above BDT 5,00,000 to BDT 10,00,000: BDT 500 + VAT
+- Above BDT 10,00,000 to BDT 20,00,000: BDT 1,000 + VAT
+- Above BDT 20,00,000 to BDT 50,00,000: BDT 1,500 + VAT
+- Above BDT 50,00,000: BDT 2,000 + VAT
+
+3.2.2 SND, Super HPA Account and EBL Shubidha Account:
+- Up to BDT 5,00,000: No fees
+- Above BDT 5,00,000 to BDT 10,00,000: BDT 500 + VAT
+- Above BDT 10,00,000 to BDT 20,00,000: BDT 1,000 + VAT
+- Above BDT 20,00,000 to BDT 50,00,000: BDT 1,500 + VAT
+- Above BDT 50,00,000: BDT 2,000 + VAT
+
+3.2.3 EBL Protect:
+- Up to BDT 5,00,000: No fees
+- Above BDT 5,00,000 to BDT 10,00,000: BDT 500 + VAT
+- Above BDT 10,00,000 to BDT 20,00,000: BDT 1,000 + VAT
+- Above BDT 20,00,000 to BDT 50,00,000: BDT 1,500 + VAT
+- Above BDT 50,00,000: BDT 2,000 + VAT
+
+Please note: All cheque/cash withdrawal/deposit transactions within the city are free.
+
+4. Local Fund Transfer Fee
+4.1 Intercity fund transfer outside EBL branches: BDT 200 + VAT + PO commission
+4.2 Pay Order issuance charge:
+- Up to BDT 1,000: BDT 20 + VAT
+- BDT 1,001 to BDT 1,00,000: BDT 50 + VAT
+- BDT 1,00,000+: BDT 100 + VAT
+4.3 Pay Order issuance charge, non-customer:
+- Up to BDT 1,000: BDT 20 + VAT
+- BDT 1,001 to BDT 1,00,000: BDT 50 + VAT
+- BDT 1,00,000+: BDT 100 + VAT
+4.4 DD/TT/MT issuance charge:
+- Up to BDT 1,000: BDT 20 + VAT
+- BDT 1,001 to BDT 1,00,000: BDT 50 + VAT
+- BDT 1,00,001 to BDT 5,00,000: BDT 100 + VAT
+- BDT 5,00,001 to BDT 10,00,000: BDT 200 + VAT
+- BDT 10,00,000+: BDT 300 + VAT
+4.5 Bangladesh Bank cheque issuance: BDT 500 + VAT
+4.6 Issuance of duplicate PO/DD/FDR/other instrument: BDT 200 + VAT
+
+5. Stop Payment Instruction
+5.1 Cancellation of PO/DD/TT/MT: BDT 50 + VAT
+5.2 Stop payment instruction (account/cheque): BDT 100 + VAT
+5.3 Cancellation of stop payment instruction (account/cheque): BDT 50 + VAT
+5.4 Stop payment on draft (foreign): BDT 500 + VAT + foreign correspondent charge (if any)
+
+6. Standing Instruction (SI)
+6.1 Standing Instruction (SI) creation charge: BDT 300 + VAT per SI
+6.2 SI for transfer of funds between accounts within the branch: Free
+6.3 SI for transfer of funds within city branches: BDT 100 + VAT per execution
+6.4 SI for transfer of funds between intercity branches: BDT 150 + VAT per execution
+6.5 SI for transfer of funds to other banks: BDT 300 + VAT + PO/DD charges as applicable
+6.6 Failure of SI due to insufficient funds: BDT 200 + VAT
+6.7 Amendment of SI*: BDT 300 + VAT
+6.8 Cancellation of SI*: BDT 300 + VAT
+
+7. Sweep
+7.1 Sweep creation charge: Free
+7.2 Sweep-in charge for each execution: Free
+7.3 Sweep-out charge for each execution: Free
+7.4 Amendment of sweep: Free
+
+8. Salary Transfer
+8.1 Arrangement fee: Free
+8.2 Annual subscription fee: Free
+8.3 Salary disbursement if the accounts are with EBL: As per negotiation
+8.4 Salary disbursement through Pay Order: As per negotiation
+
+9. IPO Refund
+9.1 Online refund of unsuccessful IPO application: BDT 10 + VAT per transfer
+
+10. Fund Transfer: Foreign Currency (FCY)
+
+10.1 Outward Remittance - FCY
+10.1.1 SWIFT charge: At actual cost
+10.1.2 FCY draft on Bangladesh Bank: BDT 500 + VAT
+10.1.3 Commission, FCY TT through correspondent, customer*:
+Equivalent currency:
+- Up to BDT 100,000: BDT 100 + VAT
+- BDT 100,001 to BDT 500,000: BDT 200 + VAT
+- BDT 500,001 to BDT 1,000,000: BDT 300 + VAT
+- More than BDT 1,000,000: BDT 500 + VAT + SWIFT charge BDT 500 + VAT + foreign correspondent charge
+10.1.4 Commission, FCY TT through correspondent, non-customer*:
+Equivalent currency:
+- Up to BDT 100,000: BDT 100 + VAT
+- BDT 100,001 to BDT 500,000: BDT 200 + VAT
+- BDT 500,001 to BDT 1,000,000: BDT 300 + VAT
+- More than BDT 1,000,000: BDT 500 + VAT + SWIFT charge BDT 500 + VAT + foreign correspondent charge
+10.1.5 Additional SWIFT charge if TT is not through correspondent: BDT 300 + VAT
+10.1.6 Correspondent bank charge for all outward remittance: BDT 2,500 + VAT for all currency remittances in all cases
+10.1.7 Investigation charge (if beneficiary account already credited): BDT 300 + VAT
+10.1.8 Remit with Bangladesh Bank post-facto approval: Existing cheque + BDT 200 + VAT
+10.1.9 Regulatory post-facto approval: BDT 1,000 + VAT
+10.1.10 FCY fund transfer for FC loans and related charges remittance*:
+Equivalent currency:
+- Up to BDT 100,000: BDT 100 + VAT
+- BDT 100,001 to BDT 500,000: BDT 200 + VAT
+- BDT 500,001 to BDT 1,000,000: BDT 300 + VAT
+- More than BDT 1,000,000: BDT 500 + VAT + SWIFT charge BDT 500 + VAT + foreign correspondent charge, if any
+10.1.11 Scrutiny fee for airline remittance*: Up to 0.15% + VAT of remittance amount, minimum BDT 1,000 + VAT*
+10.1.12 Pre-facto Bangladesh Bank approval processing fee*: BDT 3,000 + VAT
+
+10.2 Cancellation of Draft/FTT
+10.2.1 FTT cancellation: BDT 200 + VAT
+10.2.2 TT amendment - FCY: BDT 500 + VAT + correspondent bank charge
+10.2.3 FCY draft cancellation: BDT 200 + VAT
+10.2.4 Lost DD - FCY: BDT 500 + VAT + foreign correspondent charge
+
+10.3 Inward Remittance FCY
+10.3.1 For credit to EBL customers: Free
+10.3.2 For customers with other banks: BDT 100 + VAT + PO/DD charges
+10.3.3 FCY encashment certificate (Bangladesh Bank format): BDT 500 + VAT per certificate
+10.3.4 Tax/VAT certificate: BDT 300 + VAT each
+
+10.4 Issue of Travelers Cheque (TC) / FCY Notes
+10.4.1 Issuance of TC, customer: 1.00% + VAT of the TC amount, minimum BDT 200 + VAT
+10.4.2 Issuance of TC, non-customer: 1.00% + VAT of the TC amount, minimum BDT 500 + VAT
+10.4.3 Endorsement fee, customer: BDT 300 + VAT
+10.4.4 Endorsement fee, non-customer: BDT 300 + VAT
+10.4.5 Issuance of cash FCY notes, customer: BDT 300 + VAT
+10.4.6 Issuance of cash FCY notes, non-customer: BDT 300 + VAT
+
+10.5 Travelers Cheques / FCY (Cash) Encashment
+10.5.1 TC encashment, customer: 0.25% + VAT of the TC amount, minimum BDT 300 + VAT
+10.5.2 TC encashment, non-customer: 0.30% + VAT of the TC amount, minimum BDT 500 + VAT
+10.5.3 Cash FCY encashment: BDT 100 + VAT
+
+11. Cheque Collection
+
+11.1 Cheque for Collection, Local Currency (LCY)
+11.1.1 Outstation cheque collection commission - LCY (within EBL Branches Clearing Zone): 0.15% + VAT, minimum BDT 200 + VAT
+11.1.2 Outstation cheque collection commission - LCY (outside EBL Branches Clearing Zone): 0.15% + VAT, minimum BDT 200 + VAT, maximum BDT 1,000 + VAT
+11.1.3 LCY cheque collection returned unpaid: BDT 100 + VAT
+11.1.4 LCY cheque collection within clearing house: Free
+11.1.5 LCY cheque collection where there is no clearing house (bank area): BDT 50 + VAT
+11.1.6 Outward clearing cheque returned/unpaid for insufficient funds: Free
+11.1.7 Outward clearing cheque returned/unpaid for other reasons: Free
+11.1.8 Inward clearing cheque returned/unpaid for insufficient funds: BDT 50 + VAT
+11.1.9 Collection of dividend warrant: Same as cheque
+11.1.10 Paid/unpaid cheque image collection fee: BDT 200 + VAT
+
+11.2 Regular Value Cheque Clearing
+11.2.1 All cheques below BDT 50,000: Free
+11.2.2 BDT 50,000 to below BDT 5,00,000: BDT 10 (including VAT)
+11.2.3 Above BDT 5,00,000: BDT 25 (including VAT)
+11.2.4 All high-value cheque clearing (same day): BDT 60 (including VAT)
+11.2.5 All EFT transactions (BEFTN): Free
+
+11.3 Cheque for Collection, Foreign Currency (FCY)
+11.3.1 Commission, FCY cheque purchase (within Bangladesh): 0.50% + VAT or minimum BDT 300 + VAT, whichever is higher + other bank/post/telex charge
+
+12. Certificates/Reports
+12.1 Balance/interest certificates of CASA, same day: BDT 100 + VAT
+12.2 Balance/interest certificates, following day: BDT 100 + VAT
+12.3 Issuance of solvency certificate: BDT 200 + VAT
+12.4 Credit/solvency information (local), if requested by third party: BDT 500 + VAT
+12.5 Credit/solvency information (international): BDT 500 + VAT
+12.6 Obtaining credit report on behalf of local customer: BDT 500 + VAT
+12.7 Certificate for inward remittance*: BDT 500 + VAT per remittance
+12.8 Duplicate savings certificate/declaration in lieu: BDT 500 + VAT
+12.9 Duplicate advice more than 6 months old (per advice): BDT 500 + VAT
+12.10 Bank statement verification (request by other banks and embassies): BDT 500 + VAT
+12.11 Travelers Cheque/Cash (FCY) encashment certificate: BDT 100 + VAT
+12.12 Certificate relating to BO account: BDT 100 + VAT
+12.13 Bill payment (via IB) authentication certificate: BDT 50 + VAT
+12.14 Certificate of purchase/encashment of bonds/securities: BDT 500 + VAT
+12.15 Attestation of certificate: BDT 100 + VAT
+12.16 Certificate relating to tax: BDT 250 + VAT
+
+13. Holding of Bonds
+13.1 Holding of bonds (more than three months): BDT 200 + VAT, yearly
+
+14. Internet Banking and Digital Platform
+14.1 Internet Banking Service - OBDX*: Annually up to BDT 2,500 + VAT
+14.2 Stop cheque instruction: BDT 100 + VAT
+14.3 PIN change (if customer forgets or requests a new one): BDT 160 + VAT
+14.4 EBL Access Activation PIN charge - software token: Free for the first time; next BDT 600 + VAT (if applicable)
+14.5 Hardware token: BDT 1,500 + VAT (at a time)
+14.6 Including each additional account, CASA new accounts only (one time): BDT 50 + VAT
+14.7 LC related services: Free
+14.8 Guarantee related services: Free
+14.9 Fund transfer between own accounts (LCY): Free
+14.10 Account statement/account details/balance checking: Free
+14.11 EBLConnect profile fee*: Annually up to BDT 3,000 + VAT
+14.12 Host-to-host integration setup/maintenance fee*: As per agreement/negotiation
+14.13 Technology support fee*: As per agreement/negotiation
+14.14 Special collection solution (Visa fee/distributor etc.)*: As per agreement/negotiation
+
+15. SMS Banking
+15.1 SMS Banking Service - annual fee: Free
+15.2 PIN change (if customer forgets or requests a new one): BDT 160 + VAT
+
+16. Phone Banking (Contact Center)
+16.1 Phone Banking service - annual fee: Free
+16.2 PIN change (if customer forgets or requests a new one): BDT 160 + VAT
+
+17. SWIFT/Fax
+17.1 SWIFT (any other, not mentioned otherwise): BDT 500 + VAT
+17.2 Fax, within country: BDT 25 + VAT per page
+17.3 Fax, outside country: BDT 50 + VAT per page
+
+18. Postage/Mail
+18.1 Registered courier: Actual courier charges
+18.2 Courier, within city: Actual courier charges
+18.3 Courier, intercity: Actual courier charges
+18.4 Courier, outside country: Actual courier charges
+18.5 EMS: At actual cost (minimum BDT 500 + VAT)
+
+19. Cost of Stationery
+19.1 TM Forms: Free
+19.2 C Forms: Free
+19.3 All other forms - miscellaneous: Free
+
+20. BPID
+20.1 BPID opening: 500/-
+20.2 Primary auction (per successful bid): 500/- (200/- for Brokerage Omnibus)
+20.3 Secondary trading (FMI): 100/- per transaction
+20.4 Annual BPID maintenance: 500/-
+20.5 Tax certificate: Yearly one statement free; for each additional statement, 500/- each
+
+21. Miscellaneous
+21.1 Attestation of documents: BDT 100 + VAT per set
+21.2 Advisory fee: As per negotiation
+21.3 Fund/facility arrangement fee: As per negotiation up to 2% of arranged fund
+21.4 Agency/trustee/escrow account fee: As per negotiation
+21.5 Account bank fee: As per negotiation
+21.6 Facilitation fee: As per negotiation
+21.7 Enhanced support fee: As per negotiation
+21.8 Finance arrangement fee: As per negotiation
+21.9 Documentation deferral extension fee*: As per negotiation up to BDT 100,000 + VAT
+21.10 Fast tracking fee: As per negotiation
+21.11 Audit confirmation - bank certificate*: BDT 500 + VAT
+21.12 Tailor-made products and services fees: As per negotiation
+21.13 Any other type of transaction or service: As per negotiation
+21.14 Account transaction alert fee (all accounts other than fixed deposits and recurring deposits): Up to BDT 400 + VAT per year
+
+22. SME Loan Facilities
+22.1 Loan application fee: Nil
+22.2 Loan processing fees:
+- Loan amount up to BDT 50 lakh: 0.50% + VAT or BDT 15,000 + VAT, whichever is lower
+- Loan amount above BDT 50 lakh: 0.30% + VAT or BDT 20,000 + VAT, whichever is lower
+22.3 Penal charge: Additional 0.5% of overdue amount (VAT not applicable)
+22.4 Partial/early settlement fees - Cottage, Micro and Small: Nil
+22.5 Partial/early settlement fees (Medium and Large Segment): 0.50% + VAT
+22.6 CMSME - OD account maintenance fee: Nil
+22.7 Reschedule/Restructure/Exit*:
+- For CMSME and Agriculture Loans: Nil
+- For Large and Other Loans (other than CMSME):
+  - Loan outstanding up to BDT 1.00 crore: BDT 3,000 + VAT
+  - Loan outstanding above BDT 1.00 crore: BDT 5,000 + VAT
+22.8 Contact Point Verification (CPV) charge: At actual cost
+22.9 CIB charge:
+- CMSME: At actual cost
+- Large: At actual cost
+- Agri Loan: Up to BDT 2.50 lakh: Nil; more than BDT 2.50 lakh: At actual cost
+22.10 Charge documents/stamp charge: At actual cost
+22.11 Valuation charge: At actual cost
+22.12 Mortgage fees (processing and documentation): At actual cost
+22.13 Legal fees: At actual cost
+22.14 Other documentation fees*: BDT 500 + VAT
+22.15 Loan renewal fees or charges (excluding e-cash and Krishi)*: BDT 1,000 + VAT
+22.16 Issuing NOC for adjusted loans: BDT 500 + VAT
+22.17 Security list for takeover loans by other institutions/providing loan position and others:
+- For CMS and Agriculture loans: At actual cost
+- For Medium and Large loans: At actual cost + BDT 1,000 + VAT
+22.18 Temporary time extension for expired loans:
+- For CMS loans: Nil
+- For Medium and Large loans: BDT 1,000 + VAT
+22.19 Court and lawyer fee for recovery: At actual cost + admin margin (as per negotiation)
+22.20 Further Board approval for earlier compromise failed/time extension*: As per negotiation
+22.21 Compromise settlement fee*:
+- Compromised amount up to BDT 1.00 crore: BDT 2,000 + VAT
+- Compromised amount above BDT 1.00 crore: BDT 5,000 + VAT
+22.22 Settlement monitoring fees for compromise settlement/exit*: As per negotiation
+22.23 Non-funded facilities, such as LC and BG, fees and commission: Up to 0.60% per quarter
+22.24 Security replacement fee: BDT 1,500 + VAT
+
+Notes
+1. Applicable VAT rate is 15%.
+2. This Schedule of Charges applies to normal transactions. Stamp duty, correspondent charges, and other out-of-pocket expenses, if any, may be added.
+3. Charge heads marked with (*) are subject to Management's discretion.

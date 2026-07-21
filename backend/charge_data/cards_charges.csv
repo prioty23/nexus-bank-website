@@ -1,0 +1,795 @@
+﻿schedule,category,product,charge_name,condition,amount,vat_note,source_file
+Cards,Credit Cards,Visa Classic,Issuance / renewal / annual fee - Primary card,Credit Cards; Primary card,"BDT 1,500",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Issuance / renewal / annual fee - Primary card,Credit Cards; Primary card,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Issuance / renewal / annual fee - Primary card,Credit Cards; Primary card,"BDT 5,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Issuance / renewal / annual fee - Primary card,Credit Cards; Primary card,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Issuance / renewal / annual fee - Primary card,Credit Cards; Primary card,"BDT 4,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Issuance / renewal / annual fee - Primary card,Credit Cards; Primary card,"BDT 1,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Issuance / renewal / annual fee - Primary card,Credit Cards; Primary card,"BDT 10,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Issuance / renewal / annual fee - Primary card,Credit Cards; Primary card,"BDT 12,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Issuance / renewal / annual fee - Primary card,Credit Cards; Primary card,"BDT 25,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Issuance / renewal / annual fee - Primary card,Credit Cards; Primary card,"BDT 5,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Issuance / renewal / annual fee - Primary card,Credit Cards; Primary card,"BDT 7,500",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Issuance / renewal / annual fee - Primary card,Credit Cards; Primary card,"BDT 1,740",,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Issuance / renewal / annual fee - Primary card,Credit Cards; Primary card,"BDT 5,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Issuance / renewal / annual fee - Primary card,Credit Cards; Primary card,As per Note 17,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Issuance / renewal / annual fee - Primary card,Debit Cards; Primary card,BDT 600,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Issuance / renewal / annual fee - Primary card,Debit Cards; Primary card,BDT 700,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Issuance / renewal / annual fee - Primary card,Debit Cards; Primary card,"BDT 1,000",,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Issuance / renewal / annual fee - Primary card,Debit Cards; Primary card,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Issuance / renewal / annual fee - Primary card,Debit Cards; Primary card,$ 10,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Issuance / renewal / annual fee - Primary card,Debit Cards; Primary card,BDT 600,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Issuance / renewal / annual fee - Primary card,Debit Cards; Primary card,BDT 300,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Issuance / renewal / annual fee - Primary card,Prepaid Cards; Primary card,As per Note 9,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Issuance / renewal / annual fee - Primary card,Prepaid Cards; Primary card,"BDT 1,000",,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Issuance / renewal / annual fee - Primary card,Prepaid Cards; Primary card,BDT 500 or $ 10,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Issuance / renewal / annual fee - Primary card,Prepaid Cards; Primary card,BDT 800,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Supplementary card free count,Credit Cards; Supplementary card free count,1st card free,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Supplementary card free count,Credit Cards; Supplementary card free count,1st card free,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Supplementary card free count,Credit Cards; Supplementary card free count,1st and 2nd card free,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Supplementary card free count,Credit Cards; Supplementary card free count,1st and 2nd card free,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Supplementary card free count,Credit Cards; Supplementary card free count,1st and 2nd card free,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Supplementary card free count,Credit Cards; Supplementary card free count,1st and 2nd card free,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Supplementary card free count,Credit Cards; Supplementary card free count,1st and 2nd card free,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Supplementary card free count,Credit Cards; Supplementary card free count,1st and 2nd card free,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Supplementary card free count,Credit Cards; Supplementary card free count,1st and 2nd card free,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Supplementary card free count,Credit Cards; Supplementary card free count,1st and 2nd card free,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Supplementary card free count,Credit Cards; Supplementary card free count,1st and 2nd card free,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Supplementary card free count,Credit Cards; Supplementary card free count,1st and 2nd card free,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Supplementary card free count,Credit Cards; Supplementary card free count,1st and 2nd card free,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Supplementary card free count,Credit Cards; Supplementary card free count,1st and 2nd card free,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Supplementary card free count,Debit Cards; Supplementary card free count,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Supplementary card free count,Debit Cards; Supplementary card free count,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Supplementary card free count,Debit Cards; Supplementary card free count,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Supplementary card free count,Debit Cards; Supplementary card free count,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Supplementary card free count,Debit Cards; Supplementary card free count,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Supplementary card free count,Debit Cards; Supplementary card free count,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Supplementary card free count,Debit Cards; Supplementary card free count,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Supplementary card free count,Prepaid Cards; Supplementary card free count,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Supplementary card free count,Prepaid Cards; Supplementary card free count,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Supplementary card free count,Prepaid Cards; Supplementary card free count,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Supplementary card free count,Prepaid Cards; Supplementary card free count,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Supplementary card issuance / annual / renewal fee,Credit Cards; Supplementary card,"BDT 1,500",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Supplementary card issuance / annual / renewal fee,Credit Cards; Supplementary card,"BDT 1,500",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Supplementary card issuance / annual / renewal fee,Credit Cards; Supplementary card,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Supplementary card issuance / annual / renewal fee,Credit Cards; Supplementary card,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Supplementary card issuance / annual / renewal fee,Credit Cards; Supplementary card,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Supplementary card issuance / annual / renewal fee,Credit Cards; Supplementary card,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Supplementary card issuance / annual / renewal fee,Credit Cards; Supplementary card,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Supplementary card issuance / annual / renewal fee,Credit Cards; Supplementary card,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Supplementary card issuance / annual / renewal fee,Credit Cards; Supplementary card,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Supplementary card issuance / annual / renewal fee,Credit Cards; Supplementary card,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Supplementary card issuance / annual / renewal fee,Credit Cards; Supplementary card,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Supplementary card issuance / annual / renewal fee,Credit Cards; Supplementary card,BDT 869,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Supplementary card issuance / annual / renewal fee,Credit Cards; Supplementary card,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Supplementary card issuance / annual / renewal fee,Credit Cards; Supplementary card,$ 12,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Supplementary card issuance / annual / renewal fee,Debit Cards; Supplementary card,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Supplementary card issuance / annual / renewal fee,Debit Cards; Supplementary card,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Supplementary card issuance / annual / renewal fee,Debit Cards; Supplementary card,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Supplementary card issuance / annual / renewal fee,Debit Cards; Supplementary card,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Supplementary card issuance / annual / renewal fee,Debit Cards; Supplementary card,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Supplementary card issuance / annual / renewal fee,Debit Cards; Supplementary card,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Supplementary card issuance / annual / renewal fee,Debit Cards; Supplementary card,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Supplementary card issuance / annual / renewal fee,Prepaid Cards; Supplementary card,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Supplementary card issuance / annual / renewal fee,Prepaid Cards; Supplementary card,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Supplementary card issuance / annual / renewal fee,Prepaid Cards; Supplementary card,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Supplementary card issuance / annual / renewal fee,Prepaid Cards; Supplementary card,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,International SkyLounge free visits,Credit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,International SkyLounge free visits,Credit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,International SkyLounge free visits,Credit Cards; Annual,6,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,International SkyLounge free visits,Credit Cards; Annual,6,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,International SkyLounge free visits,Credit Cards; Annual,6,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,International SkyLounge free visits,Credit Cards; Annual,6,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,International SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,International SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,International SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,International SkyLounge free visits,Credit Cards; Annual,6,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,International SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,International SkyLounge free visits,Credit Cards; Annual,6,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,International SkyLounge free visits,Credit Cards; Annual,6,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,International SkyLounge free visits,Credit Cards; Annual,Depends on card type,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,International SkyLounge free visits,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,International SkyLounge free visits,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,International SkyLounge free visits,Debit Cards; Annual,As per Note 33,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,International SkyLounge free visits,Debit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,International SkyLounge free visits,Debit Cards; Annual,As per Note 33,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,International SkyLounge free visits,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,International SkyLounge free visits,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,International SkyLounge free visits,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,International SkyLounge free visits,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,International SkyLounge free visits,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,International SkyLounge free visits,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Domestic SkyLounge free visits,Credit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Domestic SkyLounge free visits,Credit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Domestic SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Domestic SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Domestic SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Domestic SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Domestic SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Domestic SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Domestic SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Domestic SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Domestic SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Domestic SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Domestic SkyLounge free visits,Credit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Domestic SkyLounge free visits,Credit Cards; Annual,Depends on card type,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Domestic SkyLounge free visits,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Domestic SkyLounge free visits,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Domestic SkyLounge free visits,Debit Cards; Annual,As per Note 33,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Domestic SkyLounge free visits,Debit Cards; Annual,Unlimited,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Domestic SkyLounge free visits,Debit Cards; Annual,As per Note 33,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Domestic SkyLounge free visits,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Domestic SkyLounge free visits,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Domestic SkyLounge free visits,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Domestic SkyLounge free visits,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Domestic SkyLounge free visits,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Domestic SkyLounge free visits,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Global lounge access fee,Credit Cards; Per person,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Global lounge access fee,Credit Cards; Per person,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Global lounge access fee,Credit Cards; Per person,$ 36 / As per Note 41,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Global lounge access fee,Credit Cards; Per person,$ 36 / As per Note 41,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Global lounge access fee,Credit Cards; Per person,$ 36 / As per Note 41,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Global lounge access fee,Credit Cards; Per person,$ 36 / As per Note 41,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Global lounge access fee,Credit Cards; Per person,$ 36 / As per Note 41,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Global lounge access fee,Credit Cards; Per person,$ 36 / As per Note 41,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Global lounge access fee,Credit Cards; Per person,$ 36 / As per Note 41,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Global lounge access fee,Credit Cards; Per person,$ 36 / As per Note 41,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Global lounge access fee,Credit Cards; Per person,$ 36 / As per Note 41,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Global lounge access fee,Credit Cards; Per person,As per Note 31,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Global lounge access fee,Credit Cards; Per person,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Global lounge access fee,Credit Cards; Per person,Depends on card type,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Global lounge access fee,Debit Cards; Per person,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Global lounge access fee,Debit Cards; Per person,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Global lounge access fee,Debit Cards; Per person,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Global lounge access fee,Debit Cards; Per person,$ 36 / As per Note 41,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Global lounge access fee,Debit Cards; Per person,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Global lounge access fee,Debit Cards; Per person,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Global lounge access fee,Debit Cards; Per person,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Global lounge access fee,Prepaid Cards; Per person,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Global lounge access fee,Prepaid Cards; Per person,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Global lounge access fee,Prepaid Cards; Per person,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Global lounge access fee,Prepaid Cards; Per person,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Global lounge free visits,Credit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Global lounge free visits,Credit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Global lounge free visits,Credit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Global lounge free visits,Credit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Global lounge free visits,Credit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Global lounge free visits,Credit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Global lounge free visits,Credit Cards; Annual,6,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Global lounge free visits,Credit Cards; Annual,10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Global lounge free visits,Credit Cards; Annual,13,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Global lounge free visits,Credit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Global lounge free visits,Credit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Global lounge free visits,Credit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Global lounge free visits,Credit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Global lounge free visits,Credit Cards; Annual,Depends on card type,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Global lounge free visits,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Global lounge free visits,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Global lounge free visits,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Global lounge free visits,Debit Cards; Annual,12,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Global lounge free visits,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Global lounge free visits,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Global lounge free visits,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Global lounge free visits,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Global lounge free visits,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Global lounge free visits,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Global lounge free visits,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Card replacement fee,Credit Cards,"BDT 1,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Card replacement fee,Credit Cards,"BDT 1,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Card replacement fee,Credit Cards,"BDT 1,200",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Card replacement fee,Credit Cards,"BDT 1,200",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Card replacement fee,Credit Cards,"BDT 1,200",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Card replacement fee,Credit Cards,"BDT 1,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Card replacement fee,Credit Cards,"BDT 1,200",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Card replacement fee,Credit Cards,"BDT 1,200",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Card replacement fee,Credit Cards,"BDT 1,200",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Card replacement fee,Credit Cards,"BDT 1,200",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Card replacement fee,Credit Cards,"BDT 1,200",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Card replacement fee,Credit Cards,"BDT 1,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Card replacement fee,Credit Cards,"BDT 1,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Card replacement fee,Credit Cards,$ 9,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Card replacement fee,Debit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Card replacement fee,Debit Cards,BDT 600,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Card replacement fee,Debit Cards,BDT 700,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Card replacement fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Card replacement fee,Debit Cards,$ 10,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Card replacement fee,Debit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Card replacement fee,Debit Cards,BDT 300,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Card replacement fee,Prepaid Cards,BDT 200,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Card replacement fee,Prepaid Cards,BDT 500 or $ 10,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Card replacement fee,Prepaid Cards,BDT 500 or $ 10,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Card replacement fee,Prepaid Cards,BDT 500 or $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,PIN replacement fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,PIN replacement fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,PIN replacement fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,PIN replacement fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,PIN replacement fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,PIN replacement fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,PIN replacement fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,PIN replacement fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,PIN replacement fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,PIN replacement fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,PIN replacement fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,PIN replacement fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,PIN replacement fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,PIN replacement fee,Credit Cards,$ 6,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,PIN replacement fee,Debit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,PIN replacement fee,Debit Cards,BDT 600,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,PIN replacement fee,Debit Cards,BDT 700,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,PIN replacement fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,PIN replacement fee,Debit Cards,$ 10,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,PIN replacement fee,Debit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,PIN replacement fee,Debit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,PIN replacement fee,Prepaid Cards,BDT 200,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,PIN replacement fee,Prepaid Cards,BDT 500 or $ 10,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,PIN replacement fee,Prepaid Cards,BDT 500 or $ 10,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,PIN replacement fee,Prepaid Cards,BDT 500 or $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Late payment fee,Credit Cards,"BDT 1,000 / $ 12",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Late payment fee,Credit Cards,"BDT 1,000 / $ 12",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Late payment fee,Credit Cards,"BDT 1,200 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Late payment fee,Credit Cards,"BDT 1,200 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Late payment fee,Credit Cards,"BDT 1,200 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Late payment fee,Credit Cards,"BDT 1,200 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Late payment fee,Credit Cards,"BDT 1,200 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Late payment fee,Credit Cards,"BDT 1,200 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Late payment fee,Credit Cards,"BDT 1,200 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Late payment fee,Credit Cards,"BDT 1,200 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Late payment fee,Credit Cards,"BDT 1,200 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Late payment fee,Credit Cards,"BDT 1,200 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Late payment fee,Credit Cards,"BDT 1,200 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Late payment fee,Credit Cards,$ 15,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Late payment fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Late payment fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Late payment fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Late payment fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Late payment fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Late payment fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Late payment fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Late payment fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Late payment fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Late payment fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Late payment fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Cash withdrawal / advance fee - EBL ATM,Credit Cards; EBL ATM; whichever is higher,2.17% or BDT 300,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Cash withdrawal / advance fee - EBL ATM,Credit Cards; EBL ATM; whichever is higher,2.17% or BDT 300,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Cash withdrawal / advance fee - EBL ATM,Credit Cards; EBL ATM; whichever is higher,2.17% or BDT 300,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Cash withdrawal / advance fee - EBL ATM,Credit Cards; EBL ATM; whichever is higher,2.17% or BDT 300,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Cash withdrawal / advance fee - EBL ATM,Credit Cards; EBL ATM; whichever is higher,2.17% or BDT 300,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Cash withdrawal / advance fee - EBL ATM,Credit Cards; EBL ATM; whichever is higher,2.17% or BDT 300,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Cash withdrawal / advance fee - EBL ATM,Credit Cards; EBL ATM; whichever is higher,2.17% or BDT 300,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Cash withdrawal / advance fee - EBL ATM,Credit Cards; EBL ATM; whichever is higher,2.17% or BDT 300,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Cash withdrawal / advance fee - EBL ATM,Credit Cards; EBL ATM; whichever is higher,2.17% or BDT 300,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Cash withdrawal / advance fee - EBL ATM,Credit Cards; EBL ATM; whichever is higher,2.17% or BDT 300,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Cash withdrawal / advance fee - EBL ATM,Credit Cards; EBL ATM; whichever is higher,2.17% or BDT 300,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Cash withdrawal / advance fee - EBL ATM,Credit Cards; EBL ATM; whichever is higher,2.17% or BDT 300,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Cash withdrawal / advance fee - EBL ATM,Credit Cards; EBL ATM; whichever is higher,2.17% or BDT 300,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Cash withdrawal / advance fee - EBL ATM,Credit Cards; EBL ATM; whichever is higher,2.17% or BDT 300,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Cash withdrawal / advance fee - EBL ATM,Debit Cards; EBL ATM; whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Cash withdrawal / advance fee - EBL ATM,Debit Cards; EBL ATM; whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Cash withdrawal / advance fee - EBL ATM,Debit Cards; EBL ATM; whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Cash withdrawal / advance fee - EBL ATM,Debit Cards; EBL ATM; whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Cash withdrawal / advance fee - EBL ATM,Debit Cards; EBL ATM; whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Cash withdrawal / advance fee - EBL ATM,Debit Cards; EBL ATM; whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Cash withdrawal / advance fee - EBL ATM,Debit Cards; EBL ATM; whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Cash withdrawal / advance fee - EBL ATM,Prepaid Cards; EBL ATM; whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Cash withdrawal / advance fee - EBL ATM,Prepaid Cards; EBL ATM; whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Cash withdrawal / advance fee - EBL ATM,Prepaid Cards; EBL ATM; whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Cash withdrawal / advance fee - EBL ATM,Prepaid Cards; EBL ATM; whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Cash withdrawal / advance fee - Other ATM,Credit Cards; Other ATM; whichever is higher,3% or BDT 300 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Cash withdrawal / advance fee - Other ATM,Credit Cards; Other ATM; whichever is higher,3% or BDT 300 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Cash withdrawal / advance fee - Other ATM,Credit Cards; Other ATM; whichever is higher,3% or BDT 300 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Cash withdrawal / advance fee - Other ATM,Credit Cards; Other ATM; whichever is higher,3% or BDT 300 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Cash withdrawal / advance fee - Other ATM,Credit Cards; Other ATM; whichever is higher,3% or BDT 300 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Cash withdrawal / advance fee - Other ATM,Credit Cards; Other ATM; whichever is higher,3% or BDT 300 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Cash withdrawal / advance fee - Other ATM,Credit Cards; Other ATM; whichever is higher,3% or BDT 300 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Cash withdrawal / advance fee - Other ATM,Credit Cards; Other ATM; whichever is higher,3% or BDT 300 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Cash withdrawal / advance fee - Other ATM,Credit Cards; Other ATM; whichever is higher,3% or BDT 300 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Cash withdrawal / advance fee - Other ATM,Credit Cards; Other ATM; whichever is higher,3% or BDT 300 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Cash withdrawal / advance fee - Other ATM,Credit Cards; Other ATM; whichever is higher,3% or BDT 300 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Cash withdrawal / advance fee - Other ATM,Credit Cards; Other ATM; whichever is higher,3% or BDT 300 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Cash withdrawal / advance fee - Other ATM,Credit Cards; Other ATM; whichever is higher,3% or BDT 300 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Cash withdrawal / advance fee - Other ATM,Credit Cards; Other ATM; whichever is higher,3% or BDT 300 / $ 5,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Cash withdrawal / advance fee - Other ATM,Debit Cards; Other ATM; whichever is higher,As per Note 12,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Cash withdrawal / advance fee - Other ATM,Debit Cards; Other ATM; whichever is higher,As per Note 12,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Cash withdrawal / advance fee - Other ATM,Debit Cards; Other ATM; whichever is higher,As per Note 12,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Cash withdrawal / advance fee - Other ATM,Debit Cards; Other ATM; whichever is higher,As per Note 12,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Cash withdrawal / advance fee - Other ATM,Debit Cards; Other ATM; whichever is higher,$ 2.50,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Cash withdrawal / advance fee - Other ATM,Debit Cards; Other ATM; whichever is higher,As per Note 12,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Cash withdrawal / advance fee - Other ATM,Debit Cards; Other ATM; whichever is higher,As per Note 12,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Cash withdrawal / advance fee - Other ATM,Prepaid Cards; Other ATM; whichever is higher,As per Note 12,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Cash withdrawal / advance fee - Other ATM,Prepaid Cards; Other ATM; whichever is higher,As per Note 12/ 1% or $ 2,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Cash withdrawal / advance fee - Other ATM,Prepaid Cards; Other ATM; whichever is higher,As per Note 12/ 1% or $ 2,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Cash withdrawal / advance fee - Other ATM,Prepaid Cards; Other ATM; whichever is higher,As per Note 12/ 1% or $ 2,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Interest rate,Credit Cards; Annual,25%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Interest rate,Credit Cards; Annual,25%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Interest rate,Credit Cards; Annual,25%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Interest rate,Credit Cards; Annual,25%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Interest rate,Credit Cards; Annual,25%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Interest rate,Credit Cards; Annual,25%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Interest rate,Credit Cards; Annual,25%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Interest rate,Credit Cards; Annual,25%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Interest rate,Credit Cards; Annual,25%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Interest rate,Credit Cards; Annual,25%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Interest rate,Credit Cards; Annual,25%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Interest rate,Credit Cards; Annual,25%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Interest rate,Credit Cards; Annual,25%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Interest rate,Credit Cards; Annual,25%,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Interest rate,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Interest rate,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Interest rate,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Interest rate,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Interest rate,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Interest rate,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Interest rate,Debit Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Interest rate,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Interest rate,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Interest rate,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Interest rate,Prepaid Cards; Annual,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Return cheque fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Return cheque fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Return cheque fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Return cheque fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Return cheque fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Return cheque fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Return cheque fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Return cheque fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Return cheque fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Return cheque fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Return cheque fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Return cheque fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Return cheque fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Return cheque fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Return cheque fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Return cheque fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Return cheque fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Return cheque fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Return cheque fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Return cheque fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Return cheque fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Return cheque fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Return cheque fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Return cheque fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Return cheque fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Duplicate e-statement fee,Credit Cards; Per month,BDT 200,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Duplicate e-statement fee,Credit Cards; Per month,BDT 200,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Duplicate e-statement fee,Credit Cards; Per month,BDT 200,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Duplicate e-statement fee,Credit Cards; Per month,BDT 200,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Duplicate e-statement fee,Credit Cards; Per month,BDT 200,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Duplicate e-statement fee,Credit Cards; Per month,BDT 200,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Duplicate e-statement fee,Credit Cards; Per month,BDT 200,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Duplicate e-statement fee,Credit Cards; Per month,BDT 200,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Duplicate e-statement fee,Credit Cards; Per month,BDT 200,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Duplicate e-statement fee,Credit Cards; Per month,BDT 200,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Duplicate e-statement fee,Credit Cards; Per month,BDT 200,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Duplicate e-statement fee,Credit Cards; Per month,BDT 200,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Duplicate e-statement fee,Credit Cards; Per month,BDT 200,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Duplicate e-statement fee,Credit Cards; Per month,$ 1,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Duplicate e-statement fee,Debit Cards; Per month,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Duplicate e-statement fee,Debit Cards; Per month,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Duplicate e-statement fee,Debit Cards; Per month,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Duplicate e-statement fee,Debit Cards; Per month,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Duplicate e-statement fee,Debit Cards; Per month,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Duplicate e-statement fee,Debit Cards; Per month,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Duplicate e-statement fee,Debit Cards; Per month,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Duplicate e-statement fee,Prepaid Cards; Per month,BDT 50,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Duplicate e-statement fee,Prepaid Cards; Per month,BDT 50 or $ 1,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Duplicate e-statement fee,Prepaid Cards; Per month,BDT 50 or $ 1,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Duplicate e-statement fee,Prepaid Cards; Per month,BDT 50 or $ 1,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Overlimit fee,Credit Cards,"BDT 1,200 / $ 10",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Overlimit fee,Credit Cards,"BDT 1,200 / $ 10",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Overlimit fee,Credit Cards,"BDT 1,550 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Overlimit fee,Credit Cards,"BDT 1,550 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Overlimit fee,Credit Cards,"BDT 1,550 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Overlimit fee,Credit Cards,"BDT 1,550 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Overlimit fee,Credit Cards,"BDT 1,550 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Overlimit fee,Credit Cards,"BDT 1,550 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Overlimit fee,Credit Cards,"BDT 1,550 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Overlimit fee,Credit Cards,"BDT 1,550 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Overlimit fee,Credit Cards,"BDT 1,550 / $ 15",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Overlimit fee,Credit Cards,"BDT 1,200 / $ 10",,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Overlimit fee,Credit Cards,"BDT 1,200 / $ 10",,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Overlimit fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Overlimit fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Overlimit fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Overlimit fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Overlimit fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Overlimit fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Overlimit fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Overlimit fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Overlimit fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Overlimit fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Overlimit fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Overlimit fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Sales voucher retrieval fee,Credit Cards,BDT 300 / $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Sales voucher retrieval fee,Credit Cards,BDT 300 / $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Sales voucher retrieval fee,Credit Cards,BDT 300 / $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Sales voucher retrieval fee,Credit Cards,BDT 300 / $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Sales voucher retrieval fee,Credit Cards,BDT 300 / $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Sales voucher retrieval fee,Credit Cards,BDT 300 / $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Sales voucher retrieval fee,Credit Cards,BDT 300 / $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Sales voucher retrieval fee,Credit Cards,BDT 300 / $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Sales voucher retrieval fee,Credit Cards,BDT 300 / $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Sales voucher retrieval fee,Credit Cards,BDT 300 / $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Sales voucher retrieval fee,Credit Cards,BDT 300 / $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Sales voucher retrieval fee,Credit Cards,BDT 300 / $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Sales voucher retrieval fee,Credit Cards,BDT 300 / $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Sales voucher retrieval fee,Credit Cards,$ 10,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Sales voucher retrieval fee,Debit Cards,BDT 300,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Sales voucher retrieval fee,Debit Cards,BDT 300,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Sales voucher retrieval fee,Debit Cards,BDT 300,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Sales voucher retrieval fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Sales voucher retrieval fee,Debit Cards,$ 10,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Sales voucher retrieval fee,Debit Cards,BDT 300,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Sales voucher retrieval fee,Debit Cards,BDT 300,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Sales voucher retrieval fee,Prepaid Cards,BDT 300,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Sales voucher retrieval fee,Prepaid Cards,BDT 300 or $ 10,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Sales voucher retrieval fee,Prepaid Cards,BDT 300 or $ 10,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Sales voucher retrieval fee,Prepaid Cards,BDT 300 or $ 10,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Certificate fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Certificate fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Certificate fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Certificate fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Certificate fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Certificate fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Certificate fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Certificate fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Certificate fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Certificate fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Certificate fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Certificate fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Certificate fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Certificate fee,Credit Cards,$ 6,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Certificate fee,Debit Cards,BDT 50,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Certificate fee,Debit Cards,BDT 50,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Certificate fee,Debit Cards,BDT 50,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Certificate fee,Debit Cards,BDT 50,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Certificate fee,Debit Cards,$ 1,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Certificate fee,Debit Cards,BDT 50,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Certificate fee,Debit Cards,BDT 50,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Certificate fee,Prepaid Cards,BDT 50,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Certificate fee,Prepaid Cards,BDT 50 or $ 1,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Certificate fee,Prepaid Cards,BDT 50 or $ 1,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Certificate fee,Prepaid Cards,BDT 50 or $ 1,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Risk assurance fee,Credit Cards; On outstanding,0.1353%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Risk assurance fee,Credit Cards; On outstanding,0.1353%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Risk assurance fee,Credit Cards; On outstanding,0.1353%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Risk assurance fee,Credit Cards; On outstanding,0.1353%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Risk assurance fee,Credit Cards; On outstanding,0.1353%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Risk assurance fee,Credit Cards; On outstanding,0.1353%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Risk assurance fee,Credit Cards; On outstanding,0.1353%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Risk assurance fee,Credit Cards; On outstanding,0.1353%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Risk assurance fee,Credit Cards; On outstanding,0.1353%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Risk assurance fee,Credit Cards; On outstanding,0.1353%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Risk assurance fee,Credit Cards; On outstanding,0.1353%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Risk assurance fee,Credit Cards; On outstanding,0.1353%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Risk assurance fee,Credit Cards; On outstanding,0.1353%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Risk assurance fee,Credit Cards; On outstanding,0.1353%,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Risk assurance fee,Debit Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Risk assurance fee,Debit Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Risk assurance fee,Debit Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Risk assurance fee,Debit Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Risk assurance fee,Debit Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Risk assurance fee,Debit Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Risk assurance fee,Debit Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Risk assurance fee,Prepaid Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Risk assurance fee,Prepaid Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Risk assurance fee,Prepaid Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Risk assurance fee,Prepaid Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Card cheque book fee,Credit Cards; 10 pages,BDT 250,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Card cheque book fee,Credit Cards; 10 pages,BDT 250,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Card cheque book fee,Credit Cards; 10 pages,BDT 250,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Card cheque book fee,Credit Cards; 10 pages,BDT 250,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Card cheque book fee,Credit Cards; 10 pages,BDT 250,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Card cheque book fee,Credit Cards; 10 pages,BDT 250,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Card cheque book fee,Credit Cards; 10 pages,BDT 250,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Card cheque book fee,Credit Cards; 10 pages,BDT 250,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Card cheque book fee,Credit Cards; 10 pages,BDT 250,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Card cheque book fee,Credit Cards; 10 pages,BDT 250,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Card cheque book fee,Credit Cards; 10 pages,BDT 250,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Card cheque book fee,Credit Cards; 10 pages,BDT 250,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Card cheque book fee,Credit Cards; 10 pages,BDT 250,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Card cheque book fee,Credit Cards; 10 pages,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Card cheque book fee,Debit Cards; 10 pages,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Card cheque book fee,Debit Cards; 10 pages,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Card cheque book fee,Debit Cards; 10 pages,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Card cheque book fee,Debit Cards; 10 pages,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Card cheque book fee,Debit Cards; 10 pages,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Card cheque book fee,Debit Cards; 10 pages,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Card cheque book fee,Debit Cards; 10 pages,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Card cheque book fee,Prepaid Cards; 10 pages,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Card cheque book fee,Prepaid Cards; 10 pages,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Card cheque book fee,Prepaid Cards; 10 pages,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Card cheque book fee,Prepaid Cards; 10 pages,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Card cheque processing fee,Credit Cards; Whichever is higher,2% or BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Card cheque processing fee,Credit Cards; Whichever is higher,2% or BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Card cheque processing fee,Credit Cards; Whichever is higher,2% or BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Card cheque processing fee,Credit Cards; Whichever is higher,2% or BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Card cheque processing fee,Credit Cards; Whichever is higher,2% or BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Card cheque processing fee,Credit Cards; Whichever is higher,2% or BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Card cheque processing fee,Credit Cards; Whichever is higher,2% or BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Card cheque processing fee,Credit Cards; Whichever is higher,2% or BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Card cheque processing fee,Credit Cards; Whichever is higher,2% or BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Card cheque processing fee,Credit Cards; Whichever is higher,2% or BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Card cheque processing fee,Credit Cards; Whichever is higher,2% or BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Card cheque processing fee,Credit Cards; Whichever is higher,2% or BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Card cheque processing fee,Credit Cards; Whichever is higher,2% or BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Card cheque processing fee,Credit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Card cheque processing fee,Debit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Card cheque processing fee,Debit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Card cheque processing fee,Debit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Card cheque processing fee,Debit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Card cheque processing fee,Debit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Card cheque processing fee,Debit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Card cheque processing fee,Debit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Card cheque processing fee,Prepaid Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Card cheque processing fee,Prepaid Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Card cheque processing fee,Prepaid Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Card cheque processing fee,Prepaid Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Customer verification / CIB fee,Credit Cards,BDT 100,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Customer verification / CIB fee,Credit Cards,BDT 100,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Customer verification / CIB fee,Credit Cards,BDT 100,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Customer verification / CIB fee,Credit Cards,BDT 100,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Customer verification / CIB fee,Credit Cards,BDT 100,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Customer verification / CIB fee,Credit Cards,BDT 100,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Customer verification / CIB fee,Credit Cards,BDT 100,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Customer verification / CIB fee,Credit Cards,BDT 100,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Customer verification / CIB fee,Credit Cards,BDT 100,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Customer verification / CIB fee,Credit Cards,BDT 100,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Customer verification / CIB fee,Credit Cards,BDT 100,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Customer verification / CIB fee,Credit Cards,BDT 100,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Customer verification / CIB fee,Credit Cards,BDT 100,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Customer verification / CIB fee,Credit Cards,$ 1.50,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Customer verification / CIB fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Customer verification / CIB fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Customer verification / CIB fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Customer verification / CIB fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Customer verification / CIB fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Customer verification / CIB fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Customer verification / CIB fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Customer verification / CIB fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Customer verification / CIB fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Customer verification / CIB fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Customer verification / CIB fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Transaction alert fee,Credit Cards; Per year,BDT 400,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Transaction alert fee,Credit Cards; Per year,BDT 400,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Transaction alert fee,Credit Cards; Per year,BDT 400,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Transaction alert fee,Credit Cards; Per year,BDT 400,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Transaction alert fee,Credit Cards; Per year,BDT 400,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Transaction alert fee,Credit Cards; Per year,BDT 400,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Transaction alert fee,Credit Cards; Per year,BDT 400,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Transaction alert fee,Credit Cards; Per year,BDT 400,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Transaction alert fee,Credit Cards; Per year,BDT 400,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Transaction alert fee,Credit Cards; Per year,BDT 400,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Transaction alert fee,Credit Cards; Per year,BDT 400,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Transaction alert fee,Credit Cards; Per year,BDT 400,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Transaction alert fee,Credit Cards; Per year,BDT 400,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Transaction alert fee,Credit Cards; Per year,$ 3,,SOC-Cards_fees.pdf
+Cards,Debit Cards,All listed debit cards,Transaction alert fee,Debit Cards; Per year,As per Note 49,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Transaction alert fee,Prepaid Cards; Per year,BDT 200,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Transaction alert fee,Prepaid Cards; Per year,BDT 400 or $ 3,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Transaction alert fee,Prepaid Cards; Per year,BDT 400 or $ 3,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Transaction alert fee,Prepaid Cards; Per year,BDT 400 or $ 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Want2Buy / EasyCredit adjustment fee,Credit Cards; Whichever is higher,2% or BDT 500 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Want2Buy / EasyCredit adjustment fee,Credit Cards; Whichever is higher,2% or BDT 500 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Want2Buy / EasyCredit adjustment fee,Credit Cards; Whichever is higher,2% or BDT 500 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Want2Buy / EasyCredit adjustment fee,Credit Cards; Whichever is higher,2% or BDT 500 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Want2Buy / EasyCredit adjustment fee,Credit Cards; Whichever is higher,2% or BDT 500 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Want2Buy / EasyCredit adjustment fee,Credit Cards; Whichever is higher,2% or BDT 500 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Want2Buy / EasyCredit adjustment fee,Credit Cards; Whichever is higher,2% or BDT 500 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Want2Buy / EasyCredit adjustment fee,Credit Cards; Whichever is higher,2% or BDT 500 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Want2Buy / EasyCredit adjustment fee,Credit Cards; Whichever is higher,2% or BDT 500 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Want2Buy / EasyCredit adjustment fee,Credit Cards; Whichever is higher,2% or BDT 500 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Want2Buy / EasyCredit adjustment fee,Credit Cards; Whichever is higher,2% or BDT 500 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Want2Buy / EasyCredit adjustment fee,Credit Cards; Whichever is higher,2% or BDT 500 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Want2Buy / EasyCredit adjustment fee,Credit Cards; Whichever is higher,2% or BDT 500 / $ 5,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Want2Buy / EasyCredit adjustment fee,Credit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Want2Buy / EasyCredit adjustment fee,Debit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Want2Buy / EasyCredit adjustment fee,Debit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Want2Buy / EasyCredit adjustment fee,Debit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Want2Buy / EasyCredit adjustment fee,Debit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Want2Buy / EasyCredit adjustment fee,Debit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Want2Buy / EasyCredit adjustment fee,Debit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Want2Buy / EasyCredit adjustment fee,Debit Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Want2Buy / EasyCredit adjustment fee,Prepaid Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Want2Buy / EasyCredit adjustment fee,Prepaid Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Want2Buy / EasyCredit adjustment fee,Prepaid Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Want2Buy / EasyCredit adjustment fee,Prepaid Cards; Whichever is higher,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Undelivered card / PIN destruction fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Undelivered card / PIN destruction fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Undelivered card / PIN destruction fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Undelivered card / PIN destruction fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Undelivered card / PIN destruction fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Undelivered card / PIN destruction fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Undelivered card / PIN destruction fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Undelivered card / PIN destruction fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Undelivered card / PIN destruction fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Undelivered card / PIN destruction fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Undelivered card / PIN destruction fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Undelivered card / PIN destruction fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Undelivered card / PIN destruction fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Undelivered card / PIN destruction fee,Credit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Undelivered card / PIN destruction fee,Debit Cards,BDT 200,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Undelivered card / PIN destruction fee,Debit Cards,BDT 200,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Undelivered card / PIN destruction fee,Debit Cards,BDT 200,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Undelivered card / PIN destruction fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Undelivered card / PIN destruction fee,Debit Cards,$ 5,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Undelivered card / PIN destruction fee,Debit Cards,BDT 200,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Undelivered card / PIN destruction fee,Debit Cards,BDT 200,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Undelivered card / PIN destruction fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Undelivered card / PIN destruction fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Undelivered card / PIN destruction fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Undelivered card / PIN destruction fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,ATM receipt fee - EBL,Credit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,ATM receipt fee - EBL,Credit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,ATM receipt fee - EBL,Credit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,ATM receipt fee - EBL,Credit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,ATM receipt fee - EBL,Credit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,ATM receipt fee - EBL,Credit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,ATM receipt fee - EBL,Credit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,ATM receipt fee - EBL,Credit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,ATM receipt fee - EBL,Credit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,ATM receipt fee - EBL,Credit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,ATM receipt fee - EBL,Credit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,ATM receipt fee - EBL,Credit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,ATM receipt fee - EBL,Credit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,ATM receipt fee - EBL,Credit Cards; EBL ATM,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,ATM receipt fee - EBL,Debit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,ATM receipt fee - EBL,Debit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,ATM receipt fee - EBL,Debit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,ATM receipt fee - EBL,Debit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,ATM receipt fee - EBL,Debit Cards; EBL ATM,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,ATM receipt fee - EBL,Debit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,ATM receipt fee - EBL,Debit Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,ATM receipt fee - EBL,Prepaid Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,ATM receipt fee - EBL,Prepaid Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,ATM receipt fee - EBL,Prepaid Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,ATM receipt fee - EBL,Prepaid Cards; EBL ATM,BDT 3,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,ATM CCTV footage fee - inside Dhaka,Credit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,ATM CCTV footage fee - inside Dhaka,Credit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,ATM CCTV footage fee - inside Dhaka,Credit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,ATM CCTV footage fee - inside Dhaka,Credit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,ATM CCTV footage fee - inside Dhaka,Credit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,ATM CCTV footage fee - inside Dhaka,Credit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,ATM CCTV footage fee - inside Dhaka,Credit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,ATM CCTV footage fee - inside Dhaka,Credit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,ATM CCTV footage fee - inside Dhaka,Credit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,ATM CCTV footage fee - inside Dhaka,Credit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,ATM CCTV footage fee - inside Dhaka,Credit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,ATM CCTV footage fee - inside Dhaka,Credit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,ATM CCTV footage fee - inside Dhaka,Credit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,ATM CCTV footage fee - inside Dhaka,Credit Cards; EBL card; inside Dhaka,$ 18.26,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,ATM CCTV footage fee - inside Dhaka,Debit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,ATM CCTV footage fee - inside Dhaka,Debit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,ATM CCTV footage fee - inside Dhaka,Debit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,ATM CCTV footage fee - inside Dhaka,Debit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,ATM CCTV footage fee - inside Dhaka,Debit Cards; EBL card; inside Dhaka,$ 18.26,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,ATM CCTV footage fee - inside Dhaka,Debit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,ATM CCTV footage fee - inside Dhaka,Debit Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,ATM CCTV footage fee - inside Dhaka,Prepaid Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,ATM CCTV footage fee - inside Dhaka,Prepaid Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,ATM CCTV footage fee - inside Dhaka,Prepaid Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,ATM CCTV footage fee - inside Dhaka,Prepaid Cards; EBL card; inside Dhaka,"BDT 2,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,ATM CCTV footage fee - outside Dhaka,Credit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,ATM CCTV footage fee - outside Dhaka,Credit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,ATM CCTV footage fee - outside Dhaka,Credit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,ATM CCTV footage fee - outside Dhaka,Credit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,ATM CCTV footage fee - outside Dhaka,Credit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,ATM CCTV footage fee - outside Dhaka,Credit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,ATM CCTV footage fee - outside Dhaka,Credit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,ATM CCTV footage fee - outside Dhaka,Credit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,ATM CCTV footage fee - outside Dhaka,Credit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,ATM CCTV footage fee - outside Dhaka,Credit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,ATM CCTV footage fee - outside Dhaka,Credit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,ATM CCTV footage fee - outside Dhaka,Credit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,ATM CCTV footage fee - outside Dhaka,Credit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,ATM CCTV footage fee - outside Dhaka,Credit Cards; EBL card; outside Dhaka,$ 18.26,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,ATM CCTV footage fee - outside Dhaka,Debit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,ATM CCTV footage fee - outside Dhaka,Debit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,ATM CCTV footage fee - outside Dhaka,Debit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,ATM CCTV footage fee - outside Dhaka,Debit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,ATM CCTV footage fee - outside Dhaka,Debit Cards; EBL card; outside Dhaka,$ 18.26,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,ATM CCTV footage fee - outside Dhaka,Debit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,ATM CCTV footage fee - outside Dhaka,Debit Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,ATM CCTV footage fee - outside Dhaka,Prepaid Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,ATM CCTV footage fee - outside Dhaka,Prepaid Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,ATM CCTV footage fee - outside Dhaka,Prepaid Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,ATM CCTV footage fee - outside Dhaka,Prepaid Cards; EBL card; outside Dhaka,"BDT 3,000",,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Fund transfer fee - EBL Skybanking app,Credit Cards; EBL Skybanking app,2%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Fund transfer fee - EBL Skybanking app,Credit Cards; EBL Skybanking app,2%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Fund transfer fee - EBL Skybanking app,Credit Cards; EBL Skybanking app,2%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Fund transfer fee - EBL Skybanking app,Credit Cards; EBL Skybanking app,2%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Fund transfer fee - EBL Skybanking app,Credit Cards; EBL Skybanking app,2%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Fund transfer fee - EBL Skybanking app,Credit Cards; EBL Skybanking app,2%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Fund transfer fee - EBL Skybanking app,Credit Cards; EBL Skybanking app,2%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Fund transfer fee - EBL Skybanking app,Credit Cards; EBL Skybanking app,2%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Fund transfer fee - EBL Skybanking app,Credit Cards; EBL Skybanking app,2%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Fund transfer fee - EBL Skybanking app,Credit Cards; EBL Skybanking app,2%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Fund transfer fee - EBL Skybanking app,Credit Cards; EBL Skybanking app,2%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Fund transfer fee - EBL Skybanking app,Credit Cards; EBL Skybanking app,2%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Fund transfer fee - EBL Skybanking app,Credit Cards; EBL Skybanking app,2%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Fund transfer fee - EBL Skybanking app,Credit Cards; EBL Skybanking app,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Fund transfer fee - EBL Skybanking app,Debit Cards; EBL Skybanking app,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Fund transfer fee - EBL Skybanking app,Debit Cards; EBL Skybanking app,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Fund transfer fee - EBL Skybanking app,Debit Cards; EBL Skybanking app,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Fund transfer fee - EBL Skybanking app,Debit Cards; EBL Skybanking app,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Fund transfer fee - EBL Skybanking app,Debit Cards; EBL Skybanking app,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Fund transfer fee - EBL Skybanking app,Debit Cards; EBL Skybanking app,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Fund transfer fee - EBL Skybanking app,Debit Cards; EBL Skybanking app,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Fund transfer fee - EBL Skybanking app,Prepaid Cards; EBL Skybanking app,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Fund transfer fee - EBL Skybanking app,Prepaid Cards; EBL Skybanking app,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Fund transfer fee - EBL Skybanking app,Prepaid Cards; EBL Skybanking app,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Fund transfer fee - EBL Skybanking app,Prepaid Cards; EBL Skybanking app,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Credit card limit increase fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Credit card limit increase fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Credit card limit increase fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Credit card limit increase fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Credit card limit increase fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Credit card limit increase fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Credit card limit increase fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Credit card limit increase fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Credit card limit increase fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Credit card limit increase fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Credit card limit increase fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Credit card limit increase fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Credit card limit increase fee,Credit Cards,BDT 500,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Credit card limit increase fee,Credit Cards,$ 10,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Credit card limit increase fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Credit card limit increase fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Credit card limit increase fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Credit card limit increase fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Credit card limit increase fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Credit card limit increase fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Credit card limit increase fee,Debit Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Credit card limit increase fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Credit card limit increase fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Credit card limit increase fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Credit card limit increase fee,Prepaid Cards,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Wallet transfer fee,Credit Cards; App add money - MFS and PSP,1%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Wallet transfer fee,Credit Cards; App add money - MFS and PSP,1%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Wallet transfer fee,Credit Cards; App add money - MFS and PSP,1%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Wallet transfer fee,Credit Cards; App add money - MFS and PSP,1%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Wallet transfer fee,Credit Cards; App add money - MFS and PSP,1%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Wallet transfer fee,Credit Cards; App add money - MFS and PSP,1%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Wallet transfer fee,Credit Cards; App add money - MFS and PSP,1%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Wallet transfer fee,Credit Cards; App add money - MFS and PSP,1%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Wallet transfer fee,Credit Cards; App add money - MFS and PSP,1%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Wallet transfer fee,Credit Cards; App add money - MFS and PSP,1%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Wallet transfer fee,Credit Cards; App add money - MFS and PSP,1%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Wallet transfer fee,Credit Cards; App add money - MFS and PSP,1%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Wallet transfer fee,Credit Cards; App add money - MFS and PSP,1%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Wallet transfer fee,Credit Cards; App add money - MFS and PSP,1%,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Wallet transfer fee,Debit Cards; App add money - MFS and PSP,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Wallet transfer fee,Debit Cards; App add money - MFS and PSP,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Wallet transfer fee,Debit Cards; App add money - MFS and PSP,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Wallet transfer fee,Debit Cards; App add money - MFS and PSP,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Wallet transfer fee,Debit Cards; App add money - MFS and PSP,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Wallet transfer fee,Debit Cards; App add money - MFS and PSP,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Wallet transfer fee,Debit Cards; App add money - MFS and PSP,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Wallet transfer fee,Prepaid Cards; App add money - MFS and PSP,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Wallet transfer fee,Prepaid Cards; App add money - MFS and PSP,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Wallet transfer fee,Prepaid Cards; App add money - MFS and PSP,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Wallet transfer fee,Prepaid Cards; App add money - MFS and PSP,Not applicable,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Classic,Policy administrative and payment fee,Credit Cards; On outstanding,0.2147%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Gold,Policy administrative and payment fee,Credit Cards; On outstanding,0.2147%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Platinum,Policy administrative and payment fee,Credit Cards; On outstanding,0.2147%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Women Platinum,Policy administrative and payment fee,Credit Cards; On outstanding,0.2147%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Army/Air Force/Navy Platinum,Policy administrative and payment fee,Credit Cards; On outstanding,0.2147%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Corporate Platinum,Policy administrative and payment fee,Credit Cards; On outstanding,0.2147%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Light / Women Signature,Policy administrative and payment fee,Credit Cards; On outstanding,0.2147%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Signature Acci,Policy administrative and payment fee,Credit Cards; On outstanding,0.2147%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Visa Infinite,Policy administrative and payment fee,Credit Cards; On outstanding,0.2147%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard Titanium,Policy administrative and payment fee,Credit Cards; On outstanding,0.2147%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Mastercard World,Policy administrative and payment fee,Credit Cards; On outstanding,0.2147%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,Diners Club,Policy administrative and payment fee,Credit Cards; On outstanding,0.2147%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,UnionPay Platinum,Policy administrative and payment fee,Credit Cards; On outstanding,0.2147%,,SOC-Cards_fees.pdf
+Cards,Credit Cards,FX Credit,Policy administrative and payment fee,Credit Cards; On outstanding,0.2147%,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Classic Debit,Policy administrative and payment fee,Debit Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Platinum Debit,Policy administrative and payment fee,Debit Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature (Regular) / World Debit,Policy administrative and payment fee,Debit Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Signature Priority Debit,Policy administrative and payment fee,Debit Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,Global / Mastercard World RFCD Debit,Policy administrative and payment fee,Debit Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,UnionPay Classic Debit,Policy administrative and payment fee,Debit Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Debit Cards,TakaPay Debit,Policy administrative and payment fee,Debit Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Payroll Prepaid Card,Policy administrative and payment fee,Prepaid Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,UnionPay / Mastercard / Visa Prepaid Card,Policy administrative and payment fee,Prepaid Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Diners Club / FX / ACCA Prepaid Card,Policy administrative and payment fee,Prepaid Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf
+Cards,Prepaid Cards,Mastercard Women Prepaid Card,Policy administrative and payment fee,Prepaid Cards; On outstanding,Not applicable,,SOC-Cards_fees.pdf

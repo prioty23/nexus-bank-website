@@ -534,6 +534,36 @@ def get_recent_user_messages(session_id, limit=5):
     return messages
 
 
+def get_first_user_message(session_id):
+    create_database()
+
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT user_message, created_at
+        FROM chat_logs
+        WHERE session_id = ?
+        AND blocked = 0
+        AND user_message IS NOT NULL
+        AND user_message != ''
+        AND source != 'memory-recall-agent'
+        ORDER BY id ASC
+        LIMIT 1
+    """, (session_id,))
+
+    row = cursor.fetchone()
+    connection.close()
+
+    if not row:
+        return None
+
+    return {
+        "message": row[0],
+        "created_at": row[1],
+    }
+
+
 def get_latest_complaint_by_session(session_id):
     create_database()
 

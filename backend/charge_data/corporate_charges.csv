@@ -1,0 +1,393 @@
+﻿schedule,category,product,charge_name,condition,amount,vat_note,source_file
+Corporate,Account Maintenance,Current Account,Current Account maintenance fee,Onshore Banking; Half-yearly,BDT 300 or equivalent [for FCY Accounts],15% VAT applicable,CORP_fees.pdf
+Corporate,Account Maintenance,Current Account,Current Account maintenance fee,Offshore Banking; Half-yearly,NIL,,CORP_fees.pdf
+Corporate,Account Maintenance,Corporate Account,Account closing fee,Onshore Banking,BDT 300 or equivalent (for FCY Accounts),15% VAT applicable,CORP_fees.pdf
+Corporate,Account Maintenance,Corporate Account,Account closing fee,Offshore Banking,NIL,,CORP_fees.pdf
+Corporate,Account Maintenance,Account Maintenance fee - other than Current,Account Maintenance fee - other than Current,Onshore Banking; Semi-annually,BDT 500 semi-annually,15% VAT applicable,CORP_fees.pdf
+Corporate,Account Maintenance,Account Maintenance fee - other than Current,Account Maintenance fee - other than Current,Offshore Banking; Semi-annually,NIL,,CORP_fees.pdf
+Corporate,Account Maintenance,Regulatory Permission,Processing regulatory permission fee,Onshore Banking,"Up to BDT 5,000-20,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Account Maintenance,Regulatory Permission,Processing regulatory permission fee,Offshore Banking,Up to USD 50 to USD 200,15% VAT applicable,CORP_fees.pdf
+Corporate,Account Maintenance,Account Statement,Account statement charge,Onshore Banking,Free twice a year,,CORP_fees.pdf
+Corporate,Account Maintenance,Account Statement,Account statement charge,Onshore Banking; additional,BDT 100 per statement,15% VAT applicable,CORP_fees.pdf
+Corporate,Account Maintenance,Account Statement,Account statement charge,Offshore Banking,NIL,,CORP_fees.pdf
+Corporate,"General Charges Applicable For Od, Ca, Snd & Hpa",Stop Payment on Cheque,Stop Payment on Cheque,Onshore Banking,BDT 100,15% VAT applicable,CORP_fees.pdf
+Corporate,"General Charges Applicable For Od, Ca, Snd & Hpa",Stop Payment on Cheque,Stop Payment on Cheque,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,"General Charges Applicable For Od, Ca, Snd & Hpa",Cheque Book Issue Charge,Cheque Book Issue Charge,Onshore Banking,BDT 100,15% VAT applicable,CORP_fees.pdf
+Corporate,"General Charges Applicable For Od, Ca, Snd & Hpa",Cheque Book Issue Charge,Cheque Book Issue Charge,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,"General Charges Applicable For Od, Ca, Snd & Hpa",Specially Printed Cheque Book Issue Charge,Specially Printed Cheque Book Issue Charge,Onshore Banking,"At actual, first one free (25 leaves)",15% VAT applicable,CORP_fees.pdf
+Corporate,"General Charges Applicable For Od, Ca, Snd & Hpa",Specially Printed Cheque Book Issue Charge,Specially Printed Cheque Book Issue Charge,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,"General Charges Applicable For Od, Ca, Snd & Hpa",Stop Payment Order Cancellation,Stop Payment Order Cancellation,Onshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,"General Charges Applicable For Od, Ca, Snd & Hpa",Stop Payment Order Cancellation,Stop Payment Order Cancellation,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Certificates / Reports,Balance/Interest Certificates,Balance/Interest Certificates,Onshore Banking,Free for June end and December end. Up to BDT 100 for additional certificate issuance.,,CORP_fees.pdf
+Corporate,Certificates / Reports,Balance/Interest Certificates,Balance/Interest Certificates,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Certificates / Reports,Issuance of Solvency Certificate,Issuance of Solvency Certificate,Onshore Banking,Up to BDT 200,15% VAT applicable,CORP_fees.pdf
+Corporate,Certificates / Reports,Issuance of Solvency Certificate,Issuance of Solvency Certificate,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Certificates / Reports,"Credit/Solvency Information (Local), if requested by third party","Credit/Solvency Information (Local), if requested by third party",Onshore Banking,BDT 200,15% VAT applicable,CORP_fees.pdf
+Corporate,Certificates / Reports,"Credit/Solvency Information (Local), if requested by third party","Credit/Solvency Information (Local), if requested by third party",Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Certificates / Reports,Credit/Solvency Information (International),Credit/Solvency Information (International),Onshore Banking,BDT 200,15% VAT applicable,CORP_fees.pdf
+Corporate,Certificates / Reports,Credit/Solvency Information (International),Credit/Solvency Information (International),Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Certificates / Reports,Certificate for Inward Remittance,Certificate for Inward Remittance,Onshore Banking,Up to BDT 500 per certificate,15% VAT applicable,CORP_fees.pdf
+Corporate,Certificates / Reports,Certificate for Inward Remittance,Certificate for Inward Remittance,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Certificates / Reports,Certificate of Purchase/Encashment of Bonds/Securities,Certificate of Purchase/Encashment of Bonds/Securities,Onshore Banking,BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Certificates / Reports,Certificate of Purchase/Encashment of Bonds/Securities,Certificate of Purchase/Encashment of Bonds/Securities,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Certificates / Reports,Duplicate Advice (per advice),Duplicate Advice (per advice),Onshore Banking,BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Certificates / Reports,Duplicate Advice (per advice),Duplicate Advice (per advice),Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Certificates / Reports,CIB Report Collection Charge,CIB Report Collection Charge,Onshore Banking,At actual (as per Bangladesh Bank charge),15% VAT applicable,CORP_fees.pdf
+Corporate,Certificates / Reports,CIB Report Collection Charge,CIB Report Collection Charge,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Cash Withdrawal (Intercity),Cash Withdrawal (Intercity),Cash withdrawal fee,"Onshore Banking; Up to BDT 50,000",Free,,CORP_fees.pdf
+Corporate,Cash Withdrawal (Intercity),Cash Withdrawal (Intercity),Cash withdrawal fee,"Offshore Banking; Up to BDT 50,000",N/A,,CORP_fees.pdf
+Corporate,Cash Withdrawal (Intercity),Cash Withdrawal (Intercity),Cash withdrawal fee,"Onshore Banking; Above BDT 50,000 to BDT 1 lac",Up to BDT 150,15% VAT applicable,CORP_fees.pdf
+Corporate,Cash Withdrawal (Intercity),Cash Withdrawal (Intercity),Cash withdrawal fee,"Offshore Banking; Above BDT 50,000 to BDT 1 lac",N/A,,CORP_fees.pdf
+Corporate,Cash Withdrawal (Intercity),Cash Withdrawal (Intercity),Cash withdrawal fee,Onshore Banking; Above BDT 1 lac to BDT 10 lac,Up to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Cash Withdrawal (Intercity),Cash Withdrawal (Intercity),Cash withdrawal fee,Offshore Banking; Above BDT 1 lac to BDT 10 lac,N/A,,CORP_fees.pdf
+Corporate,Cash Withdrawal (Intercity),Cash Withdrawal (Intercity),Cash withdrawal fee,Onshore Banking; Above BDT 10 lac to BDT 50 lac,"Up to BDT 2,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Cash Withdrawal (Intercity),Cash Withdrawal (Intercity),Cash withdrawal fee,Offshore Banking; Above BDT 10 lac to BDT 50 lac,N/A,,CORP_fees.pdf
+Corporate,Cash Withdrawal (Intercity),Cash Withdrawal (Intercity),Cash withdrawal fee,Onshore Banking; Above BDT 50 lac,"Up to BDT 5,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Cash Withdrawal (Intercity),Cash Withdrawal (Intercity),Cash withdrawal fee,Offshore Banking; Above BDT 50 lac,N/A,,CORP_fees.pdf
+Corporate,Local Funds Transfer,Issuance of Pay Order,Issuance of Pay Order,"Onshore Banking; Up to BDT 1,000",BDT 20,15% VAT applicable,CORP_fees.pdf
+Corporate,Local Funds Transfer,Issuance of Pay Order,Issuance of Pay Order,"Onshore Banking; BDT 1,001-100,000",BDT 50,15% VAT applicable,CORP_fees.pdf
+Corporate,Local Funds Transfer,Issuance of Pay Order,Issuance of Pay Order,"Onshore Banking; More than BDT 100,000",BDT 100,15% VAT applicable,CORP_fees.pdf
+Corporate,Local Funds Transfer,Issuance of Pay Order,Issuance of Pay Order,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Local Funds Transfer,Bangladesh Bank Cheque Issuance,Bangladesh Bank Cheque Issuance,Onshore Banking,BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Local Funds Transfer,Bangladesh Bank Cheque Issuance,Bangladesh Bank Cheque Issuance,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Local Funds Transfer,Issuance of Duplicate FDR/PO/Other Instruments,Issuance of Duplicate FDR/PO/Other Instruments,Onshore Banking,BDT 200,15% VAT applicable,CORP_fees.pdf
+Corporate,Local Funds Transfer,Issuance of Duplicate FDR/PO/Other Instruments,Issuance of Duplicate FDR/PO/Other Instruments,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Local Funds Transfer,Payment through RTGS - Manual,Payment through RTGS - Manual,Onshore Banking,Up to BDT 100 (with VAT),VAT included,CORP_fees.pdf
+Corporate,Local Funds Transfer,Payment through RTGS - Manual,Payment through RTGS - Manual,Offshore Banking,Up to BDT 100 equivalent (with VAT),VAT included,CORP_fees.pdf
+Corporate,Local Funds Transfer,Payment through RTGS - EBLConnect,Payment through RTGS - EBLConnect,Onshore Banking,Up to BDT 100 (with VAT),VAT included,CORP_fees.pdf
+Corporate,Local Funds Transfer,Payment through RTGS - EBLConnect,Payment through RTGS - EBLConnect,Offshore Banking,Up to BDT 100 equivalent (with VAT),VAT included,CORP_fees.pdf
+Corporate,Local Funds Transfer,Cancellation of Pay Order/BB Cheque,Cancellation of Pay Order/BB Cheque,Onshore Banking,BDT 50,15% VAT applicable,CORP_fees.pdf
+Corporate,Local Funds Transfer,Cancellation of Pay Order/BB Cheque,Cancellation of Pay Order/BB Cheque,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Local Funds Transfer,Stop Payment on Draft,Stop Payment on Draft,Onshore Banking,BDT 500 + foreign correspondent charge,15% VAT applicable,CORP_fees.pdf
+Corporate,Local Funds Transfer,Stop Payment on Draft,Stop Payment on Draft,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Local Funds Transfer,NPSB IBFT (per transaction),NPSB IBFT (per transaction),Onshore Banking,Up to BDT 8,15% VAT applicable,CORP_fees.pdf
+Corporate,Local Funds Transfer,NPSB IBFT (per transaction),NPSB IBFT (per transaction),Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Standing Instruction (SI),Standing Instruction (SI) creation charge,Standing Instruction (SI) creation charge,Onshore Banking,"Up to BDT 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Standing Instruction (SI),Standing Instruction (SI) creation charge,Standing Instruction (SI) creation charge,Offshore Banking,Up to USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Standing Instruction (SI),Amendment of SI,Amendment of SI,Onshore Banking,"Up to BDT 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Standing Instruction (SI),Amendment of SI,Amendment of SI,Offshore Banking,Up to USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Standing Instruction (SI),Cancellation of SI,Cancellation of SI,Onshore Banking,"Up to BDT 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Standing Instruction (SI),Cancellation of SI,Cancellation of SI,Offshore Banking,Up to USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,Fund Transfer through TT,Fund Transfer through TT,"Onshore Banking; Up to BDT 100,000",BDT 100,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,Fund Transfer through TT,Fund Transfer through TT,"Onshore Banking; BDT 100,001-500,000",BDT 200,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,Fund Transfer through TT,Fund Transfer through TT,"Onshore Banking; BDT 500,001-1,000,000",BDT 300,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,Fund Transfer through TT,Fund Transfer through TT,"Onshore Banking; More than BDT 1,000,000",BDT 500 + SWIFT Charge BDT 500 + foreign correspondence charge,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,Fund Transfer through TT,Fund Transfer through TT,"Offshore Banking; Up to USD 1,000",USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,Fund Transfer through TT,Fund Transfer through TT,"Offshore Banking; USD 1,001-5,000",USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,Fund Transfer through TT,Fund Transfer through TT,"Offshore Banking; USD 5,001-10,000",USD 15,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,Fund Transfer through TT,Fund Transfer through TT,"Offshore Banking; More than USD 10,000",USD 20 + SWIFT Charge USD 5 + foreign correspondence charge,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,FCY Fund Transfer for FC Loans and related remittance charge,FCY Fund Transfer for FC Loans and related remittance charge,"Onshore Banking; Up to BDT 100,000",BDT 100,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,FCY Fund Transfer for FC Loans and related remittance charge,FCY Fund Transfer for FC Loans and related remittance charge,"Onshore Banking; BDT 100,001-500,000",BDT 200,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,FCY Fund Transfer for FC Loans and related remittance charge,FCY Fund Transfer for FC Loans and related remittance charge,"Onshore Banking; BDT 500,001-1,000,000",BDT 300,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,FCY Fund Transfer for FC Loans and related remittance charge,FCY Fund Transfer for FC Loans and related remittance charge,"Onshore Banking; More than BDT 1,000,000","BDT 500 + SWIFT Charge BDT 500 + foreign correspondence charge, if any",15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,FCY Fund Transfer for FC Loans and related remittance charge,FCY Fund Transfer for FC Loans and related remittance charge,"Offshore Banking; Up to USD 1,000",USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,FCY Fund Transfer for FC Loans and related remittance charge,FCY Fund Transfer for FC Loans and related remittance charge,"Offshore Banking; USD 1,001-5,000",USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,FCY Fund Transfer for FC Loans and related remittance charge,FCY Fund Transfer for FC Loans and related remittance charge,"Offshore Banking; USD 5,001-10,000",USD 15,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,FCY Fund Transfer for FC Loans and related remittance charge,FCY Fund Transfer for FC Loans and related remittance charge,"Offshore Banking; More than USD 10,000",USD 20 + SWIFT Charge USD 5 + foreign correspondence charge,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,FCY Draft Cancellation,FCY Draft Cancellation,Onshore Banking,BDT 200,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,FCY Draft Cancellation,FCY Draft Cancellation,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,TT Cancellation - FCY,TT Cancellation - FCY,Onshore Banking,BDT 200,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,TT Cancellation - FCY,TT Cancellation - FCY,Offshore Banking,USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,Lost DD - FCY,Lost DD - FCY,Onshore Banking,BDT 500 + foreign correspondence charge,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,Lost DD - FCY,Lost DD - FCY,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,TT Amendment - FCY,TT Amendment - FCY,Onshore Banking,BDT 500 + foreign correspondence charge,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,TT Amendment - FCY,TT Amendment - FCY,Offshore Banking,USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,Scrutiny Fee for Airline Remittance,Scrutiny Fee for Airline Remittance,Onshore Banking,"Up to 0.15% of remittance amount, minimum BDT 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Outward Remittance - FCY,Scrutiny Fee for Airline Remittance,Scrutiny Fee for Airline Remittance,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Cheque Collection,Outward Clearing Cheque - returned unpaid,Outward Clearing Cheque - returned unpaid,Onshore Banking,Free,,CORP_fees.pdf
+Corporate,Cheque Collection,Outward Clearing Cheque - returned unpaid,Outward Clearing Cheque - returned unpaid,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Cheque Collection,Paid/Unpaid Cheque Image Collection Fee,Paid/Unpaid Cheque Image Collection Fee,Onshore Banking,BDT 200,15% VAT applicable,CORP_fees.pdf
+Corporate,Cheque Collection,Paid/Unpaid Cheque Image Collection Fee,Paid/Unpaid Cheque Image Collection Fee,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Cheque Collection,Inward Clearing Cheque - returned unpaid for insufficient fund only,Inward Clearing Cheque - returned unpaid for insufficient fund only,Onshore Banking,BDT 50,15% VAT applicable,CORP_fees.pdf
+Corporate,Cheque Collection,Inward Clearing Cheque - returned unpaid for insufficient fund only,Inward Clearing Cheque - returned unpaid for insufficient fund only,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Digital Platform,Internet Banking Service (OBDX) per user - annual fee,Internet Banking Service (OBDX) per user - annual fee,Onshore Banking,"Annually up to BDT 2,500",15% VAT applicable,CORP_fees.pdf
+Corporate,Digital Platform,Internet Banking Service (OBDX) per user - annual fee,Internet Banking Service (OBDX) per user - annual fee,Offshore Banking,Annually up to USD 25,15% VAT applicable,CORP_fees.pdf
+Corporate,Digital Platform,EBLConnect Profile Fee,EBLConnect Profile Fee,Onshore Banking,"Annually up to BDT 3,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Digital Platform,EBLConnect Profile Fee,EBLConnect Profile Fee,Offshore Banking,Annually up to USD 30,15% VAT applicable,CORP_fees.pdf
+Corporate,Digital Platform,New/Replacement Hardware Token Fee,New/Replacement Hardware Token Fee,Onshore Banking,"Up to BDT 1,500",15% VAT applicable,CORP_fees.pdf
+Corporate,Digital Platform,New/Replacement Hardware Token Fee,New/Replacement Hardware Token Fee,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Digital Platform,Host-to-host integration setup/maintenance fee,Host-to-host integration setup/maintenance fee,Onshore Banking,"Up to BDT 300,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Digital Platform,Host-to-host integration setup/maintenance fee,Host-to-host integration setup/maintenance fee,Offshore Banking,"Up to USD 3,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Digital Platform,Technology Support Fee,Technology Support Fee,Onshore Banking,As per agreement,,CORP_fees.pdf
+Corporate,Digital Platform,Technology Support Fee,Technology Support Fee,Offshore Banking,As per agreement,,CORP_fees.pdf
+Corporate,Collection Solution,Special Collection Solution (Visa Fee/Distributor etc.),Special Collection Solution (Visa Fee/Distributor etc.),Onshore Banking,As per agreement/negotiation,,CORP_fees.pdf
+Corporate,Collection Solution,Special Collection Solution (Visa Fee/Distributor etc.),Special Collection Solution (Visa Fee/Distributor etc.),Offshore Banking,As per agreement/negotiation,,CORP_fees.pdf
+Corporate,Lending,Corporate Loan,Annual facility renewal fee / loan processing fee,Onshore Banking; Up to BDT 5 million,"0.50% or BDT 15,000, whichever is lower",15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Corporate Loan,Annual facility renewal fee / loan processing fee,Onshore Banking; More than BDT 5 million,"0.30% or BDT 20,000, whichever is lower",15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Corporate Loan,Annual facility renewal fee / loan processing fee,Offshore Banking; Up to BDT 5 million,"0.50% or BDT 15,000, whichever is lower",15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Corporate Loan,Annual facility renewal fee / loan processing fee,Offshore Banking; More than BDT 5 million,"0.30% or BDT 20,000, whichever is lower",15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Banker's Feedback for Credit Rating Report,Banker's Feedback for Credit Rating Report,Onshore Banking,"Annually up to BDT 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Banker's Feedback for Credit Rating Report,Banker's Feedback for Credit Rating Report,Offshore Banking,Annually up to USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Mortgage Redemption,Mortgage Redemption,Onshore Banking,"Up to BDT 10,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Mortgage Redemption,Mortgage Redemption,Offshore Banking,Up to USD 100,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,RJSC Charge Vacation,RJSC Charge Vacation,Onshore Banking,"Up to BDT 5,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,RJSC Charge Vacation,RJSC Charge Vacation,Offshore Banking,Up to USD 50,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Issue of Letter of Commitment Certificate,Issue of Letter of Commitment Certificate,Onshore Banking,"Up to BDT 15,000 per certificate",15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Issue of Letter of Commitment Certificate,Issue of Letter of Commitment Certificate,Offshore Banking,Up to USD 150 per certificate,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Loan Reschedule/Restructure Charge,Loan Reschedule/Restructure Charge,Onshore Banking,"0.25%, but not more than BDT 10,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Loan Reschedule/Restructure Charge,Loan Reschedule/Restructure Charge,Offshore Banking,"0.25%, but not more than equivalent of BDT 10,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Documentation Fee,Documentation Fee,Onshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Documentation Fee,Documentation Fee,Offshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Penal Charge,Penal Charge,Onshore Banking,1.5% or as per sanction advice/agreement (Bangladesh Bank Circular),15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Penal Charge,Penal Charge,Offshore Banking,1.5% or as per sanction advice/agreement (Bangladesh Bank Circular),15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Early Settlement (as per Bangladesh Bank Circular),Early Settlement (as per Bangladesh Bank Circular),Onshore Banking; Term Loan,0.5%,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Early Settlement (as per Bangladesh Bank Circular),Early Settlement (as per Bangladesh Bank Circular),Onshore Banking; Demand Loan/Continuous Loan,Nil,,CORP_fees.pdf
+Corporate,Lending,Early Settlement (as per Bangladesh Bank Circular),Early Settlement (as per Bangladesh Bank Circular),Offshore Banking; Term Loan,0.5%,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Early Settlement (as per Bangladesh Bank Circular),Early Settlement (as per Bangladesh Bank Circular),Offshore Banking; Demand Loan/Continuous Loan,Nil,,CORP_fees.pdf
+Corporate,Lending,Mortgage Processing and Documentation,Mortgage Processing and Documentation,Onshore Banking,Lawyer charge at actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Mortgage Processing and Documentation,Mortgage Processing and Documentation,Offshore Banking,Lawyer charge at actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Loan Maturity Extension,Loan Maturity Extension,Onshore Banking,"Up to BDT 1,500 per contract",15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Loan Maturity Extension,Loan Maturity Extension,Offshore Banking,Up to USD 15 per contract,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Non-Utilization Fee,Non-Utilization Fee,Onshore Banking,Up to 0.25% on unutilized funded facility or as per sanction,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Non-Utilization Fee,Non-Utilization Fee,Offshore Banking,Up to 0.25% on unutilized funded facility or as per sanction,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Fee for Excess Over Limit Approval,Fee for Excess Over Limit Approval,Onshore Banking,Up to 1.00%,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Fee for Excess Over Limit Approval,Fee for Excess Over Limit Approval,Offshore Banking,Up to 1.00%,15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Monitoring Fee for Projects (New or BMRE),Monitoring Fee for Projects (New or BMRE),Onshore Banking,"Up to BDT 100,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Monitoring Fee for Projects (New or BMRE),Monitoring Fee for Projects (New or BMRE),Offshore Banking,"Up to USD 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Lending,Loan Takeover Fee,Loan Takeover Fee,Onshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Lending,Loan Takeover Fee,Loan Takeover Fee,Offshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Supply Chain Finance,Supply Chain Finance,Documentation fee,Onshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Supply Chain Finance,Supply Chain Finance,Documentation fee,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Supply Chain Finance,Supply Chain Finance,Processing/Facility Structuring fee,Onshore Banking,"Up to BDT 5 million: 0.50% or BDT 15,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Supply Chain Finance,Supply Chain Finance,Processing/Facility Structuring fee,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Supply Chain Finance,Supply Chain Finance,Facility Renewal Fee,Onshore Banking,Whichever is lower,15% VAT applicable,CORP_fees.pdf
+Corporate,Supply Chain Finance,Supply Chain Finance,Facility Renewal Fee,Onshore Banking; More than BDT 5 million,"0.30% or BDT 20,000, whichever is lower",15% VAT applicable,CORP_fees.pdf
+Corporate,Supply Chain Finance,Supply Chain Finance,Facility Renewal Fee,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Supply Chain Finance,Supply Chain Finance,Fee for Excess Over Limit (EOL),Onshore Banking,"Up to 0.30% or BDT 20,000, whichever is lower",15% VAT applicable,CORP_fees.pdf
+Corporate,Supply Chain Finance,Supply Chain Finance,Fee for Excess Over Limit (EOL),Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Supply Chain Finance,Supply Chain Finance,Platform Charge (Invoice Factoring),Onshore Banking,"Up to BDT 5 million: 0.50% or BDT 15,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Supply Chain Finance,Supply Chain Finance,Platform Charge (Invoice Factoring),Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Miscellaneous,Courier (Outside Country),Courier (Outside Country),Onshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous,Courier (Outside Country),Courier (Outside Country),Offshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous,Courier (Inside Country),Courier (Inside Country),Onshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous,Courier (Inside Country),Courier (Inside Country),Offshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous,"Any other SWIFT message, not mentioned otherwise","Any other SWIFT message, not mentioned otherwise",Onshore Banking,Up to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous,"Any other SWIFT message, not mentioned otherwise","Any other SWIFT message, not mentioned otherwise",Offshore Banking,Up to USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous,Postage (Inside Country),Postage (Inside Country),Onshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous,Postage (Inside Country),Postage (Inside Country),Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Miscellaneous,Attestation of Documents,Attestation of Documents,Onshore Banking,BDT 100 per set,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous,Attestation of Documents,Attestation of Documents,Offshore Banking,USD 2,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous,Processing of Regulatory Approval for FC Loan,Processing of Regulatory Approval for FC Loan,Onshore Banking,"Up to BDT 10,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous,Processing of Regulatory Approval for FC Loan,Processing of Regulatory Approval for FC Loan,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Miscellaneous,Advisory Fee,Advisory Fee,Onshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Advisory Fee,Advisory Fee,Offshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Fund/Facility Arrangement Fee,Fund/Facility Arrangement Fee,Onshore Banking,As per negotiation up to 2% of arranged fund,,CORP_fees.pdf
+Corporate,Miscellaneous,Fund/Facility Arrangement Fee,Fund/Facility Arrangement Fee,Offshore Banking,As per negotiation up to 2% of arranged fund,,CORP_fees.pdf
+Corporate,Miscellaneous,Agency/Trustee/Escrow Account Fee,Agency/Trustee/Escrow Account Fee,Onshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Agency/Trustee/Escrow Account Fee,Agency/Trustee/Escrow Account Fee,Offshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Account Bank Fee,Account Bank Fee,Onshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Account Bank Fee,Account Bank Fee,Offshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Facilitation Fee,Facilitation Fee,Onshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Facilitation Fee,Facilitation Fee,Offshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Finance Arrangement Fee,Finance Arrangement Fee,Onshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Finance Arrangement Fee,Finance Arrangement Fee,Offshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Documentation Deferral Extension Fee,Documentation Deferral Extension Fee,Onshore Banking,"As per negotiation up to BDT 100,000",,CORP_fees.pdf
+Corporate,Miscellaneous,Documentation Deferral Extension Fee,Documentation Deferral Extension Fee,Offshore Banking,"As per negotiation up to USD 1,000",,CORP_fees.pdf
+Corporate,Miscellaneous,Fast Tracking Fee,Fast Tracking Fee,Onshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Fast Tracking Fee,Fast Tracking Fee,Offshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Audit Confirmation - Bank Certificate,Audit Confirmation - Bank Certificate,Onshore Banking,Up to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous,Audit Confirmation - Bank Certificate,Audit Confirmation - Bank Certificate,Offshore Banking,Up to USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous,Tailor-Made Products & Services fee,Tailor-Made Products & Services fee,Onshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Tailor-Made Products & Services fee,Tailor-Made Products & Services fee,Offshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Any other type of transaction or service,Any other type of transaction or service,Onshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous,Any other type of transaction or service,Any other type of transaction or service,Offshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous (Government Securities Investment Services),BPID Opening,BPID Opening,Onshore Banking,500,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous (Government Securities Investment Services),BPID Opening,BPID Opening,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Miscellaneous (Government Securities Investment Services),Primary Auction (per successful bid),Primary Auction (per successful bid),Onshore Banking,500 (200 for Brokerage Omnibus),15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous (Government Securities Investment Services),Primary Auction (per successful bid),Primary Auction (per successful bid),Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Miscellaneous (Government Securities Investment Services),Secondary Trading (FMI),Secondary Trading (FMI),Onshore Banking,100 per transaction,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous (Government Securities Investment Services),Secondary Trading (FMI),Secondary Trading (FMI),Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Miscellaneous (Government Securities Investment Services),Annual BPID Maintenance,Annual BPID Maintenance,Onshore Banking,500,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous (Government Securities Investment Services),Annual BPID Maintenance,Annual BPID Maintenance,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Miscellaneous (Government Securities Investment Services),Tax Certificate,Tax Certificate,Onshore Banking,Yearly one statement free; for each additional statement 500 each,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous (Government Securities Investment Services),Tax Certificate,Tax Certificate,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Miscellaneous (Special Asset Management),Court & Lawyer Cost Recovery,Court & Lawyer Cost Recovery,Onshore Banking,At actual + Admin Margin (as per negotiation),15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous (Special Asset Management),Court & Lawyer Cost Recovery,Court & Lawyer Cost Recovery,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Miscellaneous (Special Asset Management),Compromise Settlement Fee,Compromise Settlement Fee,Onshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous (Special Asset Management),Compromise Settlement Fee,Compromise Settlement Fee,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Miscellaneous (Special Asset Management),Settlement Monitoring fee,Settlement Monitoring fee,Onshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous (Special Asset Management),Settlement Monitoring fee,Settlement Monitoring fee,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Miscellaneous (Special Asset Management),Further Board Approval for Earlier Compromise Failed/Time Extension,Further Board Approval for Earlier Compromise Failed/Time Extension,Onshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Miscellaneous (Special Asset Management),Further Board Approval for Earlier Compromise Failed/Time Extension,Further Board Approval for Earlier Compromise Failed/Time Extension,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,Commission of ULC Opening,Onshore Banking,"1st quarter up to 0.50% maximum, minimum BDT 1,000.00; subsequent quarter up to 0.50% p.q. to be charged on day basis",15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,Commission of ULC Opening,Offshore Banking,"1st quarter up to 0.50% maximum, minimum USD 10; subsequent quarter up to 0.50% p.q. to be charged on day basis",15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,Commission of SLC/BTB LC Opening,Onshore Banking,"1st quarter up to 0.40% maximum, minimum BDT 1,000.00; subsequent quarter up to 0.40% p.q. to be charged on day basis",15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,Commission of SLC/BTB LC Opening,Offshore Banking,"1st quarter up to 0.40% maximum, minimum USD 10; subsequent quarter up to 0.40% p.q. to be charged on day basis",15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,L/C under 100% Cash Margin,Onshore Banking,"1st quarter up to 0.25% maximum, minimum BDT 1,000.00; subsequent quarter up to 0.25% on day basis",15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,L/C under 100% Cash Margin,Offshore Banking,"1st quarter up to 0.25% maximum, minimum USD 10; subsequent quarter up to 0.25% on day basis",15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,Amendment of L/C for Increase of Value and Extension of Validity,Onshore Banking,"Commission as per LC opening rate (minimum BDT 1,000)",15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,Amendment of L/C for Increase of Value and Extension of Validity,Offshore Banking,Commission as per LC opening rate (minimum USD 10),15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,Amendment of L/C except Increase of Value and Extension of Validity,Onshore Banking,BDT 500-750,15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,Amendment of L/C except Increase of Value and Extension of Validity,Offshore Banking,USD 10 + communication cost,15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,L/C Cancellation,Onshore Banking,Communication cost at actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,L/C Cancellation,Offshore Banking,Nil + communication cost,,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,LC Confirmation Arrangement Fee,Onshore Banking,"Per quarter @ Nil to 0.20%, plus communication cost",15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,LC Confirmation Arrangement Fee,Offshore Banking,"Per quarter @ Nil to 0.20%, plus communication cost",15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,LC Processing Fee (Overseas),Onshore Banking,"BDT 300 to BDT 1,500",15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,LC Processing Fee (Overseas),Offshore Banking,USD 15,15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,LC Processing Fee (Local/BD),Onshore Banking,BDT 300 to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,LC Processing Fee (Local/BD),Offshore Banking,USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,UPAS LC Arrangement Fee,Onshore Banking,"Up to BDT 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Import LC,Import Trade Service,UPAS LC Arrangement Fee,Offshore Banking,Up to USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,Credit Report Collection,Onshore Banking,Up to USD 115; based on regional charge by third party,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,Credit Report Collection,Offshore Banking,Up to USD 115; based on regional charge by third party,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,Credit Report Usage Fee,Onshore Banking,Up to USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,Credit Report Usage Fee,Offshore Banking,Up to USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,Original B/L Endorsement Signature Verification Charge,Onshore Banking,BDT 100 per B/L,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,Original B/L Endorsement Signature Verification Charge,Offshore Banking,USD 1 or BDT 100 per B/L,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,Contingent Liability Conversion Fee,Onshore Banking,At the rate of client's LC commission for 1st quarter up to 0.40% of LC value,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,Contingent Liability Conversion Fee,Offshore Banking,At the rate of client's LC commission for 1st quarter up to 0.40% of LC value,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,Issuance of FTT for Import,Onshore Banking,"Up to BDT 1,000 (TT value <= USD 10,000); BDT 2,000 (TT value > USD 10,000)",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,Issuance of FTT for Import,Offshore Banking,"Up to USD 10 (TT value <= USD 10,000); USD 20 (TT value > USD 10,000)",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,Import Registration without LC,Onshore Banking,"1st quarter up to 0.30%, minimum BDT 1,000.00; subsequent quarter up to 0.30% on day basis",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,Import Registration without LC,Offshore Banking,"1st quarter up to 0.30%, minimum USD 10; subsequent quarter up to 0.30% on day basis",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,L/C Application Form,Onshore Banking,BDT 100 to BDT 300 + stamp charge at actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,L/C Application Form,Offshore Banking,BDT 100 to BDT 300 + stamp charge at actual equivalent,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,IMP Form,Onshore Banking,BDT 25 to BDT 100,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,IMP Form,Offshore Banking,BDT 25 to BDT 100 equivalent,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,Issuance of Certificate,Onshore Banking,Up to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,Issuance of Certificate,Offshore Banking,Up to USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,DP/DA Fee without LC,Onshore Banking,Up to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Miscellaneous,Import Trade Service,DP/DA Fee without LC,Offshore Banking,Up to USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Import Bill Retirement (Under Sight L/C),Onshore Banking,BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Import Bill Retirement (Under Sight L/C),Offshore Banking,USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Shipping Guarantee/NOC for Customs Assessment,Onshore Banking,"Up to BDT 1,500",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Shipping Guarantee/NOC for Customs Assessment,Offshore Banking,Up to USD 20,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Discrepancy Fee & Other charge (on Beneficiary),Onshore Banking,Up to USD 30 (Local Bill); Up to USD 80 (Foreign Bill),15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Discrepancy Fee & Other charge (on Beneficiary),Offshore Banking,Up to USD 30 (Local/BD Bill); Up to USD 80 (Overseas Bill),15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Import Documents Return Fee,Onshore Banking,"Up to BDT 2,500",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Import Documents Return Fee,Offshore Banking,Up to USD 15,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Acceptance Commission,Onshore Banking,"1st quarter up to 0.40% maximum, minimum BDT 1,000.00; subsequent quarter up to 0.40% p.q. to be charged on day basis",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Acceptance Commission,Offshore Banking,"1st quarter up to 0.40% maximum, minimum USD 10; subsequent quarter up to 0.40% p.q. to be charged on day basis",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Import Lodgement of Inward Documents,Onshore Banking,Up to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Import Lodgement of Inward Documents,Offshore Banking,Up to USD 20,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Maturity Date Extension of Accepted Bill,Onshore Banking,"BDT 1,500 per bill",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Maturity Date Extension of Accepted Bill,Offshore Banking,USD 15,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Loan Maturity Extension (Except B2B),Onshore Banking,"Up to BDT 1,500 per contract",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Loan Maturity Extension (Except B2B),Offshore Banking,Up to USD 15 per contract,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Payment Processing Fee,Onshore Banking,Up to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Payment Processing Fee,Offshore Banking,Up to USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,TT Reimbursement Charge (for non-ACU),Onshore Banking,"Up to USD 20 (<= USD 1,000); USD 30 (> USD 1,000 and <= USD 5,000); USD 40 (> USD 5,000)",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,TT Reimbursement Charge (for non-ACU),Offshore Banking,"Up to USD 20 (<= USD 1,000); USD 30 (> USD 1,000 and <= USD 5,000); USD 40 (> USD 5,000)",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Payment/Reimbursement Charge on Beneficiary/Applicant,Onshore Banking,"Up to USD 25 (Local Bill <= USD 20,000); USD 50 (Local Bill > USD 20,000); USD 30 (Foreign Bill <= USD 20,000); USD 60 (Foreign Bill > USD 20,000)",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Payment/Reimbursement Charge on Beneficiary/Applicant,Offshore Banking,"Up to USD 25 (Local/BD Bill <= USD 20,000); USD 50 (Local/BD Bill > USD 20,000); USD 30 (Overseas Bill <= USD 20,000); USD 60 (Overseas Bill > USD 20,000)",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Fee for Trade Dispute Settlement,Onshore Banking,"Up to BDT 50,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Fee for Trade Dispute Settlement,Offshore Banking,Up to USD 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Arrangement Fee for OBU/DBU Financing when Third Bank Persuasion is Unsuccessful,Onshore Banking,"Up to 2% of financed amount (minimum BDT 5,000)",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Arrangement Fee for OBU/DBU Financing when Third Bank Persuasion is Unsuccessful,Offshore Banking,Up to 2% of financed amount (minimum USD 50),15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Letter of Undertaking Issuance Fee for Refinancing Arrangement,Onshore Banking,"Up to BDT 5,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Letter of Undertaking Issuance Fee for Refinancing Arrangement,Offshore Banking,Up to USD 50,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Customer-Initiated LC Re-opening Charge,Onshore Banking,Up to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Customer-Initiated LC Re-opening Charge,Offshore Banking,Up to USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Claim Settlement Fee,Onshore Banking,"Up to BDT 3,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Import Bills,Import Trade Service,Claim Settlement Fee,Offshore Banking,Up to USD 30,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,L/C Advising,Onshore Banking,BDT 500 to BDT 750,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,L/C Advising,Offshore Banking,USD 5 to USD 7,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,L/C Amendment Advising,Onshore Banking,BDT 300 to BDT 750,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,L/C Amendment Advising,Offshore Banking,USD 5 to USD 7,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Sales Contract Review Fee for Buying House,Onshore Banking,"BDT 1,000 to BDT 1,800.00 per contract",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Sales Contract Review Fee for Buying House,Offshore Banking,USD 10 to USD 18 per contract,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Data Entry related to EXP Issue and Others,Onshore Banking,Up to BDT 25 to BDT 300 per set,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Data Entry related to EXP Issue and Others,Offshore Banking,Up to USD 1-3,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Local/BD Export Bill Negotiation/Collection Commission,Onshore Banking,"Up to 0.15% when there is no exchange gain (minimum BDT 1,000); BDT 500 when there is exchange gain",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Local/BD Export Bill Negotiation/Collection Commission,Offshore Banking,"Up to 0.15%, minimum USD 10",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Foreign Document/Negotiation Collection,Onshore Banking,"Up to 0.15% when there is no exchange gain (minimum BDT 1,000); BDT 300 to BDT 500 when there is exchange gain",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Foreign Document/Negotiation Collection,Offshore Banking,"Up to 0.15%, minimum USD 10",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,TT Processing Fee Export,Onshore Banking,"Up to 0.15% when there is no exchange gain (minimum BDT 1,000); BDT 300 to BDT 500 when there is exchange gain",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,TT Processing Fee Export,Offshore Banking,"Up to 0.15%, minimum USD 10",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Buying House Commission Payment Processing Charge (Paper Transfer)/Transfer of LC (Manual),Onshore Banking,"Up to BDT 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Buying House Commission Payment Processing Charge (Paper Transfer)/Transfer of LC (Manual),Offshore Banking,Up to USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Issuance of PRC,Onshore Banking,BDT 100 to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Issuance of PRC,Offshore Banking,USD 1 to USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Issuance of any other certificate,Onshore Banking,BDT 100 to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Issuance of any other certificate,Offshore Banking,USD 5 per certificate,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Transfer of LC/Amendment Fee (if advised through EBL),Onshore Banking,Up to BDT 500 to BDT 750,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Transfer of LC/Amendment Fee (if advised through EBL),Offshore Banking,Up to USD 5 to USD 7,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Transfer of LC/Amendment Fee (if not advised through EBL),Onshore Banking,Up to BDT 750,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Transfer of LC/Amendment Fee (if not advised through EBL),Offshore Banking,Up to USD 5 to USD 7,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,LC Confirmation,Onshore Banking,Up to 0.20% p.q.,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,LC Confirmation,Offshore Banking,Up to 0.20% p.q.,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Collections where proceeds received in BDT,Onshore Banking,"Up to BDT 500-BDT 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Collections where proceeds received in BDT,Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Bill Processing Fee for ENTREPOT Basis Collection Document,Onshore Banking,"BDT 3,000 per document",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Bill Processing Fee for ENTREPOT Basis Collection Document,Offshore Banking,USD 30 per document,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Authorization Letter to Collect Documents from Other Banks,Onshore Banking,BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Authorization Letter to Collect Documents from Other Banks,Offshore Banking,USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,EXP Cancellation Fee,Onshore Banking,BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,EXP Cancellation Fee,Offshore Banking,USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Processing charge for Cash Assistance,Onshore Banking,"0.20% on disbursed amount, minimum BDT 2,000 per case",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Processing charge for Cash Assistance,Offshore Banking,"0.20% on disbursed amount, minimum USD 20 or BDT 2,000 per case",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Bill Discount/Invoice Financing Fee,Onshore Banking,"Up to BDT 2,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Bill Discount/Invoice Financing Fee,Offshore Banking,Up to USD 20,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Invoice Financing Processing Fee,Onshore Banking,"Up to BDT 1,000 per disbursement",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Invoice Financing Processing Fee,Offshore Banking,Up to USD 10 per disbursement,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Reimbursement Claim against Export,Onshore Banking,"Up to BDT 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Reimbursement Claim against Export,Offshore Banking,Up to USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Payment Reminder Fee,Onshore Banking,"Up to BDT 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Payment Reminder Fee,Offshore Banking,Up to USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Collection Charge against Export Bill of Other Bank,Onshore Banking,"Up to BDT 5,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Collection Charge against Export Bill of Other Bank,Offshore Banking,Up to USD 50,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Maturity Extension Fee (to be deducted from proceeds),Onshore Banking,"Up to BDT 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Maturity Extension Fee (to be deducted from proceeds),Offshore Banking,Up to USD 10,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Amendment of Collection Documents,Onshore Banking,Up to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Amendment of Collection Documents,Offshore Banking,Up to USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Issuance of Certificate,Onshore Banking,Up to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Export,Export Trade Service,Issuance of Certificate,Offshore Banking,Up to USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Issuance of Guarantee,Onshore Banking,"1st quarter up to 0.50%, subsequent quarter up to 0.50% p.q. to be charged on day basis, minimum BDT 1,000.00",15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Issuance of Guarantee,Offshore Banking,"Per quarter up to 0.50%, subsequent up to 0.50% p.q. to be charged on day basis",15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Amendment of Guarantee for Extension of Validity/Increase of Amount,Onshore Banking,"Per quarter @ 0.20% to 0.50%, subsequent quarters @ 0.15% to 0.50% on day basis, minimum BDT 1,000.00",15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Amendment of Guarantee for Extension of Validity/Increase of Amount,Offshore Banking,"Per quarter up to 0.50%, subsequent quarters @ 0.15% to 0.50% on day basis",15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Commission for Issuance/Extension of Validity of Guarantee against Counter Guarantee of Foreign Bank,Onshore Banking,"Up to 0.60% per quarter, minimum USD 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Commission for Issuance/Extension of Validity of Guarantee against Counter Guarantee of Foreign Bank,Offshore Banking,"Up to 0.60% per quarter, minimum USD 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Issuance of Amendment of Guarantee without Extension of Validity/Increase of Amount,Onshore Banking,"BDT 500 to BDT 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Issuance of Amendment of Guarantee without Extension of Validity/Increase of Amount,Offshore Banking,USD 10 to USD 25,15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Advising of Guarantee to the Beneficiary by Adding Our Confirmation,Onshore Banking,"Up to 0.60% per quarter, minimum USD 50",15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Advising of Guarantee to the Beneficiary by Adding Our Confirmation,Offshore Banking,Negotiation basis,,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Advising of Amendment of Guarantee for Extension of Validity/Increase of Amount to the Beneficiary by Adding Our Confirmation,Onshore Banking,"Up to 0.60% per quarter, minimum USD 50",15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Advising of Amendment of Guarantee for Extension of Validity/Increase of Amount to the Beneficiary by Adding Our Confirmation,Offshore Banking,Negotiation basis,,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Advising of Amendment of Guarantee without Extension of Validity/Increase of Amount to the Beneficiary by Adding Our Confirmation,Onshore Banking,"Up to 0.60% per quarter, minimum USD 50",15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Advising of Amendment of Guarantee without Extension of Validity/Increase of Amount to the Beneficiary by Adding Our Confirmation,Offshore Banking,USD 10 to USD 15,15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Advising of SBLC/Guarantee without Confirmation,Onshore Banking,USD 50,15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Advising of SBLC/Guarantee without Confirmation,Offshore Banking,USD 50,15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Advising of SBLC/Guarantee Amendment without Confirmation,Onshore Banking,USD 50,15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Advising of SBLC/Guarantee Amendment without Confirmation,Offshore Banking,USD 50,15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,SBLC/Guarantee Confirmation,Onshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,SBLC/Guarantee Confirmation,Offshore Banking,As per negotiation,,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,"Upload in E-GP Portal (Guarantee, Amendment, Pay Order)",Onshore Banking,BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,"Upload in E-GP Portal (Guarantee, Amendment, Pay Order)",Offshore Banking,N/A,,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Advising of Guarantee to the Beneficiary in Original without Any Engagement on Our Part,Onshore Banking,"BDT 1,000 to BDT 2,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Advising of Guarantee to the Beneficiary in Original without Any Engagement on Our Part,Offshore Banking,USD 10 to USD 20,15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Miscellaneous,Onshore Banking,Up to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Miscellaneous,Offshore Banking,Up to USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Issuance of Certificate,Onshore Banking,Up to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Issuance of Certificate,Offshore Banking,Up to USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Stamp Cost,Onshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Guarantee,Guarantee,Stamp Cost,Offshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Processing Regulatory Approval (such as Bill of Entry extension/extension of export bill repatriation and others),Onshore Banking,"Up to BDT 10,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Processing Regulatory Approval (such as Bill of Entry extension/extension of export bill repatriation and others),Offshore Banking,Up to USD 100,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,"Any other type of trade-related transaction not covered above, unless otherwise stipulated",Onshore Banking,Negotiable,,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,"Any other type of trade-related transaction not covered above, unless otherwise stipulated",Offshore Banking,Negotiable,,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Full Operative SWIFT LC/LG (Foreign),Onshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Full Operative SWIFT LC/LG (Foreign),Offshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Amendment of LC/LG by SWIFT (Foreign),Onshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Amendment of LC/LG by SWIFT (Foreign),Offshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Full Operative SWIFT LC/LG (Local),Onshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Full Operative SWIFT LC/LG (Local),Offshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Amendment of LC/LG by SWIFT (Local),Onshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Amendment of LC/LG by SWIFT (Local),Offshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,SWIFT Charge for Acceptance,Onshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,SWIFT Charge for Acceptance,Offshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,SWIFT charge for LC and Amendment Transfer,Onshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,SWIFT charge for LC and Amendment Transfer,Offshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,NOC Issuance & Correction for Import under Free of Cost (FOC) (New),Onshore Banking,"Up to BDT 1,000 per NOC",15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,NOC Issuance & Correction for Import under Free of Cost (FOC) (New),Offshore Banking,Up to USD 10 per NOC,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,BB Online Ticket Resolution Fee,Onshore Banking,"Up to BDT 500-BDT 1,000",15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,BB Online Ticket Resolution Fee,Offshore Banking,Up to USD 5-10,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Fee for Confirmation of Assignment of Proceed (New),Onshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Fee for Confirmation of Assignment of Proceed (New),Offshore Banking,At actual,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Vessel Tracking Charge,Onshore Banking,Up to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Vessel Tracking Charge,Offshore Banking,Up to USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Price Verification Charge,Onshore Banking,Up to BDT 500,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Price Verification Charge,Offshore Banking,Up to USD 5,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Archived Document Retrieval Fee per File,Onshore Banking,Up to BDT 200,15% VAT applicable,CORP_fees.pdf
+Corporate,Miscellaneous Cost For Trade Service,Trade Service,Archived Document Retrieval Fee per File,Offshore Banking,Up to USD 2,15% VAT applicable,CORP_fees.pdf

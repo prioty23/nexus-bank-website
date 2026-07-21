@@ -1,0 +1,41 @@
+schedule_type,account_category,account_name,source_file
+Retail,Current Deposits,EBL Current Account,categories.pdf
+Retail,Current Deposits,EBL Current Plus,categories.pdf
+Retail,Current Deposits,EBL Expat LCY Account,categories.pdf
+Retail,Savings Deposits,EBL Power Savings,categories.pdf
+Retail,Savings Deposits,EBL Classic Savings,categories.pdf
+Retail,Savings Deposits,EBL Green Account,categories.pdf
+Retail,Savings Deposits,EBL Max Saver,categories.pdf
+Retail,Savings Deposits,EBL Premium Savings,categories.pdf
+Retail,Savings Deposits,EBL 50+ Savings,categories.pdf
+Retail,Savings Deposits,EBL Women's Savings Account,categories.pdf
+Retail,Savings Deposits,EBL Savings - Compare & Choose,categories.pdf
+Retail,High Earning Account,EBL High Earning Account,categories.pdf
+Retail,Fixed Deposits,EBL Repeat,categories.pdf
+Retail,Fixed Deposits,EBL FD,categories.pdf
+Retail,Fixed Deposits,EBL Earn First FD,categories.pdf
+Retail,DPS,EBL Women Confidence,categories.pdf
+Retail,DPS,EBL Kotipoti Scheme,categories.pdf
+Retail,DPS,EBL Multiplier,categories.pdf
+Retail,DPS,EBL Millionaire Scheme,categories.pdf
+Retail,DPS,EBL Confidence,categories.pdf
+Retail,DPS,EBL Women Millionaire DPS,categories.pdf
+Retail,DPS,EBL DPS - Compare & Choose,categories.pdf
+Retail,NRB Accounts,EBL Shonchoy,categories.pdf
+Retail,NRB Accounts,EBL Paribar,categories.pdf
+Retail,NRB Accounts,EBL NFCD,categories.pdf
+Retail,NRB Accounts,EBL Global,categories.pdf
+Retail,Foreign Currency Account,EBL RFCD Account,categories.pdf
+Retail,Foreign Currency Account,EBL Freelancer Suite,categories.pdf
+Retail,Foreign Currency Account,EBL Mariner Account (USD),categories.pdf
+Retail,Foreign Currency Account,EBL Expat FCY Account,categories.pdf
+Retail,Foreign Currency Account,EBL Citizen Account,categories.pdf
+Retail,Personal Retail Account,EBL Personal Retail Account,categories.pdf
+SME,Current Deposits,Current Account,categories.pdf
+SME,Current Deposits,Foreign Currency Account,categories.pdf
+SME,Current Deposits,EBL ERQ Account,categories.pdf
+SME,Short Notice Deposit,EBL Short Notice Deposit,categories.pdf
+SME,Short Notice Deposit,EBL Subidha,categories.pdf
+SME,Fixed Deposit,EBL Fixed Deposits,categories.pdf
+SME,Fixed Deposit,EBL Fixed Deposit - Repeat,categories.pdf
+SME,Recurring Deposit,EBL Equity Builder Account,categories.pdf

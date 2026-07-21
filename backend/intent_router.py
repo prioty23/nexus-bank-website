@@ -49,8 +49,18 @@ def detect_intent(message):
         "earlier question",
         "last question",
         "last time",
+        "first text",
+        "first message",
+        "first question",
+        "oldest message",
+        "oldest question",
+        "what did i ask first",
+        "what did i first ask",
         "remember what i asked",
         "what was my previous",
+        "what was my first text",
+        "what was my first message",
+        "what was my first question",
         "show my recent questions",
         "what complaint did i create",
         "previous complaint",
@@ -126,6 +136,22 @@ def detect_intent(message):
         "not showing in my account"
     ]):
         return "complaint_create"
+
+    # Fees, charges, and schedule-of-charges questions
+    if contains_any(message, [
+        "fee",
+        "fees",
+        "charge",
+        "charges",
+        "schedule of charges",
+        "vat",
+        "maintenance fee",
+        "annual fee",
+        "minimum balance",
+        "closing charge",
+        "account closing",
+    ]):
+        return "charge_information"
 
     # Islamic banking
     if contains_any(message, [

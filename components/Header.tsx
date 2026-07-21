@@ -12,7 +12,7 @@ const topLinkRoutes = [
 ];
 const EBL_HOTLINE = "16230";
 
-const navRoutes = [
+const navRoutes: Array<[string, string[]]> = [
   [
     "https://www.ebl.com.bd/retail/retail-deposit",
     [
@@ -115,7 +115,7 @@ export default function Header() {
       return {
       label,
       href: href as string,
-      links: links.map((linkLabel, linkIndex) => ({
+      links: (links as string[]).map((linkLabel: string, linkIndex: number) => ({
         label: linkLabel,
         href: (routes as string[])[linkIndex],
       })),

@@ -26,6 +26,12 @@ def select_knowledge_pages(intent):
             "EBL 365 PLUS Page",
             "EBL Verified Contact Information",
         ],
+        "charge_information": [
+            "EBL Schedule of Charges Page",
+            "EBL Interest Rates Page",
+            "EBL Foreign Exchange Rate Page",
+            "EBL Verified Contact Information",
+        ],
         "retail_banking": [
             "EBL Retail Loan Page",
             "EBL Retail Deposits Page",

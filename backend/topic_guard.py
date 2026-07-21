@@ -39,6 +39,36 @@ GREETING_WORDS = [
 ]
 
 
+IDENTITY_QUESTION_PHRASES = [
+    "who are you",
+    "who r u",
+    "what are you",
+    "what is your name",
+    "what's your name",
+    "your name",
+    "who am i talking to",
+    "who is this",
+    "are you a bot",
+    "are you chatbot",
+    "are you a chatbot",
+    "are you human",
+    "tell me about yourself",
+    "what can you do",
+]
+
+
+def normalize_simple_message(message):
+    return " ".join(
+        message.lower()
+        .replace("?", " ")
+        .replace("!", " ")
+        .replace(".", " ")
+        .replace(",", " ")
+        .strip()
+        .split()
+    )
+
+
 def is_greeting_only(message):
     message = message.lower().strip()
 
@@ -49,9 +79,27 @@ def is_greeting_only(message):
     return False
 
 
+def is_identity_question(message):
+    message = normalize_simple_message(message)
+
+    for phrase in IDENTITY_QUESTION_PHRASES:
+        if phrase in message:
+            return True
+
+    return False
+
+
 def get_greeting_reply():
     return (
         "Hello! Welcome to Eastern Bank AI Assistant. How may I assist you today?"
+    )
+
+
+def get_identity_reply():
+    return (
+        "I am Eastern Bank PLC AI Assistant, the EBL chatbot. "
+        "I can help with EBL accounts, loans, cards, schedule of charges, "
+        "branch/contact information, and complaint guidance."
     )
 
 
@@ -87,6 +135,9 @@ def is_follow_up(message):
 
 def is_allowed_question(message, has_previous_history):
     if is_greeting_only(message):
+        return True
+
+    if is_identity_question(message):
         return True
 
     if is_contact_question(message):

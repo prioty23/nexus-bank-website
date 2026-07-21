@@ -1,0 +1,514 @@
+Eastern Bank PLC.
+কার্ড চার্জসমূহ
+২৫ মে, ২০২৬ থেকে কার্যকর
+
+============================================================
+কার্ডের ধরন / Product Columns
+============================================================
+
+A. ক্রেডিট কার্ড
+1. Visa Classic
+2. Visa Gold
+3. Visa Platinum
+4. Visa Women Platinum
+5. Visa Army/Air Force/Navy Platinum
+6. Visa Corporate Platinum
+7. Visa Signature Light / Women Signature
+8. Visa Signature Acci
+9. Visa Infinite
+10. Mastercard Titanium
+11. Mastercard World
+12. Diners Club
+13. UnionPay Platinum
+14. FX Credit
+
+B. ডেবিট কার্ড
+1. Classic Debit
+2. Platinum Debit
+3. Signature (Regular) / World Debit
+4. Signature Priority Debit
+5. Global / Mastercard World RFCD Debit
+6. UnionPay Classic Debit
+7. TakaPay Debit
+
+C. প্রি-পেইড কার্ড
+1. Payroll Prepaid Card
+2. UnionPay / Mastercard / Visa Prepaid Card
+3. Diners Club / FX / ACCA Prepaid Card
+4. Mastercard Women Prepaid Card
+
+============================================================
+চার্জসমূহ / Charges
+============================================================
+
+1. ইস্যুয়েন্স / রিনিউয়াল / অ্যানুয়াল ফি - প্রাইমারি কার্ড
+Credit Cards:
+- Visa Classic: ৳ 1,500
+- Visa Gold: ৳ 3,000
+- Visa Platinum: ৳ 5,000
+- Visa Women Platinum: ৳ 3,000
+- Visa Army/Air Force/Navy Platinum: ৳ 4,000 **
+- Visa Corporate Platinum: ৳ 1,000
+- Visa Signature Light / Women Signature: ৳ 10,000
+- Visa Signature Acci: ৳ 12,000
+- Visa Infinite: ৳ 25,000
+- Mastercard Titanium: ৳ 5,000
+- Mastercard World: ৳ 7,500
+- Diners Club: ৳ 1,740
+- UnionPay Platinum: ৳ 5,000
+- FX Credit: নোট 17 অনুযায়ী
+Debit Cards:
+- Classic Debit: ৳ 600
+- Platinum Debit: ৳ 700
+- Signature (Regular) / World Debit: ৳ 1,000
+- Signature Priority Debit: -
+- Global / Mastercard World RFCD Debit: $ 10
+- UnionPay Classic Debit: ৳ 600
+- TakaPay Debit: ৳ 300
+Prepaid Cards:
+- Payroll Prepaid Card: নোট 9 অনুযায়ী
+- UnionPay / Mastercard / Visa Prepaid Card: ৳ 1,000
+- Diners Club / FX / ACCA Prepaid Card: ৳ 500 বা $ 10
+- Mastercard Women Prepaid Card: ৳ 800
+
+2. সাপ্লিমেন্টারি কার্ড - ফ্রি সংখ্যা
+Credit Cards:
+- Visa Classic: 1ম কার্ড ফ্রি
+- Visa Gold: 1ম কার্ড ফ্রি
+- Visa Platinum: 1ম ও 2য় কার্ড ফ্রি
+- Visa Women Platinum: 1ম ও 2য় কার্ড ফ্রি
+- Visa Army/Air Force/Navy Platinum: 1ম ও 2য় কার্ড ফ্রি
+- Visa Corporate Platinum: 1ম ও 2য় কার্ড ফ্রি
+- Visa Signature Light / Women Signature: 1ম ও 2য় কার্ড ফ্রি
+- Visa Signature Acci: 1ম ও 2য় কার্ড ফ্রি
+- Visa Infinite: 1ম ও 2য় কার্ড ফ্রি
+- Mastercard Titanium: 1ম ও 2য় কার্ড ফ্রি
+- Mastercard World: 1ম ও 2য় কার্ড ফ্রি
+- Diners Club: 1ম ও 2য় কার্ড ফ্রি
+- UnionPay Platinum: 1ম ও 2য় কার্ড ফ্রি
+- FX Credit: 1ম ও 2য় কার্ড ফ্রি
+Debit Cards: -
+Prepaid Cards: -
+
+3. সাপ্লিমেন্টারি কার্ড - ইস্যুয়েন্স / অ্যানুয়াল / রিনিউয়াল ফি *****
+Credit Cards:
+- Visa Classic: ৳ 1,500
+- Visa Gold: ৳ 1,500
+- Visa Platinum: ৳ 2,000
+- Visa Women Platinum: ৳ 2,000
+- Visa Army/Air Force/Navy Platinum: ৳ 2,000
+- Visa Corporate Platinum: -
+- Visa Signature Light / Women Signature: ৳ 3,000
+- Visa Signature Acci: ৳ 3,000
+- Visa Infinite: ৳ 3,000
+- Mastercard Titanium: ৳ 3,000
+- Mastercard World: ৳ 3,000
+- Diners Club: ৳ 869
+- UnionPay Platinum: ৳ 3,000
+- FX Credit: $ 12
+Debit Cards: -
+Prepaid Cards: -
+
+4. আন্তর্জাতিক স্কাইলাউঞ্জ ফ্রি ভিজিট - এর সংখ্যা (বাৎসরিক)
+Credit Cards:
+- Visa Classic: -
+- Visa Gold: -
+- Visa Platinum: 6
+- Visa Women Platinum: 6
+- Visa Army/Air Force/Navy Platinum: 6
+- Visa Corporate Platinum: 6
+- Visa Signature Light / Women Signature: আনলিমিটেড
+- Visa Signature Acci: আনলিমিটেড
+- Visa Infinite: আনলিমিটেড
+- Mastercard Titanium: 6
+- Mastercard World: আনলিমিটেড
+- Diners Club: 6
+- UnionPay Platinum: 6
+- FX Credit: কার্ডের ধরন অনুযায়ী
+Debit Cards:
+- Classic Debit: -
+- Platinum Debit: -
+- Signature (Regular) / World Debit: নোট 33 অনুযায়ী
+- Signature Priority Debit: আনলিমিটেড
+- Global / Mastercard World RFCD Debit: নোট 33 অনুযায়ী
+- UnionPay Classic Debit: -
+- TakaPay Debit: -
+Prepaid Cards: -
+
+5. অভ্যন্তরীণ স্কাইলাউঞ্জ ফ্রি ভিজিট - এর সংখ্যা (বাৎসরিক)
+Credit Cards:
+- Visa Classic: -
+- Visa Gold: -
+- Visa Platinum: আনলিমিটেড
+- Visa Women Platinum: আনলিমিটেড
+- Visa Army/Air Force/Navy Platinum: আনলিমিটেড
+- Visa Corporate Platinum: আনলিমিটেড
+- Visa Signature Light / Women Signature: আনলিমিটেড
+- Visa Signature Acci: আনলিমিটেড
+- Visa Infinite: আনলিমিটেড
+- Mastercard Titanium: আনলিমিটেড
+- Mastercard World: আনলিমিটেড
+- Diners Club: আনলিমিটেড
+- UnionPay Platinum: আনলিমিটেড
+- FX Credit: কার্ডের ধরন অনুযায়ী
+Debit Cards:
+- Classic Debit: -
+- Platinum Debit: -
+- Signature (Regular) / World Debit: নোট 33 অনুযায়ী
+- Signature Priority Debit: আনলিমিটেড
+- Global / Mastercard World RFCD Debit: নোট 33 অনুযায়ী
+- UnionPay Classic Debit: -
+- TakaPay Debit: -
+Prepaid Cards: -
+
+6. গ্লোবাল লাউঞ্জ অ্যাক্সেস ফি (জনপ্রতি)
+Credit Cards:
+- Visa Classic: -
+- Visa Gold: -
+- Visa Platinum: $ 36 / নোট 41
+- Visa Women Platinum: $ 36 / নোট 41
+- Visa Army/Air Force/Navy Platinum: $ 36 / নোট 41
+- Visa Corporate Platinum: $ 36 / নোট 41
+- Visa Signature Light / Women Signature: $ 36 / নোট 41
+- Visa Signature Acci: $ 36 / নোট 41
+- Visa Infinite: $ 36 / নোট 41
+- Mastercard Titanium: $ 36 / নোট 41
+- Mastercard World: $ 36 / নোট 41
+- Diners Club: নোট 31 অনুযায়ী
+- UnionPay Platinum: -
+- FX Credit: কার্ডের ধরন অনুযায়ী
+Debit Cards:
+- Classic Debit: -
+- Platinum Debit: -
+- Signature (Regular) / World Debit: -
+- Signature Priority Debit: $ 36 / নোট 41
+- Global / Mastercard World RFCD Debit: -
+- UnionPay Classic Debit: -
+- TakaPay Debit: -
+Prepaid Cards: -
+
+7. গ্লোবাল লাউঞ্জ ফ্রি ভিজিট - এর সংখ্যা (বাৎসরিক) ****
+Credit Cards:
+- Visa Classic: -
+- Visa Gold: -
+- Visa Platinum: -
+- Visa Women Platinum: -
+- Visa Army/Air Force/Navy Platinum: -
+- Visa Corporate Platinum: -
+- Visa Signature Light / Women Signature: 6
+- Visa Signature Acci: 10
+- Visa Infinite: 13
+- Mastercard Titanium: -
+- Mastercard World: -
+- Diners Club: -
+- UnionPay Platinum: -
+- FX Credit: কার্ডের ধরন অনুযায়ী
+Debit Cards:
+- Classic Debit: -
+- Platinum Debit: -
+- Signature (Regular) / World Debit: -
+- Signature Priority Debit: 12
+- Global / Mastercard World RFCD Debit: -
+- UnionPay Classic Debit: -
+- TakaPay Debit: -
+Prepaid Cards: -
+
+8. কার্ড রিপ্লেসমেন্ট ফি
+Credit Cards:
+- Visa Classic: ৳ 1,000
+- Visa Gold: ৳ 1,000
+- Visa Platinum: ৳ 1,200
+- Visa Women Platinum: ৳ 1,200
+- Visa Army/Air Force/Navy Platinum: ৳ 1,200
+- Visa Corporate Platinum: ৳ 1,000
+- Visa Signature Light / Women Signature: ৳ 1,200
+- Visa Signature Acci: ৳ 1,200
+- Visa Infinite: ৳ 1,200
+- Mastercard Titanium: ৳ 1,200
+- Mastercard World: ৳ 1,200
+- Diners Club: ৳ 1,000
+- UnionPay Platinum: ৳ 1,000
+- FX Credit: $ 9
+Debit Cards:
+- Classic Debit: ৳ 500
+- Platinum Debit: ৳ 600
+- Signature (Regular) / World Debit: ৳ 700
+- Signature Priority Debit: -
+- Global / Mastercard World RFCD Debit: $ 10
+- UnionPay Classic Debit: ৳ 500
+- TakaPay Debit: ৳ 300
+Prepaid Cards:
+- Payroll Prepaid Card: ৳ 200
+- UnionPay / Mastercard / Visa Prepaid Card: ৳ 500 বা $ 10
+- Diners Club / FX / ACCA Prepaid Card: ৳ 500 বা $ 10
+- Mastercard Women Prepaid Card: ৳ 500 বা $ 10
+
+9. পিন রিপ্লেসমেন্ট ফি
+Credit Cards:
+- All listed credit cards except FX Credit: ৳ 500
+- FX Credit: $ 6
+Debit Cards:
+- Classic Debit: ৳ 500
+- Platinum Debit: ৳ 600
+- Signature (Regular) / World Debit: ৳ 700
+- Signature Priority Debit: -
+- Global / Mastercard World RFCD Debit: $ 10
+- UnionPay Classic Debit: ৳ 500
+- TakaPay Debit: ৳ 500
+Prepaid Cards:
+- Payroll Prepaid Card: ৳ 200
+- UnionPay / Mastercard / Visa Prepaid Card: ৳ 500 বা $ 10
+- Diners Club / FX / ACCA Prepaid Card: ৳ 500 বা $ 10
+- Mastercard Women Prepaid Card: ৳ 500 বা $ 10
+
+10. লেট পেমেন্ট ফি
+Credit Cards:
+- Visa Classic: ৳ 1,000 / $ 12
+- Visa Gold: ৳ 1,000 / $ 12
+- Visa Platinum: ৳ 1,200 / $ 15
+- Visa Women Platinum: ৳ 1,200 / $ 15
+- Visa Army/Air Force/Navy Platinum: ৳ 1,200 / $ 15
+- Visa Corporate Platinum: ৳ 1,200 / $ 15
+- Visa Signature Light / Women Signature: ৳ 1,200 / $ 15
+- Visa Signature Acci: ৳ 1,200 / $ 15
+- Visa Infinite: ৳ 1,200 / $ 15
+- Mastercard Titanium: ৳ 1,200 / $ 15
+- Mastercard World: ৳ 1,200 / $ 15
+- Diners Club: ৳ 1,200 / $ 15
+- UnionPay Platinum: ৳ 1,200 / $ 15
+- FX Credit: $ 15
+Debit Cards: -
+Prepaid Cards: -
+
+11. ক্যাশ উইথড্রয়াল / অ্যাডভান্স ফি - ইবিএল এটিএম (যেটা বেশি)
+Credit Cards:
+- All listed credit cards including FX Credit: 2.17% বা ৳ 300
+Debit Cards: -
+Prepaid Cards: -
+
+12. ক্যাশ উইথড্রয়াল / অ্যাডভান্স ফি - অন্য এটিএম (যেটা বেশি)
+Credit Cards:
+- All listed credit cards including FX Credit: 3% বা ৳ 300 / $ 5
+Debit Cards:
+- Classic Debit: নোট 12 অনুযায়ী
+- Platinum Debit: নোট 12 অনুযায়ী
+- Signature (Regular) / World Debit: নোট 12 অনুযায়ী
+- Signature Priority Debit: নোট 12 অনুযায়ী
+- Global / Mastercard World RFCD Debit: $ 2.50
+- UnionPay Classic Debit: নোট 12 অনুযায়ী
+- TakaPay Debit: নোট 12 অনুযায়ী
+Prepaid Cards:
+- Payroll Prepaid Card: নোট 12 অনুযায়ী
+- UnionPay / Mastercard / Visa Prepaid Card: নোট 12 অনুযায়ী / 1% বা $ 2
+- Diners Club / FX / ACCA Prepaid Card: নোট 12 অনুযায়ী / 1% বা $ 2
+- Mastercard Women Prepaid Card: নোট 12 অনুযায়ী / 1% বা $ 2
+
+13. ইন্টারেস্ট রেট (বাৎসরিক)
+Credit Cards:
+- All listed credit cards including FX Credit: 25%
+Debit Cards: -
+Prepaid Cards: -
+
+14. রিটার্ন চেক ফি
+Credit Cards:
+- All listed credit cards except FX Credit: ৳ 500
+- FX Credit: -
+Debit Cards: -
+Prepaid Cards: -
+
+15. ডুপ্লিকেট ই-স্টেটমেন্ট ফি (প্রতি মাস)
+Credit Cards:
+- All listed credit cards except FX Credit: ৳ 200
+- FX Credit: $ 1
+Debit Cards: -
+Prepaid Cards:
+- Payroll Prepaid Card: ৳ 50
+- UnionPay / Mastercard / Visa Prepaid Card: ৳ 50 বা $ 1
+- Diners Club / FX / ACCA Prepaid Card: ৳ 50 বা $ 1
+- Mastercard Women Prepaid Card: ৳ 50 বা $ 1
+
+16. ওভারলিমিট ফি
+Credit Cards:
+- Visa Classic: ৳ 1,200 / $ 10
+- Visa Gold: ৳ 1,200 / $ 10
+- Visa Platinum: ৳ 1,550 / $ 15
+- Visa Women Platinum: ৳ 1,550 / $ 15
+- Visa Army/Air Force/Navy Platinum: ৳ 1,550 / $ 15
+- Visa Corporate Platinum: ৳ 1,550 / $ 15
+- Visa Signature Light / Women Signature: ৳ 1,550 / $ 15
+- Visa Signature Acci: ৳ 1,550 / $ 15
+- Visa Infinite: ৳ 1,550 / $ 15
+- Mastercard Titanium: ৳ 1,550 / $ 15
+- Mastercard World: ৳ 1,550 / $ 15
+- Diners Club: ৳ 1,200 / $ 10
+- UnionPay Platinum: ৳ 1,200 / $ 10
+- FX Credit: -
+Debit Cards: -
+Prepaid Cards: -
+
+17. সেলস ভাউচার রিট্রিভাল ফি
+Credit Cards:
+- All listed credit cards except FX Credit: ৳ 300 / $ 10
+- FX Credit: $ 10
+Debit Cards:
+- Classic Debit: ৳ 300
+- Platinum Debit: ৳ 300
+- Signature (Regular) / World Debit: ৳ 300
+- Signature Priority Debit: -
+- Global / Mastercard World RFCD Debit: $ 10
+- UnionPay Classic Debit: ৳ 300
+- TakaPay Debit: ৳ 300
+Prepaid Cards:
+- Payroll Prepaid Card: ৳ 300
+- UnionPay / Mastercard / Visa Prepaid Card: ৳ 300 বা $ 10
+- Diners Club / FX / ACCA Prepaid Card: ৳ 300 বা $ 10
+- Mastercard Women Prepaid Card: ৳ 300 বা $ 10
+
+18. সার্টিফিকেট ফি
+Credit Cards:
+- All listed credit cards except FX Credit: ৳ 500
+- FX Credit: $ 6
+Debit Cards:
+- Classic Debit: ৳ 50
+- Platinum Debit: ৳ 50
+- Signature (Regular) / World Debit: ৳ 50
+- Signature Priority Debit: ৳ 50
+- Global / Mastercard World RFCD Debit: $ 1
+- UnionPay Classic Debit: ৳ 50
+- TakaPay Debit: ৳ 50
+Prepaid Cards:
+- Payroll Prepaid Card: ৳ 50
+- UnionPay / Mastercard / Visa Prepaid Card: ৳ 50 বা $ 1
+- Diners Club / FX / ACCA Prepaid Card: ৳ 50 বা $ 1
+- Mastercard Women Prepaid Card: ৳ 50 বা $ 1
+
+19. রিস্ক অ্যাসিউরেন্স ফি - আউটস্ট্যান্ডিংয়ের উপরে ******
+Credit Cards:
+- All listed credit cards including FX Credit: 0.1353%
+Debit Cards: -
+Prepaid Cards: -
+
+20. কার্ড চেক বই ফি (10 পাতার)
+Credit Cards:
+- All listed credit cards except FX Credit: ৳ 250
+- FX Credit: -
+Debit Cards: -
+Prepaid Cards: -
+
+21. কার্ড চেক প্রসেসিং ফি (যেটা বেশি)
+Credit Cards:
+- All listed credit cards except FX Credit: 2% বা ৳ 500
+- FX Credit: -
+Debit Cards: -
+Prepaid Cards: -
+
+22. কাস্টমার ভেরিফিকেশন / সিআইবি ফি
+Credit Cards:
+- All listed credit cards except FX Credit: ৳ 100
+- FX Credit: $ 1.50
+Debit Cards: -
+Prepaid Cards: -
+
+23. ট্রানজ্যাকশন অ্যালার্ট ফি (প্রতি বছরে)
+Credit Cards:
+- All listed credit cards except FX Credit: ৳ 400
+- FX Credit: $ 3
+Debit Cards:
+- All listed debit cards: নোট 49 অনুযায়ী
+Prepaid Cards:
+- Payroll Prepaid Card: ৳ 200
+- UnionPay / Mastercard / Visa Prepaid Card: ৳ 400 বা $ 3
+- Diners Club / FX / ACCA Prepaid Card: ৳ 400 বা $ 3
+- Mastercard Women Prepaid Card: ৳ 400 বা $ 3
+
+24. Want2Buy / EasyCredit অ্যাডজাস্টমেন্ট ফি (যেটা বেশি) ***
+Credit Cards:
+- All listed credit cards except FX Credit: 2% বা ৳ 500 / $ 5
+- FX Credit: -
+Debit Cards: -
+Prepaid Cards: -
+
+25. আনডেলিভার্ড কার্ড / পিন ডেস্ট্রাকশন ফি
+Credit Cards: -
+Debit Cards:
+- Classic Debit: ৳ 200
+- Platinum Debit: ৳ 200
+- Signature (Regular) / World Debit: ৳ 200
+- Signature Priority Debit: -
+- Global / Mastercard World RFCD Debit: $ 5
+- UnionPay Classic Debit: ৳ 200
+- TakaPay Debit: ৳ 200
+Prepaid Cards: -
+
+26. এটিএম রিসিপ্ট ফি (ইবিএল)
+Credit Cards:
+- All listed credit cards except FX Credit: ৳ 3
+- FX Credit: -
+Debit Cards:
+- Classic Debit: ৳ 3
+- Platinum Debit: ৳ 3
+- Signature (Regular) / World Debit: ৳ 3
+- Signature Priority Debit: ৳ 3
+- Global / Mastercard World RFCD Debit: -
+- UnionPay Classic Debit: ৳ 3
+- TakaPay Debit: ৳ 3
+Prepaid Cards:
+- All listed prepaid cards: ৳ 3
+
+27. এটিএম সিসি টিভি ফুটেজ (ইবিএল কার্ড) - ঢাকার ভিতরে
+Credit Cards:
+- All listed credit cards except FX Credit: ৳ 2,000
+- FX Credit: $ 18.26
+Debit Cards:
+- Classic Debit: ৳ 2,000
+- Platinum Debit: ৳ 2,000
+- Signature (Regular) / World Debit: ৳ 2,000
+- Signature Priority Debit: ৳ 2,000
+- Global / Mastercard World RFCD Debit: $ 18.26
+- UnionPay Classic Debit: ৳ 2,000
+- TakaPay Debit: ৳ 2,000
+Prepaid Cards:
+- All listed prepaid cards: ৳ 2,000
+
+28. এটিএম সিসি টিভি ফুটেজ (ইবিএল কার্ড) - ঢাকার বাইরে
+Credit Cards:
+- All listed credit cards except FX Credit: ৳ 3,000
+- FX Credit: $ 18.26
+Debit Cards:
+- Classic Debit: ৳ 3,000
+- Platinum Debit: ৳ 3,000
+- Signature (Regular) / World Debit: ৳ 3,000
+- Signature Priority Debit: ৳ 3,000
+- Global / Mastercard World RFCD Debit: $ 18.26
+- UnionPay Classic Debit: ৳ 3,000
+- TakaPay Debit: ৳ 3,000
+Prepaid Cards:
+- All listed prepaid cards: ৳ 3,000
+
+29. ফান্ড ট্রান্সফার ফি (ইবিএল স্কাইব্যাংকিং অ্যাপ)
+Credit Cards:
+- All listed credit cards except FX Credit: 2%
+- FX Credit: -
+Debit Cards: -
+Prepaid Cards: -
+
+30. ক্রেডিট কার্ড লিমিট বাড়ানোর ফি
+Credit Cards:
+- All listed credit cards except FX Credit: ৳ 500
+- FX Credit: $ 10
+Debit Cards: -
+Prepaid Cards: -
+
+31. ওয়ালেট ট্রান্সফার ফি (অ্যাপ থেকে অ্যাড মানি - MFS & PSP)
+Credit Cards:
+- All listed credit cards including FX Credit: 1%
+Debit Cards: -
+Prepaid Cards: -
+
+32. পলিসি অ্যাডমিনিস্ট্রেটিভ এবং পেমেন্ট ফি - আউটস্ট্যান্ডিংয়ের উপরে ******
+Credit Cards:
+- All listed credit cards including FX Credit: 0.2147%
+Debit Cards: -
+Prepaid Cards: -
+
+============================================================

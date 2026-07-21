@@ -1,0 +1,1726 @@
+"""Structured Schedule of Charges database import and lookup."""
+
+from pathlib import Path
+import csv
+import re
+import sqlite3
+
+
+BASE_DIR = Path(__file__).resolve().parent
+DATABASE_PATH = BASE_DIR / "EBL_chatbot.db"
+CHARGE_DATA_DIR = BASE_DIR / "charge_data"
+
+
+CHARGE_COLUMNS = [
+    "schedule",
+    "category",
+    "product",
+    "charge_name",
+    "condition",
+    "amount",
+    "vat_note",
+    "source_file",
+]
+
+
+GENERIC_QUERY_WORDS = {
+    "about",
+    "bank",
+    "banking",
+    "charge",
+    "charges",
+    "cost",
+    "ebl",
+    "eastern",
+    "fee",
+    "fees",
+    "for",
+    "how",
+    "is",
+    "me",
+    "of",
+    "plc",
+    "schedule",
+    "tell",
+    "the",
+    "to",
+    "want",
+    "what",
+}
+
+
+SHORT_QUERY_WORDS = {
+    "bb",
+    "ca",
+    "dd",
+    "fd",
+    "lg",
+    "lc",
+    "mt",
+    "od",
+    "po",
+    "si",
+    "tt",
+}
+
+
+SCHEDULE_WORDS = {
+    "retail": "Retail",
+    "sme": "SME",
+    "corporate": "Corporate",
+    "corp": "Corporate",
+    "card": "Cards",
+    "cards": "Cards",
+}
+
+
+FEE_TRIGGER_WORDS = {
+    "activation",
+    "advice",
+    "advance",
+    "alert",
+    "amendment",
+    "administrative",
+    "annual",
+    "assurance",
+    "atm",
+    "balance",
+    "book",
+    "bpid",
+    "certificate",
+    "charge",
+    "charges",
+    "cheque",
+    "clearing",
+    "closing",
+    "commission",
+    "cancellation",
+    "cctv",
+    "documentation",
+    "current",
+    "deposit",
+    "fee",
+    "fees",
+    "facility",
+    "fund",
+    "global",
+    "guarantee",
+    "import",
+    "increase",
+    "interest",
+    "issue",
+    "issuance",
+    "lc",
+    "local",
+    "late",
+    "limit",
+    "lounge",
+    "maintenance",
+    "minimum",
+    "nita",
+    "noc",
+    "order",
+    "payment",
+    "pin",
+    "policy",
+    "primary",
+    "processing",
+    "regulatory",
+    "receipt",
+    "remittance",
+    "renewal",
+    "replacement",
+    "return",
+    "report",
+    "rtgs",
+    "sales",
+    "settlement",
+    "solvency",
+    "statement",
+    "stop",
+    "supplementary",
+    "swift",
+    "tt",
+    "transfer",
+    "verification",
+    "voucher",
+    "wallet",
+    "withdrawal",
+}
+
+
+TOPIC_WORDS = {
+    "activation",
+    "advice",
+    "advance",
+    "alert",
+    "amendment",
+    "administrative",
+    "annual",
+    "assurance",
+    "atm",
+    "balance",
+    "book",
+    "bpid",
+    "cash",
+    "certificate",
+    "cheque",
+    "clearing",
+    "closing",
+    "commission",
+    "cancellation",
+    "cctv",
+    "documentation",
+    "current",
+    "deposit",
+    "domestic",
+    "draft",
+    "easycredit",
+    "emi",
+    "export",
+    "fax",
+    "fcy",
+    "facility",
+    "fund",
+    "global",
+    "guarantee",
+    "import",
+    "increase",
+    "interest",
+    "international",
+    "interest",
+    "issue",
+    "issuance",
+    "lc",
+    "local",
+    "late",
+    "limit",
+    "loan",
+    "lounge",
+    "maintenance",
+    "minimum",
+    "nita",
+    "noc",
+    "oversea",
+    "overseas",
+    "overlimit",
+    "offshore",
+    "onshore",
+    "order",
+    "payment",
+    "pin",
+    "policy",
+    "primary",
+    "processing",
+    "regulatory",
+    "receipt",
+    "remittance",
+    "renewal",
+    "replacement",
+    "report",
+    "return",
+    "rfcd",
+    "regular",
+    "rtgs",
+    "saving",
+    "savings",
+    "settlement",
+    "sky",
+    "skylounge",
+    "solvency",
+    "statement",
+    "stop",
+    "supplementary",
+    "snd",
+    "swift",
+    "tt",
+    "transfer",
+    "value",
+    "verification",
+    "voucher",
+    "wallet",
+    "want2buy",
+    "withdrawal",
+}
+
+
+CHARGE_TYPE_WORDS = {
+    "activation",
+    "advice",
+    "advance",
+    "alert",
+    "amendment",
+    "administrative",
+    "annual",
+    "assurance",
+    "atm",
+    "balance",
+    "book",
+    "bpid",
+    "certificate",
+    "charge",
+    "charges",
+    "clearing",
+    "closing",
+    "commission",
+    "cancellation",
+    "cctv",
+    "deposit",
+    "documentation",
+    "fee",
+    "fees",
+    "facility",
+    "fund",
+    "global",
+    "guarantee",
+    "import",
+    "increase",
+    "interest",
+    "issue",
+    "issuance",
+    "lc",
+    "local",
+    "late",
+    "limit",
+    "lounge",
+    "maintenance",
+    "minimum",
+    "order",
+    "payment",
+    "pin",
+    "policy",
+    "primary",
+    "processing",
+    "regulatory",
+    "receipt",
+    "remittance",
+    "renewal",
+    "replacement",
+    "return",
+    "report",
+    "rtgs",
+    "sales",
+    "settlement",
+    "solvency",
+    "statement",
+    "stop",
+    "supplementary",
+    "swift",
+    "tt",
+    "transfer",
+    "verification",
+    "voucher",
+    "wallet",
+    "withdrawal",
+}
+
+
+STRICT_CHARGE_NAME_WORDS = {
+    "activation",
+    "advice",
+    "advance",
+    "alert",
+    "amendment",
+    "administrative",
+    "annual",
+    "assurance",
+    "atm",
+    "balance",
+    "book",
+    "bpid",
+    "certificate",
+    "clearing",
+    "closing",
+    "commission",
+    "cancellation",
+    "cctv",
+    "deposit",
+    "domestic",
+    "documentation",
+    "facility",
+    "global",
+    "guarantee",
+    "import",
+    "increase",
+    "interest",
+    "issue",
+    "issuance",
+    "lc",
+    "local",
+    "late",
+    "limit",
+    "lounge",
+    "maintenance",
+    "minimum",
+    "noc",
+    "order",
+    "oversea",
+    "overseas",
+    "payment",
+    "pin",
+    "policy",
+    "primary",
+    "processing",
+    "regulatory",
+    "receipt",
+    "remittance",
+    "renewal",
+    "replacement",
+    "return",
+    "report",
+    "rtgs",
+    "sales",
+    "settlement",
+    "solvency",
+    "statement",
+    "stop",
+    "supplementary",
+    "swift",
+    "tt",
+    "transfer",
+    "verification",
+    "voucher",
+    "wallet",
+    "withdrawal",
+}
+
+
+CONDITION_QUERY_WORDS = {
+    "above",
+    "below",
+    "bdt",
+    "lac",
+    "lakh",
+    "less",
+    "more",
+    "offshore",
+    "onshore",
+    "over",
+    "than",
+    "to",
+    "under",
+    "up",
+    "upto",
+}
+
+
+ALIASES = {
+    "activate": {"activation", "activate", "dormant"},
+    "activation": {"activation", "activate", "dormant"},
+    "amend": {"amendment", "amend"},
+    "amendment": {"amendment", "amend"},
+    "annual": {"annual", "maintenance"},
+    "cancel": {"cancellation", "cancel"},
+    "cancellation": {"cancellation", "cancel"},
+    "close": {"closing", "close"},
+    "closing": {"closing", "close"},
+    "cheque": {"cheque", "check"},
+    "check": {"cheque", "check"},
+    "estatement": {"estatement", "statement"},
+    "extend": {"extend", "extension", "increase"},
+    "extension": {"extend", "extension", "increase"},
+    "increase": {"extend", "extension", "increase"},
+    "issue": {"issue", "issuance"},
+    "issuance": {"issue", "issuance"},
+    "maintain": {"maintenance", "maintain"},
+    "maintenance": {"maintenance", "maintain"},
+    "saving": {"saving", "savings"},
+    "savings": {"saving", "savings"},
+}
+
+
+CANONICAL_TOPIC_WORDS = {
+    "activate": "activation",
+    "activation": "activation",
+    "check": "cheque",
+    "cheque": "cheque",
+    "close": "closing",
+    "closing": "closing",
+    "issue": "issuance",
+    "issuance": "issuance",
+    "maintain": "maintenance",
+    "maintenance": "maintenance",
+    "saving": "saving",
+    "savings": "saving",
+}
+
+
+_READY = False
+
+
+def row_from_sqlite(row):
+    if isinstance(row, dict):
+        return row
+
+    return dict(row)
+
+
+def normalize_text(text):
+    text = (text or "").lower().replace(",", "")
+    acronym_replacements = {
+        "l/c": "lc",
+        "s/b/l/c": "sblc",
+        "lc/lg": "lc lg",
+        "d/p": "dp",
+        "d/a": "da",
+        "p/o": "po",
+        "d/d": "dd",
+        "t/t": "tt",
+    }
+
+    for original_text, replacement_text in acronym_replacements.items():
+        text = text.replace(original_text, replacement_text)
+
+    return re.sub(r"[^a-z0-9]+", " ", text).strip()
+
+
+def tokenize(text):
+    words = []
+
+    for word in normalize_text(text).split():
+        if len(word) <= 2 and not word.isdigit() and word not in SHORT_QUERY_WORDS:
+            continue
+
+        if word.endswith("ies") and len(word) > 4:
+            word = word[:-3] + "y"
+        elif word.endswith("s") and len(word) > 4:
+            word = word[:-1]
+
+        if word not in words:
+            words.append(word)
+
+    return words
+
+
+def expand_words(words):
+    expanded = list(words)
+
+    if "corp" in expanded and "corporate" not in expanded:
+        expanded.append("corporate")
+
+    if "corporate" in expanded and "corp" not in expanded:
+        expanded.append("corp")
+
+    if "check" in expanded and "cheque" not in expanded:
+        expanded.append("cheque")
+
+    if "cheque" in expanded and "check" not in expanded:
+        expanded.append("check")
+
+    if "lc" in expanded and "letter" not in expanded:
+        expanded.append("letter")
+        expanded.append("credit")
+
+    if "saving" in expanded and "savings" not in expanded:
+        expanded.append("savings")
+
+    if "savings" in expanded and "saving" not in expanded:
+        expanded.append("saving")
+
+    return list(dict.fromkeys(expanded))
+
+
+def create_charge_table(connection):
+    cursor = connection.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS charges (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            schedule TEXT NOT NULL,
+            category TEXT NOT NULL,
+            product TEXT NOT NULL,
+            charge_name TEXT NOT NULL,
+            condition TEXT,
+            amount TEXT NOT NULL,
+            vat_note TEXT,
+            source_file TEXT NOT NULL,
+            search_text TEXT NOT NULL
+        )
+    """)
+    cursor.execute(
+        "CREATE INDEX IF NOT EXISTS idx_charges_schedule ON charges(schedule)"
+    )
+    cursor.execute(
+        "CREATE INDEX IF NOT EXISTS idx_charges_charge_name ON charges(charge_name)"
+    )
+    cursor.execute(
+        "CREATE INDEX IF NOT EXISTS idx_charges_product ON charges(product)"
+    )
+    connection.commit()
+
+
+def build_search_text(row):
+    return normalize_text(
+        " ".join(
+            row.get(column, "")
+            for column in [
+                "schedule",
+                "category",
+                "product",
+                "charge_name",
+                "condition",
+                "amount",
+            ]
+        )
+    )
+
+
+def iter_charge_csv_paths():
+    if not CHARGE_DATA_DIR.exists():
+        return []
+
+    return sorted(CHARGE_DATA_DIR.glob("*_charges.csv"))
+
+
+def read_charge_csv(path):
+    with path.open(encoding="utf-8-sig", newline="") as csv_file:
+        reader = csv.DictReader(csv_file)
+        missing_columns = [
+            column
+            for column in CHARGE_COLUMNS
+            if column not in (reader.fieldnames or [])
+        ]
+
+        if missing_columns:
+            raise ValueError(
+                f"{path.name} is missing columns: {', '.join(missing_columns)}"
+            )
+
+        for line_number, row in enumerate(reader, start=2):
+            clean_row = {
+                column: (row.get(column) or "").strip()
+                for column in CHARGE_COLUMNS
+            }
+
+            required_missing = [
+                column
+                for column in [
+                    "schedule",
+                    "category",
+                    "product",
+                    "charge_name",
+                    "amount",
+                    "source_file",
+                ]
+                if not clean_row[column]
+            ]
+
+            if required_missing:
+                raise ValueError(
+                    f"{path.name}:{line_number} missing required values: "
+                    f"{', '.join(required_missing)}"
+                )
+
+            yield clean_row
+
+
+def import_charge_csvs(clear_existing=True):
+    connection = sqlite3.connect(DATABASE_PATH)
+    create_charge_table(connection)
+    cursor = connection.cursor()
+
+    if clear_existing:
+        cursor.execute("DELETE FROM charges")
+
+    inserted = 0
+
+    for path in iter_charge_csv_paths():
+        for row in read_charge_csv(path):
+            cursor.execute("""
+                INSERT INTO charges (
+                    schedule,
+                    category,
+                    product,
+                    charge_name,
+                    condition,
+                    amount,
+                    vat_note,
+                    source_file,
+                    search_text
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                row["schedule"],
+                row["category"],
+                row["product"],
+                row["charge_name"],
+                row["condition"],
+                row["amount"],
+                row["vat_note"],
+                row["source_file"],
+                build_search_text(row),
+            ))
+            inserted += 1
+
+    connection.commit()
+    connection.close()
+    return inserted
+
+
+def ensure_charge_database_ready(force_import=False):
+    global _READY
+
+    if _READY and not force_import:
+        return
+
+    connection = sqlite3.connect(DATABASE_PATH)
+    create_charge_table(connection)
+    cursor = connection.cursor()
+    cursor.execute("SELECT COUNT(*) FROM charges")
+    row_count = cursor.fetchone()[0]
+    connection.close()
+
+    if force_import or row_count == 0:
+        import_charge_csvs(clear_existing=True)
+
+    _READY = True
+
+
+def detect_requested_schedule(words):
+    for word in words:
+        if word in SCHEDULE_WORDS:
+            return SCHEDULE_WORDS[word]
+
+    return ""
+
+
+def word_matches(word, row_words):
+    aliases = ALIASES.get(word, {word})
+    return any(alias in row_words for alias in aliases)
+
+
+def has_charge_trigger(words):
+    return bool(set(words) & FEE_TRIGGER_WORDS)
+
+
+def row_field_words(row, *field_names):
+    return set(
+        tokenize(
+            " ".join(row[field_name] or "" for field_name in field_names)
+        )
+    )
+
+
+def required_topic_words(words):
+    topic_words = []
+
+    for word in words:
+        if word not in TOPIC_WORDS or word in {"charge", "fee", "fees"}:
+            continue
+
+        canonical_word = CANONICAL_TOPIC_WORDS.get(word, word)
+
+        if canonical_word not in topic_words:
+            topic_words.append(canonical_word)
+
+    return topic_words
+
+
+def row_matches_required_topics(row, words):
+    topics = required_topic_words(words)
+
+    if not topics:
+        return True
+
+    row_words = row_field_words(
+        row,
+        "category",
+        "product",
+        "charge_name",
+        "condition",
+    )
+
+    matched = [
+        word
+        for word in topics
+        if word_matches(word, row_words)
+    ]
+
+    if len(topics) <= 2:
+        return len(matched) == len(topics)
+
+    return len(matched) >= max(2, len(topics) - 1)
+
+
+def score_charge_row(row, words, requested_schedule):
+    row_words = row_field_words(
+        row,
+        "schedule",
+        "category",
+        "product",
+        "charge_name",
+        "condition",
+        "amount",
+    )
+
+    if requested_schedule and row["schedule"].lower() != requested_schedule.lower():
+        return -1000
+
+    if not row_matches_required_topics(row, words):
+        return 0
+
+    score = 0
+
+    if requested_schedule:
+        score += 500
+
+    product_words = row_field_words(row, "product")
+    category_words = row_field_words(row, "category")
+    charge_words = row_field_words(row, "charge_name")
+    condition_words = row_field_words(row, "condition")
+
+    for word in words:
+        if word in GENERIC_QUERY_WORDS:
+            continue
+
+        if word_matches(word, charge_words):
+            score += 90
+        elif word_matches(word, product_words):
+            score += 80
+        elif word_matches(word, category_words):
+            score += 45
+        elif word_matches(word, condition_words):
+            score += 35
+        elif word_matches(word, row_words):
+            score += 15
+
+    phrase_text = normalize_text(
+        f"{row['product']} {row['charge_name']} {row['condition']}"
+    )
+    query_text = " ".join(words)
+
+    for size in [4, 3, 2]:
+        for index in range(0, len(words) - size + 1):
+            phrase = " ".join(words[index:index + size])
+
+            if phrase in phrase_text and phrase not in GENERIC_QUERY_WORDS:
+                score += size * 25
+
+    if " ".join(words[:3]) and " ".join(words[:3]) in phrase_text:
+        score += 50
+
+    if "account" in words and "account" in row_words:
+        score += 30
+
+    if "loan" in words and "loan" in row_words:
+        score += 30
+
+    if "card" in words and "card" not in row_words:
+        score -= 120
+
+    if "credit" in words and "credit" not in row_words:
+        score -= 80
+
+    if "debit" in words and "debit" not in row_words:
+        score -= 80
+
+    return score
+
+
+def get_candidate_rows(query, limit=80, allow_product_only=False):
+    words = expand_words(tokenize(query))
+
+    if not words:
+        return []
+
+    if not has_charge_trigger(words) and not allow_product_only:
+        return []
+
+    requested_schedule = detect_requested_schedule(words)
+
+    connection = sqlite3.connect(DATABASE_PATH)
+    connection.row_factory = sqlite3.Row
+    create_charge_table(connection)
+    cursor = connection.cursor()
+
+    if requested_schedule:
+        cursor.execute(
+            "SELECT * FROM charges WHERE lower(schedule) = lower(?)",
+            (requested_schedule,),
+        )
+    else:
+        cursor.execute("SELECT * FROM charges")
+
+    rows = [dict(row) for row in cursor.fetchall()]
+    connection.close()
+
+    scored_rows = [
+        (score_charge_row(row, words, requested_schedule), row)
+        for row in rows
+    ]
+    scored_rows = [
+        (score, row)
+        for score, row in scored_rows
+        if score >= 120
+    ]
+    scored_rows.sort(key=lambda item: item[0], reverse=True)
+
+    if not scored_rows:
+        return []
+
+    top_score = scored_rows[0][0]
+
+    selected_rows = [
+        row
+        for score, row in scored_rows
+        if score >= max(120, top_score * 0.72)
+    ]
+
+    selected_rows = filter_rows_by_exact_product_phrase(selected_rows, query)
+    selected_rows = filter_rows_by_specific_product_words(selected_rows, words)
+    selected_rows = filter_rows_by_charge_name_words(selected_rows, words)
+    selected_rows = filter_rows_by_card_context(selected_rows, words)
+    selected_rows = filter_rows_by_query_condition(selected_rows, query)
+    return selected_rows[:limit]
+
+
+def specific_product_query_words(words):
+    ignored_words = (
+        GENERIC_QUERY_WORDS
+        | CHARGE_TYPE_WORDS
+        | CONDITION_QUERY_WORDS
+        | set(SCHEDULE_WORDS)
+        | {"account", "accounts", "bank", "banking", "card", "cards", "loan", "loans"}
+    )
+
+    return [
+        word
+        for word in words
+        if word not in ignored_words and not word.isdigit()
+    ]
+
+
+def filter_rows_by_specific_product_words(rows, words):
+    if len(rows) <= 1:
+        return rows
+
+    specific_words = specific_product_query_words(words)
+
+    if not specific_words:
+        return rows
+
+    product_matches = []
+
+    for row in rows:
+        product_words = row_field_words(row, "category", "product")
+        matched_words = [
+            word
+            for word in specific_words
+            if word_matches(word, product_words)
+        ]
+
+        if matched_words:
+            product_matches.append((len(matched_words), row))
+
+    if not product_matches:
+        return rows
+
+    top_count = max(count for count, _ in product_matches)
+    return [
+        row
+        for count, row in product_matches
+        if count == top_count
+    ]
+
+
+def filter_rows_by_exact_product_phrase(rows, query):
+    if len(rows) <= 1:
+        return rows
+
+    exact_rows = [
+        row
+        for row in rows
+        if row_product_phrase_in_query(row, query)
+    ]
+
+    return exact_rows or rows
+
+
+def filter_rows_by_charge_name_words(rows, words):
+    if len(rows) <= 1:
+        return rows
+
+    strict_words = [
+        word
+        for word in words
+        if word in STRICT_CHARGE_NAME_WORDS and word not in {"charge", "fee", "fees"}
+    ]
+
+    if not strict_words:
+        return rows
+
+    charge_matches = []
+
+    for row in rows:
+        charge_words = row_field_words(row, "charge_name")
+        matched_words = [
+            word
+            for word in strict_words
+            if word_matches(word, charge_words)
+        ]
+
+        if matched_words:
+            charge_matches.append((len(matched_words), row))
+
+    if not charge_matches:
+        return rows
+
+    top_count = max(count for count, _ in charge_matches)
+    top_rows = [
+        row
+        for count, row in charge_matches
+        if count == top_count
+    ]
+
+    if len(top_rows) <= 1:
+        return top_rows
+
+    row_lengths = [
+        (len(row_field_words(row, "charge_name")), row)
+        for row in top_rows
+    ]
+    row_lengths.sort(key=lambda item: item[0])
+
+    distinct_lengths = sorted({length for length, _ in row_lengths})
+
+    if len(distinct_lengths) > 1 and distinct_lengths[0] + 2 < distinct_lengths[1]:
+        return [
+            row
+            for length, row in row_lengths
+            if length == distinct_lengths[0]
+        ]
+
+    return top_rows
+
+
+def filter_rows_by_card_context(rows, words):
+    if len(rows) <= 1:
+        return rows
+
+    if not all(row["schedule"].lower() == "cards" for row in rows):
+        return rows
+
+    if "supplementary" in words:
+        supplementary_rows = [
+            row
+            for row in rows
+            if "supplementary" in normalize_text(row["charge_name"])
+            or "supplementary" in normalize_text(row["condition"])
+        ]
+
+        if supplementary_rows:
+            return supplementary_rows
+
+    annual_words = {"annual", "renewal", "issuance"}
+
+    if annual_words & set(words):
+        primary_rows = [
+            row
+            for row in rows
+            if "primary card" in normalize_text(row["condition"])
+        ]
+
+        if primary_rows:
+            return primary_rows
+
+    return rows
+
+
+def query_condition_direction(query):
+    text = f" {normalize_text(query)} "
+
+    if any(phrase in text for phrase in [" above ", " over ", " more than "]):
+        return "above"
+
+    if any(
+        phrase in text
+        for phrase in [
+            " up to ",
+            " upto ",
+            " below ",
+            " under ",
+            " less than ",
+            " not more than ",
+        ]
+    ):
+        return "up_to"
+
+    return ""
+
+
+def query_location_condition(query):
+    text = f" {normalize_text(query)} "
+
+    if " offshore " in text:
+        return "offshore"
+
+    if " onshore " in text:
+        return "onshore"
+
+    if " outside country " in text or " abroad " in text:
+        return "outside"
+
+    if " within country " in text or " inside country " in text:
+        return "within"
+
+    return ""
+
+
+def query_day_condition(query):
+    text = f" {normalize_text(query)} "
+
+    if " same day " in text:
+        return "same day"
+
+    if " next day " in text:
+        return "next day"
+
+    return ""
+
+
+def query_atm_condition(query):
+    text = f" {normalize_text(query)} "
+
+    if (
+        " non ebl atm " in text
+        or " non ebl " in text
+        or " other atm " in text
+        or " another atm " in text
+    ):
+        return "other atm"
+
+    if " ebl atm " in text:
+        return "ebl atm"
+
+    return ""
+
+
+def query_has_specific_condition(query):
+    text = normalize_text(query)
+    words = set(text.split())
+
+    if query_condition_direction(query):
+        return True
+
+    if query_location_condition(query):
+        return True
+
+    if query_day_condition(query):
+        return True
+
+    if query_atm_condition(query):
+        return True
+
+    if any(word.isdigit() for word in words):
+        return True
+
+    return bool(words & {"free", "premium", "regular"})
+
+
+def filter_rows_by_query_condition(rows, query):
+    if len(rows) <= 1:
+        return rows
+
+    direction = query_condition_direction(query)
+    location = query_location_condition(query)
+    day = query_day_condition(query)
+    atm = query_atm_condition(query)
+    filtered_rows = rows
+
+    if direction:
+        query_numbers = {
+            word
+            for word in tokenize(query)
+            if word.isdigit()
+        }
+        exact_number_matches = []
+
+        for row in filtered_rows:
+            condition_text = f" {normalize_text(row['condition'])} "
+
+            for number in query_numbers:
+                if direction == "above" and any(
+                    phrase in condition_text
+                    for phrase in [
+                        f" above bdt {number} ",
+                        f" above {number} ",
+                        f" more than bdt {number} ",
+                        f" more than {number} ",
+                        f" bdt {number} and above ",
+                        f" {number} and above ",
+                    ]
+                ):
+                    exact_number_matches.append(row)
+
+                if direction == "up_to" and any(
+                    phrase in condition_text
+                    for phrase in [
+                        f" up to bdt {number} ",
+                        f" up to {number} ",
+                        f" below bdt {number} ",
+                        f" below {number} ",
+                    ]
+                ):
+                    exact_number_matches.append(row)
+
+        if exact_number_matches:
+            filtered_rows = list(dict.fromkeys(
+                row["id"]
+                for row in exact_number_matches
+            ))
+            id_map = {
+                row["id"]: row
+                for row in exact_number_matches
+            }
+            filtered_rows = [id_map[row_id] for row_id in filtered_rows]
+
+        direction_matches = []
+
+        for row in filtered_rows:
+            condition_text = f" {normalize_text(row['condition'])} "
+
+            if direction == "above" and (
+                " above " in condition_text or " more than " in condition_text
+            ):
+                direction_matches.append(row)
+
+            if direction == "up_to" and any(
+                phrase in condition_text
+                for phrase in [" up to ", " below ", " less than "]
+            ):
+                direction_matches.append(row)
+
+        if direction_matches:
+            filtered_rows = direction_matches
+
+    if location:
+        location_matches = []
+
+        for row in filtered_rows:
+            condition_text = f" {normalize_text(row['condition'])} "
+
+            if location == "outside" and " outside " in condition_text:
+                location_matches.append(row)
+
+            if location == "within" and (
+                " within " in condition_text or " inside " in condition_text
+            ):
+                location_matches.append(row)
+
+            if location in {"onshore", "offshore"} and f" {location} " in condition_text:
+                location_matches.append(row)
+
+        if location_matches:
+            filtered_rows = location_matches
+
+    if day:
+        day_matches = [
+            row
+            for row in filtered_rows
+            if day in normalize_text(row["condition"])
+        ]
+
+        if day_matches:
+            filtered_rows = day_matches
+
+    if atm:
+        atm_matches = [
+            row
+            for row in filtered_rows
+            if atm in normalize_text(row["condition"])
+            or atm in normalize_text(row["charge_name"])
+        ]
+
+        if atm_matches:
+            filtered_rows = atm_matches
+
+    query_numbers = {
+        word
+        for word in tokenize(query)
+        if word.isdigit()
+    }
+
+    if query_numbers and not direction:
+        number_matches = [
+            row
+            for row in filtered_rows
+            if query_numbers & set(tokenize(row["condition"]))
+        ]
+
+        if number_matches:
+            filtered_rows = number_matches
+
+    return filtered_rows
+
+
+def normalize_amount(amount, vat_note):
+    amount = (amount or "").strip()
+    vat_note = (vat_note or "").strip()
+    lower_amount = amount.lower()
+    lower_vat = vat_note.lower()
+
+    if not amount:
+        return ""
+
+    if lower_amount in {"free", "nil", "n/a", "not applicable"}:
+        return amount
+
+    if "vat included" in lower_vat:
+        return f"{amount} (VAT included)"
+
+    if "vat applicable" in lower_vat and "vat" not in lower_amount:
+        return f"{amount} + VAT"
+
+    return amount
+
+
+def get_related_rows(row, same_product=True):
+    connection = sqlite3.connect(DATABASE_PATH)
+    connection.row_factory = sqlite3.Row
+    cursor = connection.cursor()
+
+    if same_product:
+        cursor.execute("""
+            SELECT *
+            FROM charges
+            WHERE schedule = ?
+            AND category = ?
+            AND product = ?
+            AND charge_name = ?
+            ORDER BY id ASC
+        """, (
+            row["schedule"],
+            row["category"],
+            row["product"],
+            row["charge_name"],
+        ))
+    else:
+        cursor.execute("""
+            SELECT *
+            FROM charges
+            WHERE schedule = ?
+            AND category = ?
+            AND charge_name = ?
+            ORDER BY id ASC
+        """, (
+            row["schedule"],
+            row["category"],
+            row["charge_name"],
+        ))
+
+    rows = [dict(sqlite_row) for sqlite_row in cursor.fetchall()]
+    connection.close()
+    return rows
+
+
+def normalized_payable_value(row):
+    return normalize_amount(row["amount"], row["vat_note"]).lower()
+
+
+def all_rows_have_same_payable_value(rows):
+    values = {
+        normalized_payable_value(row)
+        for row in rows
+    }
+
+    return len(values) == 1
+
+
+def normalized_product_phrases(row):
+    raw_product = row["product"] or ""
+    parts = [raw_product]
+    parts.extend(re.split(r"\s*/\s*|\s+\bor\b\s+|\s+\band\b\s+", raw_product))
+
+    phrases = []
+
+    for part in parts:
+        phrase = normalize_text(part)
+
+        if phrase and phrase not in phrases:
+            phrases.append(phrase)
+
+    return phrases
+
+
+def row_product_phrase_in_query(row, query):
+    query_text = f" {normalize_text(query)} "
+
+    for phrase in normalized_product_phrases(row):
+        if f" {phrase} " in query_text:
+            return True
+
+    return False
+
+
+def query_mentions_product(row, query):
+    query_words = set(expand_words(tokenize(query)))
+    category_words = row_field_words(row, "category")
+    charge_words = row_field_words(row, "charge_name")
+    product_words = row_field_words(row, "product")
+    specific_product_words = (
+        product_words
+        - category_words
+        - charge_words
+        - {"account", "loan", "fee", "charge"}
+    )
+
+    return bool(query_words & specific_product_words)
+
+
+def prefer_generic_row(rows, query):
+    if len(rows) <= 1:
+        return rows
+
+    if rows_have_same_charge_name(rows) and all_rows_have_same_payable_value(rows):
+        return rows
+
+    exact_product_rows = [
+        row
+        for row in rows
+        if row_product_phrase_in_query(row, query)
+    ]
+
+    if exact_product_rows:
+        return exact_product_rows
+
+    if any(query_mentions_product(row, query) for row in rows):
+        return rows
+
+    generic_rows = [
+        row
+        for row in rows
+        if row["product"].lower() == row["category"].lower()
+        or row["product"].lower() in {
+            "all retail loans",
+            "all retail loans and overdraft",
+            "all accounts",
+        }
+    ]
+
+    return generic_rows or rows
+
+
+def expand_related_rows_for_answer(rows, query):
+    rows = prefer_generic_row(rows, query)
+
+    if len(rows) != 1:
+        return rows
+
+    row = rows[0]
+
+    if row_product_phrase_in_query(row, query) or query_mentions_product(row, query):
+        return rows
+
+    if query_has_specific_condition(query):
+        return rows
+
+    same_product_rows = get_related_rows(row, same_product=True)
+
+    if len(same_product_rows) > 1 and len(same_product_rows) <= 5:
+        return same_product_rows
+
+    same_category_rows = get_related_rows(row, same_product=False)
+
+    if (
+        len(same_category_rows) > 1
+        and all_rows_have_same_payable_value(same_category_rows)
+    ):
+        return same_category_rows
+
+    return rows
+
+
+def cleanup_subject(subject):
+    subject = re.sub(r"\bAccount account\b", "Account", subject, flags=re.I)
+    subject = re.sub(r"\bLoan loan\b", "Loan", subject, flags=re.I)
+    subject = re.sub(r"\bfee fee\b", "fee", subject, flags=re.I)
+    subject = re.sub(r"\bcharge charge\b", "charge", subject, flags=re.I)
+    return " ".join(subject.split())
+
+
+def build_subject(row):
+    product = row["product"].strip()
+    charge_name = row["charge_name"].strip()
+
+    generic_products = {
+        "Any account",
+        "Cash Withdrawal (Intercity)",
+        "Cheque / instruction",
+        "Cheque Book",
+        "Export Trade Service",
+        "Fax",
+        "Guarantee",
+        "Import Trade Service",
+        "Supply Chain Finance",
+        "Trade Service",
+    }
+
+    if not product or product in generic_products:
+        return cleanup_subject(charge_name)
+
+    if charge_name.lower().startswith(product.lower()):
+        return cleanup_subject(charge_name)
+
+    return cleanup_subject(f"{product} {charge_name}")
+
+
+def build_group_subject(rows):
+    if not rows:
+        return ""
+
+    row = rows[0]
+    category = row["category"].strip()
+    charge_name = row["charge_name"].strip()
+
+    if len(rows) > 1 and all_rows_have_same_payable_value(rows):
+        return cleanup_subject(f"{category} {charge_name}")
+
+    return build_subject(row)
+
+
+def should_show_condition(condition):
+    condition = (condition or "").strip().lower()
+    hidden_conditions = {
+        "any currency",
+        "if customer forgets or requests a new one",
+    }
+    return bool(condition) and condition not in hidden_conditions
+
+
+def display_condition(row):
+    condition = (row["condition"] or "").strip()
+    category = (row["category"] or "").strip().lower()
+
+    if not condition:
+        return ""
+
+    parts = []
+
+    for part in condition.split(";"):
+        clean_part = part.strip()
+
+        if clean_part.lower() == category:
+            continue
+
+        if normalize_text(clean_part) in normalize_text(row["charge_name"]):
+            continue
+
+        parts.append(clean_part)
+
+    return "; ".join(parts)
+
+
+def format_single_row_answer(row):
+    subject = build_subject(row)
+    amount = normalize_amount(row["amount"], row["vat_note"])
+    condition = display_condition(row)
+
+    if amount.lower() in {"n/a", "not applicable"}:
+        if should_show_condition(condition):
+            return f"{subject} for {condition} is not applicable."
+
+        return f"{subject} is not applicable."
+
+    if should_show_condition(condition):
+        return f"{subject} for {condition} is {amount}."
+
+    return f"{subject} is {amount}."
+
+
+def rows_have_same_subject(rows):
+    if not rows:
+        return False
+
+    first_subject = build_subject(rows[0]).lower()
+    return all(build_subject(row).lower() == first_subject for row in rows)
+
+
+def rows_have_same_charge_name(rows):
+    if not rows:
+        return False
+
+    first_charge_name = rows[0]["charge_name"].strip().lower()
+    return all(row["charge_name"].strip().lower() == first_charge_name for row in rows)
+
+
+def join_readable(items):
+    items = [item for item in items if item]
+
+    if len(items) <= 1:
+        return "".join(items)
+
+    if len(items) == 2:
+        return f"{items[0]} and {items[1]}"
+
+    return f"{', '.join(items[:-1])}, and {items[-1]}"
+
+
+def format_bullet_answer(heading, bullets):
+    clean_bullets = [
+        bullet.strip().rstrip(".")
+        for bullet in bullets
+        if bullet and bullet.strip()
+    ]
+
+    if not clean_bullets:
+        return heading
+
+    return f"{heading}:\n" + "\n".join(
+        f"- {bullet}"
+        for bullet in clean_bullets
+    )
+
+
+def format_product_charge_summary(rows):
+    if not rows:
+        return ""
+
+    rows = sorted(rows, key=lambda row: row["id"])
+    product = rows[0]["product"]
+    bullets = []
+
+    for row in rows[:8]:
+        amount = normalize_amount(row["amount"], row["vat_note"])
+        condition = display_condition(row)
+        charge_name = row["charge_name"].strip()
+
+        if should_show_condition(condition):
+            bullets.append(f"{charge_name} - {condition}: {amount}")
+        else:
+            bullets.append(f"{charge_name}: {amount}")
+
+    return format_bullet_answer(f"{product} charges", bullets)
+
+
+def rows_share_single_product(rows):
+    if not rows:
+        return False
+
+    first_product = rows[0]["product"].lower()
+    return all(row["product"].lower() == first_product for row in rows)
+
+
+def format_multi_row_answer(rows):
+    rows = sorted(rows, key=lambda row: row["id"])
+
+    if (
+        len(rows) <= 6
+        and rows_have_same_charge_name(rows)
+        and all_rows_have_same_payable_value(rows)
+    ):
+        charge_name = cleanup_subject(rows[0]["charge_name"])
+        amount = normalize_amount(rows[0]["amount"], rows[0]["vat_note"])
+        products = []
+
+        for row in rows:
+            product = row["product"].strip()
+
+            if product and product not in products:
+                products.append(product)
+
+        if len(products) > 1:
+            return format_bullet_answer(
+                charge_name,
+                [
+                    f"{product}: {amount}"
+                    for product in products
+                ],
+            )
+
+        return f"{charge_name} is {amount}."
+
+    if rows_have_same_subject(rows) and len(rows) <= 12:
+        subject = build_group_subject(rows)
+        bullets = []
+
+        for row in rows:
+            condition = display_condition(row)
+            amount = normalize_amount(row["amount"], row["vat_note"])
+
+            if should_show_condition(condition):
+                bullets.append(f"{condition}: {amount}")
+            else:
+                bullets.append(amount)
+
+        return format_bullet_answer(subject, bullets)
+
+    if rows_have_same_charge_name(rows) and len(rows) <= 35:
+        charge_name = cleanup_subject(rows[0]["charge_name"])
+        bullets = []
+
+        for row in rows:
+            product = row["product"].strip()
+            condition = display_condition(row)
+            amount = normalize_amount(row["amount"], row["vat_note"])
+            label = product
+
+            if condition and condition not in {
+                "Credit Cards",
+                "Debit Cards",
+                "Prepaid Cards",
+            }:
+                label = f"{label} - {condition}" if label else condition
+
+            if amount.lower() in {"n/a", "not applicable"}:
+                bullets.append(f"{label}: not applicable")
+            else:
+                bullets.append(f"{label}: {amount}")
+
+        return format_bullet_answer(charge_name, bullets)
+
+    if all_rows_have_same_payable_value(rows):
+        subject = build_group_subject(rows)
+        amount = normalize_amount(rows[0]["amount"], rows[0]["vat_note"])
+        return f"{subject} is {amount}."
+
+    products = []
+
+    for row in rows:
+        product = row["product"]
+
+        if product not in products:
+            products.append(product)
+
+    if 1 < len(products) <= 6:
+        return (
+            "Please specify the product/account type: "
+            f"{', '.join(products)}."
+        )
+
+    charge_names = []
+
+    for row in rows:
+        charge_name = row["charge_name"]
+
+        if charge_name not in charge_names:
+            charge_names.append(charge_name)
+
+    if 1 < len(charge_names) <= 6:
+        return (
+            "Please specify the exact charge: "
+            f"{', '.join(charge_names)}."
+        )
+
+    return format_single_row_answer(rows[0])
+
+
+def answer_charge_question_from_db(query, allow_product_only=False):
+    ensure_charge_database_ready()
+    rows = get_candidate_rows(query, allow_product_only=allow_product_only)
+
+    if not rows:
+        return ""
+
+    rows = expand_related_rows_for_answer(rows, query)
+
+    if (
+        allow_product_only
+        and not has_charge_trigger(expand_words(tokenize(query)))
+        and len(rows) > 1
+    ):
+        if rows_share_single_product(rows):
+            return format_product_charge_summary(rows)
+
+    if len(rows) == 1:
+        return format_single_row_answer(rows[0])
+
+    return format_multi_row_answer(rows)

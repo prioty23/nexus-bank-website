@@ -1,0 +1,13 @@
+schedule_type,loan_category,loan_name,source_file
+Retail,Personal Loan,EBL Assure,retail loan category.pdf
+Retail,Personal Loan,EBL Executive Loan,retail loan category.pdf
+Retail,Personal Loan,EBL Women's Loan,retail loan category.pdf
+Retail,Home Loan,EBL Home Loan,retail loan category.pdf
+Retail,Home Loan,EBL Women Home Credit,retail loan category.pdf
+Retail,Home Loan,EBL Islamic Home Finance,retail loan category.pdf
+Retail,Auto Loan,EBL Auto Loan,retail loan category.pdf
+Retail,Auto Loan,EBL Islamic Auto Finance,retail loan category.pdf
+Retail,Two Wheeler Loan,EBL Two Wheeler Loan,retail loan category.pdf
+Retail,Secured Loan,EBL Fast Cash,retail loan category.pdf
+Retail,Secured Loan,EBL Fast Loan,retail loan category.pdf
+Retail,EBL Edu Loan,EBL Edu Loan,retail loan category.pdf

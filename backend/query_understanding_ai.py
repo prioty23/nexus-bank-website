@@ -25,6 +25,7 @@ ALLOWED_INTENTS = [
     "online_apply",
     "complaint_create",
     "complaint_status",
+    "memory_question",
     "off_topic",
     "general_information",
 ]
@@ -51,6 +52,7 @@ Allowed intent values:
 - online_apply
 - complaint_create
 - complaint_status
+- memory_question
 - off_topic
 - general_information
 
@@ -69,6 +71,8 @@ Intent guidance:
 - Use online_apply only when the customer explicitly asks for an online application link, application form, apply link, or apply online page.
 - Use complaint_create when the customer reports a banking problem, failed transaction, double charge, duplicate deduction, money deducted, refund issue, card problem, ATM problem, app problem, or service issue.
 - Use card_information for broad card help or card product questions.
+- Use charge_information when the customer asks about fees, charges, VAT, minimum balance, annual fee, maintenance fee, closing charge, or schedule of charges.
+- Use memory_question when the customer asks what they asked before, their previous/last/recent question, or their first text/message/question in this chat session.
 """
 
 
@@ -117,7 +121,9 @@ def normalize_understood_query(message, understood_query):
         "urgent_card_issue",
         "contact_information",
         "branch_locator",
+        "charge_information",
         "card_information",
+        "memory_question",
     ]
 
     if fallback_intent in guardrail_fallback_intents:

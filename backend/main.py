@@ -34,6 +34,7 @@ from database import (
     get_complaint_by_id,
     update_complaint_status,
     get_recent_user_messages,
+    get_first_user_message,
     get_latest_complaint_by_session,
     search_website_information,
     save_pending_complaint,
@@ -49,6 +50,8 @@ from topic_guard import (
     get_off_topic_reply,
     is_greeting_only,
     get_greeting_reply,
+    is_identity_question,
+    get_identity_reply,
 )
 
 from query_understanding_ai import understand_user_query_with_groq
@@ -79,8 +82,34 @@ from complaint_manager import (
 
 from knowledge_router import select_knowledge_pages
 
+from charge_database import (
+    answer_charge_question_from_db,
+    ensure_charge_database_ready,
+    import_charge_csvs,
+)
+
+from account_database import (
+    ensure_account_types_ready,
+    find_account_category,
+    get_account_categories,
+    get_account_names,
+    import_account_types,
+)
+
+from loan_database import (
+    ensure_loan_types_ready,
+    find_loan_category,
+    get_loan_categories,
+    get_loan_names,
+    import_loan_types,
+)
+
+from local_knowledge import answer_local_fee_question, search_local_knowledge
+
 from memory_recall import (
     is_complaint_memory_question,
+    is_first_memory_question,
+    build_first_memory_reply,
     build_recent_memory_reply,
     build_latest_complaint_memory_reply,
 )
@@ -89,9 +118,27 @@ from response_cleaner import clean_bank_contact_information
 
 
 ERROR_REPLY = "Sorry, I could not process that request right now. Please try again later."
+SCHEDULE_CHARGES_MENU_REPLY = (
+    "Which banking charge do you want to know Retail, SME, Corporate "
+    "or Card charges?"
+)
+SCHEDULE_CHARGE_CATEGORY_LABELS = {
+    "retail": "Retail",
+    "sme": "SME",
+    "corporate": "Corporate",
+    "cards": "Cards",
+}
 EBL_CONTEXT_LIMIT = 10000
+LOCAL_KNOWLEDGE_CONTEXT_LIMIT = 7000
+CHARGE_CONTEXT_LIMIT = 3600
+CHARGE_LOCAL_SNIPPET_LIMIT = 2600
 SESSION_SUMMARY_LIMIT = 800
 LOAN_CATEGORY_QUESTION = "Do you want to know about SME or Retail loans?"
+
+
+LOAN_CATEGORY_SCHEDULES = {
+    "retail": "Retail",
+}
 
 
 RETAIL_LOAN_PRODUCTS = [
@@ -329,13 +376,33 @@ LOAN_SECTION_SKIP_LINES = [
     "back",
     "features",
     "features:",
+    "feature",
+    "feature:",
+    "key features",
+    "key features:",
+    "main features",
+    "main features:",
     "primary features",
     "primary features:",
+    "primary feature",
+    "primary feature:",
     "special feature",
     "special feature:",
     "loan purpose",
     "loan purpose:",
+    "purpose of financing",
+    "purpose of financing:",
 ]
+
+
+LOAN_FEATURE_START_HEADINGS = {
+    "features",
+    "feature",
+    "key features",
+    "main features",
+    "primary features",
+    "primary feature",
+}
 
 
 ACCOUNT_CATEGORY_QUESTION = (
@@ -461,6 +528,12 @@ ACCOUNT_SEGMENT_PRODUCTS = {
 ACCOUNT_SEGMENT_LABELS = {
     "retail": "Retail Account",
     "sme": "SME Account",
+}
+
+
+ACCOUNT_SEGMENT_SCHEDULES = {
+    "retail": "Retail",
+    "sme": "SME",
 }
 
 
@@ -1153,6 +1226,14 @@ def limit_text(text, max_characters):
     return text[:max_characters]
 
 
+def combine_context_sections(*sections):
+    return "\n\n".join(
+        section.strip()
+        for section in sections
+        if section and section.strip()
+    )
+
+
 def is_document_question(message):
     message = message.lower()
 
@@ -1174,6 +1255,234 @@ def contains_any_word(message, words):
             return True
 
     return False
+
+
+def normalize_menu_text(message):
+    cleaned_text = "".join(
+        character.lower() if character.isalnum() else " "
+        for character in message
+    )
+
+    return " ".join(cleaned_text.split())
+
+
+def is_schedule_charges_menu_request(message):
+    normalized_message = normalize_menu_text(message)
+
+    return normalized_message in {
+        "schedule of charges",
+        "charges schedule",
+        "schedule charges",
+        "banking charges",
+        "banking charge",
+    }
+
+
+def get_schedule_charge_category(message):
+    normalized_message = normalize_menu_text(message)
+    category_aliases = {
+        "retail": {
+            "retail",
+            "retail charge",
+            "retail charges",
+            "retail banking charge",
+            "retail banking charges",
+        },
+        "sme": {
+            "sme",
+            "sme charge",
+            "sme charges",
+            "sme banking charge",
+            "sme banking charges",
+        },
+        "corporate": {
+            "corp",
+            "corp charge",
+            "corp charges",
+            "corporate",
+            "corporate charge",
+            "corporate charges",
+            "corporate banking charge",
+            "corporate banking charges",
+        },
+        "cards": {
+            "card",
+            "card charge",
+            "card charges",
+            "cards",
+            "cards charge",
+            "cards charges",
+        },
+    }
+
+    for category, aliases in category_aliases.items():
+        if normalized_message in aliases:
+            return category
+
+    return ""
+
+
+def build_schedule_charge_category_reply(category):
+    category_label = SCHEDULE_CHARGE_CATEGORY_LABELS.get(category, "Banking")
+
+    return (
+        f"Which specific {category_label} charge do you want to know? "
+        "Please type the charge name, for example account maintenance fee, "
+        "cheque book fee, credit report fee, annual fee, or cash withdrawal fee."
+    )
+
+
+def last_reply_was_schedule_charges_menu(session_id):
+    history = get_chat_history(session_id, limit=1)
+
+    return any(
+        message["role"] == "assistant"
+        and message["content"] == SCHEDULE_CHARGES_MENU_REPLY
+        for message in history
+    )
+
+
+def is_bare_schedule_charge_category(message):
+    return normalize_menu_text(message) in {
+        "retail",
+        "sme",
+        "corp",
+        "corporate",
+        "card",
+        "cards",
+    }
+
+
+def last_assistant_reply(session_id, limit=6):
+    history = get_chat_history(session_id, limit=limit)
+
+    for message in reversed(history):
+        if message["role"] == "assistant":
+            return message["content"]
+
+    return ""
+
+
+def last_user_message(session_id, limit=6):
+    history = get_chat_history(session_id, limit=limit)
+
+    for message in reversed(history):
+        if message["role"] == "user":
+            return message["content"]
+
+    return ""
+
+
+def last_reply_was_schedule_charge_prompt(session_id):
+    reply = last_assistant_reply(session_id)
+
+    return (
+        reply == SCHEDULE_CHARGES_MENU_REPLY
+        or reply.startswith("Which specific Retail charge")
+        or reply.startswith("Which specific SME charge")
+        or reply.startswith("Which specific Corporate charge")
+        or reply.startswith("Which specific Cards charge")
+    )
+
+
+def is_charge_condition_follow_up(message):
+    normalized_message = normalize_menu_text(message)
+
+    return any(
+        phrase in f" {normalized_message} "
+        for phrase in [
+            " above ",
+            " below ",
+            " under ",
+            " over ",
+            " up to ",
+            " upto ",
+            " more than ",
+            " less than ",
+            " within country ",
+            " outside country ",
+            " onshore ",
+            " offshore ",
+            " same day ",
+            " next day ",
+        ]
+    ) or any(word.isdigit() for word in normalized_message.split())
+
+
+def last_reply_looks_like_charge_answer(session_id):
+    reply = last_assistant_reply(session_id).lower()
+
+    return (
+        " charges:" in reply
+        or " fee:" in reply
+        or " fee for " in reply
+        or " charge for " in reply
+        or " + vat" in reply
+        or "vat included" in reply
+    )
+
+
+def build_contextual_charge_query(session_id, user_message):
+    previous_user_message = last_user_message(session_id)
+
+    if (
+        previous_user_message
+        and not is_fee_or_charge_question(user_message)
+        and (
+            is_fee_or_charge_question(previous_user_message)
+            or last_reply_looks_like_charge_answer(session_id)
+        )
+        and is_charge_condition_follow_up(user_message)
+    ):
+        return f"{previous_user_message} {user_message}"
+
+    if last_reply_was_schedule_charge_prompt(session_id):
+        return user_message
+
+    return ""
+
+
+def is_fee_or_charge_question(message):
+    message = message.lower()
+
+    charge_words = [
+        "fee",
+        "fees",
+        "charge",
+        "charges",
+        "commission",
+        "schedule of charges",
+        "vat",
+        "maintenance fee",
+        "annual fee",
+        "minimum balance",
+        "closing charge",
+        "account closing",
+    ]
+
+    fee_service_phrases = [
+        "atm receipt",
+        "cash advance",
+        "cash withdrawal",
+        "cash withdrawal/advance",
+        "cash withdrawal / advance",
+        "cib report",
+        "fund transfer",
+        "guarantee amendment",
+        "guarantee issuance",
+        "lc opening",
+        "lc processing",
+        "pay order",
+        "rtgs",
+        "solvency certificate",
+        "standing instruction",
+        "swift",
+        "card interest rate",
+        "credit card interest",
+        "interest rate",
+    ]
+
+    return contains_any_word(message, charge_words + fee_service_phrases)
 
 
 def has_document_word(message, include_need=True):
@@ -1469,6 +1778,21 @@ def last_assistant_asked_for_loan_category(history):
     return False
 
 
+def detect_loan_schedule_from_category_prompt(history):
+    for item in reversed(history):
+        if item.get("role") != "assistant":
+            continue
+
+        content = item.get("content", "").lower()
+
+        if "which retail loan category" in content:
+            return "Retail"
+
+        return ""
+
+    return ""
+
+
 def is_loan_category_follow_up(message, history):
     return bool(
         detect_loan_category(message)
@@ -1476,8 +1800,42 @@ def is_loan_category_follow_up(message, history):
     )
 
 
+def build_retail_loan_category_prompt():
+    categories = get_loan_categories("Retail")
+
+    if not categories:
+        return ""
+
+    category_lines = "\n".join(f"- {category}" for category in categories)
+
+    return (
+        "Which Retail loan category do you want to know?\n\n"
+        f"{category_lines}"
+    )
+
+
+def build_retail_loan_names_for_category_reply(category):
+    loan_names = get_loan_names("Retail", category)
+
+    if not loan_names:
+        return ""
+
+    loan_lines = "\n".join(f"- {loan_name}" for loan_name in loan_names)
+
+    return (
+        f"EBL Retail {category} options include:\n\n"
+        f"{loan_lines}\n\n"
+        "Please tell me the specific loan name if you want details or eligibility."
+    )
+
+
 def build_loan_category_reply(category):
     if category == "retail":
+        category_prompt = build_retail_loan_category_prompt()
+
+        if category_prompt:
+            return category_prompt
+
         product_lines = "\n".join(f"- {product}" for product in RETAIL_LOAN_PRODUCTS)
 
         return (
@@ -1616,10 +1974,16 @@ def clean_loan_line(line):
     return " ".join(cleaned_line.split())
 
 
-def should_stop_loan_feature_collection(line):
+def should_stop_loan_feature_collection(line, stop_before_eligibility=True):
     lower_line = line.lower()
 
     for prefix in LOAN_SECTION_STOP_PREFIXES:
+        if not stop_before_eligibility and prefix in [
+            "eligibility",
+            "who are eligible",
+        ]:
+            continue
+
         if lower_line.startswith(prefix):
             return True
 
@@ -1635,13 +1999,54 @@ def should_skip_loan_feature_line(line, product_name):
     if lower_line == product_name.lower():
         return True
 
+    if lower_line.startswith("[") and lower_line.endswith("]"):
+        return True
+
     return lower_line in LOAN_SECTION_SKIP_LINES
 
 
-def build_loan_feature_bullets(section_text, product_name, max_bullets=10):
+def normalize_loan_heading(line):
+    return line.lower().strip().rstrip(":")
+
+
+def find_loan_feature_start_index(lines):
+    for index, line in enumerate(lines):
+        if normalize_loan_heading(line) in LOAN_FEATURE_START_HEADINGS:
+            return index
+
+    return -1
+
+
+def is_loan_field_label(line):
+    return line.rstrip().endswith(":")
+
+
+def should_merge_loan_continuation(current_line, next_line):
+    lower_current = current_line.lower().strip()
+    lower_next = next_line.lower().strip()
+
+    return (
+        current_line.endswith("/")
+        or lower_current in ["minimum"]
+        or lower_next.startswith(("per ", "of ", "for ", "from "))
+    )
+
+
+def build_loan_feature_bullets(
+    section_text,
+    product_name,
+    max_bullets=30,
+    stop_before_eligibility=True,
+):
     raw_lines = section_text.splitlines()
     lines = [clean_loan_line(line) for line in raw_lines]
     lines = [line for line in lines if line]
+
+    if stop_before_eligibility:
+        feature_start_index = find_loan_feature_start_index(lines)
+
+        if feature_start_index >= 0:
+            lines = lines[feature_start_index + 1:]
 
     bullets = []
     index = 0
@@ -1649,7 +2054,7 @@ def build_loan_feature_bullets(section_text, product_name, max_bullets=10):
     while index < len(lines):
         line = lines[index]
 
-        if should_stop_loan_feature_collection(line):
+        if should_stop_loan_feature_collection(line, stop_before_eligibility):
             break
 
         if should_skip_loan_feature_line(line, product_name):
@@ -1658,12 +2063,71 @@ def build_loan_feature_bullets(section_text, product_name, max_bullets=10):
 
         next_line = lines[index + 1] if index + 1 < len(lines) else ""
 
-        if line.endswith(":") and next_line and not should_stop_loan_feature_collection(next_line):
-            bullets.append(f"{line.rstrip(':')}: {next_line}")
-            index += 2
-        else:
-            bullets.append(line)
+        if is_loan_field_label(line):
+            values = []
             index += 1
+
+            while index < len(lines):
+                value_line = lines[index]
+
+                if should_stop_loan_feature_collection(
+                    value_line,
+                    stop_before_eligibility,
+                ):
+                    break
+
+                if should_skip_loan_feature_line(value_line, product_name):
+                    index += 1
+                    continue
+
+                if is_loan_field_label(value_line):
+                    break
+
+                values.append(value_line)
+                index += 1
+
+                following_line = lines[index] if index < len(lines) else ""
+
+                if (
+                    not following_line
+                    or is_loan_field_label(following_line)
+                    or should_stop_loan_feature_collection(
+                        following_line,
+                        stop_before_eligibility,
+                    )
+                    or should_skip_loan_feature_line(following_line, product_name)
+                ):
+                    break
+
+                if not should_merge_loan_continuation(values[-1], following_line):
+                    break
+
+            if values:
+                bullets.append(f"{line.rstrip(':').strip()}: {' '.join(values)}")
+
+            continue
+
+        bullet_line = line
+        index += 1
+
+        while index < len(lines):
+            following_line = lines[index]
+
+            if (
+                is_loan_field_label(following_line)
+                or should_stop_loan_feature_collection(
+                    following_line,
+                    stop_before_eligibility,
+                )
+                or should_skip_loan_feature_line(following_line, product_name)
+                or not should_merge_loan_continuation(bullet_line, following_line)
+            ):
+                break
+
+            bullet_line = f"{bullet_line} {following_line}"
+            index += 1
+
+        bullets.append(bullet_line)
 
         if len(bullets) >= max_bullets:
             break
@@ -1671,16 +2135,42 @@ def build_loan_feature_bullets(section_text, product_name, max_bullets=10):
     return bullets
 
 
-def build_specific_loan_reply(product):
+def get_loan_product_page_text(product):
     website_information = get_website_information_by_page_names([product["page_name"]])
     page_text = get_content_from_website_information(website_information)
+
+    if page_text:
+        return page_text
+
+    try:
+        page_text = get_text_from_website(product["url"])
+
+        if page_text:
+            save_website_text(
+                page_name=product["page_name"],
+                page_url=product["url"],
+                page_text=page_text,
+            )
+
+    except Exception:
+        return ""
+
+    return page_text
+
+
+def build_specific_loan_reply(product):
+    page_text = get_loan_product_page_text(product)
 
     if product["category"] == "sme":
         section_text = slice_sme_loan_section(page_text, product["name"])
     else:
         section_text = slice_retail_loan_section(page_text, product["name"])
 
-    bullets = build_loan_feature_bullets(section_text, product["name"])
+    bullets = build_loan_feature_bullets(
+        section_text,
+        product["name"],
+        stop_before_eligibility=product["category"] != "sme",
+    )
 
     if not bullets:
         return (
@@ -1698,6 +2188,22 @@ def build_specific_loan_reply(product):
 
 
 def build_loan_router_reply(user_message, intent, history):
+    schedule_context = detect_loan_schedule_from_category_prompt(history)
+
+    if schedule_context == "Retail":
+        selected_category = find_loan_category("Retail", user_message)
+
+        if selected_category:
+            return build_retail_loan_names_for_category_reply(selected_category)
+
+    category = detect_loan_category(user_message)
+
+    if category == "retail":
+        selected_category = find_loan_category("Retail", user_message)
+
+        if selected_category:
+            return build_retail_loan_names_for_category_reply(selected_category)
+
     product = detect_specific_loan_product(user_message)
 
     if product:
@@ -1707,8 +2213,6 @@ def build_loan_router_reply(user_message, intent, history):
 
     if retail_subcategory_reply:
         return retail_subcategory_reply
-
-    category = detect_loan_category(user_message)
 
     if intent == "loan_information":
         if category:
@@ -1831,6 +2335,24 @@ def last_assistant_asked_for_account_category(history):
     return False
 
 
+def detect_account_schedule_from_category_prompt(history):
+    for item in reversed(history):
+        if item.get("role") != "assistant":
+            continue
+
+        content = item.get("content", "").lower()
+
+        if "which retail account category" in content:
+            return "Retail"
+
+        if "which sme account category" in content:
+            return "SME"
+
+        return ""
+
+    return ""
+
+
 def is_account_category_follow_up(message, history):
     return bool(
         (detect_account_segment(message) or detect_account_category(message))
@@ -1906,6 +2428,40 @@ def build_account_segment_reply(segment):
         f"EBL {segment_label} products include:\n\n"
         f"{product_lines}\n\n"
         "Please tell me the specific account product name if you want its features and link."
+    )
+
+
+def build_account_schedule_category_reply(segment):
+    schedule = ACCOUNT_SEGMENT_SCHEDULES.get(segment, "")
+
+    if not schedule:
+        return ""
+
+    categories = get_account_categories(schedule)
+
+    if not categories:
+        return ""
+
+    category_lines = "\n".join(f"- {category}" for category in categories)
+
+    return (
+        f"Which {schedule} account category do you want to know or open?\n\n"
+        f"{category_lines}"
+    )
+
+
+def build_account_names_for_category_reply(schedule, category):
+    account_names = get_account_names(schedule, category)
+
+    if not account_names:
+        return ""
+
+    account_lines = "\n".join(f"- {account_name}" for account_name in account_names)
+
+    return (
+        f"EBL {schedule} {category} accounts include:\n\n"
+        f"{account_lines}\n\n"
+        "Please tell me the specific account name if you want details or opening information."
     )
 
 
@@ -2139,6 +2695,17 @@ def build_specific_account_documents_reply(product, user_message):
 
 
 def build_account_router_reply(user_message, intent, history, search_query=""):
+    schedule_context = detect_account_schedule_from_category_prompt(history)
+
+    if schedule_context:
+        selected_category = find_account_category(schedule_context, user_message)
+
+        if selected_category:
+            return build_account_names_for_category_reply(
+                schedule_context,
+                selected_category,
+            )
+
     product = detect_specific_account_product(user_message)
 
     if product:
@@ -2195,6 +2762,24 @@ def build_account_router_reply(user_message, intent, history, search_query=""):
         or has_account_context
     ):
         if segment:
+            schedule = ACCOUNT_SEGMENT_SCHEDULES.get(segment, "")
+            selected_category = (
+                find_account_category(schedule, user_message)
+                if schedule
+                else ""
+            )
+
+            if selected_category:
+                return build_account_names_for_category_reply(
+                    schedule,
+                    selected_category,
+                )
+
+            category_reply = build_account_schedule_category_reply(segment)
+
+            if category_reply:
+                return category_reply
+
             return build_account_segment_reply(segment)
 
         if category:
@@ -2205,6 +2790,11 @@ def build_account_router_reply(user_message, intent, history, search_query=""):
 
     if is_account_category_follow_up(user_message, history):
         if segment:
+            category_reply = build_account_schedule_category_reply(segment)
+
+            if category_reply:
+                return category_reply
+
             return build_account_segment_reply(segment)
 
         return build_account_category_reply(category)
@@ -2943,6 +3533,12 @@ app = FastAPI(
 
 @app.on_event("startup")
 def startup_event():
+    import_charge_csvs(clear_existing=True)
+    ensure_charge_database_ready()
+    import_account_types(clear_existing=True)
+    ensure_account_types_ready()
+    import_loan_types(clear_existing=True)
+    ensure_loan_types_ready()
     start_complaint_email_scheduler()
     
 
@@ -2991,11 +3587,88 @@ def chat(request: ChatRequest):
             blocked=True,
         )
 
+    if is_identity_question(user_message):
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=get_identity_reply(),
+            source="identity-handler",
+            status="answered",
+        )
+
+    if is_schedule_charges_menu_request(user_message):
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=SCHEDULE_CHARGES_MENU_REPLY,
+            source="schedule-charges-menu",
+            status="answered",
+        )
+
+    schedule_charge_category = get_schedule_charge_category(user_message)
+
+    if schedule_charge_category and (
+        not is_bare_schedule_charge_category(user_message)
+        or last_reply_was_schedule_charges_menu(session_id)
+    ):
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=build_schedule_charge_category_reply(schedule_charge_category),
+            source="schedule-charges-category-menu",
+            status="answered",
+        )
+
+    contextual_charge_query = build_contextual_charge_query(session_id, user_message)
+
+    if contextual_charge_query:
+        structured_fee_reply = answer_charge_question_from_db(
+            contextual_charge_query,
+            allow_product_only=True,
+        )
+
+        if structured_fee_reply:
+            return save_and_build_response(
+                session_id=session_id,
+                user_message=user_message,
+                reply=structured_fee_reply,
+                source="charge-database",
+                status="answered",
+            )
+
+    if is_fee_or_charge_question(user_message):
+        structured_fee_reply = answer_charge_question_from_db(user_message)
+
+        if structured_fee_reply:
+            return save_and_build_response(
+                session_id=session_id,
+                user_message=user_message,
+                reply=structured_fee_reply,
+                source="charge-database",
+                status="answered",
+            )
+
+        direct_fee_reply = answer_local_fee_question(user_message)
+
+        if direct_fee_reply:
+            return save_and_build_response(
+                session_id=session_id,
+                user_message=user_message,
+                reply=direct_fee_reply,
+                source="local-fee-knowledge",
+                status="answered",
+            )
+
     understood_query = understand_user_query_with_groq(user_message)
     print("UNDERSTOOD QUERY:", understood_query)
 
     intent = understood_query["intent"]
     search_query = understood_query["search_query"]
+    is_charge_query = (
+        intent == "charge_information"
+        or is_fee_or_charge_question(user_message)
+        or is_fee_or_charge_question(search_query)
+    )
 
     if intent == "greeting" or is_greeting_only(user_message):
         return save_and_build_response(
@@ -3056,7 +3729,7 @@ def chat(request: ChatRequest):
             user_message=user_message,
             reply=(
                 "Please confirm whether you want me to create the complaint record.\n\n"
-                "Reply with Yes and your email address to create it, or No to cancel."
+                "Reply with Yes and your email address to create it or No to cancel."
             ),
             source="complaint-agent",
             status="waiting_complaint_confirmation",
@@ -3080,7 +3753,7 @@ def chat(request: ChatRequest):
             status="answered",
         )
 
-    if intent == "branch_locator":
+    if intent == "branch_locator" and not is_charge_query:
         return save_and_build_response(
             session_id=session_id,
             user_message=user_message,
@@ -3163,6 +3836,9 @@ def chat(request: ChatRequest):
         if is_complaint_memory_question(user_message):
             latest_complaint = get_latest_complaint_by_session(session_id)
             memory_reply = build_latest_complaint_memory_reply(latest_complaint)
+        elif is_first_memory_question(user_message):
+            first_message = get_first_user_message(session_id)
+            memory_reply = build_first_memory_reply(first_message)
         else:
             recent_messages = get_recent_user_messages(session_id, limit=5)
             memory_reply = build_recent_memory_reply(recent_messages)
@@ -3175,10 +3851,14 @@ def chat(request: ChatRequest):
             status="memory_recalled",
         )
 
-    history = get_chat_history(session_id, limit=4)
+    history_limit = 2 if is_charge_query else 4
+    history = get_chat_history(session_id, limit=history_limit)
     has_previous_history = len(history) > 0
 
-    card_router_reply = build_card_router_reply(user_message, intent, history)
+    card_router_reply = ""
+
+    if not is_charge_query:
+        card_router_reply = build_card_router_reply(user_message, intent, history)
 
     if card_router_reply:
         return save_and_build_response(
@@ -3189,7 +3869,10 @@ def chat(request: ChatRequest):
             status="answered",
         )
 
-    loan_router_reply = build_loan_router_reply(user_message, intent, history)
+    loan_router_reply = ""
+
+    if not is_charge_query:
+        loan_router_reply = build_loan_router_reply(user_message, intent, history)
 
     if loan_router_reply:
         return save_and_build_response(
@@ -3200,12 +3883,15 @@ def chat(request: ChatRequest):
             status="answered",
         )
 
-    account_router_reply = build_account_router_reply(
-        user_message,
-        intent,
-        history,
-        search_query,
-    )
+    account_router_reply = ""
+
+    if not is_charge_query:
+        account_router_reply = build_account_router_reply(
+            user_message,
+            intent,
+            history,
+            search_query,
+        )
 
     if account_router_reply:
         return save_and_build_response(
@@ -3251,7 +3937,65 @@ def chat(request: ChatRequest):
         )
     )
 
-    if is_broad_account_retrieval:
+    local_knowledge_search_limit = 1 if is_charge_query else 3
+    local_knowledge_snippet_limit = (
+        CHARGE_LOCAL_SNIPPET_LIMIT
+        if is_charge_query
+        else 2800
+    )
+    local_knowledge_context_limit = (
+        CHARGE_CONTEXT_LIMIT
+        if is_charge_query
+        else LOCAL_KNOWLEDGE_CONTEXT_LIMIT
+    )
+
+    local_knowledge_info = limit_text(
+        search_local_knowledge(
+            f"{user_message}\n{search_query}",
+            limit=local_knowledge_search_limit,
+            max_snippet_characters=local_knowledge_snippet_limit,
+        ),
+        local_knowledge_context_limit,
+    )
+
+    if is_charge_query:
+        structured_fee_reply = answer_charge_question_from_db(
+            f"{user_message}\n{search_query}"
+        )
+
+        if structured_fee_reply:
+            return save_and_build_response(
+                session_id=session_id,
+                user_message=user_message,
+                reply=structured_fee_reply,
+                source="charge-database",
+                status="answered",
+            )
+
+        direct_fee_reply = answer_local_fee_question(
+            f"{user_message}\n{search_query}"
+        )
+
+        if direct_fee_reply:
+            return save_and_build_response(
+                session_id=session_id,
+                user_message=user_message,
+                reply=direct_fee_reply,
+                source="local-fee-knowledge",
+                status="answered",
+            )
+
+    use_website_context = not (is_charge_query and local_knowledge_info)
+    website_page_context_limit = (
+        CHARGE_CONTEXT_LIMIT
+        if is_charge_query
+        else EBL_CONTEXT_LIMIT
+    )
+
+    if not use_website_context:
+        website_page_info = ""
+
+    elif is_broad_account_retrieval:
         selected_pages = [
             "EBL Online Apply Page",
             "EBL Retail Deposits Page",
@@ -3259,30 +4003,40 @@ def chat(request: ChatRequest):
             "EBL Verified Contact Information",
         ]
 
-        website_info = limit_text(
+        website_page_info = limit_text(
             get_website_information_by_page_names(selected_pages),
-            EBL_CONTEXT_LIMIT,
+            website_page_context_limit,
         )
 
     else:
-        website_info = limit_text(
+        website_page_info = limit_text(
             search_website_information(search_query, limit=5),
-            EBL_CONTEXT_LIMIT,
+            website_page_context_limit,
         )
 
-    if not website_info:
+    if use_website_context and not website_page_info:
         selected_pages = select_knowledge_pages(intent)
 
-        website_info = limit_text(
+        website_page_info = limit_text(
             get_website_information_by_page_names(selected_pages),
-            EBL_CONTEXT_LIMIT,
+            website_page_context_limit,
         )
 
-    if not website_info:
-        website_info = limit_text(
+    if use_website_context and not website_page_info:
+        website_page_info = limit_text(
             get_website_information(),
-            EBL_CONTEXT_LIMIT,
+            website_page_context_limit,
         )
+
+    final_context_limit = CHARGE_CONTEXT_LIMIT if is_charge_query else EBL_CONTEXT_LIMIT
+
+    website_info = limit_text(
+        combine_context_sections(
+            local_knowledge_info,
+            website_page_info,
+        ),
+        final_context_limit,
+    )
 
     session_summary = limit_text(
         get_session_summary(session_id),

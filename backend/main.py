@@ -1,5 +1,6 @@
 """Backend entrypoint."""
 
+import re
 from urllib.parse import urlparse
 
 from fastapi import FastAPI, HTTPException
@@ -88,6 +89,22 @@ from charge_database import (
     import_charge_csvs,
 )
 
+from deposit_rate_database import (
+    answer_deposit_rate_question_from_db,
+    build_broad_rate_clarification,
+    ensure_deposit_rate_database_ready,
+    import_deposit_rate_csvs,
+    is_deposit_rate_question,
+)
+
+from lending_rate_database import (
+    answer_lending_rate_question_from_db,
+    build_broad_lending_rate_clarification,
+    ensure_lending_rate_database_ready,
+    import_lending_rate_csvs,
+    is_lending_rate_question,
+)
+
 from account_database import (
     ensure_account_types_ready,
     find_account_category,
@@ -122,6 +139,13 @@ SCHEDULE_CHARGES_MENU_REPLY = (
     "Which banking charge do you want to know Retail, SME, Corporate "
     "or Card charges?"
 )
+INTEREST_RATE_TYPE_REPLY = (
+    "Which interest rate do you want to know: Deposit rate or Lending rate?"
+)
+LENDING_RATE_PRODUCT_REPLY = (
+    build_broad_lending_rate_clarification()
+)
+INTEREST_RATE_PAGE_URL = "https://www.ebl.com.bd/interest-rates"
 SCHEDULE_CHARGE_CATEGORY_LABELS = {
     "retail": "Retail",
     "sme": "SME",
@@ -435,6 +459,7 @@ ACCOUNT_CATEGORY_PRODUCTS = {
         "EBL Multiplier",
         "EBL Millionaire Scheme",
         "EBL Confidence",
+        "EBL Women Millionaire DPS",
     ],
     "fixed": [
         "EBL Repeat",
@@ -863,6 +888,13 @@ ACCOUNT_PRODUCT_RULES = [
         "page_name": "EBL Detail Page - Ebl Confidence",
         "url": "https://www.ebl.com.bd/retail-deposit/EBL-Confidence",
         "aliases": ["ebl confidence", "confidence dps"],
+    },
+    {
+        "name": "EBL Women Millionaire DPS",
+        "category": "dps",
+        "page_name": "EBL Detail Page - Ebl Women Millionaire DPS",
+        "url": "https://www.ebl.com.bd/retail-deposit/EBL-Women-Millionaire-DPS",
+        "aliases": ["ebl women millionaire dps", "women millionaire dps"],
     },
     {
         "name": "EBL Repeat",
@@ -1440,6 +1472,425 @@ def build_contextual_charge_query(session_id, user_message):
         return user_message
 
     return ""
+
+
+def get_bare_banking_segment(message):
+    normalized_message = normalize_menu_text(message)
+
+    if normalized_message in ["retail", "sme", "islamic"]:
+        return normalized_message
+
+    return ""
+
+
+def build_bare_banking_segment_reply(session_id, user_message):
+    segment = get_bare_banking_segment(user_message)
+
+    if not segment:
+        return ""
+
+    history = get_chat_history(session_id, limit=4)
+
+    if last_assistant_asked_for_account_category(history):
+        if segment in ACCOUNT_SEGMENT_SCHEDULES:
+            return build_account_schedule_category_reply(segment)
+
+        if segment == "islamic":
+            return build_account_category_reply("islamic_deposit")
+
+    if last_assistant_asked_for_loan_category(history):
+        if segment in ["retail", "sme"]:
+            return build_loan_category_reply(segment)
+
+        return (
+            "For Islamic banking, please tell me whether you want Islamic account, "
+            "Islamic finance or Islamic card information."
+        )
+
+    segment_label = {
+        "retail": "Retail",
+        "sme": "SME",
+        "islamic": "Islamic",
+    }.get(segment, "that")
+
+    return (
+        f"Please specify what you want to know about {segment_label}: "
+        "account, loan, card or schedule of charges."
+    )
+
+
+def normalized_word_set(message):
+    return set(normalize_menu_text(message).split())
+
+
+def is_interest_rate_phrase(message):
+    normalized_message = normalize_menu_text(message)
+
+    return (
+        "interest rate" in normalized_message
+        or "interest rates" in normalized_message
+    )
+
+
+def has_rate_word(message):
+    return bool(normalized_word_set(message) & {"rate", "rates"})
+
+
+def has_card_rate_context(message):
+    words = normalized_word_set(message)
+
+    return bool(
+        words
+        & {
+            "card",
+            "cards",
+            "credit",
+            "debit",
+            "prepaid",
+            "visa",
+            "mastercard",
+            "diners",
+            "unionpay",
+        }
+    )
+
+
+def has_lending_rate_context(message):
+    words = normalized_word_set(message)
+
+    return bool(
+        words
+        & {
+            "lending",
+            "loan",
+            "loans",
+            "finance",
+            "financing",
+            "mortgage",
+            "home",
+            "auto",
+            "personal",
+            "car",
+            "vehicle",
+            "wheeler",
+        }
+    )
+
+
+def has_specific_deposit_rate_context(message):
+    words = normalized_word_set(message)
+    generic_words = {
+        "about",
+        "bank",
+        "banking",
+        "can",
+        "ebl",
+        "eastern",
+        "give",
+        "how",
+        "i",
+        "interest",
+        "know",
+        "may",
+        "me",
+        "my",
+        "of",
+        "please",
+        "plc",
+        "rate",
+        "rates",
+        "show",
+        "tell",
+        "the",
+        "want",
+        "what",
+        "you",
+    }
+    deposit_type_words = {
+        "deposit",
+        "deposits",
+        "savings",
+        "saving",
+        "casa",
+    }
+
+    return bool(words - generic_words - deposit_type_words)
+
+
+def has_specific_lending_rate_context(message):
+    words = normalized_word_set(message)
+    generic_words = {
+        "about",
+        "bank",
+        "banking",
+        "can",
+        "ebl",
+        "eastern",
+        "give",
+        "how",
+        "i",
+        "interest",
+        "know",
+        "may",
+        "me",
+        "my",
+        "of",
+        "please",
+        "plc",
+        "rate",
+        "rates",
+        "show",
+        "tell",
+        "the",
+        "want",
+        "what",
+        "you",
+    }
+    lending_type_words = {
+        "lending",
+        "loan",
+        "loans",
+        "finance",
+        "financing",
+    }
+
+    return bool(words - generic_words - lending_type_words)
+
+
+def get_interest_rate_type_choice(message):
+    words = normalized_word_set(message)
+
+    if words & {
+        "deposit",
+        "deposits",
+        "savings",
+        "saving",
+        "casa",
+        "snd",
+        "hpa",
+        "fd",
+        "fdr",
+        "fixed",
+        "dps",
+        "recurring",
+    }:
+        return "deposit"
+
+    if words & {
+        "lending",
+        "loan",
+        "loans",
+        "finance",
+        "financing",
+        "mortgage",
+        "home",
+        "auto",
+        "personal",
+        "car",
+        "vehicle",
+        "wheeler",
+    }:
+        return "lending"
+
+    return ""
+
+
+def is_broad_interest_rate_question(message):
+    if not is_interest_rate_phrase(message):
+        return False
+
+    if has_card_rate_context(message):
+        return False
+
+    if is_deposit_rate_question(message) or has_lending_rate_context(message):
+        return False
+
+    return True
+
+
+def last_reply_was_interest_rate_type_prompt(session_id):
+    return last_assistant_reply(session_id) == INTEREST_RATE_TYPE_REPLY
+
+
+def last_reply_was_deposit_rate_product_prompt(session_id):
+    return last_assistant_reply(session_id).startswith(
+        "Please specify the deposit product or category"
+    )
+
+
+def last_reply_was_lending_rate_product_prompt(session_id):
+    return last_assistant_reply(session_id) == LENDING_RATE_PRODUCT_REPLY
+
+
+def build_lending_rate_reply(user_message):
+    normalized_message = normalize_menu_text(user_message)
+
+    if normalized_message in {
+        "lending",
+        "lending rate",
+        "lending rates",
+        "loan",
+        "loan rate",
+        "loan rates",
+        "loan interest rate",
+        "loan interest rates",
+    }:
+        return LENDING_RATE_PRODUCT_REPLY
+
+    return (
+        answer_lending_rate_question_from_db(
+            f"{user_message} lending interest rate"
+        )
+        or LENDING_RATE_PRODUCT_REPLY
+    )
+
+
+def build_interest_rate_flow_reply(session_id, user_message):
+    if last_reply_was_interest_rate_type_prompt(session_id):
+        selected_rate_type = get_interest_rate_type_choice(user_message)
+        normalized_message = normalize_menu_text(user_message)
+
+        if selected_rate_type == "deposit":
+            if normalized_message not in {
+                "deposit",
+                "deposits",
+                "deposit rate",
+                "deposit rates",
+                "deposit interest rate",
+                "deposit interest rates",
+            }:
+                structured_deposit_reply = answer_deposit_rate_question_from_db(
+                    f"{user_message} deposit interest rate"
+                )
+
+                if structured_deposit_reply:
+                    return structured_deposit_reply
+
+            return build_broad_rate_clarification()
+
+        if selected_rate_type == "lending":
+            if normalized_message not in {
+                "lending",
+                "lending rate",
+                "lending rates",
+                "loan",
+                "loan rate",
+                "loan rates",
+                "loan interest rate",
+                "loan interest rates",
+            }:
+                return build_lending_rate_reply(user_message)
+
+            return LENDING_RATE_PRODUCT_REPLY
+
+        direct_deposit_reply = answer_deposit_rate_question_from_db(
+            f"{user_message} deposit interest rate"
+        )
+
+        if direct_deposit_reply:
+            return direct_deposit_reply
+
+        direct_lending_reply = answer_lending_rate_question_from_db(
+            f"{user_message} lending interest rate"
+        )
+
+        if direct_lending_reply and direct_lending_reply != LENDING_RATE_PRODUCT_REPLY:
+            return direct_lending_reply
+
+        return INTEREST_RATE_TYPE_REPLY
+
+    if last_reply_was_deposit_rate_product_prompt(session_id):
+        if get_interest_rate_type_choice(user_message) == "lending":
+            return LENDING_RATE_PRODUCT_REPLY
+
+        return (
+            answer_deposit_rate_question_from_db(
+                f"{user_message} deposit interest rate"
+            )
+            or build_broad_rate_clarification()
+        )
+
+    if last_reply_was_lending_rate_product_prompt(session_id):
+        if get_interest_rate_type_choice(user_message) == "deposit":
+            return build_broad_rate_clarification()
+
+        return build_lending_rate_reply(user_message)
+
+    if is_broad_interest_rate_question(user_message):
+        return INTEREST_RATE_TYPE_REPLY
+
+    selected_rate_type = get_interest_rate_type_choice(user_message)
+    normalized_message = normalize_menu_text(user_message)
+
+    if selected_rate_type == "deposit" and normalized_message in {
+        "deposit",
+        "deposits",
+        "deposit rate",
+        "deposit rates",
+        "deposit interest rate",
+        "deposit interest rates",
+    }:
+        return build_broad_rate_clarification()
+
+    if (
+        selected_rate_type == "deposit"
+        and (is_interest_rate_phrase(user_message) or has_rate_word(user_message))
+        and not has_specific_deposit_rate_context(user_message)
+    ):
+        return build_broad_rate_clarification()
+
+    if selected_rate_type == "lending" and normalized_message in {
+        "lending",
+        "lending rate",
+        "lending rates",
+        "loan interest rate",
+        "loan interest rates",
+    }:
+        return LENDING_RATE_PRODUCT_REPLY
+
+    if (
+        selected_rate_type == "lending"
+        and (is_interest_rate_phrase(user_message) or has_rate_word(user_message))
+    ):
+        if has_specific_lending_rate_context(user_message):
+            return build_lending_rate_reply(user_message)
+
+        return LENDING_RATE_PRODUCT_REPLY
+
+    return ""
+
+
+def looks_like_deposit_rate_product_name(message):
+    words = normalized_word_set(message)
+
+    if has_card_rate_context(message) or has_lending_rate_context(message):
+        return False
+
+    has_numeric_tenure = any(word.isdigit() for word in words) and bool(
+        words & {"day", "days", "month", "months", "year", "years"}
+    )
+
+    has_rate_sheet_product_hint = (
+        "century" in words
+        or "alo" in words
+        or "diamond" in words
+        or ("high" in words and "value" in words)
+        or ("extra" in words and "value" in words and bool(words & {"fd", "fdr"}))
+    )
+
+    if not has_numeric_tenure and not has_rate_sheet_product_hint:
+        return False
+
+    return bool(words & {"ebl", "fd", "fdr", "fixed", "term", "super"})
+
+
+def build_deposit_rate_product_name_reply(user_message):
+    if not looks_like_deposit_rate_product_name(user_message):
+        return ""
+
+    return answer_deposit_rate_question_from_db(
+        f"{user_message} deposit interest rate"
+    )
 
 
 def is_fee_or_charge_question(message):
@@ -2329,6 +2780,8 @@ def last_assistant_asked_for_account_category(history):
         return (
             "retail account or an sme account" in content
             or "retail account or sme account" in content
+            or "retail account, an sme account or an islamic account" in content
+            or "do you want to open a retail account" in content
             or "which account type do you want to open" in content
         )
 
@@ -2632,6 +3085,380 @@ def build_account_feature_bullets(section_text, product_name, max_bullets=15):
     return bullets
 
 
+def normalize_account_detail_lines(section_text):
+    return [
+        clean_loan_line(line)
+        for line in section_text.splitlines()
+        if clean_loan_line(line)
+    ]
+
+
+def is_numeric_table_value(value):
+    cleaned_value = value.replace(",", "").replace(".", "").strip()
+
+    return cleaned_value.isdigit()
+
+
+def format_detail_table(headers, rows):
+    if not headers or not rows:
+        return ""
+
+    column_count = max([len(headers)] + [len(row) for row in rows])
+    padded_headers = headers + [""] * (column_count - len(headers))
+    padded_rows = [
+        row + [""] * (column_count - len(row))
+        for row in rows
+    ]
+    safe_headers = [header.replace("|", "/") for header in padded_headers]
+    safe_rows = [
+        [cell.replace("|", "/") for cell in row]
+        for row in padded_rows
+    ]
+
+    header_line = "| " + " | ".join(safe_headers) + " |"
+    separator_line = "| " + " | ".join("---" for _ in safe_headers) + " |"
+    row_lines = [
+        "| " + " | ".join(row) + " |"
+        for row in safe_rows
+    ]
+
+    return "\n".join([header_line, separator_line] + row_lines)
+
+
+def collect_numeric_rows(lines, start_index, width, max_rows=20):
+    rows = []
+    index = start_index
+
+    while index + width <= len(lines) and len(rows) < max_rows:
+        row = lines[index:index + width]
+
+        if not all(is_numeric_table_value(cell) for cell in row):
+            break
+
+        rows.append(row)
+        index += width
+
+    return rows
+
+
+def remove_duplicate_detail_bullets(bullets, detail_lines):
+    detail_texts = {
+        " ".join(line.lower().split())
+        for line in detail_lines
+        if line
+    }
+
+    filtered_bullets = []
+
+    for bullet in bullets:
+        normalized_bullet = " ".join(bullet.lower().split())
+
+        if normalized_bullet in detail_texts:
+            continue
+
+        if "minimum opening amount" in normalized_bullet and "tenure" in normalized_bullet:
+            continue
+
+        filtered_bullets.append(bullet)
+
+    return filtered_bullets
+
+
+def extract_fixed_deposit_amount_and_tenure(section_text):
+    amount_lines = []
+    tenure_lines = []
+    seen_amount_lines = set()
+    seen_tenure_lines = set()
+
+    for line in normalize_account_detail_lines(section_text):
+        split_match = re.search(r"\s+and\s+tenure\s+is\s+", line, flags=re.IGNORECASE)
+
+        if split_match and "minimum opening amount" in line.lower():
+            amount_line = line[:split_match.start()].strip()
+            tenure_line = f"Tenure is {line[split_match.end():].strip()}"
+            normalized_amount = " ".join(amount_line.lower().split())
+            normalized_tenure = " ".join(tenure_line.lower().split())
+
+            if normalized_amount not in seen_amount_lines:
+                amount_lines.append(amount_line)
+                seen_amount_lines.add(normalized_amount)
+
+            if normalized_tenure not in seen_tenure_lines:
+                tenure_lines.append(tenure_line)
+                seen_tenure_lines.add(normalized_tenure)
+
+            continue
+
+        lower_line = line.lower()
+
+        if lower_line.startswith("minimum opening amount"):
+            normalized_line = " ".join(lower_line.split())
+
+            if normalized_line not in seen_amount_lines:
+                amount_lines.append(line)
+                seen_amount_lines.add(normalized_line)
+
+        elif lower_line.startswith("tenure is"):
+            normalized_line = " ".join(lower_line.split())
+
+            if normalized_line not in seen_tenure_lines:
+                tenure_lines.append(line)
+                seen_tenure_lines.add(normalized_line)
+
+    return amount_lines, tenure_lines
+
+
+def build_fixed_deposit_reply(product, section_text):
+    amount_lines, tenure_lines = extract_fixed_deposit_amount_and_tenure(section_text)
+    features = build_account_feature_bullets(section_text, product["name"], max_bullets=8)
+    features = remove_duplicate_detail_bullets(
+        features,
+        amount_lines + tenure_lines,
+    )
+
+    reply_parts = [f"{product['name']} details:"]
+
+    if amount_lines:
+        reply_parts.append(
+            "FD Amount:\n" + "\n".join(f"- {line}" for line in amount_lines)
+        )
+
+    if tenure_lines:
+        reply_parts.append(
+            "Tenure:\n" + "\n".join(f"- {line}" for line in tenure_lines)
+        )
+
+    if features:
+        reply_parts.append(
+            "Key Features:\n" + "\n".join(f"- {feature}" for feature in features)
+        )
+
+    reply_parts.append(f"Link: {product['url']}")
+
+    return "\n\n".join(reply_parts)
+
+
+def build_confidence_dps_table(product_name, lines):
+    try:
+        installment_index = lines.index("Installment")
+        maturity_amount_index = lines.index("Maturity Amount", installment_index)
+    except ValueError:
+        return ""
+
+    years = []
+    index = maturity_amount_index + 1
+
+    while index + 1 < len(lines) and lines[index].lower() == "maturity after":
+        years.append(lines[index + 1])
+        index += 2
+
+    if not years:
+        return ""
+
+    rows = collect_numeric_rows(lines, index, len(years) + 1)
+
+    if not rows:
+        return ""
+
+    headers = ["Product Name", product_name] + [""] * (len(years) - 1)
+    table_rows = [
+        ["Installment"] + [f"Maturity after {year}" for year in years],
+    ] + rows
+
+    return format_detail_table(headers, table_rows)
+
+
+def build_kotipoti_dps_table(lines):
+    try:
+        initial_index = lines.index("Initial Amount")
+        maturity_index = lines.index("Maturity Amount", initial_index)
+        year_index = lines.index("Year", maturity_index)
+        installment_index = lines.index("Installment", year_index)
+    except ValueError:
+        return ""
+
+    initial_amounts = lines[initial_index + 1:maturity_index]
+    data_start = installment_index + 1
+    first_row_width = len(initial_amounts) + 2
+
+    if data_start + first_row_width > len(lines):
+        return ""
+
+    first_row = lines[data_start:data_start + first_row_width]
+
+    if not all(is_numeric_table_value(cell) for cell in first_row):
+        return ""
+
+    maturity_amount = first_row[-1]
+    rows = [first_row]
+    index = data_start + first_row_width
+    later_row_width = len(initial_amounts) + 1
+
+    while index + later_row_width <= len(lines):
+        row = lines[index:index + later_row_width]
+
+        if not all(is_numeric_table_value(cell) for cell in row):
+            break
+
+        rows.append(row + [maturity_amount])
+        index += later_row_width
+
+    if not initial_amounts or not rows:
+        return ""
+
+    headers = ["Product Name", "EBL Kotipoti"] + [""] * (len(initial_amounts) - 1)
+    table_rows = [
+        ["Initial Amount"] + initial_amounts,
+        ["Maturity Amount", maturity_amount] + [""] * (len(initial_amounts) - 1),
+        ["Year"] + [
+            f"Installment ({amount})"
+            for amount in initial_amounts
+        ],
+    ]
+    table_rows.extend(row[:-1] for row in rows)
+
+    return format_detail_table(headers, table_rows)
+
+
+def build_multiplier_dps_table(lines):
+    try:
+        initial_index = lines.index("Initial Amount")
+        tenure_index = lines.index("Tenure in Year", initial_index)
+        maturity_index = lines.index("Maturity Amount", tenure_index)
+        monthly_index = lines.index("Monthly Installment", maturity_index)
+    except ValueError:
+        return ""
+
+    initial_amount = lines[initial_index + 1] if initial_index + 1 < len(lines) else ""
+    tenures = lines[tenure_index + 1:maturity_index]
+    maturity_amounts = lines[maturity_index + 1:monthly_index]
+    monthly_installments = []
+
+    for line in lines[monthly_index + 1:]:
+        if not is_numeric_table_value(line):
+            break
+
+        monthly_installments.append(line)
+
+    row_count = min(len(tenures), len(maturity_amounts), len(monthly_installments))
+
+    if not initial_amount or row_count == 0:
+        return ""
+
+    headers = ["Product Name", "EBL Multiplier"] + [""] * (row_count - 1)
+    table_rows = [
+        ["Initial Amount", initial_amount] + [""] * (row_count - 1),
+        ["Tenure in Year"] + tenures[:row_count],
+        ["Maturity Amount"] + maturity_amounts[:row_count],
+        ["Monthly Installment"] + monthly_installments[:row_count],
+    ]
+
+    return format_detail_table(headers, table_rows)
+
+
+def build_millionaire_dps_table(lines):
+    try:
+        year_index = lines.index("Year")
+        initial_index = lines.index("Initial Amount", year_index)
+        maturity_index = lines.index("Maturity Amount", initial_index)
+    except ValueError:
+        return ""
+
+    initial_amounts = []
+    index = maturity_index + 1
+
+    while index < len(lines):
+        cleaned_value = lines[index].replace(",", "").strip()
+
+        if cleaned_value.isdigit() and int(cleaned_value) <= 30 and initial_amounts:
+            break
+
+        initial_amounts.append(lines[index])
+        index += 1
+
+    first_row_width = len(initial_amounts) + 2
+
+    if index + first_row_width > len(lines):
+        return ""
+
+    first_row = lines[index:index + first_row_width]
+
+    if not all(is_numeric_table_value(cell) for cell in first_row):
+        return ""
+
+    maturity_amount = first_row[-1]
+    rows = [first_row]
+    index += first_row_width
+    later_row_width = len(initial_amounts) + 1
+
+    while index + later_row_width <= len(lines):
+        row = lines[index:index + later_row_width]
+
+        if not all(is_numeric_table_value(cell) for cell in row):
+            break
+
+        rows.append(row + [maturity_amount])
+        index += later_row_width
+
+    if not initial_amounts or not rows:
+        return ""
+
+    headers = ["Product Name", "EBL Millionaire"] + [""] * (len(initial_amounts) - 1)
+    table_rows = [
+        ["Initial Amount"] + initial_amounts,
+        ["Maturity Amount", maturity_amount] + [""] * (len(initial_amounts) - 1),
+        ["Year"] + [
+            f"Installment ({amount})"
+            for amount in initial_amounts
+        ],
+    ]
+    table_rows.extend(row[:-1] for row in rows)
+
+    return format_detail_table(headers, table_rows)
+
+
+def build_dps_installment_table(product_name, section_text):
+    lines = normalize_account_detail_lines(section_text)
+    product_name_lower = product_name.lower()
+
+    if product_name_lower in ["ebl confidence", "ebl women confidence"]:
+        return build_confidence_dps_table(product_name, lines)
+
+    if product_name_lower == "ebl kotipoti scheme":
+        return build_kotipoti_dps_table(lines)
+
+    if product_name_lower == "ebl multiplier":
+        return build_multiplier_dps_table(lines)
+
+    if product_name_lower == "ebl millionaire scheme":
+        return build_millionaire_dps_table(lines)
+
+    return ""
+
+
+def build_dps_reply(product, section_text):
+    features = build_account_feature_bullets(section_text, product["name"], max_bullets=6)
+    table = build_dps_installment_table(product["name"], section_text)
+
+    reply_parts = [f"{product['name']} details:"]
+
+    if features:
+        reply_parts.append(
+            "Key Features:\n" + "\n".join(f"- {feature}" for feature in features)
+        )
+
+    if table:
+        reply_parts.append(f"Installment Amount Table:\n{table}")
+    else:
+        reply_parts.append(
+            "Installment Amount Table: Not available in the extracted EBL website text for this product."
+        )
+
+    reply_parts.append(f"Link: {product['url']}")
+
+    return "\n\n".join(reply_parts)
+
+
 def get_account_product_page_text(product):
     website_information = get_website_information_by_page_names([product["page_name"]])
     page_text = get_content_from_website_information(website_information)
@@ -2662,6 +3489,12 @@ def build_specific_account_reply(product):
         section_text = slice_sme_account_section(page_text, product["name"])
     else:
         section_text = slice_retail_account_section(page_text, product["name"])
+
+    if product["category"] == "fixed":
+        return build_fixed_deposit_reply(product, section_text)
+
+    if product["category"] == "dps":
+        return build_dps_reply(product, section_text)
 
     bullets = build_account_feature_bullets(section_text, product["name"])
 
@@ -3535,6 +4368,10 @@ app = FastAPI(
 def startup_event():
     import_charge_csvs(clear_existing=True)
     ensure_charge_database_ready()
+    import_deposit_rate_csvs(clear_existing=True)
+    ensure_deposit_rate_database_ready()
+    import_lending_rate_csvs(clear_existing=True)
+    ensure_lending_rate_database_ready()
     import_account_types(clear_existing=True)
     ensure_account_types_ready()
     import_loan_types(clear_existing=True)
@@ -3619,6 +4456,70 @@ def chat(request: ChatRequest):
             status="answered",
         )
 
+    bare_segment_reply = build_bare_banking_segment_reply(session_id, user_message)
+
+    if bare_segment_reply:
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=bare_segment_reply,
+            source="bare-segment-router",
+            status="answered",
+        )
+
+    interest_rate_flow_reply = build_interest_rate_flow_reply(
+        session_id,
+        user_message,
+    )
+
+    if interest_rate_flow_reply:
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=interest_rate_flow_reply,
+            source="interest-rate-router",
+            status="answered",
+        )
+
+    structured_deposit_rate_reply = answer_deposit_rate_question_from_db(
+        user_message
+    )
+
+    if structured_deposit_rate_reply:
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=structured_deposit_rate_reply,
+            source="deposit-rate-database",
+            status="answered",
+        )
+
+    deposit_rate_product_name_reply = build_deposit_rate_product_name_reply(
+        user_message
+    )
+
+    if deposit_rate_product_name_reply:
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=deposit_rate_product_name_reply,
+            source="deposit-rate-database",
+            status="answered",
+        )
+
+    structured_lending_rate_reply = answer_lending_rate_question_from_db(
+        user_message
+    )
+
+    if structured_lending_rate_reply:
+        return save_and_build_response(
+            session_id=session_id,
+            user_message=user_message,
+            reply=structured_lending_rate_reply,
+            source="lending-rate-database",
+            status="answered",
+        )
+
     contextual_charge_query = build_contextual_charge_query(session_id, user_message)
 
     if contextual_charge_query:
@@ -3664,10 +4565,20 @@ def chat(request: ChatRequest):
 
     intent = understood_query["intent"]
     search_query = understood_query["search_query"]
+    is_deposit_rate_query = (
+        is_deposit_rate_question(user_message)
+        or is_deposit_rate_question(search_query)
+    )
+    is_lending_rate_query = (
+        is_lending_rate_question(user_message)
+        or is_lending_rate_question(search_query)
+    )
     is_charge_query = (
         intent == "charge_information"
         or is_fee_or_charge_question(user_message)
         or is_fee_or_charge_question(search_query)
+        or is_deposit_rate_query
+        or is_lending_rate_query
     )
 
     if intent == "greeting" or is_greeting_only(user_message):
@@ -3959,6 +4870,32 @@ def chat(request: ChatRequest):
     )
 
     if is_charge_query:
+        structured_deposit_rate_reply = answer_deposit_rate_question_from_db(
+            f"{user_message}\n{search_query}"
+        )
+
+        if structured_deposit_rate_reply:
+            return save_and_build_response(
+                session_id=session_id,
+                user_message=user_message,
+                reply=structured_deposit_rate_reply,
+                source="deposit-rate-database",
+                status="answered",
+            )
+
+        structured_lending_rate_reply = answer_lending_rate_question_from_db(
+            f"{user_message}\n{search_query}"
+        )
+
+        if structured_lending_rate_reply:
+            return save_and_build_response(
+                session_id=session_id,
+                user_message=user_message,
+                reply=structured_lending_rate_reply,
+                source="lending-rate-database",
+                status="answered",
+            )
+
         structured_fee_reply = answer_charge_question_from_db(
             f"{user_message}\n{search_query}"
         )

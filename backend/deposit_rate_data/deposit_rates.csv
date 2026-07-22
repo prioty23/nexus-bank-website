@@ -1,0 +1,568 @@
+business_unit,category,product,condition,rate,note,source_file
+Retail,CASA Products,EBL Classic Savings,"Less than BDT 50,000",0.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Classic Savings,"BDT 50,000 < BDT 500,000",0.50%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Classic Savings,"BDT 500,000 < BDT 2,500,000",1.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Classic Savings,"BDT 2,500,000 and above",2.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Insta Savings,"Less than BDT 50,000",0.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Insta Savings,"BDT 50,000 < BDT 500,000",0.50%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Insta Savings,"BDT 500,000 < BDT 2,500,000",1.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Insta Savings,"BDT 2,500,000 and above",2.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Women's Savings,"Less than BDT 25,000",0.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Women's Savings,"BDT 25,000 < BDT 100,000",1.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Women's Savings,"BDT 100,000 < BDT 500,000",1.50%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Women's Savings,"BDT 500,000 and above",2.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Green Account,"Less than BDT 25,000",0.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Green Account,"BDT 25,000 < BDT 100,000",1.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Green Account,"BDT 100,000 < BDT 500,000",1.50%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Green Account,"BDT 500,000 and above",2.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,50 Plus Savings,"Less than BDT 50,000",0.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,50 Plus Savings,"BDT 50,000 < BDT 100,000",1.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,50 Plus Savings,"BDT 100,000 < BDT 500,000",1.50%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,50 Plus Savings,"BDT 500,000 and above",2.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Super HPA,"Less than BDT 5,000,000",0.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Super HPA,"BDT 5,000,000 and above",Up to 4.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Premium Savings,"Less than BDT 100,000",0.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Premium Savings,"BDT 100,000 < BDT 1,000,000",0.50%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Premium Savings,"BDT 1,000,000 < BDT 2,500,000",1.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Premium Savings,"BDT 2,500,000 < BDT 5,000,000",1.50%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Premium Savings,"BDT 5,000,000 and above",2.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Platinum Plus Account,"Less than BDT 100,000",0.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Platinum Plus Account,"BDT 100,000 < BDT 1,000,000",0.50%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Platinum Plus Account,"BDT 1,000,000 < BDT 2,500,000",1.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Platinum Plus Account,"BDT 2,500,000 < BDT 5,000,000",1.50%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Platinum Plus Account,"BDT 5,000,000 and above",2.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL High Earning Account,"Less than BDT 2,500,000",0.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL High Earning Account,"BDT 2,500,000 < BDT 5,000,000",2.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL High Earning Account,"BDT 5,000,000 < BDT 10,000,000",3.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL High Earning Account,"BDT 10,000,000 < BDT 30,000,000",4.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL High Earning Account,"BDT 30,000,000 < BDT 50,000,000",5.50%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL High Earning Account,"BDT 50,000,000 and above",7.00%,,Deposit_Rate_tab.xlsx
+Commercial,CASA Products,EBL High Earning Account - Commercial,"Less than BDT 5,000,000",0.00%,,Deposit_Rate_tab.xlsx
+Commercial,CASA Products,EBL High Earning Account - Commercial,"BDT 5,000,000 < BDT 20,000,000",2.00%,,Deposit_Rate_tab.xlsx
+Commercial,CASA Products,EBL High Earning Account - Commercial,"BDT 20,000,000 < BDT 30,000,000",3.00%,,Deposit_Rate_tab.xlsx
+Commercial,CASA Products,EBL High Earning Account - Commercial,"BDT 30,000,000 < BDT 50,000,000",4.00%,,Deposit_Rate_tab.xlsx
+Commercial,CASA Products,EBL High Earning Account - Commercial,"BDT 50,000,000 < BDT 100,000,000",5.50%,,Deposit_Rate_tab.xlsx
+Commercial,CASA Products,EBL High Earning Account - Commercial,"BDT 100,000,000 and above",7.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Easy Account,"Less than BDT 100,000",0.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Easy Account,"BDT 100,000 and above",1.50%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL MAX Savers,"Less than BDT 100,000",0.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL MAX Savers,"BDT 100,000 and above",1.50%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Power Savings,"Less than BDT 100,000",0.00%,,Deposit_Rate_tab.xlsx
+Retail,CASA Products,EBL Power Savings,"BDT 100,000 and above",1.50%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,EBL Campus Account,All balances,2.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,EBL SHUBIDHA,All balances,2.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,EBL Shonchoy,All balances,2.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,EBL Paribar,All balances,2.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,EBL Junior,All balances,2.00%,"As per Bangladesh Bank GBCSRD Circular Letter: 02, dated March 03, 2015, the highest interest rate of the rest savings products is to be offered.",Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,EBL Agri Saver,All balances,2.00%,"As per Bangladesh Bank GBCSRD Circular Letter: 02, dated March 03, 2015, the highest interest rate of the rest savings products is to be offered.",Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,EBL Shakti Savings,All balances,2.00%,"As per Bangladesh Bank GBCSRD Circular Letter: 02, dated March 03, 2015, the highest interest rate of the rest savings products is to be offered.",Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,EBL Speed,All balances,2.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,EBL Fusion,All balances,2.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,Payroll Premium,0 < 0.05M,0.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,Payroll Premium,0.05M < 0.5M,0.50%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,Payroll Premium,0.5M < 2.5M,1.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,Payroll Premium,2.5M and above,2.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,EBL Salary,0 < 0.05M,0.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,EBL Salary,0.05M < 0.5M,0.50%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,EBL Salary,0.5M < 2.5M,1.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,EBL Salary,2.5M and above,2.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,SND,0 < 10 million,1.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,SND,10 Million < 250 Million,2.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,SND,250 Million < 500 Million,2.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,SND,500 Million < 1000 Million,2.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,SND,1000 million and above,2.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,HPA / Super HPA,All balances,Up to 4.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,EBL Ovilashi,All balances,2.00%,,Deposit_Rate_tab.xlsx
+General,Other CASA / SND / HPA,SND - Bank,All balances,Market Rate,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 1 Month,Less than BDT 0.1 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 1 Month,BDT 0.1 Cr. < BDT 0.5 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 1 Month,BDT 0.5 Cr. < BDT 1 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 1 Month,BDT 1 Cr. < BDT 5 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 1 Month,BDT 5 Cr. < BDT 10 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 1 Month,BDT 10 Cr. < BDT 25 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 1 Month,More than BDT 25 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 3 Month,Less than BDT 0.1 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 3 Month,BDT 0.1 Cr. < BDT 0.5 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 3 Month,BDT 0.5 Cr. < BDT 1 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 3 Month,BDT 1 Cr. < BDT 5 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 3 Month,BDT 5 Cr. < BDT 10 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 3 Month,BDT 10 Cr. < BDT 25 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 3 Month,More than BDT 25 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 6 Month,Less than BDT 0.1 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 6 Month,BDT 0.1 Cr. < BDT 0.5 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 6 Month,BDT 0.5 Cr. < BDT 1 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 6 Month,BDT 1 Cr. < BDT 5 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 6 Month,BDT 5 Cr. < BDT 10 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 6 Month,BDT 10 Cr. < BDT 25 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 6 Month,More than BDT 25 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 1 Year,Less than BDT 0.1 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 1 Year,BDT 0.1 Cr. < BDT 0.5 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 1 Year,BDT 0.5 Cr. < BDT 1 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 1 Year,BDT 1 Cr. < BDT 5 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 1 Year,BDT 5 Cr. < BDT 10 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 1 Year,BDT 10 Cr. < BDT 25 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 1 Year,More than BDT 25 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 2 Year,Less than BDT 0.1 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 2 Year,BDT 0.1 Cr. < BDT 0.5 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 2 Year,BDT 0.5 Cr. < BDT 1 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 2 Year,BDT 1 Cr. < BDT 5 Cr.,7.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 2 Year,BDT 5 Cr. < BDT 10 Cr.,7.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 2 Year,BDT 10 Cr. < BDT 25 Cr.,7.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 2 Year,More than BDT 25 Cr.,7.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 3 Year,Less than BDT 0.1 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 3 Year,BDT 0.1 Cr. < BDT 0.5 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 3 Year,BDT 0.5 Cr. < BDT 1 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 3 Year,BDT 1 Cr. < BDT 5 Cr.,7.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 3 Year,BDT 5 Cr. < BDT 10 Cr.,7.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 3 Year,BDT 10 Cr. < BDT 25 Cr.,7.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,FD 3 Year,More than BDT 25 Cr.,7.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 1 Month,Less than BDT 0.1 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 1 Month,BDT 0.1 Cr. < BDT 0.5 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 1 Month,BDT 0.5 Cr. < BDT 1 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 1 Month,BDT 1 Cr. < BDT 5 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 1 Month,BDT 5 Cr. < BDT 10 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 1 Month,BDT 10 Cr. < BDT 25 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 1 Month,More than BDT 25 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 3 Month,Less than BDT 0.1 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 3 Month,BDT 0.1 Cr. < BDT 0.5 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 3 Month,BDT 0.5 Cr. < BDT 1 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 3 Month,BDT 1 Cr. < BDT 5 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 3 Month,BDT 5 Cr. < BDT 10 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 3 Month,BDT 10 Cr. < BDT 25 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 3 Month,More than BDT 25 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 6 Month,Less than BDT 0.1 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 6 Month,BDT 0.1 Cr. < BDT 0.5 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 6 Month,BDT 0.5 Cr. < BDT 1 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 6 Month,BDT 1 Cr. < BDT 5 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 6 Month,BDT 5 Cr. < BDT 10 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 6 Month,BDT 10 Cr. < BDT 25 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 6 Month,More than BDT 25 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 1 Year,Less than BDT 0.1 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 1 Year,BDT 0.1 Cr. < BDT 0.5 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 1 Year,BDT 0.5 Cr. < BDT 1 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 1 Year,BDT 1 Cr. < BDT 5 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 1 Year,BDT 5 Cr. < BDT 10 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 1 Year,BDT 10 Cr. < BDT 25 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,Extra Value FD 1 Year,More than BDT 25 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Century,Less than BDT 0.1 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Century,BDT 0.1 Cr. < BDT 0.5 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Century,BDT 0.5 Cr. < BDT 1 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Century,BDT 1 Cr. < BDT 5 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Century,BDT 5 Cr. < BDT 10 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Century,BDT 10 Cr. < BDT 25 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Century,More than BDT 25 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Double Century,Less than BDT 0.1 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Double Century,BDT 0.1 Cr. < BDT 0.5 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Double Century,BDT 0.5 Cr. < BDT 1 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Double Century,BDT 1 Cr. < BDT 5 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Double Century,BDT 5 Cr. < BDT 10 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Double Century,BDT 10 Cr. < BDT 25 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Double Century,More than BDT 25 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 360 Days,Less than BDT 0.1 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 360 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 360 Days,BDT 0.5 Cr. < BDT 1 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 360 Days,BDT 1 Cr. < BDT 5 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 360 Days,BDT 5 Cr. < BDT 10 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 360 Days,BDT 10 Cr. < BDT 25 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 360 Days,More than BDT 25 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Double Century Repeat,Less than BDT 0.1 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Double Century Repeat,BDT 0.1 Cr. < BDT 0.5 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Double Century Repeat,BDT 0.5 Cr. < BDT 1 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Double Century Repeat,BDT 1 Cr. < BDT 5 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Double Century Repeat,BDT 5 Cr. < BDT 10 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Double Century Repeat,BDT 10 Cr. < BDT 25 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Double Century Repeat,More than BDT 25 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Repeat 360 Days,Less than BDT 0.1 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Repeat 360 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Repeat 360 Days,BDT 0.5 Cr. < BDT 1 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Repeat 360 Days,BDT 1 Cr. < BDT 5 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Repeat 360 Days,BDT 5 Cr. < BDT 10 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Repeat 360 Days,BDT 10 Cr. < BDT 25 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Repeat 360 Days,More than BDT 25 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 3 Month,Less than BDT 0.1 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 3 Month,BDT 0.1 Cr. < BDT 0.5 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 3 Month,BDT 0.5 Cr. < BDT 1 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 3 Month,BDT 1 Cr. < BDT 5 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 3 Month,BDT 5 Cr. < BDT 10 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 3 Month,BDT 10 Cr. < BDT 25 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 3 Month,More than BDT 25 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 6 Month,Less than BDT 0.1 Cr.,9.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 6 Month,BDT 0.1 Cr. < BDT 0.5 Cr.,9.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 6 Month,BDT 0.5 Cr. < BDT 1 Cr.,9.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 6 Month,BDT 1 Cr. < BDT 5 Cr.,9.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 6 Month,BDT 5 Cr. < BDT 10 Cr.,9.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 6 Month,BDT 10 Cr. < BDT 25 Cr.,9.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 6 Month,More than BDT 25 Cr.,9.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 1 Year,Less than BDT 0.1 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 1 Year,BDT 0.1 Cr. < BDT 0.5 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 1 Year,BDT 0.5 Cr. < BDT 1 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 1 Year,BDT 1 Cr. < BDT 5 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 1 Year,BDT 5 Cr. < BDT 10 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 1 Year,BDT 10 Cr. < BDT 25 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 1 Year,More than BDT 25 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 399 Days,Less than BDT 0.1 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 399 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 399 Days,BDT 0.5 Cr. < BDT 1 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 399 Days,BDT 1 Cr. < BDT 5 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 399 Days,BDT 5 Cr. < BDT 10 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 399 Days,BDT 10 Cr. < BDT 25 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 399 Days,More than BDT 25 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 99 Days,Less than BDT 0.1 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 99 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 99 Days,BDT 0.5 Cr. < BDT 1 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 99 Days,BDT 1 Cr. < BDT 5 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 99 Days,BDT 5 Cr. < BDT 10 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 99 Days,BDT 10 Cr. < BDT 25 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 99 Days,More than BDT 25 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 189 Days,Less than BDT 0.1 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 189 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 189 Days,BDT 0.5 Cr. < BDT 1 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 189 Days,BDT 1 Cr. < BDT 5 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 189 Days,BDT 5 Cr. < BDT 10 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 189 Days,BDT 10 Cr. < BDT 25 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 189 Days,More than BDT 25 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 369 Days,Less than BDT 0.1 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 369 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 369 Days,BDT 0.5 Cr. < BDT 1 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 369 Days,BDT 1 Cr. < BDT 5 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 369 Days,BDT 5 Cr. < BDT 10 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 369 Days,BDT 10 Cr. < BDT 25 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD 369 Days,More than BDT 25 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD Repeat 189 Days,Less than BDT 0.1 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD Repeat 189 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD Repeat 189 Days,BDT 0.5 Cr. < BDT 1 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD Repeat 189 Days,BDT 1 Cr. < BDT 5 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD Repeat 189 Days,BDT 5 Cr. < BDT 10 Cr.,7.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD Repeat 189 Days,BDT 10 Cr. < BDT 25 Cr.,7.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD Repeat 189 Days,More than BDT 25 Cr.,7.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD Repeat 369 Days,Less than BDT 0.1 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD Repeat 369 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD Repeat 369 Days,BDT 0.5 Cr. < BDT 1 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD Repeat 369 Days,BDT 1 Cr. < BDT 5 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD Repeat 369 Days,BDT 5 Cr. < BDT 10 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD Repeat 369 Days,BDT 10 Cr. < BDT 25 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super FD Repeat 369 Days,More than BDT 25 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 120 Days,Less than BDT 0.1 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 120 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 120 Days,BDT 0.5 Cr. < BDT 1 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 120 Days,BDT 1 Cr. < BDT 5 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 120 Days,BDT 5 Cr. < BDT 10 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 120 Days,BDT 10 Cr. < BDT 25 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 120 Days,More than BDT 25 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 150 Days,Less than BDT 0.1 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 150 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 150 Days,BDT 0.5 Cr. < BDT 1 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 150 Days,BDT 1 Cr. < BDT 5 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 150 Days,BDT 5 Cr. < BDT 10 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 150 Days,BDT 10 Cr. < BDT 25 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super 150 Days,More than BDT 25 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Repeat 150 Days,Less than BDT 0.1 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Repeat 150 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Repeat 150 Days,BDT 0.5 Cr. < BDT 1 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Repeat 150 Days,BDT 1 Cr. < BDT 5 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Repeat 150 Days,BDT 5 Cr. < BDT 10 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Repeat 150 Days,BDT 10 Cr. < BDT 25 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Retail,Term Deposit,EBL Super Repeat 150 Days,More than BDT 25 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 1 Month,Less than BDT 0.1 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 1 Month,BDT 0.1 Cr. < BDT 0.5 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 1 Month,BDT 0.5 Cr. < BDT 1 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 1 Month,BDT 1 Cr. < BDT 5 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 1 Month,BDT 5 Cr. < BDT 10 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 1 Month,BDT 10 Cr. < BDT 25 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 1 Month,More than BDT 25 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 3 Months,Less than BDT 0.1 Cr.,6.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 3 Months,BDT 0.1 Cr. < BDT 0.5 Cr.,6.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 3 Months,BDT 0.5 Cr. < BDT 1 Cr.,6.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 3 Months,BDT 1 Cr. < BDT 5 Cr.,6.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 3 Months,BDT 5 Cr. < BDT 10 Cr.,6.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 3 Months,BDT 10 Cr. < BDT 25 Cr.,6.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 3 Months,More than BDT 25 Cr.,6.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 6 Months,Less than BDT 0.1 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 6 Months,BDT 0.1 Cr. < BDT 0.5 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 6 Months,BDT 0.5 Cr. < BDT 1 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 6 Months,BDT 1 Cr. < BDT 5 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 6 Months,BDT 5 Cr. < BDT 10 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 6 Months,BDT 10 Cr. < BDT 25 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 6 Months,More than BDT 25 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 1 Year,Less than BDT 0.1 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 1 Year,BDT 0.1 Cr. < BDT 0.5 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 1 Year,BDT 0.5 Cr. < BDT 1 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 1 Year,BDT 1 Cr. < BDT 5 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 1 Year,BDT 5 Cr. < BDT 10 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 1 Year,BDT 10 Cr. < BDT 25 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 1 Year,More than BDT 25 Cr.,7.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 2 Years,Less than BDT 0.1 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 2 Years,BDT 0.1 Cr. < BDT 0.5 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 2 Years,BDT 0.5 Cr. < BDT 1 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 2 Years,BDT 1 Cr. < BDT 5 Cr.,7.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 2 Years,BDT 5 Cr. < BDT 10 Cr.,7.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 2 Years,BDT 10 Cr. < BDT 25 Cr.,7.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 2 Years,More than BDT 25 Cr.,7.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 3 Years,Less than BDT 0.1 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 3 Years,BDT 0.1 Cr. < BDT 0.5 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 3 Years,BDT 0.5 Cr. < BDT 1 Cr.,7.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 3 Years,BDT 1 Cr. < BDT 5 Cr.,7.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 3 Years,BDT 5 Cr. < BDT 10 Cr.,7.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 3 Years,BDT 10 Cr. < BDT 25 Cr.,7.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,FD 3 Years,More than BDT 25 Cr.,7.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 1 Month,Less than BDT 0.1 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 1 Month,BDT 0.1 Cr. < BDT 0.5 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 1 Month,BDT 0.5 Cr. < BDT 1 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 1 Month,BDT 1 Cr. < BDT 5 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 1 Month,BDT 5 Cr. < BDT 10 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 1 Month,BDT 10 Cr. < BDT 25 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 1 Month,More than BDT 25 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 3 Months,Less than BDT 0.1 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 3 Months,BDT 0.1 Cr. < BDT 0.5 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 3 Months,BDT 0.5 Cr. < BDT 1 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 3 Months,BDT 1 Cr. < BDT 5 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 3 Months,BDT 5 Cr. < BDT 10 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 3 Months,BDT 10 Cr. < BDT 25 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 3 Months,More than BDT 25 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 6 Months,Less than BDT 0.1 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 6 Months,BDT 0.1 Cr. < BDT 0.5 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 6 Months,BDT 0.5 Cr. < BDT 1 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 6 Months,BDT 1 Cr. < BDT 5 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 6 Months,BDT 5 Cr. < BDT 10 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 6 Months,BDT 10 Cr. < BDT 25 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 6 Months,More than BDT 25 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 1 Year,Less than BDT 0.1 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 1 Year,BDT 0.1 Cr. < BDT 0.5 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 1 Year,BDT 0.5 Cr. < BDT 1 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 1 Year,BDT 1 Cr. < BDT 5 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 1 Year,BDT 5 Cr. < BDT 10 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 1 Year,BDT 10 Cr. < BDT 25 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,Extra Value FD 1 Year,More than BDT 25 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Century,Less than BDT 0.1 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Century,BDT 0.1 Cr. < BDT 0.5 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Century,BDT 0.5 Cr. < BDT 1 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Century,BDT 1 Cr. < BDT 5 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Century,BDT 5 Cr. < BDT 10 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Century,BDT 10 Cr. < BDT 25 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Century,More than BDT 25 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Double Century,Less than BDT 0.1 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Double Century,BDT 0.1 Cr. < BDT 0.5 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Double Century,BDT 0.5 Cr. < BDT 1 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Double Century,BDT 1 Cr. < BDT 5 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Double Century,BDT 5 Cr. < BDT 10 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Double Century,BDT 10 Cr. < BDT 25 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Double Century,More than BDT 25 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 360 Days,Less than BDT 0.1 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 360 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 360 Days,BDT 0.5 Cr. < BDT 1 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 360 Days,BDT 1 Cr. < BDT 5 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 360 Days,BDT 5 Cr. < BDT 10 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 360 Days,BDT 10 Cr. < BDT 25 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 360 Days,More than BDT 25 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Double Century Repeat,Less than BDT 0.1 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Double Century Repeat,BDT 0.1 Cr. < BDT 0.5 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Double Century Repeat,BDT 0.5 Cr. < BDT 1 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Double Century Repeat,BDT 1 Cr. < BDT 5 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Double Century Repeat,BDT 5 Cr. < BDT 10 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Double Century Repeat,BDT 10 Cr. < BDT 25 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Double Century Repeat,More than BDT 25 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Repeat 360 Days,Less than BDT 0.1 Cr.,9.35%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Repeat 360 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,9.35%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Repeat 360 Days,BDT 0.5 Cr. < BDT 1 Cr.,9.35%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Repeat 360 Days,BDT 1 Cr. < BDT 5 Cr.,9.35%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Repeat 360 Days,BDT 5 Cr. < BDT 10 Cr.,9.35%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Repeat 360 Days,BDT 10 Cr. < BDT 25 Cr.,9.35%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Repeat 360 Days,More than BDT 25 Cr.,9.35%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 399 Days,Less than BDT 0.1 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 399 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 399 Days,BDT 0.5 Cr. < BDT 1 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 399 Days,BDT 1 Cr. < BDT 5 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 399 Days,BDT 5 Cr. < BDT 10 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 399 Days,BDT 10 Cr. < BDT 25 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 399 Days,More than BDT 25 Cr.,8.75%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 120 Days,Less than BDT 0.1 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 120 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 120 Days,BDT 0.5 Cr. < BDT 1 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 120 Days,BDT 1 Cr. < BDT 5 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 120 Days,BDT 5 Cr. < BDT 10 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 120 Days,BDT 10 Cr. < BDT 25 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 120 Days,More than BDT 25 Cr.,8.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 150 Days,Less than BDT 0.1 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 150 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 150 Days,BDT 0.5 Cr. < BDT 1 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 150 Days,BDT 1 Cr. < BDT 5 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 150 Days,BDT 5 Cr. < BDT 10 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 150 Days,BDT 10 Cr. < BDT 25 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super 150 Days,More than BDT 25 Cr.,8.50%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Repeat 150 Days,Less than BDT 0.1 Cr.,2.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Repeat 150 Days,BDT 0.1 Cr. < BDT 0.5 Cr.,2.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Repeat 150 Days,BDT 0.5 Cr. < BDT 1 Cr.,2.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Repeat 150 Days,BDT 1 Cr. < BDT 5 Cr.,2.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Repeat 150 Days,BDT 5 Cr. < BDT 10 Cr.,2.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Repeat 150 Days,BDT 10 Cr. < BDT 25 Cr.,2.25%,,Deposit_Rate_tab.xlsx
+Commercial,Term Deposit,EBL Super Repeat 150 Days,More than BDT 25 Cr.,2.25%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 1 Month,Less than BDT 0.1 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 1 Month,BDT 0.1 Cr. < BDT 0.5 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 1 Month,BDT 0.5 Cr. < BDT 1 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 1 Month,BDT 1 Cr. < BDT 5 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 1 Month,BDT 5 Cr. < BDT 10 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 1 Month,BDT 10 Cr. < BDT 25 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 1 Month,More than BDT 25 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 3 Months,Less than BDT 0.1 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 3 Months,BDT 0.1 Cr. < BDT 0.5 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 3 Months,BDT 0.5 Cr. < BDT 1 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 3 Months,BDT 1 Cr. < BDT 5 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 3 Months,BDT 5 Cr. < BDT 10 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 3 Months,BDT 10 Cr. < BDT 25 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 3 Months,More than BDT 25 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 6 Months,Less than BDT 0.1 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 6 Months,BDT 0.1 Cr. < BDT 0.5 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 6 Months,BDT 0.5 Cr. < BDT 1 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 6 Months,BDT 1 Cr. < BDT 5 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 6 Months,BDT 5 Cr. < BDT 10 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 6 Months,BDT 10 Cr. < BDT 25 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 6 Months,More than BDT 25 Cr.,9.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 1 Year,Less than BDT 0.1 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 1 Year,BDT 0.1 Cr. < BDT 0.5 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 1 Year,BDT 0.5 Cr. < BDT 1 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 1 Year,BDT 1 Cr. < BDT 5 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 1 Year,BDT 5 Cr. < BDT 10 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 1 Year,BDT 10 Cr. < BDT 25 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 1 Year,More than BDT 25 Cr.,9.75%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 2 Year,Less than BDT 0.1 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 2 Year,BDT 0.1 Cr. < BDT 0.5 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 2 Year,BDT 0.5 Cr. < BDT 1 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 2 Year,BDT 1 Cr. < BDT 5 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 2 Year,BDT 5 Cr. < BDT 10 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 2 Year,BDT 10 Cr. < BDT 25 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 2 Year,More than BDT 25 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 3 Year,Less than BDT 0.1 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 3 Year,BDT 0.1 Cr. < BDT 0.5 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 3 Year,BDT 0.5 Cr. < BDT 1 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 3 Year,BDT 1 Cr. < BDT 5 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 3 Year,BDT 5 Cr. < BDT 10 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 3 Year,BDT 10 Cr. < BDT 25 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,FD 3 Year,More than BDT 25 Cr.,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 1 Month,Less than BDT 0.1 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 1 Month,BDT 0.1 Cr. < BDT 0.5 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 1 Month,BDT 0.5 Cr. < BDT 1 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 1 Month,BDT 1 Cr. < BDT 5 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 1 Month,BDT 5 Cr. < BDT 10 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 1 Month,BDT 10 Cr. < BDT 25 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 1 Month,More than BDT 25 Cr.,2.00%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 3 Months,Less than BDT 0.1 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 3 Months,BDT 0.1 Cr. < BDT 0.5 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 3 Months,BDT 0.5 Cr. < BDT 1 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 3 Months,BDT 1 Cr. < BDT 5 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 3 Months,BDT 5 Cr. < BDT 10 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 3 Months,BDT 10 Cr. < BDT 25 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 3 Months,More than BDT 25 Cr.,6.35%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 6 Months,Less than BDT 0.1 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 6 Months,BDT 0.1 Cr. < BDT 0.5 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 6 Months,BDT 0.5 Cr. < BDT 1 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 6 Months,BDT 1 Cr. < BDT 5 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 6 Months,BDT 5 Cr. < BDT 10 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 6 Months,BDT 10 Cr. < BDT 25 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 6 Months,More than BDT 25 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 1 Year,Less than BDT 0.1 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 1 Year,BDT 0.1 Cr. < BDT 0.5 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 1 Year,BDT 0.5 Cr. < BDT 1 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 1 Year,BDT 1 Cr. < BDT 5 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 1 Year,BDT 5 Cr. < BDT 10 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 1 Year,BDT 10 Cr. < BDT 25 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Corporate,Term Deposit,Extra Value FD 1 Year,More than BDT 25 Cr.,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL ALO,100 Days,2.50%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL ALO,190 Days,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL ALO,380 Days,5.75%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL High Value,45 Days,2.00%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL High Value,100 Days,2.50%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL High Value,150 Days,2.75%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL High Value,190 Days,8.50%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL High Value,380 Days,3.00%,,Deposit_Rate_tab.xlsx
+Corporate,Time Frame Products,EBL Diamond Corp,91 Days,8.25%,,Deposit_Rate_tab.xlsx
+Corporate,Time Frame Products,EBL Diamond Corp,101 Days,2.50%,,Deposit_Rate_tab.xlsx
+Corporate,Time Frame Products,EBL Diamond Corp,182 Days,8.50%,,Deposit_Rate_tab.xlsx
+Corporate,Time Frame Products,EBL Diamond Corp,201 Days,2.75%,,Deposit_Rate_tab.xlsx
+Corporate,Time Frame Products,EBL Diamond Corp,240 Days,2.75%,,Deposit_Rate_tab.xlsx
+Corporate,Time Frame Products,EBL Diamond Corp,364 Days,8.75%,,Deposit_Rate_tab.xlsx
+Commercial,Time Frame Products,EBL Diamond Commercial,45 Days,2.00%,,Deposit_Rate_tab.xlsx
+Commercial,Time Frame Products,EBL Diamond Commercial,91 Days,7.00-7.25%,,Deposit_Rate_tab.xlsx
+Commercial,Time Frame Products,EBL Diamond Commercial,182 Days,7.00-7.50%,,Deposit_Rate_tab.xlsx
+Commercial,Time Frame Products,EBL Diamond Commercial,364 Days,8.75%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL Repeat,1 Year,9.35%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL Repeat,2 Years,7.25%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL Repeat,3 Years,7.25%,,Deposit_Rate_tab.xlsx
+Corporate,Time Frame Products,EBL Repeat Corp,1 Year,2.75%,,Deposit_Rate_tab.xlsx
+Commercial,Time Frame Products,EBL Repeat Commercial,1 Year,2.75%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL 50,1 Year,6.50%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL 50,2 Years,7.25%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL 50,3 Years,7.25%,,Deposit_Rate_tab.xlsx
+Retail,Time Frame Products,EBL Earn First,1 Year,8.90%,,Deposit_Rate_tab.xlsx
+SME,Time Frame Products,EBL Earn First - SME,1 Year,8.90%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Confidence,1 Year,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Confidence,2 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Confidence,3 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Confidence,5 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Confidence,7 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Confidence,10 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Confidence,15 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Child Future Plan,3 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Child Future Plan,5 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Child Future Plan,7 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Child Future Plan,10 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Child Future Plan,12 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Child Future Plan,15 Years,9.75%,,Deposit_Rate_tab.xlsx
+SME,Recurring Deposit,EBL Equity Builder,1 Year,9.75%,,Deposit_Rate_tab.xlsx
+SME,Recurring Deposit,EBL Equity Builder,2 Years,9.75%,,Deposit_Rate_tab.xlsx
+SME,Recurring Deposit,EBL Equity Builder,3 Years,9.75%,,Deposit_Rate_tab.xlsx
+SME,Recurring Deposit,EBL Equity Builder,4 Years,9.75%,,Deposit_Rate_tab.xlsx
+SME,Recurring Deposit,EBL Equity Builder,5 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Millionaire Scheme,3 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Millionaire Scheme,5 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Millionaire Scheme,7 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Millionaire Scheme,10 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Millionaire Scheme,12 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Millionaire Scheme,15 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Women Millionaire,2 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Women Millionaire,4 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Women Millionaire,6 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Women Millionaire,8 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Women Millionaire,10 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Women Millionaire,12 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Women Millionaire,14 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Kotipoti,5 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Kotipoti,8 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Kotipoti,10 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Kotipoti,12 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Kotipoti,15 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Kotipoti,18 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Kotipoti,20 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Aspire,3 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Aspire,5 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Aspire,7 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Multiplier,4 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Multiplier,6 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Little Star,3 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Little Star,5 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Little Star,7 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Little Star,10 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Women Confidence,1 Year,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Women Confidence,2 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Women Confidence,3 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Women Confidence,5 Years,9.75%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Women Confidence,7 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Women Confidence,10 Years,9.50%,,Deposit_Rate_tab.xlsx
+Retail,Recurring Deposit,EBL Women Confidence,15 Years,9.50%,,Deposit_Rate_tab.xlsx
+General,Closed Products,Savings Bank Account,"Less than BDT 50,000",0.00%,Fresh booking is not allowed until further notice.,Deposit_Rate_tab.xlsx
+General,Closed Products,Savings Bank Account,"BDT 50,000 < BDT 500,000",0.50%,Fresh booking is not allowed until further notice.,Deposit_Rate_tab.xlsx
+General,Closed Products,Savings Bank Account,"BDT 500,000 < BDT 2,500,000",1.00%,Fresh booking is not allowed until further notice.,Deposit_Rate_tab.xlsx
+General,Closed Products,Savings Bank Account,"BDT 2,500,000 and above",2.00%,Fresh booking is not allowed until further notice.,Deposit_Rate_tab.xlsx
+General,Closed Products,EBL Savings Plus Account,"Less than BDT 100,000",0.00%,Fresh booking is not allowed until further notice.,Deposit_Rate_tab.xlsx
+General,Closed Products,EBL Savings Plus Account,"BDT 100,000 < BDT 1,000,000",0.50%,Fresh booking is not allowed until further notice.,Deposit_Rate_tab.xlsx
+General,Closed Products,EBL Savings Plus Account,"BDT 1,000,000 < BDT 2,500,000",1.00%,Fresh booking is not allowed until further notice.,Deposit_Rate_tab.xlsx
+General,Closed Products,EBL Savings Plus Account,"BDT 2,500,000 < BDT 5,000,000",1.50%,Fresh booking is not allowed until further notice.,Deposit_Rate_tab.xlsx
+General,Closed Products,EBL Savings Plus Account,"BDT 5,000,000 and above",2.00%,Fresh booking is not allowed until further notice.,Deposit_Rate_tab.xlsx
+General,Closed Products,High Performance Account (HPA),"Less than BDT 100,000",0.00%,Fresh booking is not allowed until further notice.,Deposit_Rate_tab.xlsx
+General,Closed Products,High Performance Account (HPA),"BDT 100,000 and above",1.50%,Fresh booking is not allowed until further notice.,Deposit_Rate_tab.xlsx
+General,Closed Products,EBL INTERESTing,"Less than BDT 100,000",0.00%,Fresh booking is not allowed until further notice.,Deposit_Rate_tab.xlsx
+General,Closed Products,EBL INTERESTing,"BDT 100,000 and above",1.50%,Fresh booking is not allowed until further notice.,Deposit_Rate_tab.xlsx
+General,Closed Products,EBL Secure DPS,Interest Rate,9.50%,Fresh booking is not allowed until further notice.; Products already closed. List of the closed products are incorporated in the deposit rate sheet since there are existing clients.,Deposit_Rate_tab.xlsx
+General,Closed Products,EBL Just Double,Interest Rate,10.41%,Fresh booking is not allowed until further notice.; Rollover of existing account is not allowed.,Deposit_Rate_tab.xlsx
+SME,Closed Products,SME Double Return,Interest Rate,10.41%,Fresh booking is not allowed until further notice.; Rollover of existing account is not allowed.,Deposit_Rate_tab.xlsx
+General,Closed Products,Monthly Income Plan,Interest Rate,7.00%,Fresh booking is not allowed until further notice.; Products already closed. List of the closed products are incorporated in the deposit rate sheet since there are existing clients.,Deposit_Rate_tab.xlsx
+General,Closed Products,EBL Startups,Interest Rate,2.00%,Fresh booking is not allowed until further notice.,Deposit_Rate_tab.xlsx

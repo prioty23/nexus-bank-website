@@ -1,0 +1,97 @@
+section,category,subcategory,economic_purpose,declared_rate,lowest_rate,highest_rate,pdf_page,source_file
+"A. Agriculture, Fishing & Forestry",1. Agriculture,,Cultivation,12.00%,11.00%,13.00%,1,Lending_Rate_tab.xlsx
+"A. Agriculture, Fishing & Forestry",1. Agriculture,,Plantation,N/A,N/A,N/A,1,Lending_Rate_tab.xlsx
+"A. Agriculture, Fishing & Forestry",1. Agriculture,,Agricultural Machineries and Implements,12.00%,11.00%,13.00%,1,Lending_Rate_tab.xlsx
+"A. Agriculture, Fishing & Forestry",1. Agriculture,,Fertilizers and Pesticides Loans for Farmers,N/A,N/A,N/A,1,Lending_Rate_tab.xlsx
+"A. Agriculture, Fishing & Forestry",1. Agriculture,,Livestock,12.00%,11.00%,13.00%,1,Lending_Rate_tab.xlsx
+"A. Agriculture, Fishing & Forestry",1. Agriculture,,Vegetables/Fruits Preservation in Cold Storage,12.00%,11.00%,13.00%,1,Lending_Rate_tab.xlsx
+"A. Agriculture, Fishing & Forestry",1. Agriculture,,Agriculture Loan Disbursed through NGOs,12.00%,11.00%,13.00%,1,Lending_Rate_tab.xlsx
+"A. Agriculture, Fishing & Forestry",2. Fishing,,Fishing,N/A,N/A,N/A,1,Lending_Rate_tab.xlsx
+"A. Agriculture, Fishing & Forestry",3. Forestry and Logging,,and Logging,N/A,N/A,N/A,1,Lending_Rate_tab.xlsx
+B. Industry,1. Term Loan (Other than Working Capital Financing),a) Large Industries,RMG,13.00%,12.00%,14.00%,1,Lending_Rate_tab.xlsx
+B. Industry,1. Term Loan (Other than Working Capital Financing),a) Large Industries,Others,13.00%,12.00%,14.00%,1,Lending_Rate_tab.xlsx
+B. Industry,1. Term Loan (Other than Working Capital Financing),,Small and Medium Industries,13.00%,12.00%,14.00%,1,Lending_Rate_tab.xlsx
+B. Industry,1. Term Loan (Other than Working Capital Financing),,Cottage Industries/Micro Industries,13.00%,12.00%,14.00%,1,Lending_Rate_tab.xlsx
+B. Industry,1. Term Loan (Other than Working Capital Financing),,Service Industries,13.00%,12.00%,14.00%,1,Lending_Rate_tab.xlsx
+B. Industry,2. Working Capital Financing (Excluding Export & Import Financing),a) Large Industries,RMG,13.00%,12.00%,14.00%,1,Lending_Rate_tab.xlsx
+B. Industry,2. Working Capital Financing (Excluding Export & Import Financing),a) Large Industries,Others,13.00%,12.00%,14.00%,1,Lending_Rate_tab.xlsx
+B. Industry,2. Working Capital Financing (Excluding Export & Import Financing),,Small and Medium Industries,13.00%,12.00%,14.00%,1,Lending_Rate_tab.xlsx
+B. Industry,2. Working Capital Financing (Excluding Export & Import Financing),,Cottage Industries/Micro Industries,13.00%,12.00%,14.00%,1,Lending_Rate_tab.xlsx
+B. Industry,2. Working Capital Financing (Excluding Export & Import Financing),,Service Industries,13.00%,12.00%,14.00%,1,Lending_Rate_tab.xlsx
+C. Construction,,,Housing (Commercial) for Developer/Contractor,13.00%,12.00%,14.00%,1,Lending_Rate_tab.xlsx
+C. Construction,,,Housing (Residential) in Urban Area for Individual Person,10.00%,9.00%,11.00%,1,Lending_Rate_tab.xlsx
+C. Construction,,,Housing (Residential) in Rural Area for Individual Person,10.00%,9.00%,11.00%,1,Lending_Rate_tab.xlsx
+C. Construction,,,"Infrastructure Development (Road, Culvert, Bridge, etc.)",13.00%,12.00%,14.00%,2,Lending_Rate_tab.xlsx
+C. Construction,,,House Renovation or Repairing or Extension,10.00%,9.00%,11.00%,2,Lending_Rate_tab.xlsx
+C. Construction,,,"Commercial Building (Market, Factory, Hotel, Cold Storage, Warehouse etc.)",13.00%,12.00%,14.00%,2,Lending_Rate_tab.xlsx
+C. Construction,,,Establishment of Solar Panel,N/A,N/A,N/A,2,Lending_Rate_tab.xlsx
+C. Construction,,,Effluent Treatment Plant,N/A,N/A,N/A,2,Lending_Rate_tab.xlsx
+C. Construction,,,Loan against Work Order/Pay Order/Earnest Money,N/A,N/A,N/A,2,Lending_Rate_tab.xlsx
+C. Construction,,,Water-works,N/A,N/A,N/A,2,Lending_Rate_tab.xlsx
+C. Construction,,,Sanitary Services,N/A,N/A,N/A,2,Lending_Rate_tab.xlsx
+D. Transport,,,Road Transport (excluding Personal Vehicle & Lease Finance),13.00%,12.00%,14.00%,2,Lending_Rate_tab.xlsx
+D. Transport,,,Water Transport (excluding Fishing Boats),13.00%,12.00%,14.00%,2,Lending_Rate_tab.xlsx
+D. Transport,,,Air Transport,13.00%,12.00%,14.00%,2,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"1. Wholesale and Retail Trade (CC, OD etc.)",,Wholesale Trading,13.00%,12.00%,14.00%,2,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"1. Wholesale and Retail Trade (CC, OD etc.)",,Retail Trading,13.00%,12.00%,14.00%,2,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"1. Wholesale and Retail Trade (CC, OD etc.)",,Other Commercial Lending,13.00%,12.00%,14.00%,2,Lending_Rate_tab.xlsx
+E. Trade & Commerce,2. Procurement by Government,,Jute,13.00%,12.00%,14.00%,2,Lending_Rate_tab.xlsx
+E. Trade & Commerce,2. Procurement by Government,,Paddy,13.00%,12.00%,14.00%,2,Lending_Rate_tab.xlsx
+E. Trade & Commerce,2. Procurement by Government,,Wheat,13.00%,12.00%,14.00%,2,Lending_Rate_tab.xlsx
+E. Trade & Commerce,2. Procurement by Government,,Others,13.00%,12.00%,14.00%,2,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"3. Export Financing (PC, ECC etc.)",,Jute and Jute Products,12.00%,11.00%,13.00%,2,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"3. Export Financing (PC, ECC etc.)",,Tea,N/A,N/A,N/A,2,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"3. Export Financing (PC, ECC etc.)",,Hides and Skins,N/A,N/A,N/A,2,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"3. Export Financing (PC, ECC etc.)",,Ready-made Garments,12.00%,11.00%,13.00%,2,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"3. Export Financing (PC, ECC etc.)",,Non-traditional Items,N/A,N/A,N/A,2,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"3. Export Financing (PC, ECC etc.)",,Other Exported Items,12.00%,11.00%,13.00%,2,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Food Items,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Petroleum and Petroleum Products,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Machineries and Implements,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Textile and Textile Products,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Electric and Electronic Goods & Spares,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,"Sanitary Goods Including Tiles, Stones & Clinkers",13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Cosmetics & Crockeries,N/A,N/A,N/A,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Medicine and Surgical Instruments,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,New Automobiles,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Reconditioned Automobiles,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Chemicals (except Medicine),13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Iron and Steel Products,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Paper and Printed Papers,N/A,N/A,N/A,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Computer and Accessories,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Wood & Logging,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Plastic & Plastic Products Including Toys,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Leather Goods,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Poultry Feeds,N/A,N/A,N/A,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Cattle Feeds,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Coal,N/A,N/A,N/A,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Ship,N/A,N/A,N/A,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,"4. Import Financing (LIM, LTR, TR etc.)",,Other Imported Items,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,5. Share Trading,,Trading,N/A,N/A,N/A,3,Lending_Rate_tab.xlsx
+E. Trade & Commerce,6. Lease Financing/Leasing,,Financing/Leasing,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+F. Other Institutional Loan,1. Loan to Financial Corporations,,Credit to NBFI,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+F. Other Institutional Loan,1. Loan to Financial Corporations,,Credit to Insurance Companies,13.00%,12.00%,14.00%,3,Lending_Rate_tab.xlsx
+F. Other Institutional Loan,1. Loan to Financial Corporations,,Credit to NGO (excluding Agriculture),13.00%,12.00%,14.00%,4,Lending_Rate_tab.xlsx
+F. Other Institutional Loan,1. Loan to Financial Corporations,,Credit to Merchant Banks/Brokerage Houses,13.00%,12.00%,14.00%,4,Lending_Rate_tab.xlsx
+F. Other Institutional Loan,1. Loan to Financial Corporations,,Credit to Co-operative Banks/Societies,N/A,N/A,N/A,4,Lending_Rate_tab.xlsx
+F. Other Institutional Loan,2. Financing to Educational Institutions,,to Educational Institutions,13.00%,12.00%,14.00%,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,Doctors Loan/Professional Loans,12.00%,11.00%,13.00%,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,Flat Purchase,10.00%,9.00%,11.00%,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,Transport Loan (Motor Car/Motorcycle etc.),11.00%,10.00%,12.00%,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,"Consumer Goods (TV, Freezer, Air Cooler, Computer, Furniture etc.)",12.00%,11.00%,13.00%,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,Credit Cards,25.00%,25.00%,25.00%,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,Educational Expenses,12.00%,11.00%,13.00%,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,Treatment Expenses,12.00%,11.00%,13.00%,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,Marriage Expenses,12.00%,11.00%,13.00%,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,Land Purchase,N/A,N/A,N/A,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,Loan against Salary,N/A,N/A,N/A,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,Loan against PF,N/A,N/A,N/A,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,"Personal Loan against DPS, MSS etc.",IR of Security + up to 3%,IR of Security + up to 3%,IR of Security + up to 3%,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,"Personal Loan against FDR, MBS, DBS etc.",IR of Security + up to 3%,IR of Security + up to 3%,IR of Security + up to 3%,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,Travelling/Holiday Loan,12.00%,11.00%,13.00%,4,Lending_Rate_tab.xlsx
+G. Consumer Finance,,,Other Personal Loans,10.00%,9.00%,11.00%,4,Lending_Rate_tab.xlsx
+H. Miscellaneous,,,Private Welfare and Development Activities,N/A,N/A,N/A,4,Lending_Rate_tab.xlsx
+H. Miscellaneous,,,"Advances for Special Credit Program (EPZ, Special Economic Zone, Youth Development etc.)",N/A,N/A,N/A,4,Lending_Rate_tab.xlsx
+H. Miscellaneous,,,Swanirvar,N/A,N/A,N/A,4,Lending_Rate_tab.xlsx
+H. Miscellaneous,,,Poverty Alleviation Program,13.00%,12.00%,14.00%,4,Lending_Rate_tab.xlsx
+H. Miscellaneous,,,Other Loans Not Mentioned Above,11.00%,10.00%,12.00%,4,Lending_Rate_tab.xlsx

@@ -2,7 +2,7 @@
 
 import { translations } from "@/data/translations";
 import { useEffect, useRef, useState } from "react";
-import type { FormEvent } from "react";
+import type { FormEvent, ReactNode } from "react";
 
 type Message = {
   role: "bot" | "user";
@@ -158,6 +158,151 @@ function formatMessage(text: string) {
   });
 }
 
+function isMarkdownTableLine(line: string) {
+  const trimmedLine = line.trim();
+
+  return (
+    trimmedLine.startsWith("|") &&
+    trimmedLine.endsWith("|") &&
+    trimmedLine.split("|").length >= 3
+  );
+}
+
+function isMarkdownTableSeparator(line: string) {
+  return /^\|\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|$/.test(line.trim());
+}
+
+function splitMarkdownTableRow(line: string) {
+  return line
+    .trim()
+    .replace(/^\|/, "")
+    .replace(/\|$/, "")
+    .split("|")
+    .map((cell) => cell.trim());
+}
+
+function renderTableCells(cells: string[], isHeader: boolean, rowKey: string) {
+  const renderedCells: ReactNode[] = [];
+
+  for (let index = 0; index < cells.length; index += 1) {
+    if (cells[index] === "" && index > 0) {
+      continue;
+    }
+
+    let colSpan = 1;
+
+    while (index + colSpan < cells.length && cells[index + colSpan] === "") {
+      colSpan += 1;
+    }
+
+    const sharedClassName =
+      "border border-gray-200 px-3 py-2 align-top text-left whitespace-nowrap";
+    const cellKey = `${rowKey}-${index}`;
+    const cellContent = cells[index] || "\u00A0";
+
+    if (isHeader) {
+      renderedCells.push(
+        <th
+          key={cellKey}
+          colSpan={colSpan > 1 ? colSpan : undefined}
+          className={`${sharedClassName} bg-gray-50 font-semibold text-gray-900`}
+        >
+          {formatMessage(cellContent)}
+        </th>,
+      );
+    } else {
+      renderedCells.push(
+        <td
+          key={cellKey}
+          colSpan={colSpan > 1 ? colSpan : undefined}
+          className={`${sharedClassName} text-gray-700`}
+        >
+          {formatMessage(cellContent)}
+        </td>,
+      );
+    }
+  }
+
+  return renderedCells;
+}
+
+function renderMarkdownTable(headers: string[], rows: string[][], key: string) {
+  return (
+    <div
+      key={key}
+      className="my-2 max-w-full overflow-x-auto rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm"
+    >
+      <table className="min-w-full border-collapse text-xs leading-5">
+        <thead>
+          <tr>{renderTableCells(headers, true, `${key}-header`)}</tr>
+        </thead>
+        <tbody>
+          {rows.map((row, rowIndex) => (
+            <tr key={`${key}-row-${rowIndex}`}>
+              {renderTableCells(row, false, `${key}-row-${rowIndex}`)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function renderMessageContent(text: string) {
+  const lines = text.split(/\r?\n/);
+  const nodes: ReactNode[] = [];
+  let textBuffer: string[] = [];
+
+  const flushTextBuffer = () => {
+    if (textBuffer.length === 0) {
+      return;
+    }
+
+    const textBlock = textBuffer.join("\n");
+
+    if (textBlock.trim()) {
+      nodes.push(
+        <span key={`text-${nodes.length}`} className="block whitespace-pre-line">
+          {formatMessage(textBlock)}
+        </span>,
+      );
+    }
+
+    textBuffer = [];
+  };
+
+  let index = 0;
+
+  while (index < lines.length) {
+    if (
+      isMarkdownTableLine(lines[index]) &&
+      index + 1 < lines.length &&
+      isMarkdownTableSeparator(lines[index + 1])
+    ) {
+      flushTextBuffer();
+
+      const headers = splitMarkdownTableRow(lines[index]);
+      const rows: string[][] = [];
+      index += 2;
+
+      while (index < lines.length && isMarkdownTableLine(lines[index])) {
+        rows.push(splitMarkdownTableRow(lines[index]));
+        index += 1;
+      }
+
+      nodes.push(renderMarkdownTable(headers, rows, `table-${nodes.length}`));
+      continue;
+    }
+
+    textBuffer.push(lines[index]);
+    index += 1;
+  }
+
+  flushTextBuffer();
+
+  return nodes;
+}
+
 function isConversationStarterMessage(message: string) {
   const normalizedMessage = message.trim().toLowerCase();
   const compactMessage = normalizedMessage.replace(/[^\w\s]/g, "");
@@ -199,6 +344,8 @@ export default function Chatbot() {
 
   const messageListRef = useRef<HTMLDivElement>(null);
   const canEndConversation = messages.length > 0;
+  const canGoBackToIntro =
+    hasStartedConversation && messages.length === 0 && !isLoading;
 
   useEffect(() => {
     if (!messageListRef.current) {
@@ -235,6 +382,13 @@ export default function Chatbot() {
 
   const handleStartConversation = () => {
     setHasStartedConversation(true);
+    setShowStarterActions(false);
+    setShowEndConfirmation(false);
+  };
+
+  const handleBackToIntro = () => {
+    setInput("");
+    setHasStartedConversation(false);
     setShowStarterActions(false);
     setShowEndConfirmation(false);
   };
@@ -379,17 +533,40 @@ export default function Chatbot() {
       </button>
 
       {isOpen ? (
-        <div className="fixed inset-x-3 bottom-24 z-40 max-w-[calc(100vw-1.5rem)] sm:inset-x-auto sm:right-6 sm:w-[360px] sm:max-w-[360px]">
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-[#006A4E]/10 bg-white shadow-2xl shadow-black/15">
-            <div className="flex items-start justify-between gap-4 bg-[#006A4E] px-4 py-4 text-white sm:px-5">
-              <div className="min-w-0">
-                <p className="text-base font-semibold">{chatbotText.title}</p>
-                <p className="mt-1 text-sm text-emerald-100">
-                  {chatbotText.status}
-                </p>
+        <div className="fixed inset-x-3 bottom-4 z-40 max-w-[calc(100vw-1.5rem)] sm:inset-x-auto sm:bottom-5 sm:right-5 sm:w-[360px] sm:max-w-[360px]">
+          <div
+            className="relative flex flex-col overflow-hidden rounded-[1.25rem] border border-[#006A4E]/10 bg-white shadow-2xl shadow-black/15"
+            style={
+              hasStartedConversation
+                ? { height: "min(520px, calc(100dvh - 2rem))" }
+                : undefined
+            }
+          >
+            <div className="flex shrink-0 items-center justify-between gap-3 bg-[#006A4E] px-4 py-3 text-white sm:px-5">
+              <div className="flex min-w-0 items-center gap-2">
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-semibold sm:text-base">
+                    {chatbotText.title}
+                  </p>
+                  <p className="mt-1 text-sm text-emerald-100">
+                    {chatbotText.status}
+                  </p>
+                </div>
               </div>
 
               <div className="flex shrink-0 items-center gap-2">
+                {canGoBackToIntro ? (
+                  <button
+                    type="button"
+                    onClick={handleBackToIntro}
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-lg font-semibold leading-none transition hover:bg-white/20"
+                    aria-label="Back to start"
+                    title="Back to start"
+                  >
+                    {"<"}
+                  </button>
+                ) : null}
+
                 <button
                   type="button"
                   onClick={() => {
@@ -417,7 +594,7 @@ export default function Chatbot() {
             </div>
 
             {hasStartedConversation ? (
-              <div className="flex h-[430px] flex-col bg-white px-4 py-4 sm:h-[480px] sm:px-5">
+              <div className="flex min-h-0 flex-1 flex-col bg-white px-4 py-4 sm:px-5">
                 <div
                   ref={messageListRef}
                   className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1"
@@ -430,13 +607,13 @@ export default function Chatbot() {
                         </p>
                       ) : null}
                       <div
-                        className={`max-w-[88%] whitespace-pre-line rounded-2xl px-4 py-3 text-sm leading-6 shadow-sm ${
+                        className={`max-w-[88%] rounded-2xl px-4 py-3 text-sm leading-6 shadow-sm ${
                           message.role === "bot"
                             ? "bg-[#006A4E] text-white"
                             : "ml-auto bg-gray-100 text-gray-700"
                         }`}
                       >
-                        {formatMessage(message.text)}
+                        {renderMessageContent(message.text)}
                       </div>
                     </div>
                   ))}

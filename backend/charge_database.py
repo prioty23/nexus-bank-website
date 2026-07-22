@@ -999,6 +999,16 @@ def filter_rows_by_card_context(rows, words):
     if not all(row["schedule"].lower() == "cards" for row in rows):
         return rows
 
+    if "replacement" in words and "pin" not in words:
+        card_replacement_rows = [
+            row
+            for row in rows
+            if "card replacement" in normalize_text(row["charge_name"])
+        ]
+
+        if card_replacement_rows:
+            return card_replacement_rows
+
     if "supplementary" in words:
         supplementary_rows = [
             row
